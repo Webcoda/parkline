@@ -1,0 +1,44 @@
+ // Mixin are from _tools.mixin.fontstyles.scss
+h1{
+	@include h1;
+}
+h2{
+	@include h2;
+}
+
+label{
+	margin-bottom: 0;
+}
+
+small{
+	@include fzlh(14px, 18px);
+}
+
+p {
+	&:empty {
+		display: none;
+	}
+}
+
+@responsive {
+	.h1 {
+		@include h1;
+	}
+	.h2 {
+		@include h2;
+	}
+	.small{
+		@include fzlh(14px, 18px);
+	}
+	.b-fsregular {
+		@include fzlh(16px, 24px);
+	}
+	.b-fstiny {
+		@include fzlh(11px, 13px);
+		letter-spacing: -.022px;
+	}
+	.b-fsxtiny {
+		@include fzlh(10px, 12px);
+		letter-spacing: .5px;
+	}
+}

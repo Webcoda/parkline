@@ -4,9 +4,9 @@ import { renderHTML } from '../agility/utils'
 const RichTextArea = ({ item }) => {
 
     return (
-        <section className="container">
-            <div dangerouslySetInnerHTML={renderHTML(item.customFields.textblob)}></div>
-        </section>
+		<section className="container">
+			<div className="o-richtext" dangerouslySetInnerHTML={renderHTML(item.customFields.textblob)}></div>
+		</section>
     );
 }
 

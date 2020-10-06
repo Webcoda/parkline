@@ -1,12 +1,12 @@
-    const getDynamicPageItem = ({ contentID, agilityItem }) => {
+const getDynamicPageItem = ({ contentID, agilityItem }) => {
     if (contentID > 0 && agilityItem && agilityItem.itemJson) {
         return JSON.parse(agilityItem.itemJson);
     }
 }
 
 const buildPageViewModel = ( { pageContext, data }) => {
-    //Check if we have a dynamic page item contentID, if so, we are rendering a dynamic page and should pass the content item to Modules 
-    const dynamicPageItem = getDynamicPageItem({ 
+    //Check if we have a dynamic page item contentID, if so, we are rendering a dynamic page and should pass the content item to Modules
+    const dynamicPageItem = getDynamicPageItem({
         contentID: pageContext.contentID,
         agilityItem: data.agilityitem
     });
@@ -30,7 +30,7 @@ const buildPageViewModel = ( { pageContext, data }) => {
 }
 
 const getLinkedContentItem = ({ type, linkedContentFieldName }) => {
-    const fieldResolver = 
+    const fieldResolver =
     {
         //we are telling it is going to return the 'agilityAuthor' node type
         type: type,
@@ -39,8 +39,8 @@ const getLinkedContentItem = ({ type, linkedContentFieldName }) => {
             //query the graphql nodes to find the item you want to return
             const node = context.nodeModel.runQuery({
                 //find the author that matches our ID and language code
-                query: { 
-                        filter: { 
+                query: {
+                        filter: {
                             contentID: { eq: source.customFields[linkedContentFieldName].contentid },
                             languageCode: { eq: source.languageCode}
                         }
@@ -56,13 +56,15 @@ const getLinkedContentItem = ({ type, linkedContentFieldName }) => {
 }
 
 const getLinkedContentList = ({ type, linkedContentFieldName }) => {
-    const fieldResolver = 
+    const fieldResolver =
     {
         type: [type],
         resolve: (source, args, context, info) => {
-            const list = context.nodeModel.getAllNodes({ type });
+			const list = context.nodeModel.getAllNodes({ type });
             const filteredList = list.filter(
-              item => item.properties.referenceName === source.customFields[linkedContentFieldName].referencename
+              item => {
+					return item.properties.referenceName === source.customFields[linkedContentFieldName].referencename
+			  }
             )
             return filteredList;
         }
@@ -72,13 +74,13 @@ const getLinkedContentList = ({ type, linkedContentFieldName }) => {
 }
 
 const getDynamicPageItemSitemapNode = () => {
-    const fieldResolver =  
+    const fieldResolver =
     {
         type: 'agilitySitemapNode',
         resolve: async (source, args, context, info) => {
             const node = context.nodeModel.runQuery({
-                query: { 
-                    filter: { 
+                query: {
+                    filter: {
                         contentID: { eq: source.contentID },
                         languageCode: { eq: source.languageCode}
                     }
@@ -89,7 +91,7 @@ const getDynamicPageItemSitemapNode = () => {
             return node;
         }
     }
-    
+
     return fieldResolver;
 }
 

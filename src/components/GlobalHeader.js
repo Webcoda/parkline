@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link, graphql, StaticQuery } from "gatsby"
 
-import './GlobalHeader.css'
+import CommonContainer from '@/components/CommonContainer';
 
 export default props => (
 	<StaticQuery
@@ -45,27 +45,54 @@ export default props => (
 
 class GlobalHeader extends Component {
 	renderLinks = () => {
-
-		let links = [];
-		this.props.menuLinks.forEach(node => {
-			links.push(<li key={node.pageID}><Link to={node.path}>{node.menuText}</Link></li>)
-		})
-		return links;
+		return this.props.menuLinks.map(node => (
+			<div className="flex-auto -mb-2" key={node.pageID}>
+				<Link
+					to={node.path}
+					className="inline-block text-inherit hocus:text-inherit px-7 pb-2 relative border-b-5 border-yellow"
+				>
+					{node.menuText}
+				</Link>
+			</div>
+		))
 	}
 	render() {
 
 		return (
-			<header className="header">
-				<div className="container">
-					<Link to="/" className="logo-link">Home</Link>
-					<label>{this.props.item.customFields.siteName}</label>
-					<ul className="links">
-						{this.renderLinks()}
-					</ul>
+			<header>
+				<div className="bg-yellow text-text">
+					<div className="container-fluid">
+						<div className="row">
+							<div className="col md:offset-1 flex items-center justify-between">
+								<Link
+									to="/"
+									className="logo-link"
+									title={this.props.item.customFields.siteName}
+								></Link>
+								<a href="tel:1300 123 456" className="inline-flex b-fsregular text-inherit hocus:text-inherit ">
+									<span>[icon]</span>
+									<span>1300 123 456</span>
+								</a>
+							</div>
+							<div className="col-auto text-white">
+								<Link
+									to="/contact"
+									className="inline-flex bg-black text-inherit hocus:text-inherit py-6 px-13.5 -mr-2.5 font-medium"
+								>
+									<span>Contact</span>
+								</Link>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div className="relative">
+					<div className="border-b-5 absolute bottom-0 inset-x-0 bg-grey-light"></div>
+					<CommonContainer className="pt-4 pb-2 relative">
+						<nav className="flex">{this.renderLinks()}</nav>
+					</CommonContainer>
 				</div>
 			</header>
-
-		);
+		)
 	}
 }
 

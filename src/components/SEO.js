@@ -3,14 +3,14 @@ import { Helmet } from "react-helmet"
 
 const SEO = ({ title, description }) => {
     return (
-        <Helmet 
-            title={`${title}  - Blog Template`}
+        <Helmet
+            title={`${title}  - Investa Parkline`}
             meta={[
                 {
                     name: `description`,
                     content: description
                 }
-            ]} 
+            ]}
         />
     )
 }

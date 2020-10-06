@@ -8,22 +8,47 @@ exports.createResolvers = (args) => {
 	const { createResolvers, getNode, createNodeId, createNode, createContentDigest, configOptions } = args;
 
 	const resolvers = {
-        //on the 'agilityPost' node type...
-        agilityPost: {
-            //get the sitemap node that represents this item - useful for retrieving the URL for the item
-            sitemapNode: agility.getDynamicPageItemSitemapNode(),
-            
-            //[Not Implemented]
-            //if we had a linked content field for 'author', this is how we'd get the author for this post in a single GraphQl query
-            //linkedContent_agilityAuthor: agility.getLinkedContentItem({ type: 'agilityAuthor', linkedContentFieldName: 'author' })
-        },
+		//on the 'agilityPost' node type...
+		agilityPost: {
+			//get the sitemap node that represents this item - useful for retrieving the URL for the item
+			sitemapNode: agility.getDynamicPageItemSitemapNode(),
 
-        //[Not Implemented]
-        //if we had an 'Image Slider' module and it had a list of slides via a linked content field called 'slides', this is how we'd retrieve a list of those slides in a single GraphQL query
-        // agilityImageSlider: {
-        //     linkedContent_agilitySlides: agility.getLinkedContentList({ type: 'agilitySlide', linkedContentFieldName: 'slides' })
-        // }
-    }
+			//[Not Implemented]
+			//if we had a linked content field for 'author', this is how we'd get the author for this post in a single GraphQl query
+			//linkedContent_agilityAuthor: agility.getLinkedContentItem({ type: 'agilityAuthor', linkedContentFieldName: 'author' })
+   		},
+
+		agilityGlobalFooter: {
+			footerMainLinks: agility.getLinkedContentList({
+				type: 'agilityLinkGroup',
+				linkedContentFieldName: 'footerMainLinks'
+			}),
+			footerBottomLinks: agility.getLinkedContentList({
+				type: 'agilityLink',
+				linkedContentFieldName: 'footerBottomLinks'
+			})
+		},
+
+		agilityLinkGroup: {
+			linkedContent_agilityLinkItems: agility.getLinkedContentList({
+				type: 'agilityLink',
+				linkedContentFieldName: 'links',
+			}),
+		},
+
+		agilityLink: {
+			linkedContent_agilityLinkChildren: agility.getLinkedContentList({
+				type: 'agilityLink',
+				linkedContentFieldName: 'linkChildren',
+			}),
+		},
+
+		//[Not Implemented]
+		//if we had an 'Image Slider' module and it had a list of slides via a linked content field called 'slides', this is how we'd retrieve a list of those slides in a single GraphQL query
+		// agilityImageSlider: {
+		//     linkedContent_agilitySlides: agility.getLinkedContentList({ type: 'agilitySlide', linkedContentFieldName: 'slides' })
+		// }
+	}
 	createResolvers(resolvers)
 }
 
@@ -36,7 +61,7 @@ exports.onCreateNode = async ({
   }) => {
     // For all Agility nodes that have an attachment field, call createRemoteFileNode
     if (
-      node.internal.type.indexOf(`agility`)  > -1 && 
+      node.internal.type.indexOf(`agility`)  > -1 &&
       node.customFields
       && (
           node.internal.type.indexOf(`agilitypage`) == -1 &&
@@ -49,7 +74,7 @@ exports.onCreateNode = async ({
     ) {
         const customFields = Object.keys(node.customFields);
         await asyncForEach(customFields, async (field) => {
-        
+
             const fieldKeys = Object.keys(node.customFields[field]);
             if(
                 fieldKeys.includes(`url`) &&

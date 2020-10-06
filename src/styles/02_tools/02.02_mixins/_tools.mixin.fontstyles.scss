@@ -1,0 +1,16 @@
+// generate font-size and line-height based on line-height in pixel
+@mixin fzlh($fz, $lh){
+	font-size: $fz;
+	line-height: ($lh / $fz);
+}
+
+@mixin h1{
+	@include fzlh($h1-font-size, 42px);
+	font-weight: 500;
+	letter-spacing: -1px;
+}
+@mixin h2 {
+	@include fzlh($h2-font-size, 30px);
+	font-weight: 500;
+	letter-spacing: -1px;
+}
