@@ -78,8 +78,8 @@ const HomeHero = ({ item }) => {
 						<path
 							d="M8.25085 12.75L15.1265 19L22.0009 12.75"
 							stroke="currentColor"
-							stroke-width="1.198"
-							stroke-linecap="round"
+							strokeWidth="1.198"
+							strokeLinecap="round"
 						/>
 					</svg>
 				</button>

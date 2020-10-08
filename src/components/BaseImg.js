@@ -22,7 +22,8 @@ const BaseImg = ({
 	}))
 
 	useEffect(() => {
-		const lazySizes = import('@/utils/lazysizes')
+		/* eslint-disable */
+		import('@/utils/lazysizes')
 	}, [])
 
 	return (

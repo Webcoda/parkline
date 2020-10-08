@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Link, graphql, StaticQuery } from "gatsby"
 
 import CommonContainer from "@/components/CommonContainer";
@@ -68,20 +68,6 @@ export default props => (
 			const viewModel = {
 				item: queryData.agilityGlobalHeader,
 				footer: queryData.agilityGlobalFooter,
-				menuLinks: queryData.allAgilitySitemapNode.nodes.filter(
-					sitemapNode => {
-						let isTopLevelPage =
-							sitemapNode.path.split('/').length === 2
-						const isThisLanguage =
-							sitemapNode.languageCode === props.languageCode
-						if (props.isMultiLanguage) {
-							isTopLevelPage =
-								sitemapNode.path.split('/').length === 3
-						}
-						//only return nodes from this language and top level links only
-						return isThisLanguage && isTopLevelPage
-					}
-				),
 			}
 			return <GlobalFooter {...viewModel} />
 		}}
@@ -89,14 +75,6 @@ export default props => (
 )
 
 class GlobalFooter extends Component {
-	renderLinks = () => {
-
-		let links = [];
-		this.props.menuLinks.forEach(node => {
-			links.push(<li key={node.pageID}><Link to={node.path}>{node.menuText}</Link></li>)
-		})
-		return links;
-	}
 	render() {
 		const { footer } = this.props;
 
@@ -116,67 +94,80 @@ class GlobalFooter extends Component {
 						<div className="col-6">
 							<div className="row">
 								{footer.footerMainLinks?.map(group => (
-									<>
+									<Fragment
+										key={group.id}
+									>
 										{group?.linkedContent_agilityLinkItems.map(
-											linkItem => (
-												<div className="col">
-													<div className="font-bold mb-2">
-														<Link
-															className="text-inherit hocus:text-inherit"
-															to={
-																linkItem
-																	?.customFields
-																	.url.href
-															}
-															target={
-																linkItem
-																	?.customFields
-																	.url.target
-															}
-														>
-															{
-																linkItem
-																	?.customFields
-																	.url.text
-															}
-														</Link>
-													</div>
-													{
-														<div className="mt-2 space-y-2">
-															{linkItem?.linkedContent_agilityLinkChildren.map(
-																childLinkItem => (
-																	<div className="small font-normal">
-																		<Link
-																			className="text-inherit hocus:text-inherit"
-																			to={
-																				childLinkItem
-																					?.customFields
-																					.url
-																					.href
-																			}
-																			target={
-																				childLinkItem
-																					?.customFields
-																					.url
-																					.target
-																			}
-																		>
-																			{
-																				childLinkItem
-																					?.customFields
-																					.url
-																					.text
-																			}
-																		</Link>
-																	</div>
-																)
-															)}
+											linkItem => {
+												const parentTo = linkItem?.customFields.url?.href;
+												const parentTarget = linkItem?.customFields.url?.target;
+												const parentText = linkItem?.customFields.url?.Text;
+
+												return (
+													<div
+														key={linkItem.id}
+														className="col"
+													>
+														<div className="font-bold mb-2">
+															<Link
+																className="text-inherit hocus:text-inherit"
+																to={parentTo}
+																target={parentTarget}
+															>
+																{
+																	parentText
+																}
+															</Link>
 														</div>
-													}
-												</div>
-											)
+														{
+															<div className="mt-2 space-y-2">
+																{linkItem?.linkedContent_agilityLinkChildren.map(
+																	childLinkItem => {
+																		const to =
+																			childLinkItem
+																				.customFields
+																				.url
+																				?.href
+																		const target =
+																			childLinkItem
+																				.customFields
+																				.url
+																				?.target
+																		const text =
+																			childLinkItem
+																				.customFields
+																				.url
+																				?.text
+
+																		return (
+																			<div
+																				key={childLinkItem.id}
+																				className="small font-normal"
+																			>
+																				<Link
+																					className="text-inherit hocus:text-inherit"
+																					to={
+																						to
+																					}
+																					target={
+																						target
+																					}
+																				>
+																					{
+																						text
+																					}
+																				</Link>
+																			</div>
+																		)
+																	}
+																)}
+															</div>
+														}
+													</div>
+												)
+											}
 										)}
-									</>
+									</Fragment>
 								))}
 								<div className="col">
 									{!!footer.customFields.contactTitle && (
@@ -231,8 +222,8 @@ class GlobalFooter extends Component {
 											xmlns="http://www.w3.org/2000/svg"
 										>
 											<path
-												fill-rule="evenodd"
-												clip-rule="evenodd"
+												fillRule="evenodd"
+												clipRule="evenodd"
 												d="M28.843 10.238L8.164 16.603l4.206 3.6 12.363-6.736-10.19 8.596v5.596l2.688-3.295 3.97 3.4 7.642-17.526z"
 												fill="currentColor"
 											/>

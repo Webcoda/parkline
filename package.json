@@ -5,6 +5,7 @@
   "version": "2.3.0",
   "license": "MIT",
   "scripts": {
+    "b": "gatsby clean && gatsby build",
     "build": "gatsby clean && gatsby build",
     "d": "gatsby develop",
     "develop": "gatsby develop",
@@ -16,6 +17,7 @@
   "dependencies": {
     "@agility/gatsby-source-agilitycms": "^1.4.0",
     "@tailwindcss/ui": "^0.6.2",
+    "babel-preset-gatsby": "^0.5.13",
     "bootstrap": "^4.5.2",
     "dotenv": "^8.1.0",
     "gatsby": "^2.21.4",
@@ -28,6 +30,7 @@
     "gatsby-plugin-react-helmet": "^3.1.21",
     "gatsby-plugin-sass": "^2.3.14",
     "gatsby-plugin-sharp": "^2.5.1",
+    "gatsby-plugin-sitemap": "^2.4.15",
     "gatsby-source-filesystem": "^2.2.1",
     "gatsby-transformer-sharp": "^2.4.1",
     "hamburgers": "^1.1.3",

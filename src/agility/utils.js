@@ -63,7 +63,19 @@ const getLinkedContentList = ({ type, linkedContentFieldName }) => {
 			const list = context.nodeModel.getAllNodes({ type });
             const filteredList = list.filter(
               item => {
-					return item.properties.referenceName === source.customFields[linkedContentFieldName].referencename
+				  	if (
+						item.properties &&
+						item.properties.referenceName &&
+						source.customFields[linkedContentFieldName] &&
+						source.customFields[linkedContentFieldName].referencename
+					) {
+						return (
+							item.properties.referenceName ===
+							source.customFields[linkedContentFieldName]
+								.referencename
+						)
+					}
+					return false;
 			  }
             )
             return filteredList;

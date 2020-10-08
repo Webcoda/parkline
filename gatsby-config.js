@@ -1,6 +1,8 @@
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
+
+console.log(process.env.NODE_ENV);
 const path = require('path')
 const magicImporter = require("node-sass-magic-importer")
 
@@ -20,7 +22,7 @@ const agilityConfig = {
 
 module.exports = {
 	siteMetadata: {
-		title: 'Agility CMS Gatsby Starter',
+		title: 'Investa Parkline',
 	},
 	plugins: [
 		`gatsby-plugin-netlify`,
@@ -66,6 +68,29 @@ module.exports = {
 			resolve: `gatsby-source-filesystem`,
 			options: { name: `images`, path: `./src/img/` },
 		},
+		// {
+		// 	resolve: `gatsby-plugin-sitemap`,
+		// 	options: {
+		// 		output: `/sitemap.xml`,
+		// 		//exclude: [`/category/*`, `/path/to/page`],
+
+		// 		query: `
+		// 		{
+		// 			allSitePage:allAgilitySitemapNode(filter: {visible: {sitemap: {eq: true}}}) {
+		// 				edges {
+		// 				  node {
+		// 					path
+		// 				  }
+		// 				}
+		// 			  }
+		// 			  site {
+		// 				siteMetadata {
+		// 				  siteUrl
+		// 				}
+		// 			}
+		// 		}`,
+		// 	},
+		// },
 		{
 			resolve: `gatsby-plugin-alias-imports`,
 			options: {
