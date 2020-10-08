@@ -18,6 +18,11 @@ module.exports = {
 			spacing: {
 				'9.5': '2.375rem',
 				'13.5': '3.375rem',
+				'22': '5.5rem',
+				'23': '5.75rem',
+				'30': '7.5rem',
+				'1/10': '10%',
+				'7/10': '70%',
 			},
 			borderColor: theme => ({
 				...theme('colors'),
@@ -36,7 +41,7 @@ module.exports = {
 					dark: '#333333',
 				},
 			},
-			font: {
+			fontFamily: {
 				sans: [
 					'Aeonic',
 					'"Helvetica Neue"',
@@ -48,6 +53,7 @@ module.exports = {
 					'"Segoe UI Symbol"',
 					'"Noto Color Emoji"',
 				],
+				heading: 'Ranua, Arial, sans-serif',
 			},
 		},
 	},

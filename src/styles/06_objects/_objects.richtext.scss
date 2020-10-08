@@ -27,6 +27,13 @@
 		}
 	}
 
+	a {
+		@apply text-inherit;
+		&:hover, &:Focus {
+			@apply text-inherit;
+		}
+	}
+
 	// ul,
 	// ol {
 	// 	padding-left: 0;

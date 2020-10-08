@@ -1,4 +1,10 @@
  // Mixin are from _tools.mixin.fontstyles.scss
+h1,h2,h3,h4,h5,h6 {
+	@apply font-heading;
+	text-transform: uppercase;
+}
+
+
 h1{
 	@include h1;
 }
@@ -30,6 +36,10 @@ p {
 	.small{
 		@include fzlh(14px, 18px);
 	}
+	.b-fsnav {
+		@include fzlh(15px, 24px);
+	}
+
 	.b-fsregular {
 		@include fzlh(16px, 24px);
 	}

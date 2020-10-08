@@ -98,9 +98,9 @@ module.exports = {
 			options: {
 				// sass-loader v7.x
 				data: `
-			@import "./src/styles/01_settings/**/*.scss";
-			@import "./src/styles/02_tools/**/*.scss";
-		`,
+					@import "./src/styles/01_settings/**/*.scss";
+					@import "./src/styles/02_tools/**/*.scss";
+				`,
 				postCssPlugins: [require('tailwindcss')],
 				importer: magicImporter(),
 

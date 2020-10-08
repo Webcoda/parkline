@@ -1,0 +1,17 @@
+.c-homehero {
+	height: 986px;
+
+	&__title{
+		@include fzlh(86.3452px, 74px);
+		letter-spacing: -1.47273px;
+		@screen md{
+			max-width: 556px;
+		}
+	}
+
+	&__fg{
+		&-inner{
+			padding-bottom: 138px;
+		}
+	}
+}

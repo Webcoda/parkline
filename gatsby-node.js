@@ -16,17 +16,17 @@ exports.createResolvers = (args) => {
 			//[Not Implemented]
 			//if we had a linked content field for 'author', this is how we'd get the author for this post in a single GraphQl query
 			//linkedContent_agilityAuthor: agility.getLinkedContentItem({ type: 'agilityAuthor', linkedContentFieldName: 'author' })
-   		},
+		},
 
 		agilityGlobalFooter: {
 			footerMainLinks: agility.getLinkedContentList({
 				type: 'agilityLinkGroup',
-				linkedContentFieldName: 'footerMainLinks'
+				linkedContentFieldName: 'footerMainLinks',
 			}),
 			footerBottomLinks: agility.getLinkedContentList({
 				type: 'agilityLink',
-				linkedContentFieldName: 'footerBottomLinks'
-			})
+				linkedContentFieldName: 'footerBottomLinks',
+			}),
 		},
 
 		agilityLinkGroup: {
@@ -40,6 +40,13 @@ exports.createResolvers = (args) => {
 			linkedContent_agilityLinkChildren: agility.getLinkedContentList({
 				type: 'agilityLink',
 				linkedContentFieldName: 'linkChildren',
+			}),
+		},
+
+		agilityContentTiles: {
+			linkedContent_tiles: agility.getLinkedContentList({
+				type: 'agilityContentTile',
+				linkedContentFieldName: 'tiles',
 			}),
 		},
 
