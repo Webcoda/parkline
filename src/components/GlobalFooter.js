@@ -35,7 +35,7 @@ export default props => (
 					footerMainLinks {
 						linkedContent_agilityLinkItems {
 							customFields {
-								url {
+								link {
 									href
 									target
 									text
@@ -43,7 +43,7 @@ export default props => (
 							}
 							linkedContent_agilityLinkChildren {
 								customFields {
-									url {
+									link {
 										href
 										target
 										text
@@ -54,7 +54,7 @@ export default props => (
 					}
 					footerBottomLinks {
 						customFields {
-							url {
+							link {
 								href
 								target
 								text
@@ -99,9 +99,9 @@ class GlobalFooter extends Component {
 									>
 										{group?.linkedContent_agilityLinkItems.map(
 											linkItem => {
-												const parentTo = linkItem?.customFields.url?.href;
-												const parentTarget = linkItem?.customFields.url?.target;
-												const parentText = linkItem?.customFields.url?.Text;
+												const parentTo = linkItem?.customFields.link?.href;
+												const parentTarget = linkItem?.customFields.link?.target;
+												const parentText = linkItem?.customFields.link?.text;
 
 												return (
 													<div
@@ -126,17 +126,17 @@ class GlobalFooter extends Component {
 																		const to =
 																			childLinkItem
 																				.customFields
-																				.url
+																				.link
 																				?.href
 																		const target =
 																			childLinkItem
 																				.customFields
-																				.url
+																				.link
 																				?.target
 																		const text =
 																			childLinkItem
 																				.customFields
-																				.url
+																				.link
 																				?.text
 
 																		return (

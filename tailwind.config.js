@@ -12,7 +12,14 @@ module.exports = {
 		removeDeprecatedGapUtilities: true,
 		purgeLayersByDefault: true,
 	},
-	purge: [],
+	purge: {
+		mode: 'all',
+		content: ['./src/**/*.js'],
+		options: {
+			rejected: true,
+			whitelistPatterns: [/swiper-/],
+		}
+	},
 	theme: {
 		extend: {
 			spacing: {
