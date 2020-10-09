@@ -3,6 +3,9 @@ require("dotenv").config({
 })
 
 console.log(process.env.NODE_ENV);
+console.log(process.env.AGILITY_API_KEY)
+console.log(process.env.AGILITY_API_ISPREVIEW)
+
 const path = require('path')
 const magicImporter = require("node-sass-magic-importer")
 
