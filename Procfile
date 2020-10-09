@@ -1,1 +1,1 @@
-web: gatsby develop -p $PORT -H 0.0.0.0
+web: gatsby develop -p 80 -H 0.0.0.0
