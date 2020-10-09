@@ -36,8 +36,8 @@ const OneColumnTemplate = (props) => {
 						<path
 							d="M26 14.908L15.023 5 4.046 14.908M15.023 5.025v20.151"
 							stroke="#231F20"
-							stroke-width=".75"
-							stroke-linecap="round"
+							strokeWidth=".75"
+							strokeLinecap="round"
 						/>
 					</svg>
 					<span className="block w-7.5 h-7.5 bg-grey-light mb-2"></span>

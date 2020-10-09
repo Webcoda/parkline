@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import CommonContainer from "@/components/CommonContainer";
 import LinkButton from '@/components/LinkButton';
 import SmallDivider from '@/components/SmallDivider'

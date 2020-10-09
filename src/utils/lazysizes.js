@@ -32,9 +32,9 @@ lazysizes.cfg.customMedia = {
 
 
 if (document.querySelector('html').classList.contains('is-IE')) {
-
-	const x = import('lazysizes/plugins/respimg/ls.respimg')
-	const y = import('lazysizes/plugins/object-fit/ls.object-fit')
+	/* eslint-disable */
+	import('lazysizes/plugins/respimg/ls.respimg')
+	import('lazysizes/plugins/object-fit/ls.object-fit')
 
 	// (async () => {
 	// 	const { default: objectFitVideos } = await import('object-fit-videos')
