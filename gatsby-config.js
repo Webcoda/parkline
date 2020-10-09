@@ -142,16 +142,31 @@ module.exports = {
 				// },
 			},
 		},
-		{
-			resolve: `gatsby-plugin-purgecss`,
-			options: {
-				printRejected: true, // Print removed selectors and processed file names
-				// develop: true, // Enable while using `gatsby develop`
-				// tailwind: true, // Enable tailwindcss support
-				// whitelist: ['whitelist'], // Don't remove this selector
-				// ignore: ['/ignored.css', 'prismjs/', 'docsearch.js/'], // Ignore files/folders
-				// purgeOnly : ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
-			},
-		},
+		// {
+		// 	resolve: `gatsby-plugin-purgecss`,
+		// 	options: {
+		// 		content: [
+		// 			path.join(process.cwd(), 'src/**/!(*.d).{ts,js,jsx,tsx}'),
+		// 		],
+		// 		whitelistPatterns: [/swiper-/],
+		// 		printRejected: true, // Print removed selectors and processed file names
+		// 		tailwind: true, // Enable tailwindcss support
+		// 		// develop: true, // Enable while using `gatsby develop`
+		// 		// whitelist: ['whitelist'], // Don't remove this selector
+		// 		// ignore: ['/ignored.css', 'prismjs/', 'docsearch.js/'], // Ignore files/folders
+		// 		// purgeOnly : ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
+		// 		defaultExtractor: function(){
+		// 			// Capture as liberally as possible, including things like `h-(screen-1.5)`
+		// 			const broadMatches =
+		// 				content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || []
+
+		// 			// Capture classes within other delimiters like .block(class="w-1/2") in Pug
+		// 			const innerMatches =
+		// 				content.match(/[^<>"'`\s.()]*[^<>"'`\s.():]/g) || []
+
+		// 			return broadMatches.concat(innerMatches)
+		// 		},
+		// 	},
+		// },
 	],
 }

@@ -13,7 +13,7 @@ const LinkButton = ({
 		<Link
 			to={to}
 			target={target}
-			className={`py-3 px-7 bg-yellow uppercase text-inherit hocus:text-inherit c-linkbutton ${className}`}
+			className={`py-3 px-7 bg-yellow uppercase text-inherit hocus:no-underline hocus:text-yellow hocus:bg-black transition duration-300 c-linkbutton ${className}`}
 		>
 			{children}
 		</Link>
