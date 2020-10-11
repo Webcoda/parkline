@@ -55,16 +55,19 @@ export default props => (
 
 class GlobalHeader extends Component {
 	renderLinks = () => {
-		return this.props.menuLinks.map(node => (
-			<div className="flex-auto -mb-2" key={node.pageID}>
-				<Link
-					to={node.path}
-					className="inline-block text-inherit hocus:text-inherit px-7 pb-2 relative border-b-5 border-yellow b-fsnav"
-				>
-					{node.menuText}
-				</Link>
-			</div>
-		))
+		return this.props.menuLinks
+			.filter(node => node.path !== '/' && node.path !== '/home')
+			.map(node => (
+				<div className="flex-auto -mb-2" key={node.pageID}>
+					<Link
+						to={node.path}
+						className="inline-block text-inherit hocus:text-inherit px-7 pb-2 relative border-b-5 b-fsnav"
+						activeClassName="border-yellow"
+					>
+						{node.menuText}
+					</Link>
+				</div>
+			))
 	}
 	render() {
 		const { item } = this.props;

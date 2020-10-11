@@ -16,7 +16,7 @@ SwiperCore.use([Navigation, Pagination, A11y])
 
 export default ({ item }) => {
 	const media = Array.isArray(item.customFields.media) ? item.customFields.media : [item.customFields.media];
-
+	const hasMoreThanOneSlide = media.length > 1;
 	return (
 		<div className="c-contentslider">
 			<CommonContainer>
@@ -36,9 +36,9 @@ export default ({ item }) => {
 			<div className="c-contentslider__media">
 				<Swiper
 					className="h-full"
-					pagination={{ clickable: true }}
-					navigation
-					loop
+					pagination={hasMoreThanOneSlide ? { clickable: true } : false}
+					navigation={hasMoreThanOneSlide}
+					loop={hasMoreThanOneSlide}
 				>
 					{media.map((mediaItem, index) => {
 						const mediaImgSources = [
@@ -70,7 +70,9 @@ export default ({ item }) => {
 						]
 
 						return (
-							<SwiperSlide key={`content-slide-${item.contentId}-${index}`}>
+							<SwiperSlide
+								key={`content-slide-${item.contentId}-${index}`}
+							>
 								<BaseImg sources={mediaImgSources}></BaseImg>
 							</SwiperSlide>
 						)
