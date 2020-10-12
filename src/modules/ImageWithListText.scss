@@ -1,0 +1,123 @@
+/*! purgecss start ignore */
+@import '~swiper/swiper.scss';
+@import '~swiper/components/navigation/navigation.scss';
+@import '~swiper/components/pagination/pagination.scss';
+@import '~plyr/src/sass/plyr.scss';
+/*! purgecss end ignore */
+
+.c-imagewithlisttext{
+	$_this: &;
+
+	&--withverticaloffset {
+		margin-top: (88px + 130px);
+	}
+
+	&__inner {
+		min-height: 561px;
+	}
+
+	&__col{
+		&-media {
+			#{$_this}--withverticaloffset & {
+				top: -176px;
+			}
+
+			.c-imagewithlisttext--left & {
+				padding-left: 0;
+			}
+			.c-imagewithlisttext--right & {
+				padding-right: 0;
+			}
+
+			&-inner {
+				@apply min-h-115;
+			}
+		}
+	}
+}
+
+ul {
+	.o-richtext & {
+		.c-imagewithlisttext & {
+			@include fzlh(14px, 16.8px);
+			font-weight: 400;
+		}
+	}
+
+	li {
+		.o-richtext & {
+			.c-imagewithlisttext & {
+				position: relative;
+				padding-left: 1.3125rem;
+				@apply py-2.5;
+				@apply border-b;
+				// @apply border-current;
+				&:before {
+					@apply bg-yellow;
+					content: '';
+					position: absolute;
+					top: .9375rem;
+					width: .4375rem;
+					height: .4375rem;
+					border-radius: 50%;
+					left: 0;
+				}
+
+				&[style*='list-style: none']:before {
+					content: none;
+				}
+			}
+		}
+	}
+}
+
+.swiper {
+	&-pagination {
+		.c-imagewithlisttext & {
+			@apply bg-yellow;
+			@apply w-22;
+			@apply flex;
+			@apply flex-col;
+			@apply items-center;
+			@apply justify-center;
+			left: auto;
+			right: 0;
+			top: 0;
+			bottom: 0;
+		}
+
+		.c-imagewithlisttext--left & {
+			right: auto;
+			left: 0;
+			width: calc((1/6 * 100%) + 10px);
+			max-width: none;
+		}
+
+		&-bullet {
+			.c-imagewithlisttext.c-imagewithlisttext & {
+				margin-top: .3125rem;
+				margin-bottom: .3125rem;
+				background: #f9f9f9;
+				opacity: 1;
+			}
+			&-active {
+				.c-imagewithlisttext.c-imagewithlisttext & {
+					background: #333;
+				}
+			}
+		}
+	}
+	&-wrapper {
+		.c-imagewithlisttext & {
+			width: calc(100% - 88px);
+		}
+		.c-imagewithlisttext--multiple & {
+			@apply w-5/6;
+		}
+	}
+	&-container {
+		.c-imagewithlisttext & {
+			display: flex;
+		}
+	}
+}

@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@agility/gatsby-source-agilitycms": "^1.4.0",
+    "@loadable/component": "^5.13.2",
     "@tailwindcss/ui": "^0.6.2",
     "babel-preset-gatsby": "^0.5.13",
     "bootstrap": "^4.5.2",
@@ -44,6 +45,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
+    "react-plyr": "^2.2.0",
     "slick-carousel": "^1.8.1",
     "swiper": "^6.3.2",
     "tailwind-bootstrap-grid": "^2.2.2",
