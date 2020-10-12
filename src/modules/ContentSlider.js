@@ -1,27 +1,39 @@
 import React from "react";
 import SwiperCore, { Navigation, Pagination, A11y } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import Loadable from '@loadable/component'
+
 import BaseImg from "@/components/BaseImg";
 import CommonContainer from "@/components/CommonContainer";
 import SmallDivider from '@/components/SmallDivider'
 
 // Styles
-import 'swiper/swiper.scss'
-import 'swiper/components/navigation/navigation.scss'
-import 'swiper/components/pagination/pagination.scss'
 import './ContentSlider.scss'
 
 // install Swiper components
 SwiperCore.use([Navigation, Pagination, A11y])
 
-export default ({ item }) => {
-	const media = Array.isArray(item.customFields.media) ? item.customFields.media : [item.customFields.media];
+const Plyr = Loadable(() => import('react-plyr'));
 
+/**
+ * Note: item.customFields.media is not generated properly in GraphQL because
+ * the item.customFields.media (AttachmentList) returns an object when it only has 1 item in the list
+ * instead of array, hence, GraphQL doesn't know how to show it cause it's not explicitly defined
+ * */
+
+export default ({ item }) => {
+	const { backgroundColor='grey-light' } = item.customFields;
+
+
+	const media = Array.isArray(item.customFields.media) ? item.customFields.media : [item.customFields.media];
+	const hasMoreThanOneSlide = media.length > 1;
+
+	// purgecss: .bg-yellow, .bg-grey-light
 	return (
-		<div className="c-contentslider">
+		<div className="c-contentslider mb-32.5">
 			<CommonContainer>
 				<div
-					className={`bg-yellow c-contentslider__top text-center ${
+					className={`bg-${backgroundColor} c-contentslider__top text-center ${
 						item.customFields.title ? 'pt-23' : ''
 					}`}
 				>
@@ -36,9 +48,12 @@ export default ({ item }) => {
 			<div className="c-contentslider__media">
 				<Swiper
 					className="h-full"
-					pagination={{ clickable: true }}
-					navigation
-					loop
+					pagination={
+						hasMoreThanOneSlide ? { clickable: true } : false
+					}
+					navigation={hasMoreThanOneSlide}
+					loop={hasMoreThanOneSlide}
+					allowTouchMove={hasMoreThanOneSlide}
 				>
 					{media.map((mediaItem, index) => {
 						const mediaImgSources = [
@@ -70,15 +85,26 @@ export default ({ item }) => {
 						]
 
 						return (
-							<SwiperSlide key={`content-slide-${item.contentId}-${index}`}>
-								<BaseImg sources={mediaImgSources}></BaseImg>
+							<SwiperSlide
+								key={`content-slide-${item.contentId}-${index}`}
+							>
+								{!!mediaItem.url.match(/\.mp4/) ? (
+									<Plyr
+										type="video" // or "vimeo"
+										url={mediaItem.url}
+									/>
+								) : (
+									<BaseImg
+										sources={mediaImgSources}
+									></BaseImg>
+								)}
 							</SwiperSlide>
 						)
 					})}
 				</Swiper>
 			</div>
 			<CommonContainer>
-				<div className="bg-yellow h-11"></div>
+				<div className={`bg-${backgroundColor} h-11`}></div>
 			</CommonContainer>
 		</div>
 	)

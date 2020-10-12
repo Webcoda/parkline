@@ -25,6 +25,7 @@ const OneColumnTemplate = (props) => {
 					className="b-fsxtiny text-center uppercase"
 				>
 					<svg
+						className="block mb-2 mx-auto"
 						aria-hidden="true"
 						focusable="false"
 						width="30"
@@ -40,7 +41,6 @@ const OneColumnTemplate = (props) => {
 							strokeLinecap="round"
 						/>
 					</svg>
-					<span className="block w-7.5 h-7.5 bg-grey-light mb-2"></span>
 					Back to top
 				</button>
 			</div>

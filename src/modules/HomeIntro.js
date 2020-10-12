@@ -7,19 +7,15 @@ import './HomeIntro.scss'
 
 const HomeIntro = ({ item }) => {
 	return (
-		<section className="my-30 c-homeintro">
+		<section className="c-homeintro my-30 last:mb-0">
 			<CommonContainer>
 				<div className="w-7/10">
 					<h2 className="h1 text-yellow mb-11">
 						{item.customFields.title}
 					</h2>
 					<div className="ml-1/10">
-						<Richtext
-							html={item.customFields.text}
-						/>
-						<SmallDivider
-							className="my-11 block"
-						/>
+						<Richtext html={item.customFields.text} />
+						<SmallDivider className="my-11 block" />
 
 						<LinkButton
 							to={item.customFields.cTA.href}
@@ -29,7 +25,6 @@ const HomeIntro = ({ item }) => {
 						</LinkButton>
 					</div>
 				</div>
-
 			</CommonContainer>
 		</section>
 	)

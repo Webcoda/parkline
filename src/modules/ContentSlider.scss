@@ -1,3 +1,10 @@
+/*! purgecss start ignore */
+@import '~swiper/swiper.scss';
+@import '~swiper/components/navigation/navigation.scss';
+@import '~swiper/components/pagination/pagination.scss';
+@import '~plyr/src/sass/plyr.scss';
+/*! purgecss end ignore */
+
 .c-contentslider {
 	&__media {
 		@screen md {
@@ -5,10 +12,10 @@
 		}
 	}
 	&__top {
-		min-height: 90px;;
+		min-height: 90px;
 	}
 }
-
+/*! purgecss start ignore */
 .swiper {
 	&-pagination-bullet {
 		.c-contentslider & {
@@ -23,17 +30,19 @@
 
 	&-button {
 		&-prev, &-next {
-			@apply rounded-full;
-			@apply w-10;
-			@apply h-10;
-			color: inherit;
-			background: rgba(#fff, .7);
+			.c-contentslider & {
+				@apply rounded-full;
+				@apply w-10;
+				@apply h-10;
+				color: inherit;
+				background: rgba(#fff, .7);
 
-			&:after{
-				content: '';
-				@apply w-full;
-				@apply h-full;
-				background-size: 100%;
+				&:after{
+					content: '';
+					@apply w-full;
+					@apply h-full;
+					background-size: 100%;
+				}
 			}
 		}
 
@@ -55,3 +64,28 @@
 		}
 	}
 }
+
+.plyr {
+	&__control {
+		&--overlaid {
+			.c-contentslider & {
+				border: 0;
+				background: transparent;
+				&:before {
+					content: '';
+					display: block;
+					width: 90px;
+					height: 90px;
+					background-image: url('../img/play.svg');
+					background-repeat: none;
+					background-size: 90px;
+				}
+				svg {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+/*! purgecss end ignore */

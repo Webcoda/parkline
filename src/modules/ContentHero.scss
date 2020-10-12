@@ -1,0 +1,8 @@
+.c-contenthero {
+	&__title {
+		&--big {
+			@include fzlh(105.51px, 100.72px);
+			letter-spacing: -2.4px;
+		}
+	}
+}

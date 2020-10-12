@@ -23,11 +23,15 @@ module.exports = {
 	theme: {
 		extend: {
 			spacing: {
+				'7.5': '1.875rem',
 				'9.5': '2.375rem',
 				'13.5': '3.375rem',
 				'22': '5.5rem',
 				'23': '5.75rem',
 				'30': '7.5rem',
+				'32.5': '8.125rem',
+				'44': '11rem', //176px
+				'115': '28.75rem', //460px
 				'1/10': '10%',
 				'7/10': '70%',
 			},
@@ -62,6 +66,12 @@ module.exports = {
 				],
 				heading: 'Ranua, Arial, sans-serif',
 			},
+			inset: theme => ({
+				...theme('spacing')
+			}),
+			minHeight: theme => ({
+				...theme('spacing')
+			})
 		},
 	},
 	variants: {
@@ -75,6 +85,7 @@ module.exports = {
 			'hocus',
 		],
 		textColor: ['hover', 'focus', 'active', 'hocus'],
+		textDecoration: ['responsive', 'hover', 'focus', 'hocus'],
 		backgroundColor: ['responsive', 'hover', 'focus', 'hocus'],
 		borderWidth: ['first', 'last'],
 		margin: ['responsive', 'first', 'last'],
