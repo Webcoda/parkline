@@ -6,22 +6,23 @@ import Richtext from '@/components/Richtext'
 import './HomeIntro.scss'
 
 const HomeIntro = ({ item }) => {
+	const { title, text, cTA } = item.customFields;
 	return (
 		<section className="c-homeintro my-30 last:mb-0">
 			<CommonContainer>
 				<div className="w-7/10">
 					<h2 className="h1 text-yellow mb-11">
-						{item.customFields.title}
+						{title}
 					</h2>
 					<div className="ml-1/10">
-						<Richtext html={item.customFields.text} />
+						<Richtext html={text} />
 						<SmallDivider className="my-11 block" />
 
 						<LinkButton
-							to={item.customFields.cTA.href}
-							target={item.customFields.cTA.target}
+							to={cTA.href}
+							target={cTA.target}
 						>
-							{item.customFields.cTA.text}
+							{cTA.text}
 						</LinkButton>
 					</div>
 				</div>

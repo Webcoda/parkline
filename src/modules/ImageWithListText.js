@@ -7,11 +7,10 @@ import SmallDivider from '@/components/SmallDivider'
 import BaseImg from '@/components/BaseImg'
 import LinkButton from "@/components/LinkButton";
 
-const Plyr = Loadable(() => import('react-plyr'))
-
 // Styles
 import './ImageWithListText.scss'
 
+const Plyr = Loadable(() => import('react-plyr'))
 
 // install Swiper components
 SwiperCore.use([Pagination, A11y])

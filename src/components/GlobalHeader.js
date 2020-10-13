@@ -61,10 +61,11 @@ class GlobalHeader extends Component {
 				<div className="flex-auto -mb-2" key={node.pageID}>
 					<Link
 						to={node.path}
-						className="inline-block text-inherit hocus:text-inherit px-7 pb-2 relative border-b-5 b-fsnav"
-						activeClassName="border-yellow"
+						className="inline-flex flex-col text-inherit hocus:text-inherit px-7 pb-4 b-fsnav group relative overflow-hidden"
+						activeClassName="active"
 					>
 						{node.menuText}
+						<div className="-translate-x-full bg-yellow transition duration-500 delay-200 absolute left-0 h-1 bottom-0 w-full group-active:translate-x-0"></div>
 					</Link>
 				</div>
 			))
@@ -91,7 +92,7 @@ class GlobalHeader extends Component {
 								</Link>
 								<a
 									href="tel:1300 123 456"
-									className="inline-flex items-center space-x-4 b-fsregular text-inherit hocus:text-inherit "
+									className="inline-flex items-center space-x-4 b-fsregular text-inherit hocus:text-inherit"
 								>
 									<svg
 										width="31"
@@ -118,7 +119,7 @@ class GlobalHeader extends Component {
 							<div className="col-auto text-white">
 								<Link
 									to="/contact"
-									className="inline-flex items-center space-x-4 bg-black text-inherit hocus:text-inherit py-6 px-13.5 -mr-2.5 font-medium"
+									className="inline-flex items-center space-x-4 bg-black text-inherit hocus:no-underline hocus:text-black hocus:bg-grey-light py-6 px-13.5 -mr-2.5 font-medium transition duration-300"
 								>
 									<svg
 										width="36"
@@ -143,7 +144,7 @@ class GlobalHeader extends Component {
 					</div>
 				</div>
 				<div className="relative">
-					<div className="border-b-5 absolute bottom-0 inset-x-0 bg-grey-light"></div>
+					<div className="border-b-4 absolute bottom-0 inset-x-0 bg-grey-light"></div>
 					<CommonContainer className="pt-4 pb-2 relative">
 						<nav className="flex -ml-7 ">{this.renderLinks()}</nav>
 					</CommonContainer>

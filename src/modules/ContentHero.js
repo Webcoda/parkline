@@ -11,7 +11,6 @@ const TwoBar = () => (
 
 const ContentHero = ({ item }) => {
 	const { title, text, isTitleBig, isTitleYellow,  isUseYellowHorizontalBar, twoLinesPosition } =  item.customFields;
-	console.log(item.customFields)
 	return (
 		<div className="relative mb-12">
 			<div

@@ -31,6 +31,7 @@ module.exports = {
 				'30': '7.5rem',
 				'32.5': '8.125rem',
 				'44': '11rem', //176px
+				'45': '11.25rem', //180px
 				'115': '28.75rem', //460px
 				'1/10': '10%',
 				'7/10': '70%',
@@ -39,9 +40,6 @@ module.exports = {
 				...theme('colors'),
 				default: '#d8d8d8',
 			}),
-			borderWidth: {
-				'5': '5px',
-			},
 			colors: {
 				inherit: 'inherit',
 				yellow: '#FFC300',
@@ -86,7 +84,8 @@ module.exports = {
 		],
 		textColor: ['hover', 'focus', 'active', 'hocus'],
 		textDecoration: ['responsive', 'hover', 'focus', 'hocus'],
-		backgroundColor: ['responsive', 'hover', 'focus', 'hocus'],
+		translate: ['responsive', 'hover', 'focus', 'group-active'],
+		backgroundColor: ['responsive', 'hover', 'focus', 'hocus', 'group-hocus'],
 		borderWidth: ['first', 'last'],
 		margin: ['responsive', 'first', 'last'],
 	},

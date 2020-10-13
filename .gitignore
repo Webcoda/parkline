@@ -74,3 +74,5 @@ public/
 .gatsby-context.js
 
 bundle-stats.json
+
+.vercel

@@ -50,6 +50,13 @@ exports.createResolvers = (args) => {
 			}),
 		},
 
+		agilityMeetTheTeam: {
+			linkedContent_teamTiles: agility.getLinkedContentList({
+				type: 'agilityMeetTheTeamTile',
+				linkedContentFieldName: 'teamTiles',
+			}),
+		},
+
 		//[Not Implemented]
 		//if we had an 'Image Slider' module and it had a list of slides via a linked content field called 'slides', this is how we'd retrieve a list of those slides in a single GraphQL query
 		// agilityImageSlider: {

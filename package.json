@@ -46,12 +46,14 @@
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "react-plyr": "^2.2.0",
+    "react-vivus": "^0.0.2",
     "slick-carousel": "^1.8.1",
     "swiper": "^6.3.2",
     "tailwind-bootstrap-grid": "^2.2.2",
     "tailwindcss": "^1.8.10",
     "tailwindcss-interaction-variants": "^5.0.0",
-    "truncate-html": "^1.0.2"
+    "truncate-html": "^1.0.2",
+    "vivus": "^0.4.5"
   },
   "devDependencies": {
     "prettier": "^1.18.2"
