@@ -13,6 +13,10 @@ export default props => (
 			query MeetTheTeamQuery {
 				allAgilityMeetTheTeam {
 					nodes {
+						customFields {
+							title
+							text
+						}
 						properties {
 							referenceName
 						}
