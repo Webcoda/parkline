@@ -57,6 +57,17 @@ exports.createResolvers = (args) => {
 			}),
 		},
 
+		agilityMaps: {
+			linkedContent_mapItems: agility.getLinkedContentList({
+				type: 'agilityMapItem',
+				linkedContentFieldName: 'mapItems',
+			}),
+			linkedContent_mapKeys: agility.getLinkedContentList({
+				type: 'agilityMapItem',
+				linkedContentFieldName: 'mapKeys',
+			}),
+		},
+
 		//[Not Implemented]
 		//if we had an 'Image Slider' module and it had a list of slides via a linked content field called 'slides', this is how we'd retrieve a list of those slides in a single GraphQL query
 		// agilityImageSlider: {

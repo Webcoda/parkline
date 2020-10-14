@@ -1,6 +1,8 @@
 import React, { useRef, useEffect } from 'react';
 import vivus from 'vivus'
 
+export const { EASE, EASE_IN, EASE_OUT, EASE_OUT_BOUNCE } = vivus;
+
 const Vivus = (props) => {
 	const { id, className='', children, html } = props
 	const el = useRef(null)

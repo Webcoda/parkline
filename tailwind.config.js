@@ -18,7 +18,7 @@ module.exports = {
 		options: {
 			rejected: true,
 			whitelistPatterns: [/swiper-/],
-		}
+		},
 	},
 	theme: {
 		extend: {
@@ -65,28 +65,42 @@ module.exports = {
 				heading: 'Ranua, Arial, sans-serif',
 			},
 			inset: theme => ({
-				...theme('spacing')
+				...theme('spacing'),
 			}),
 			minHeight: theme => ({
-				...theme('spacing')
-			})
+				...theme('spacing'),
+			}),
 		},
 	},
 	variants: {
-		display: ['responsive', 'collapsed', 'active'],
+		backgroundColor: [
+			'responsive',
+			'hover',
+			'focus',
+			'group-hocus',
+			'is-active',
+		],
+		borderWidth: ['first', 'last'],
+		display: ['responsive', 'collapsed', 'is-active'],
 		opacity: [
 			'responsive',
 			'hover',
 			'focus',
 			'collapsed',
-			'active',
+			'is-active',
 			'hocus',
+			'group-hocus',
 		],
-		textColor: ['hover', 'focus', 'active', 'hocus'],
+		padding: ['responsive', 'first', 'last'],
+		textColor: ['hover', 'focus', 'is-active', 'hocus', 'group-hocus'],
 		textDecoration: ['responsive', 'hover', 'focus', 'hocus'],
-		translate: ['responsive', 'hover', 'focus', 'group-active'],
-		backgroundColor: ['responsive', 'hover', 'focus', 'hocus', 'group-hocus'],
-		borderWidth: ['first', 'last'],
+		translate: [
+			'responsive',
+			'hover',
+			'focus',
+			'group-active',
+			'group-hocus',
+		],
 		margin: ['responsive', 'first', 'last'],
 	},
 	plugins: [
@@ -118,7 +132,7 @@ module.exports = {
 				{ variantName: 'group-collapsed', isGroup: true },
 				{ variantName: 'group-active', isGroup: true },
 				{ variantName: 'group-is-open', isGroup: true },
-				{ variantName: 'is-active', isGroup: true },
+				{ variantName: 'group-is-active', isGroup: true },
 			]
 
 			variants.forEach(
@@ -137,7 +151,7 @@ module.exports = {
 									)}`
 								}
 
-								return `.${variantName}.${e(
+								return `.${selectorName || variantName}.${e(
 									`${selectorName ||
 										variantName}${separator}${className}`
 								)}`

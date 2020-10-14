@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SmallDivider = ({
-	className
+	className=''
 }) => {
 	return (
 		<svg

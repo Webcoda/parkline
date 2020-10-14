@@ -2,7 +2,7 @@ import { graphql, StaticQuery } from 'gatsby'
 import React from 'react';
 
 import CommonContainer from '@/components/CommonContainer'
-import Vivus from '@/components/Vivus'
+import Vivus, { EASE_OUT } from '@/components/Vivus'
 
 import './ContentTiles.scss'
 
@@ -51,6 +51,12 @@ const ContentTiles = ({ contentTiles }) => {
 				{contentTiles?.sort((a,b) => a.contentID - b.contentID).map((tile, index) => {
 					const { subtitle, text, title, icon } = tile.customFields
 
+					const iconAnimationOptions = {
+						type: 'sync',
+						duration: 140,
+						animTimingFunction: EASE_OUT,
+					}
+
 					// 0,6 - bg-yellow
 					// 1,7 - bg-grey-light
 					// 2,3,4,5 - bg-grey-dark
@@ -76,16 +82,16 @@ const ContentTiles = ({ contentTiles }) => {
 							key={`contenttiles-${tile.contentID}`}
 							className={`${bgAndTextColor} md:col-3 flex flex-col`}
 						>
-							<div className="flex flex-col" style={{ minHeight: 365 }}>
+							<div
+								className="flex flex-col"
+								style={{ minHeight: 365 }}
+							>
 								<div className="flex-auto text-center px-12 py-13 relative">
 									<Vivus
 										id={`contenttiles-icon-${tile.contentID}`}
 										className={`${iconColor} c-contenttiles__icon`}
-										option={{
-											type: 'sync',
-											duration: 140,
-										}}
-										html={ icon }
+										option={iconAnimationOptions}
+										html={icon}
 									/>
 									{!!title && (
 										<h2 className="mb-2 c-contenttiles__title">
@@ -106,11 +112,12 @@ const ContentTiles = ({ contentTiles }) => {
 											{text}
 										</p>
 									)}
-									{
-										(index === 2 || index === 4) && (
-											<div className="bg-grey-light absolute inset-y-0 right-0 my-9" style={{ width: 1 }}></div>
-										)
-									}
+									{(index === 2 || index === 4) && (
+										<div
+											className="bg-grey-light absolute inset-y-0 right-0 my-9"
+											style={{ width: 1 }}
+										></div>
+									)}
 								</div>
 							</div>
 						</div>
