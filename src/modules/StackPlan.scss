@@ -1,0 +1,26 @@
+.c-stackplan {
+
+	svg {
+		.group {
+			pointer-events: bounding-box;
+		}
+	}
+
+	&__overlay {
+		&-levellist {
+			table {
+				td, th {
+					padding: 9px 12px;
+					border-color: #000;
+				}
+				td:first-child {
+					padding-left: 0;
+				}
+				td:nth-child(2) {
+					text-align: right;
+					padding-right: 0;
+				}
+			}
+		}
+	}
+}

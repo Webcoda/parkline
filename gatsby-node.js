@@ -62,9 +62,19 @@ exports.createResolvers = (args) => {
 				type: 'agilityMapItem',
 				linkedContentFieldName: 'mapItems',
 			}),
+		},
+
+		agilityMapItem: {
 			linkedContent_mapKeys: agility.getLinkedContentList({
 				type: 'agilityMapItem',
 				linkedContentFieldName: 'mapKeys',
+			}),
+		},
+
+		agilityStackPlan: {
+			linkedContent_stackPlanOverlays: agility.getLinkedContentList({
+				type: 'agilityStackPlanOverlay',
+				linkedContentFieldName: 'stackPlanOverlays',
 			}),
 		},
 
