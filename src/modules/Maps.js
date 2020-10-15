@@ -82,7 +82,7 @@ const Maps = ({ items, mapKeys }) => {
 											return (
 												<div
 													key={`tabnav-${mapItem.id}`}
-													className="col"
+													className="col nav-item"
 												>
 													<a
 														id={`tabnav-${mapItem.id}`}
