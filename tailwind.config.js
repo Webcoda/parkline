@@ -48,6 +48,7 @@ module.exports = {
 				text: '#231F20',
 				grey: {
 					light: '#f0f0f0',
+					'light-medium': '#404040',
 					medium: '#999999',
 					dark: '#333333',
 				},

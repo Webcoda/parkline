@@ -236,6 +236,8 @@ const StackPlan = ({ item }) => {
 								></path>
 								<a
 									xlinkHref="#highrise"
+									href="#highrise"
+									role="button"
 									className="group hocus:text-yellow"
 									onMouseEnter={onGroupMouseEnter}
 									onMouseLeave={onGroupMouseLeave}
@@ -569,6 +571,8 @@ const StackPlan = ({ item }) => {
 								</a>
 								<a
 									xlinkHref="#lowrise"
+									href="#lowrise"
+									role="button"
 									className="hocus:text-yellow group"
 									onMouseEnter={onGroupMouseEnter}
 									onMouseLeave={onGroupMouseLeave}
@@ -858,6 +862,8 @@ const StackPlan = ({ item }) => {
 								</a>
 								<a
 									xlinkHref="#podium"
+									href="#podium"
+									role="button"
 									className="hocus:text-yellow group"
 									onMouseEnter={onGroupMouseEnter}
 									onMouseLeave={onGroupMouseLeave}

@@ -1,0 +1,18 @@
+.c-article-detail {
+	&__text {
+		a {
+			@apply text-yellow;
+			text-decoration: underline;
+		}
+	}
+
+	&__meta {
+		@include fzlh(13px, 15.6px);
+		letter-spacing: .11px;
+	}
+
+	&__author {
+		@include fzlh(14px, 22px);
+		letter-spacing: .56px;
+	}
+}

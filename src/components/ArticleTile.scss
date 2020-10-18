@@ -1,0 +1,19 @@
+.c-article-tile {
+	&__media {
+		padding-bottom: percentage(260/360);
+	}
+
+	&__meta {
+		@include fzlh(13px, 15.6px);
+		letter-spacing: .11px;
+	}
+
+	&__title{
+		@include fzlh(26px, 28px);
+	}
+
+	&__text {
+		@include fzlh(16px, 20px);
+		color: rgba(#231F20, .5);
+	}
+}
