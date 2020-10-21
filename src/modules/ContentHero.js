@@ -1,5 +1,6 @@
 import React from 'react';
 import Richtext from "@/components/Richtext";
+import BaseImg from '@/components/BaseImg'
 import './ContentHero.scss'
 
 const TwoBar = () => (
@@ -10,15 +11,51 @@ const TwoBar = () => (
 )
 
 const ContentHero = ({ item }) => {
-	const { title, text, isTitleBig, isTitleYellow,  isUseYellowHorizontalBar, twoLinesPosition } =  item.customFields;
+	const { title, text, isTitleBig, isTitleYellow,  isUseYellowHorizontalBar, twoLinesPosition, media } =  item.customFields;
+	const mediaUrl = media?.url;
+	const mediaImgSources = [
+		{
+			srcset: [
+				{
+					src: mediaUrl + '?w=2560',
+					descriptor: '2560w',
+				},
+				{
+					src: mediaUrl + '?w=1920',
+					descriptor: '1920w',
+				},
+				{
+					src: mediaUrl + '?w=1024',
+					descriptor: '1024w',
+				},
+				{
+					src: mediaUrl + '?w=768',
+					descriptor: '768w',
+				},
+				{
+					src: mediaUrl + '?w=480',
+					descriptor: '480w',
+				},
+			],
+			type: 'image/png',
+		},
+	]
+
 	return (
 		<div className="relative mb-12">
 			<div
-				className="bg-black flex flex-col justify-end text-white"
+				className="relative overflow-hidden bg-black flex flex-col justify-end text-white"
 				style={{ height: 652 }}
 			>
+				{!!mediaUrl && (
+					<div className="u-embed__item">
+						<BaseImg sources={mediaImgSources} />
+						<div className="u-embed__item u-scrim-hero"></div>
+					</div>
+				)}
+
 				<div
-					className="container-fluid flex-auto flex flex-col justify-end"
+					className="relative container-fluid flex-auto flex flex-col justify-end"
 					style={{ paddingBottom: 192 }}
 				>
 					<div className="row justify-center">

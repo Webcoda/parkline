@@ -3,35 +3,29 @@ import BaseImg from "@/components/BaseImg";
 import './HomeHero.scss'
 
 const HomeHero = ({ item }) => {
-	let jumboTronStyle = {};
-	if (item.customFields.backgroundMedia) {
-		jumboTronStyle.backgroundImage =
-			"url('" + item.customFields.backgroundMedia.url + "?w=1000')"
-	}
-
+	const mediaUrl = item.customFields.backgroundMedia?.url
 	const scrollDownRef = useRef(null)
-
 	const mediaImgSources = [
 		{
 			srcset: [
 				{
-					src: item.customFields.backgroundMedia.url + '?w=2560',
+					src: mediaUrl + '?w=2560',
 					descriptor: '2560w',
 				},
 				{
-					src: item.customFields.backgroundMedia.url + '?w=1920',
+					src: mediaUrl + '?w=1920',
 					descriptor: '1920w',
 				},
 				{
-					src: item.customFields.backgroundMedia.url + '?w=1024',
+					src: mediaUrl + '?w=1024',
 					descriptor: '1024w',
 				},
 				{
-					src: item.customFields.backgroundMedia.url + '?w=768',
+					src: mediaUrl + '?w=768',
 					descriptor: '768w',
 				},
 				{
-					src: item.customFields.backgroundMedia.url + '?w=480',
+					src: mediaUrl + '?w=480',
 					descriptor: '480w',
 				},
 			],
@@ -50,9 +44,12 @@ const HomeHero = ({ item }) => {
 
 	return (
 		<section className="c-homehero u-bgimg relative">
-			<div className="u-embed__item">
-				<BaseImg sources={mediaImgSources} />
-			</div>
+			{!!mediaUrl && (
+				<div className="u-embed__item">
+					<BaseImg sources={mediaImgSources} />
+					<div className="u-embed__item u-scrim-hero"></div>
+				</div>
+			)}
 			<div className="relative h-full text-white c-homehero__fg">
 				<div className="container-fluid h-full c-homehero__fg-inner">
 					<div className="row h-full items-end">

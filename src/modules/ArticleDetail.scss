@@ -1,10 +1,53 @@
 .c-article-detail {
 	&__text {
+		> * + * {
+			margin-top: 20px;
+		}
 		a {
 			@apply text-yellow;
 			text-decoration: underline;
 		}
+
+		blockquote {
+			@include fzlh(21px, 25.2px);
+			letter-spacing: -.5px;
+			border-left: 1px solid #000;
+			padding-left: 21px;
+			max-width: 445px;
+			margin: 40px auto;
+
+			.author {
+				@include fzlh(15px, 18px);
+				letter-spacing: .5px;
+			}
+		}
+
+		&-figure {
+			margin: 80px 0;
+			&.c-article-detail__text-figure img {
+				margin-bottom: 0;
+			}
+
+			&-inner {
+				&:before {
+					content: '';
+					display: block;
+					position: absolute;
+					top: 0;
+					bottom: 0;
+					right: 100%;
+					@apply bg-yellow;
+					@apply w-screen;
+				}
+			}
+
+			&-caption {
+				@include fzlh(13px, 15.6px);
+				letter-spacing: .11px;
+			}
+		}
 	}
+
 
 	&__meta {
 		@include fzlh(13px, 15.6px);
@@ -14,5 +57,12 @@
 	&__author {
 		@include fzlh(14px, 22px);
 		letter-spacing: .56px;
+	}
+
+	&__related {
+		&-title {
+			@include fzlh(30px, 30px);
+			letter-spacing: -1px;
+		}
 	}
 }

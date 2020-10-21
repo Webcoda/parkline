@@ -6,14 +6,32 @@
 	&__meta {
 		@include fzlh(13px, 15.6px);
 		letter-spacing: .11px;
+
+		.c-article-detail__related & {
+			@apply text-inherit;
+		}
 	}
 
 	&__title{
 		@include fzlh(26px, 28px);
+
+		.c-article-detail__related & {
+			@apply text-yellow;
+		}
 	}
 
 	&__text {
 		@include fzlh(16px, 20px);
 		color: rgba(#231F20, .5);
+
+		.c-article-detail__related & {
+			@apply text-inherit;
+		}
+	}
+
+	&__arrow {
+		.c-article-detail__related & {
+			@apply text-yellow;
+		}
 	}
 }

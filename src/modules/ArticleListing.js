@@ -119,17 +119,16 @@ const ArticleListing = ({ item, allItems }) => {
 			{/* purgecss: .bg-grey-light, .bg-grey-light-medium  */}
 			<div className={`bg-${backgroundColor} py-23`}>
 				<CommonContainer className="overflow-hidden">
-					<div className="row -mt-23 pt-23 c-articlelisting__row">
+					<div className="row -mt-23 c-articlelisting__row">
 						{newsList
 							.filter(listItem => {
 								return isShowAllArticles ? !listItem.isFeatured : true;
 							})
 							.map(listItem => {
-								console.log('listItem', listItem)
 								return (
 									<div
 										key={`article-${listItem?.contentID || listItem?.id}`}
-										className="md:col-4 mb-23 c-articlelisting__col"
+										className="md:col-4 mt-23 c-articlelisting__col"
 									>
 										<ArticleTile article={listItem}></ArticleTile>
 									</div>
