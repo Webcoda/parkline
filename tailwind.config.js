@@ -23,11 +23,13 @@ module.exports = {
 	theme: {
 		extend: {
 			spacing: {
+				'4.5': '1.125rem', //18px
 				'6.5': '1.625rem', //26px
 				'7.5': '1.875rem',
 				'9.5': '2.375rem',
 				'13.5': '3.375rem',
 				'16': '4rem',
+				'18': '4.5rem',
 				'22': '5.5rem',
 				'23': '5.75rem',
 				'26': '6.5rem',
@@ -84,6 +86,7 @@ module.exports = {
 			'hocus',
 			'group-hocus',
 			'is-active',
+			'disabled',
 		],
 		borderWidth: ['first', 'last'],
 		display: ['responsive', 'collapsed', 'is-active'],
@@ -96,6 +99,7 @@ module.exports = {
 			'is-active',
 			'hocus',
 			'group-hocus',
+			'disabled'
 		],
 		padding: ['responsive', 'first', 'last'],
 		textColor: ['hover', 'focus', 'is-active', 'hocus', 'group-hocus'],

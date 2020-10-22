@@ -1,0 +1,7 @@
+.c-contactourteam {
+	&__teamdetails{
+		&-name {
+			@include fzlh(20px, 22px);
+		}
+	}
+}

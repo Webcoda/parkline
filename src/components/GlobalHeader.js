@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Link, graphql, StaticQuery } from "gatsby"
+import { graphql, StaticQuery } from "gatsby"
 
+import Link from '@/components/Link'
 import CommonContainer from '@/components/CommonContainer';
 
 export default props => (

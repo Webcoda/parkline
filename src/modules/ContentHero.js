@@ -1,6 +1,7 @@
 import React from 'react';
 import Richtext from "@/components/Richtext";
 import BaseImg from '@/components/BaseImg'
+import toBool from '@/utils/convertBoolStrToBool'
 import './ContentHero.scss'
 
 const TwoBar = () => (
@@ -64,11 +65,11 @@ const ContentHero = ({ item }) => {
 								<div className="relative px-2.5 w-7/10">
 									<h1
 										className={`mb-11 ${
-											isTitleBig
+											toBool(isTitleBig)
 												? 'c-contenthero__title--big'
 												: ''
 										} ${
-											isTitleYellow ? 'text-yellow' : ''
+											toBool(isTitleYellow) ? 'text-yellow' : ''
 										}`}
 									>
 										{title}
@@ -94,13 +95,13 @@ const ContentHero = ({ item }) => {
 			<div
 				className="container-fluid"
 				style={{
-					marginTop: isUseYellowHorizontalBar
+					marginTop: toBool(isUseYellowHorizontalBar)
 						? ''
 						: `calc(-147px / 2)`,
 				}}
 			>
 				<div className="row">
-					{isUseYellowHorizontalBar ? (
+					{toBool(isUseYellowHorizontalBar) ? (
 						<div className="col-8">
 							<div className="bg-yellow h-7.5 w-full -ml-2.5"></div>
 						</div>

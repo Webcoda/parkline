@@ -1,0 +1,83 @@
+import React from 'react'
+import { StaticQuery, graphql } from 'gatsby'
+import CommonContainer from '@/components/CommonContainer'
+import Richtext from '@/components/Richtext'
+
+import './ContactOurTeam.scss'
+
+export default props => (
+	<StaticQuery
+		query={graphql`
+			query ContactOurTeamQuery {
+				allAgilityContactOurTeam {
+					nodes {
+						id
+						linkedContent_teamDetails {
+							id
+							customFields {
+								details
+								name
+							}
+						}
+						properties {
+							referenceName
+						}
+					}
+				}
+			}
+		`}
+		render={queryData => {
+			const thisModuleInstance = queryData.allAgilityContactOurTeam.nodes.filter(
+				module =>
+					module.properties.referenceName ===
+					props.item.properties.referenceName
+			)
+			return (
+				<ContactOurTeam
+					teamDetails={
+						thisModuleInstance[0].linkedContent_teamDetails
+					}
+					{...props}
+				/>
+			)
+		}}
+	/>
+)
+
+const ContactOurTeam = ({ item, teamDetails }) => {
+	const { title } = item.customFields
+	return (
+		<CommonContainer className="pt-20 pb-30">
+			{!!title && <h1 className="h2 mb-11">{title}</h1>}
+			{!!teamDetails &&
+				!!teamDetails.length && (
+					<div className="row">
+						{teamDetails.map(teamDetail => {
+							const { name, details } = teamDetail.customFields
+							return (
+								<div
+									key={teamDetail.id}
+									className="md:col-3 font-normal"
+								>
+									{
+										!!name && (
+											<h2 className="mb-3 normal-case c-contactourteam__teamdetails-name">
+												{ name }
+											</h2>
+										)
+									}
+									{
+										!!details && (
+											<Richtext
+												html={details}
+											/>
+										)
+									}
+								</div>
+							)
+						})}
+					</div>
+				)}
+		</CommonContainer>
+	)
+}

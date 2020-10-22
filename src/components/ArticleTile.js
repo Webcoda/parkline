@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby'
+import Link from '@/components/Link'
 import formatDate from 'date-fns/format'
 import Richtext from './Richtext'
 import BaseImg from './BaseImg'

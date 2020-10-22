@@ -7,6 +7,8 @@ import SmallDivider from '@/components/SmallDivider'
 import BaseImg from '@/components/BaseImg'
 import LinkButton from "@/components/LinkButton";
 
+import toBool from '@/utils/convertBoolStrToBool'
+
 // Styles
 import './ImageWithListText.scss'
 
@@ -35,8 +37,8 @@ const ImageWithListText = ({ item }) => {
 		<div
 			className={`flex flex-col c-imagewithlisttext c-imagewithlisttext--${mediaPosition} ${
 				hasMoreThanOneMedia ? 'c-imagewithlisttext--multiple' : ''
-			} ${isUseBorderOnImage ? 'c-imagewithlisttext--withborder' : ''} ${
-				isUseImageVerticalOffset
+			} ${toBool(isUseBorderOnImage) ? 'c-imagewithlisttext--withborder' : ''} ${
+				toBool(isUseImageVerticalOffset)
 					? 'pt-22 bg-grey-light c-imagewithlisttext--withverticaloffset'
 					: ''
 			} mb-30 last:mb-0`}
@@ -56,7 +58,7 @@ const ImageWithListText = ({ item }) => {
 					>
 						<div
 							className={`${
-								isUseImageVerticalOffset ? 'pb-23' : ''
+								toBool(isUseImageVerticalOffset) ? 'pb-23' : ''
 							}`}
 						>
 							<h2 className="mb-7">{title}</h2>
@@ -80,13 +82,13 @@ const ImageWithListText = ({ item }) => {
 							isMediaPositionLeft
 								? `${
 										hasMoreThanOneMedia ||
-										isUseBorderOnImage
+										toBool(isUseBorderOnImage)
 											? 'md:col-6'
 											: 'md:col-5'
 								  }`
 								: `${
 										hasMoreThanOneMedia ||
-										isUseBorderOnImage
+										toBool(isUseBorderOnImage)
 											? 'md:col-6'
 											: 'md:offset-1 md:col-5'
 								  }`
@@ -94,7 +96,7 @@ const ImageWithListText = ({ item }) => {
 					>
 						<div
 							className={`flex-1 flex c-imagewithlisttext__col-media-inner ${
-								isUseBorderOnImage &&
+								toBool(isUseBorderOnImage) &&
 								!hasMoreThanOneMedia &&
 								isMediaPositionLeft
 									? 'flex-row-reverse'
@@ -188,7 +190,7 @@ const ImageWithListText = ({ item }) => {
 								</div>
 							</div>
 							{// single-media image border
-							isUseBorderOnImage && !hasMoreThanOneMedia && (
+							toBool(isUseBorderOnImage) && !hasMoreThanOneMedia && (
 								<div
 									className={`bg-yellow ${
 										isMediaPositionLeft ? 'w-1/6' : 'w-22'

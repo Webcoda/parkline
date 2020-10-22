@@ -27,6 +27,10 @@ exports.createResolvers = (args) => {
 				type: 'agilityLink',
 				linkedContentFieldName: 'footerBottomLinks',
 			}),
+			footerBottomLogos: agility.getLinkedContentList({
+				type: 'agilityLinkedImage',
+				linkedContentFieldName: 'footerBottomLogos',
+			}),
 		},
 
 		agilityLinkGroup: {
@@ -82,6 +86,13 @@ exports.createResolvers = (args) => {
 			linkedContent_articleType: agility.getLinkedContentItem({
 				type: 'agilityArticleType',
 				linkedContentFieldName: 'articleType',
+			}),
+		},
+
+		agilityContactOurTeam: {
+			linkedContent_teamDetails: agility.getLinkedContentList({
+				type: 'agilityContactOurTeamItem',
+				linkedContentFieldName: 'teamDetails',
 			}),
 		},
 
