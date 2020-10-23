@@ -75,13 +75,6 @@ exports.createResolvers = (args) => {
 			}),
 		},
 
-		agilityStackPlan: {
-			linkedContent_stackPlanOverlays: agility.getLinkedContentList({
-				type: 'agilityStackPlanOverlay',
-				linkedContentFieldName: 'stackPlanOverlays',
-			}),
-		},
-
 		agilityArticle: {
 			linkedContent_articleType: agility.getLinkedContentItem({
 				type: 'agilityArticleType',
@@ -95,6 +88,14 @@ exports.createResolvers = (args) => {
 				linkedContentFieldName: 'teamDetails',
 			}),
 		},
+
+		// [Uncomment if needed]
+		// agilityStackPlan: {
+		// 	linkedContent_stackPlanOverlays: agility.getLinkedContentList({
+		// 		type: 'agilityStackPlanOverlay',
+		// 		linkedContentFieldName: 'stackPlanOverlays',
+		// 	}),
+		// },
 
 		//[Not Implemented]
 		//if we had an 'Image Slider' module and it had a list of slides via a linked content field called 'slides', this is how we'd retrieve a list of those slides in a single GraphQL query
