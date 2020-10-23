@@ -89,6 +89,13 @@ exports.createResolvers = (args) => {
 			}),
 		},
 
+		agilityBuildingBackgroundedIntro: {
+			linkedContent_itemList: agility.getLinkedContentList({
+				type: 'agilityBuildingBackgroundIntroItem',
+				linkedContentFieldName: 'itemList',
+			}),
+		},
+
 		// [Uncomment if needed]
 		// agilityStackPlan: {
 		// 	linkedContent_stackPlanOverlays: agility.getLinkedContentList({

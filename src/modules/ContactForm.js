@@ -68,18 +68,24 @@ const ContactForm = ({ item }) => {
 			)
 		)
 		const noty = new Noty({
+			text: '',
 			theme: 'metroui',
 			layout: 'topCenter',
 			timeout: 5000,
-			visibilityControl: true,
+			// visibilityControl: true,
 			killer: true,
 		})
 		if (ok) {
-			noty.setText(data.message).setType('success').show();
+			noty.setText(data.message, true);
+			noty.setType('success', true);
 			el.reset();
+			recaptchaRef.current.reset();
 		} else {
-			noty.setText(error).setType('error').show()
+			noty.setText(data.message || error, true);
+			noty.setType('error', true);
 		}
+		noty.show()
+		el.focus()
 		setSubmitting(false)
 	}
 
@@ -110,9 +116,7 @@ const ContactForm = ({ item }) => {
 						required: true,
 					}}
 				/>
-				<InputBlock
-					label="Tell us a bit more about your query"
-				>
+				<InputBlock label="Tell us a bit more about your query">
 					<textarea
 						className="bg-white px-4.5 py-3.5 flex-1 w-full c-contactform__input c-contactform__input-typo"
 						name="message"
@@ -120,11 +124,6 @@ const ContactForm = ({ item }) => {
 						rows="5"
 					/>
 				</InputBlock>
-				<Recaptcha
-					ref={recaptchaRef}
-					size="invisible"
-					sitekey={recaptchaSiteKey}
-				></Recaptcha>
 			</div>
 			<button
 				className="inline-flex py-3 px-7 bg-yellow uppercase text-inherit hocus:no-underline hocus:text-yellow hocus:bg-black transition duration-300 disabled:opacity-50 font-medium c-linkbutton"
@@ -132,6 +131,12 @@ const ContactForm = ({ item }) => {
 			>
 				Submit
 			</button>
+			<Recaptcha
+				ref={recaptchaRef}
+				size="invisible"
+				sitekey={recaptchaSiteKey}
+				tabindex={-1}
+			></Recaptcha>
 		</form>
 	)
 }

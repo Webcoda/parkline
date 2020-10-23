@@ -19,6 +19,11 @@ export default props => (
 							pixelHeight
 							pixelWidth
 						}
+						contactLink {
+							href
+							text
+							target
+						}
 					}
 				}
 				allAgilitySitemapNode {
@@ -117,30 +122,35 @@ class GlobalHeader extends Component {
 									<span>1300 123 456</span>
 								</a>
 							</div>
-							<div className="col-auto text-white">
-								<Link
-									to="/contact"
-									className="inline-flex items-center space-x-4 bg-black text-inherit hocus:no-underline hocus:text-black hocus:bg-grey-light py-6 px-13.5 -mr-2.5 font-medium transition duration-300"
-								>
-									<svg
-										width="36"
-										height="26"
-										fill="none"
-										xmlns="http://www.w3.org/2000/svg"
-									>
-										<path
-											clipRule="evenodd"
-											d="M35.06 23.452c0 .855-.693 1.548-1.548 1.548H2.549A1.549 1.549 0 011 23.452V2.549C1 1.693 1.694 1 2.549 1h30.963c.855 0 1.548.693 1.548 1.549v20.903z"
-											stroke="currentColor"
-										/>
-										<path
-											d="M33.092 3.675a.5.5 0 00-.707-.707l.707.707zM21.862 14.2l-.354-.353.354.353zm-7.663 0l.353-.353-.353.353zM4.449 3.742a.5.5 0 00-.707.707l.707-.707zM3.742 21.55a.5.5 0 10.707.707l-.707-.707zm7.674-6.261a.5.5 0 00-.707-.707l.707.707zm20.195 6.968a.5.5 0 00.707-.707l-.707.707zm-6.26-7.675a.5.5 0 00-.707.707l.707-.707zm7.034-11.615L21.508 13.847l.707.707 10.877-10.88-.707-.706zM21.508 13.847a4.917 4.917 0 01-6.956 0l-.707.707a5.917 5.917 0 008.37 0l-.707-.707zm-6.956 0L4.45 3.742l-.707.707 10.103 10.105.707-.707zM4.45 22.257l6.967-6.967-.707-.707-6.967 6.968.707.707zm27.87-.706l-6.968-6.968-.707.707 6.967 6.968.707-.707z"
-											fill="currentColor"
-										/>
-									</svg>
-									<span>Contact</span>
-								</Link>
-							</div>
+							{
+								!!item.customFields.contactLink?.href && (
+									<div className="col-auto text-white">
+										<Link
+											to={item.customFields.contactLink.href}
+											target={item.customFields.contactLink.target}
+											className="inline-flex items-center space-x-4 bg-black text-inherit hocus:no-underline hocus:text-black hocus:bg-grey-light py-6 px-13.5 -mr-2.5 font-medium transition duration-300"
+										>
+											<svg
+												width="36"
+												height="26"
+												fill="none"
+												xmlns="http://www.w3.org/2000/svg"
+											>
+												<path
+													clipRule="evenodd"
+													d="M35.06 23.452c0 .855-.693 1.548-1.548 1.548H2.549A1.549 1.549 0 011 23.452V2.549C1 1.693 1.694 1 2.549 1h30.963c.855 0 1.548.693 1.548 1.549v20.903z"
+													stroke="currentColor"
+												/>
+												<path
+													d="M33.092 3.675a.5.5 0 00-.707-.707l.707.707zM21.862 14.2l-.354-.353.354.353zm-7.663 0l.353-.353-.353.353zM4.449 3.742a.5.5 0 00-.707.707l.707-.707zM3.742 21.55a.5.5 0 10.707.707l-.707-.707zm7.674-6.261a.5.5 0 00-.707-.707l.707.707zm20.195 6.968a.5.5 0 00.707-.707l-.707.707zm-6.26-7.675a.5.5 0 00-.707.707l.707-.707zm7.034-11.615L21.508 13.847l.707.707 10.877-10.88-.707-.706zM21.508 13.847a4.917 4.917 0 01-6.956 0l-.707.707a5.917 5.917 0 008.37 0l-.707-.707zm-6.956 0L4.45 3.742l-.707.707 10.103 10.105.707-.707zM4.45 22.257l6.967-6.967-.707-.707-6.967 6.968.707.707zm27.87-.706l-6.968-6.968-.707.707 6.967 6.968.707-.707z"
+													fill="currentColor"
+												/>
+											</svg>
+											<span>{item.customFields.contactLink.text}</span>
+										</Link>
+									</div>
+								)
+							}
 						</div>
 					</div>
 				</div>
