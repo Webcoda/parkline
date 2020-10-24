@@ -16,7 +16,7 @@
 				#{$_this}__bigsection-row:first-child & {
 					margin-top: -900px;
 				}
-				#{$_this}__bigsection-row:last-child & {
+				#{$_this}__bigsection-row:nth-child(2) & {
 					margin-bottom: -90px;
 				}
 			}
@@ -25,13 +25,14 @@
 
 
 	&__smallsection {
-		padding-top: 210px;
+		&-row {
+			&:first-child {
+				margin-top: -90px;
+			}
+		}
 
 		&-col {
 			&-media {
-				#{$_this}__smallsection-row:first-child & {
-					margin-top: -200px;
-				}
 			}
 		}
 

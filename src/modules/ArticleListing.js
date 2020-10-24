@@ -86,7 +86,6 @@ const ArticleListing = ({ item, allItems }) => {
 									return toBool(isFeaturedSectionShown)  ? !listItem.customFields.isFeatured : true;
 								})
 								.map(listItem => {
-									console.log(listItem)
 									return (
 										<div
 											key={`article-${listItem?.contentID || listItem?.id}`}

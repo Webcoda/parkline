@@ -2,8 +2,7 @@ import React from 'react';
 import { graphql, useStaticQuery } from "gatsby";
 import Richtext from "@/components/Richtext";
 import BaseImg from '@/components/BaseImg'
-import toBool from "@/utils/convertBoolStrToBool";
-
+import { sortByItemOrderAsc } from "@/utils/sortByItemOrder";
 import './BuildingBackgroundedIntro.scss'
 
 const BuildingBackgroundedIntro = ({ item }) => {
@@ -24,6 +23,10 @@ const BuildingBackgroundedIntro = ({ item }) => {
 								mediaPosition
 								textAlignment
 							}
+							properties {
+								itemOrder
+								referenceName
+							}
 						}
 						properties {
 							referenceName
@@ -43,11 +46,12 @@ const BuildingBackgroundedIntro = ({ item }) => {
 				data-bgset="/building-background-intro-background.svg"
 			>
 				{buildingBackgroundIntro.linkedContent_itemList
-					.filter(
+					?.filter(
 						buildingBackgroundIntroItem =>
 							buildingBackgroundIntroItem.customFields
 								.isSmallSection !== 'true'
 					)
+					.sort(sortByItemOrderAsc)
 					.map(buildingBackgroundIntroItem => {
 						const {
 							title,
@@ -70,7 +74,7 @@ const BuildingBackgroundedIntro = ({ item }) => {
 						switch (textAlignment) {
 							case 'center':
 								textAlignmentClass = 'items-center'
-								break;
+								break
 							default:
 								break
 						}
@@ -131,13 +135,13 @@ const BuildingBackgroundedIntro = ({ item }) => {
 
 			{/* Small section */}
 			<div className="container-fluid space-y-30 c-buildingbackgroundedintro__smallsection">
-				{
-					buildingBackgroundIntro.linkedContent_itemList
-					.filter(
+				{buildingBackgroundIntro.linkedContent_itemList
+					?.filter(
 						buildingBackgroundIntroItem =>
 							buildingBackgroundIntroItem.customFields
 								.isSmallSection === 'true'
 					)
+					.sort(sortByItemOrderAsc)
 					.map(buildingBackgroundIntroItem => {
 						const {
 							title,
@@ -158,9 +162,12 @@ const BuildingBackgroundedIntro = ({ item }) => {
 
 						let textAlignmentClass = ''
 						switch (textAlignment) {
+							case 'bottom':
+								textAlignmentClass = 'items-end'
+								break
 							case 'center':
 								textAlignmentClass = 'items-center'
-								break;
+								break
 							default:
 								break
 						}
@@ -211,13 +218,14 @@ const BuildingBackgroundedIntro = ({ item }) => {
 									)}
 								</div>
 								<div className={colTextClass}>
-									<h2 className="mb-7 c-buildingbackgroundedintro__smallsection-title">{title}</h2>
+									<h2 className="mb-7 c-buildingbackgroundedintro__smallsection-title">
+										{title}
+									</h2>
 									<Richtext html={content} />
 								</div>
 							</div>
 						)
-					})
-				}
+					})}
 			</div>
 		</div>
 	) : null

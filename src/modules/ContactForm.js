@@ -1,15 +1,15 @@
 import $ from 'jquery'
-import Loadable from '@loadable/component'
 import React, { useState, useRef } from 'react'
 import axios from 'axios'
 import Noty from 'noty'
 import Richtext from '@/components/Richtext'
-import "@/components/LinkButton.scss"
+import SiteRecaptcha from '@/components/SiteRecaptcha'
 import { axiosSureThing } from "@/utils/surething";
+import serializeDataToJson from '@/utils/serializeDataToJson';
 
+import "@/components/LinkButton.scss"
 import './ContactForm.scss'
 
-const Recaptcha = Loadable(() => import('react-google-recaptcha'))
 
 const InputBlock = ({
 	inputProps,
@@ -31,19 +31,8 @@ const InputBlock = ({
 	)
 }
 
-const getFormData = ($form) => {
-	const unindexed_array = $form.serializeArray()
-	const indexed_array = {}
-
-	$.map(unindexed_array, function(n, i) {
-		indexed_array[n['name']] = n['value']
-	})
-
-	return indexed_array
-}
-
 const ContactForm = ({ item }) => {
-	const { title, intro, recaptchaSiteKey, endpoint } = item.customFields;
+	const { title, intro, endpoint } = item.customFields;
 	const recaptchaRef = useRef(null);
 	const [isSubmitting, setSubmitting] = useState(false);
 
@@ -60,13 +49,14 @@ const ContactForm = ({ item }) => {
 			axios.post(
 				el.action,
 				{
-					...getFormData($el),
+					...serializeDataToJson($el),
 				},
 				{
 					headers: { Accept: 'application/json' },
 				}
 			)
 		)
+
 		const noty = new Noty({
 			text: '',
 			theme: 'metroui',
@@ -75,6 +65,7 @@ const ContactForm = ({ item }) => {
 			// visibilityControl: true,
 			killer: true,
 		})
+
 		if (ok) {
 			noty.setText(data.message, true);
 			noty.setType('success', true);
@@ -131,12 +122,9 @@ const ContactForm = ({ item }) => {
 			>
 				Submit
 			</button>
-			<Recaptcha
-				ref={recaptchaRef}
-				size="invisible"
-				sitekey={recaptchaSiteKey}
-				tabindex={-1}
-			></Recaptcha>
+			<SiteRecaptcha
+				propRef={recaptchaRef}
+			></SiteRecaptcha>
 		</form>
 	)
 }

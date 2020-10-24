@@ -4,6 +4,7 @@ import CommonContainer from '@/components/CommonContainer'
 import Richtext from '@/components/Richtext'
 import BaseImg from '@/components/BaseImg'
 import SmallDivider from '@/components/SmallDivider'
+import { sortByItemOrderAsc } from "@/utils/sortByItemOrder";
 
 import './MeetTheTeam.scss'
 
@@ -21,7 +22,10 @@ export default props => (
 							referenceName
 						}
 						linkedContent_teamTiles {
-							contentID
+							id
+							properties {
+								itemOrder
+							}
 							customFields {
 								cTA {
 									href
@@ -72,7 +76,7 @@ const MeetTheTeam = (props) => {
 
 				<div className="row no-gutters">
 					{
-						tiles?.map(tile => {
+						tiles?.sort(sortByItemOrderAsc).map(tile => {
 							const mediaImgSources = [
 								{
 									srcset: [
@@ -86,7 +90,9 @@ const MeetTheTeam = (props) => {
 							]
 
 							return (
-								<div className="col flex flex-col c-meettheteam__tile overflow-hidden group">
+								<div
+									key={tile.id}
+									className="col flex flex-col c-meettheteam__tile overflow-hidden group">
 									<div className="flex-1 flex flex-col relative c-meettheteam__tile-inner">
 										<div className="u-embed__item">
 											<BaseImg
@@ -98,7 +104,7 @@ const MeetTheTeam = (props) => {
 												{tile.customFields.title}
 											</div>
 										</div>
-										<div className="relative hover flex-1 flex flex-col translate-y-full group-hocus:translate-y-0 transition duration-500 overflow-hidden">
+										<div className="relative flex-1 flex flex-col translate-y-full group-hocus:translate-y-0 transition duration-500 overflow-hidden">
 											<div className="flex-1 flex flex-col -translate-y-full group-hocus:translate-y-0 transition duration-500">
 												<div className="u-embed__item">
 													<BaseImg

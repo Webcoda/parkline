@@ -2,13 +2,3 @@
 @import "~noty/src/noty.scss";
 @import "~noty/src/themes/metroui.scss";
 /*! purgecss end ignore */
-
-.c-contactform {
-	&__input {
-		min-height: 50px;
-		&-typo {
-			@include fzlh(15px, 21.6px);
-			letter-spacing: .6px;
-		}
-	}
-}

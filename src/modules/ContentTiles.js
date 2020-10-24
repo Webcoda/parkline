@@ -3,6 +3,7 @@ import React from 'react';
 
 import CommonContainer from '@/components/CommonContainer'
 import Vivus, { EASE_OUT } from '@/components/Vivus'
+import { sortByItemOrderAsc } from "@/utils/sortByItemOrder";
 
 import './ContentTiles.scss'
 
@@ -16,12 +17,15 @@ export default props => (
 							referenceName
 						}
 						linkedContent_tiles {
-							contentID
+							id
 							customFields {
 								icon
 								title
 								subtitle
 								text
+							}
+							properties {
+								itemOrder
 							}
 						}
 					}
@@ -48,7 +52,7 @@ const ContentTiles = ({ contentTiles }) => {
 	return (
 		<CommonContainer className="mb-45 c-contenttiles">
 			<div className="row no-gutters">
-				{contentTiles?.sort((a,b) => a.contentID - b.contentID).map((tile, index) => {
+				{contentTiles?.sort(sortByItemOrderAsc).map((tile, index) => {
 					const { subtitle, text, title, icon } = tile.customFields
 
 					const iconAnimationOptions = {
@@ -61,7 +65,7 @@ const ContentTiles = ({ contentTiles }) => {
 					// 1,7 - bg-grey-light
 					// 2,3,4,5 - bg-grey-dark
 					let bgAndTextColor = 'bg-grey-dark text-white'
-					let iconColor = 'text-yellow';
+					let iconColor = 'text-yellow'
 					switch (index) {
 						case 0:
 						case 6:
@@ -77,18 +81,38 @@ const ContentTiles = ({ contentTiles }) => {
 							break
 					}
 
+					let hoverBgAndTextColor = 'bg-grey-medium text-grey-dark'
+					let hoverIconColor = 'text-white'
+					switch (index) {
+						case 0:
+						case 8:
+							hoverBgAndTextColor = 'bg-grey-dark text-white'
+							hoverIconColor = 'text-yellow'
+							break
+						case 3:
+							hoverBgAndTextColor = 'bg-yellow text-grey-dark'
+							hoverIconColor = 'text-grey-dark'
+							break
+						case 5:
+							hoverBgAndTextColor = 'bg-grey-light text-grey-dark'
+							hoverIconColor = 'text-grey-dark'
+							break
+						default:
+							break
+					}
+
 					return (
 						<div
-							key={`contenttiles-${tile.contentID}`}
+							key={tile.id}
 							className={`${bgAndTextColor} md:col-3 flex flex-col`}
 						>
 							<div
-								className="flex flex-col"
+								className="flex flex-col relative group overflow-hidden"
 								style={{ minHeight: 365 }}
 							>
 								<div className="flex-auto text-center px-12 py-13 relative">
 									<Vivus
-										id={`contenttiles-icon-${tile.contentID}`}
+										id={`icon-${tile.id}`}
 										className={`${iconColor} c-contenttiles__icon`}
 										option={iconAnimationOptions}
 										html={icon}
@@ -119,6 +143,52 @@ const ContentTiles = ({ contentTiles }) => {
 										></div>
 									)}
 								</div>
+								<div className="absolute inset-0 flex flex-col translate-y-full group-hocus:translate-y-0 transition duration-500 overflow-hidden">
+									<div
+										className={`flex-1 text-center px-12 py-13 -translate-y-full group-hocus:translate-y-0 transition duration-500 ${hoverBgAndTextColor}`}
+									>
+										<Vivus
+											id={`icon2-${tile.id}`}
+											className={`${hoverIconColor} c-contenttiles__icon`}
+											option={iconAnimationOptions}
+											html={icon}
+										/>
+										{!!title && (
+											<h2 className="mb-2 c-contenttiles__title">
+												{title}
+											</h2>
+										)}
+										{!!subtitle && (
+											<div className="uppercase c-contenttiles__subtitle">
+												{subtitle}
+											</div>
+										)}
+										{!!text && (
+											<p
+												className={`${
+													!!subtitle ? 'mt-3' : 'mt-4'
+												}`}
+											>
+												{text}
+											</p>
+										)}
+										{(index === 2 || index === 4) && (
+											<div
+												className="bg-grey-light absolute inset-y-0 right-0 my-9"
+												style={{ width: 1 }}
+											></div>
+										)}
+									</div>
+								</div>
+								{/* <a
+									href={tile.customFields.cTA.href}
+									target={tile.customFields.cTA.target}
+									className="u-embed__item opacity-0"
+								>
+									<span className="sr-only">
+										{tile.customFields.cTA.text}
+									</span>
+								</a> */}
 							</div>
 						</div>
 					)

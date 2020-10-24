@@ -67,11 +67,11 @@ class GlobalHeader extends Component {
 				<div className="flex-auto -mb-2" key={node.pageID}>
 					<Link
 						to={node.path}
-						className="inline-flex flex-col text-inherit hocus:text-inherit px-7 pb-4 b-fsnav group relative overflow-hidden"
+						className="inline-flex flex-col text-inherit hocus:text-inherit hover:no-underline px-7 pb-4 b-fsnav group relative overflow-hidden"
 						activeClassName="active"
 					>
 						{node.menuText}
-						<div className="-translate-x-full bg-yellow transition duration-500 delay-200 absolute left-0 h-1 bottom-0 w-full group-active:translate-x-0"></div>
+						<div className="-translate-x-full bg-yellow transition duration-300 absolute left-0 h-1 bottom-0 w-full group-active:translate-x-0 hover:translate-x-0"></div>
 					</Link>
 				</div>
 			))
