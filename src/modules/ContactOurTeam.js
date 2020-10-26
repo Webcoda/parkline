@@ -58,7 +58,7 @@ const ContactOurTeam = ({ item, teamDetails }) => {
 								return (
 									<div
 										key={teamDetail.id}
-										className="md:col-3 mt-12 font-normal"
+										className="col-12 md:col-3 mt-12 font-normal"
 									>
 										{
 											!!name && (

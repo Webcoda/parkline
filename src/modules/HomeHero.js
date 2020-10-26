@@ -1,10 +1,10 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef } from 'react'
 import BaseImg from "@/components/BaseImg";
 import './HomeHero.scss'
 
 const HomeHero = ({ item }) => {
 	const mediaUrl = item.customFields.backgroundMedia?.url
-	const scrollDownRef = useRef(null)
+	const homeheroRef = useRef(null)
 	const mediaImgSources = [
 		{
 			srcset: [
@@ -33,17 +33,15 @@ const HomeHero = ({ item }) => {
 		},
 	]
 
-	useEffect(() => {
-		scrollDownRef.current.addEventListener('click', () => {
-			window.scrollTo({
-				y: 200,
-				behavior: 'smooth',
-			});
+	const handleScrollTo = ()  => {
+		window.scrollTo({
+			top: homeheroRef.current.nextElementSibling.offsetTop - document.querySelector('header.c-header').offsetHeight - 48,
+			behavior: 'smooth',
 		})
-	}, [])
+	}
 
 	return (
-		<section className="c-homehero u-bgimg relative">
+		<section ref={homeheroRef} className="c-homehero u-bgimg relative">
 			{!!mediaUrl && (
 				<div className="u-embed__item">
 					<BaseImg sources={mediaImgSources} />
@@ -61,9 +59,9 @@ const HomeHero = ({ item }) => {
 					</div>
 				</div>
 				<button
-					ref={scrollDownRef}
 					className="inline-flex items-center rounded-full u-horizontal-center w-7.5 h-7.5 bg-yellow hocus:bg-black hocus:text-yellow bottom-0 -mb-4 transition duration-300"
 					aria-label="Scroll to content"
+					onClick={handleScrollTo}
 				>
 					<svg
 						width="30"

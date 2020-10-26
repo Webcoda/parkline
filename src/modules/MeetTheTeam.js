@@ -92,7 +92,7 @@ const MeetTheTeam = (props) => {
 							return (
 								<div
 									key={tile.id}
-									className="col flex flex-col c-meettheteam__tile overflow-hidden group">
+									className="col-6 md:col flex flex-col c-meettheteam__tile overflow-hidden group">
 									<div className="flex-1 flex flex-col relative c-meettheteam__tile-inner">
 										<div className="u-embed__item">
 											<BaseImg

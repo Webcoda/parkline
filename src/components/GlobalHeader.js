@@ -153,12 +153,12 @@ const GlobalHeader = ({ item, menuLinks }) => {
 									</svg>
 								</Link>
 								<button
-									class="md:hidden hamburger hamburger--elastic"
+									className="md:hidden hamburger hamburger--elastic"
 									type="button"
 									onClick={handleClickHamburger}
 								>
-									<span class="hamburger-box">
-										<span class="hamburger-inner"></span>
+									<span className="hamburger-box">
+										<span className="hamburger-inner"></span>
 									</span>
 								</button>
 								<a
