@@ -12,6 +12,13 @@
 			height: 735px
 		}
 	}
+
+	&__bg {
+		@include mq(md) {
+			width: calc(110% + 20px);
+			margin-left: calc(-10% - 20px);
+		}
+	}
 }
 
 

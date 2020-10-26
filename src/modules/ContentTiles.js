@@ -50,7 +50,7 @@ export default props => (
 
 const ContentTiles = ({ contentTiles }) => {
 	return (
-		<CommonContainer className="mb-45 c-contenttiles">
+		<CommonContainer className="mb-20 md:mb-45 c-contenttiles">
 			<div className="row no-gutters">
 				{contentTiles?.sort(sortByItemOrderAsc).map((tile, index) => {
 					const { subtitle, text, title, icon } = tile.customFields
@@ -104,10 +104,10 @@ const ContentTiles = ({ contentTiles }) => {
 					return (
 						<div
 							key={tile.id}
-							className={`${bgAndTextColor} md:col-3 flex flex-col`}
+							className={`${bgAndTextColor} col-6 lg:col-3 flex flex-col`}
 						>
 							<div
-								className="flex flex-col relative group overflow-hidden"
+								className="flex-auto flex flex-col relative group overflow-hidden"
 								style={{ minHeight: 365 }}
 							>
 								<div className="flex-auto text-center px-12 py-13 relative">

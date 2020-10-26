@@ -1,5 +1,16 @@
 const plugin = require('tailwindcss/plugin')
 
+const toRem = (x, base=4) =>`${x/base}rem`
+
+
+const customSpacing = (spacingArray) => {
+	const spacing = {};
+	spacingArray.forEach(space => {
+		spacing[`${space}`] = toRem(space);
+	})
+	return spacing;
+}
+
 module.exports = {
 	target: [
 		'browserslist',
@@ -21,23 +32,36 @@ module.exports = {
 		},
 	},
 	theme: {
+		screens: {
+			sm: '768px',
+			md: '1024px',
+			lg: '1312px',
+		},
 		extend: {
 			spacing: {
-				'4.5': '1.125rem', //18px
-				'6.5': '1.625rem', //26px
-				'7.5': '1.875rem',
-				'9.5': '2.375rem',
-				'13.5': '3.375rem',
-				'16': '4rem',
-				'18': '4.5rem',
-				'22': '5.5rem',
-				'23': '5.75rem',
-				'26': '6.5rem',
-				'30': '7.5rem',
-				'32.5': '8.125rem',
-				'44': '11rem', //176px
-				'45': '11.25rem', //180px
-				'115': '28.75rem', //460px
+				...customSpacing([
+					4.5,
+					5.5,
+					6.5,
+					7.5,
+					9.5,
+					12,
+					12.5,
+					13.5,
+					15,
+					16,
+					18,
+					20,
+					22,
+					23,
+					26,
+					30,
+					32.5,
+					44,
+					45,
+					48,
+					115
+				]),
 				'1/10': '10%',
 				'7/10': '70%',
 			},
@@ -76,6 +100,9 @@ module.exports = {
 			minHeight: theme => ({
 				...theme('spacing'),
 			}),
+			maxWidth: theme => ({
+				...theme('spacing'),
+			})
 		},
 	},
 	variants: {
@@ -99,7 +126,7 @@ module.exports = {
 			'is-active',
 			'hocus',
 			'group-hocus',
-			'disabled'
+			'disabled',
 		],
 		padding: ['responsive', 'first', 'last'],
 		textColor: ['hover', 'focus', 'is-active', 'hocus', 'group-hocus'],
@@ -110,6 +137,7 @@ module.exports = {
 			'focus',
 			'is-active',
 			'group-active',
+			'group-hover',
 			'group-hocus',
 		],
 		margin: ['responsive', 'first', 'last'],
@@ -120,8 +148,8 @@ module.exports = {
 			gridGutterWidth: '20px', // >= sm
 			containerMaxWidths: {
 				sm: '768px',
-				md: '992px',
-				lg: '1200px',
+				md: '1024px',
+				lg: '1312px',
 			},
 		}),
 		require('tailwindcss-interaction-variants'),

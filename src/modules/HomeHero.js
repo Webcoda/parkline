@@ -62,7 +62,7 @@ const HomeHero = ({ item }) => {
 				</div>
 				<button
 					ref={scrollDownRef}
-					className="inline-flex items-center rounded-full u-horizontal-center w-7.5 h-7.5 bg-yellow bottom-0 -mb-4"
+					className="inline-flex items-center rounded-full u-horizontal-center w-7.5 h-7.5 bg-yellow hocus:bg-black hocus:text-yellow bottom-0 -mb-4 transition duration-300"
 					aria-label="Scroll to content"
 				>
 					<svg

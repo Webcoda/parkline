@@ -19,7 +19,9 @@
 	&__col{
 		&-media {
 			#{$_this}--withverticaloffset & {
-				top: -176px;
+				@include mq(md) {
+					top: -176px;
+				}
 			}
 
 			.c-imagewithlisttext--left & {

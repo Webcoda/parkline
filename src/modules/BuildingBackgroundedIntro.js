@@ -217,7 +217,9 @@ const BuildingBackgroundedIntro = ({ item }) => {
 										<BaseImg sources={mediaImgSources} />
 									)}
 								</div>
-								<div className={colTextClass}>
+								<div
+									className={`${colTextClass} c-buildingbackgroundedintro__smallsection-col-text`}
+								>
 									<h2 className="mb-7 c-buildingbackgroundedintro__smallsection-title">
 										{title}
 									</h2>

@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import BaseImg from '@/components/BaseImg'
 import CommonContainer from '@/components/CommonContainer'
 import Richtext from '@/components/Richtext'
+import SmallDivider from "@/components/SmallDivider";
 
 import './MediaSliderWithRevealList.scss'
 
@@ -31,7 +32,8 @@ const RevealList = ({ html, hasBackground }) => {
 				'right-0',
 				'group-hocus:opacity-100',
 				'transition',
-				'duration-500'
+				'duration-500',
+				'pl-5'
 			)
 		})
 		// all the child list item
@@ -41,7 +43,6 @@ const RevealList = ({ html, hasBackground }) => {
 		let tallestUlHeight = 0;
 		$el.querySelectorAll(`ul.child`).forEach(ul => {
 			tallestUlHeight = tallestUlHeight < ul.offsetHeight ? ul.offsetHeight : tallestUlHeight
-			ul.classList.add('pr-6')
 		})
 
 		// the first parent li
@@ -49,13 +50,13 @@ const RevealList = ({ html, hasBackground }) => {
 			li.classList.add('flex', 'group', 'cursor-pointer',  'py-3', 'first:pt-0', 'last:pb-0');
 			li.innerHTML = li.innerHTML.replace(
 				li.firstChild.textContent,
-				`<div class="flex-1 space-x-6 text-inherit group-hocus:text-text transition duration-500">
-					<div class="w-7.5 h-7.5 inline-flex items-center align-middle bg-grey-light group-hocus:bg-grey-dark text-grey-dark group-hocus:text-yellow transition duration-500">
+				`<div class="flex-1 max-w-1/2 flex space-x-6 text-inherit group-hocus:text-text transition duration-500">
+					<div class="w-7.5 h-7.5 flex-shrink-0 inline-flex items-center align-middle bg-grey-light group-hocus:bg-grey-dark text-grey-dark group-hocus:text-yellow transition duration-500">
 						<svg class="text-inherit" width="30" height="30" aria-hidden="true" focusable="false" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path stroke="currentColor" d="M15.499 7.105v15.79M7.105 14.5h15.79"/>
 						</svg>
 					</div>
-					<span class="align-middle">${li.firstChild.textContent}</span>
+					<span class="flex-1 align-middle">${li.firstChild.textContent}</span>
 				</div>`
 			)
 		})
@@ -84,15 +85,11 @@ const MediaSliderWithRevealList = ({ item }) => {
 	const hasMoreThanOneSlide = media.length > 1
 
 	return (
-		<div className="mb-30 last:mb-0 c-mediasliderwithreveallist">
+		<div className="mb-22 md:mb-30 last:mb-0 c-mediasliderwithreveallist">
 			<CommonContainer>
 				<div className="py-11 relative">
 					<div
-						className={`u-embed__item bg-${backgroundColor}`}
-						style={{
-							width: 'calc(110% + 20px)',
-							marginLeft: `calc(-10% - 20px)`,
-						}}
+						className={`absolute inset-0 h-full bg-${backgroundColor} -mx-5 md:mx-0 c-mediasliderwithreveallist__bg`}
 					></div>
 					<div className="relative">
 						<div className="mb-23 c-mediasliderwithreveallist__slider">
@@ -154,11 +151,14 @@ const MediaSliderWithRevealList = ({ item }) => {
 							</Swiper>
 						</div>
 						<div className="row">
-							<div className="col w-4/10">
-								<h2 className="mb-7">{title}</h2>
-								<Richtext html={intro}></Richtext>
+							<div className="relative px-2.5 w-full lg:w-2/5">
+								<div className="pr-6">
+									<h2 className="mb-7">{title}</h2>
+									<Richtext html={intro}></Richtext>
+									<SmallDivider className="my-15"/>
+								</div>
 							</div>
-							<div className="col w-6/10">
+							<div className="relative px-2.5 w-full lg:w-3/5">
 								<RevealList
 									html={revealList}
 									hasBackground={

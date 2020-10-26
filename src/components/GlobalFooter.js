@@ -5,6 +5,8 @@ import Link from '@/components/Link';
 import FooterSubscribeForm from '@/components/FooterSubscribeForm';
 import { sortByItemOrderAsc } from '@/utils/sortByItemOrder'
 
+import './GlobalFooter.scss'
+
 export default props => (
 	<StaticQuery
 		query={graphql`
@@ -102,6 +104,23 @@ const GlobalFooter = ({ footer }) => {
 		import ('@/utils/lazysizes')
 	}, [])
 
+	const renderFooterBottomLogos = () => {
+		return footer.footerBottomLogos.sort(sortByItemOrderAsc).map(bottomLogo => {
+			const { url, image } = bottomLogo.customFields
+			return (
+				<Link
+					key={bottomLogo.id}
+					className="text-inherit hocus:text-inherit"
+					to={url.href}
+					target={url.target}
+					aria-label={url.text}
+				>
+					<img className="js-lazysizes" data-src={image.url} />
+				</Link>
+			)
+		})
+	}
+
 	return (
 		<footer
 			className="bg-grey-light u-bgimg border-t-5 border-yellow js-lazysizes"
@@ -109,8 +128,8 @@ const GlobalFooter = ({ footer }) => {
 		>
 			<div className="container-fluid flex pt-12 pb-14">
 				<div className="row w-full">
-					<div className="md:offset-1 col-3">
-						<Link to="/" className="logo-link">
+					<div className="col-12 md:offset-1 md:col-3">
+						<Link to="/" className="c-footer__logo">
 							<img
 								alt="Logo"
 								src={footer.customFields.footerLogo.url}
@@ -118,7 +137,7 @@ const GlobalFooter = ({ footer }) => {
 							/>
 						</Link>
 					</div>
-					<div className="col-5">
+					<div className="col-12 md:col-5 mt-9 md:mt-0">
 						<div className="row">
 							{footer.footerMainLinks
 								?.sort(sortByItemOrderAsc)
@@ -139,7 +158,7 @@ const GlobalFooter = ({ footer }) => {
 												return (
 													<div
 														key={linkItem.id}
-														className="col"
+														className="col-6 md:col"
 													>
 														<div className="font-bold mb-2">
 															<Link
@@ -208,7 +227,7 @@ const GlobalFooter = ({ footer }) => {
 										)}
 									</Fragment>
 								))}
-							<div className="col">
+							<div className="col-12 md:col mt-12 md:mt-0">
 								{!!footer.customFields.contactTitle && (
 									<div className="b-fsregular font-bold mb-4">
 										{footer.customFields.contactTitle}
@@ -228,7 +247,7 @@ const GlobalFooter = ({ footer }) => {
 							</div>
 						</div>
 					</div>
-					<div className="col-2">
+					<div className="col-12 md:col-2 mt-12 md:mt-0">
 						<FooterSubscribeForm
 							title={footer.customFields.subscribeFormTitle}
 							info={footer.customFields.subscribeFormInfo}
@@ -238,53 +257,46 @@ const GlobalFooter = ({ footer }) => {
 				</div>
 			</div>
 			<div
-				className="py-3 text-white b-fstiny"
+				className="pt-7 pb-6 md:py-3 text-white b-fstiny"
 				style={{ backgroundColor: `rgba(0,0,0,.75)` }}
 			>
 				<div className="container-fluid">
 					<div className="row w-full items-center">
-						<div className="md:offset-1 col-3">
+						<div className="md:hidden col-12 space-x-4">
+							{renderFooterBottomLogos()}
+						</div>
+						<div className="hidden md:block md:offset-1 col-3 mt-10 md:mt-0">
 							&copy; {new Date().getFullYear()} Investa. All
 							rights reserved.
 						</div>
-						<div className="col-5 space-x-6">
-							{footer.footerBottomLinks.map(bottomLink => {
+						<div className="col-12 md:col-5 space-x-6 flex justify-between md:justify-start mt-10 md:mt-0">
+							{footer.footerBottomLinks.sort(sortByItemOrderAsc).map((bottomLink, index) => {
 								const { link } = bottomLink.customFields
 								return (
-									<Link
-										key={bottomLink.id}
-										className="text-inherit hocus:text-inherit"
-										to={link.href}
-										target={link.target}
-									>
-										{link.text}
-									</Link>
+									<>
+										{
+											index === footer.footerBottomLinks.length - 1 && (
+												<div className="flex-1 text-center md:hidden">
+													&copy;{' '}
+													{new Date().getFullYear()}{' '}
+													Investa. All rights reserved.
+												</div>
+											)
+										}
+										<Link
+											key={bottomLink.id}
+											className="flex-shrink-0 text-inherit hocus:text-inherit"
+											to={link.href}
+											target={link.target}
+										>
+											{link.text}
+										</Link>
+									</>
 								)
 							})}
 						</div>
-						<div className="col-3 space-x-4">
-							{footer.footerBottomLogos
-								.sort(sortByItemOrderAsc)
-								.map(bottomLogo => {
-									const {
-										url,
-										image,
-									} = bottomLogo.customFields
-									return (
-										<Link
-											key={bottomLogo.id}
-											className="text-inherit hocus:text-inherit"
-											to={url.href}
-											target={url.target}
-											aria-label={url.text}
-										>
-											<img
-												className="js-lazysizes"
-												data-src={image.url}
-											/>
-										</Link>
-									)
-								})}
+						<div className="hidden md:block md:col-3 space-x-4">
+							{renderFooterBottomLogos()}
 						</div>
 					</div>
 				</div>

@@ -5,7 +5,7 @@ import toBool from '@/utils/convertBoolStrToBool'
 import './ContentHero.scss'
 
 const TwoBar = () => (
-	<svg width="39" height="147" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<svg className="c-contenthero__twobar" width="39" height="147" fill="none" xmlns="http://www.w3.org/2000/svg">
 		<path fillRule="evenodd" d="M22.415 146.333H39V.003L22.415.002v146.331z" fill="#FFC300"/>
 		<path fillRule="evenodd" clipRule="evenodd" d="M0 146.333h16.585V.001L0 0v146.333z" fill="#FFC300"/>
 	</svg>
@@ -55,21 +55,20 @@ const ContentHero = ({ item }) => {
 					</div>
 				)}
 
-				<div
-					className="relative container-fluid flex-auto flex flex-col justify-end"
-					style={{ paddingBottom: 192 }}
-				>
+				<div className="relative container-fluid flex-auto flex flex-col justify-end pb-20 md:pb-48">
 					<div className="row justify-center">
 						<div className="md:col-10">
 							<div className="row">
-								<div className="relative px-2.5 w-7/10">
+								<div className="relative px-2.5 md:w-7/10">
 									<h1
 										className={`mb-11 ${
 											toBool(isTitleBig)
 												? 'c-contenthero__title--big'
 												: ''
 										} ${
-											toBool(isTitleYellow) ? 'text-yellow' : ''
+											toBool(isTitleYellow)
+												? 'text-yellow'
+												: ''
 										}`}
 									>
 										{title}
@@ -79,7 +78,10 @@ const ContentHero = ({ item }) => {
 							{!!text && (
 								<div className="row">
 									<div className="col md:ml-1/10">
-										<div style={{ maxWidth: 492 }}>
+										<div
+											className="pl-5"
+											style={{ maxWidth: 492 }}
+										>
 											<Richtext
 												className="lead"
 												html={text}
@@ -93,12 +95,11 @@ const ContentHero = ({ item }) => {
 				</div>
 			</div>
 			<div
-				className="container-fluid"
-				style={{
-					marginTop: toBool(isUseYellowHorizontalBar)
+				className={`container-fluid c-contenthero__bottom-container ${
+					isUseYellowHorizontalBar
 						? ''
-						: `calc(-147px / 2)`,
-				}}
+						: 'is-use-two-bar'
+				}`}
 			>
 				<div className="row">
 					{toBool(isUseYellowHorizontalBar) ? (
@@ -109,7 +110,9 @@ const ContentHero = ({ item }) => {
 						<>
 							{twoLinesPosition === 'left' ? (
 								<div className="col md:offset-2">
-									<TwoBar />
+									<div className="pl-5 md:pl-0">
+										<TwoBar />
+									</div>
 								</div>
 							) : (
 								<div className="md:offset-10 col-2 text-center">

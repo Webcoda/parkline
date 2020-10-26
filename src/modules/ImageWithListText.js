@@ -52,13 +52,13 @@ const ImageWithListText = ({ item }) => {
 					<div
 						className={`flex flex-col c-imagewithlisttext__col-text ${
 							isMediaPositionLeft
-								? 'md:offset-1 col-4 mr-1/12'
-								: 'md:offset-1 col-4 mr-1/12'
+								? 'md:offset-1 md:col-4 md:mr-1/12'
+								: 'md:offset-1 md:col-4 md:mr-1/12'
 						} `}
 					>
 						<div
 							className={`${
-								toBool(isUseImageVerticalOffset) ? 'pb-23' : ''
+								toBool(isUseImageVerticalOffset) ? 'md:pb-23' : ''
 							}`}
 						>
 							<h2 className="mb-7">{title}</h2>
@@ -78,7 +78,7 @@ const ImageWithListText = ({ item }) => {
 						</div>
 					</div>
 					<div
-						className={`flex flex-col c-imagewithlisttext__col-media ${
+						className={`flex flex-col mt-12.5 md:mt-0 c-imagewithlisttext__col-media ${
 							isMediaPositionLeft
 								? `${
 										hasMoreThanOneMedia ||

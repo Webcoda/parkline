@@ -41,9 +41,9 @@ const ArticleFeatured = ({ article }) => {
 	]
 
 	return (
-		<div className="container-fluid relative">
-			<div className="row">
-				<div className="flex flex-col c-article-featured__col-media md:offset-1 md:col-5">
+		<div className="container-fluid relative overflow-hidden">
+			<div className="row -mt-12">
+				<div className="mt-12 flex flex-col c-article-featured__col-media md:offset-1 md:col-5">
 					<div className="relative flex-1 flex c-article-featured__col-media-inner flex-row-reverse">
 						<div className="absolute top-0 bottom-0 right-full w-screen bg-yellow"></div>
 						<div className="flex-auto relative">
@@ -53,8 +53,8 @@ const ArticleFeatured = ({ article }) => {
 						</div>
 					</div>
 				</div>
-				<div className="md:col-5" style={{ position: 'static' }}>
-					<div className="pl-13">
+				<div className="mt-12 md:col-5" style={{ position: 'static' }}>
+					<div className="md:pl-13">
 						<div className="mb-2 font-normal text-black c-article-tile__meta">
 							{
 								(linkedContent_articleType || articleType)

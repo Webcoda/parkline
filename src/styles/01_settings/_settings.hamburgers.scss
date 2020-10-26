@@ -2,12 +2,12 @@
 // ==================================================
 $hamburger-padding-x                       : 0;
 $hamburger-padding-y                       : 0;
-$hamburger-layer-width                     : 32px;
-$hamburger-layer-height                    : 2px;
-$hamburger-layer-spacing                   : 7px;
-$hamburger-layer-color                     : #fff;
+$hamburger-layer-width                     : 36px;
+$hamburger-layer-height                    : 4px;
+$hamburger-layer-spacing                   : 2px;
+$hamburger-layer-color                     : #000;
 $hamburger-layer-border-radius             : 0;
-$hamburger-hover-opacity                   : 0.7;
+$hamburger-hover-opacity                   : 1;
 $hamburger-hover-transition-duration       : 0.15s;
 $hamburger-hover-transition-timing-function: linear;
 
@@ -31,7 +31,7 @@ $hamburger-types: (
 	// boring,
 	// collapse,
 	// collapse-r,
-	// elastic,
+	elastic,
 	// elastic-r,
 	// emphatic,
 	// emphatic-r,
@@ -44,6 +44,6 @@ $hamburger-types: (
 	// spin,
 	// spin-r,
 	// squeeze,
-	vortex,
+	// vortex,
 	// vortex-r
 );

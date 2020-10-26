@@ -1,8 +1,11 @@
-import React, { Component } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { graphql, StaticQuery } from "gatsby"
+import Headroom from 'headroom.js'
 
 import Link from '@/components/Link'
 import CommonContainer from '@/components/CommonContainer';
+
+import './GlobalHeader.scss'
 
 export default props => (
 	<StaticQuery
@@ -59,46 +62,108 @@ export default props => (
 	/>
 )
 
-class GlobalHeader extends Component {
-	renderLinks = () => {
-		return this.props.menuLinks
+const GlobalHeader = ({ item, menuLinks }) => {
+	const headerRef = useRef(null)
+
+	const renderLinks = () => {
+		return menuLinks
 			.filter(node => node.path !== '/' && node.path !== '/home')
 			.map(node => (
-				<div className="flex-auto -mb-2" key={node.pageID}>
+				<div className="flex-auto md:-mb-2 c-header__menu-item" key={node.pageID}>
 					<Link
 						to={node.path}
-						className="inline-flex flex-col text-inherit hocus:text-inherit hover:no-underline px-7 pb-4 b-fsnav group relative overflow-hidden"
+						className="inline-flex flex-col text-inherit hocus:text-inherit hover:no-underline px-7 md:pb-4 b-fsnav group relative overflow-hidden c-header__menu-link"
 						activeClassName="active"
 					>
 						{node.menuText}
-						<div className="-translate-x-full bg-yellow transition duration-300 absolute left-0 h-1 bottom-0 w-full group-active:translate-x-0 hover:translate-x-0"></div>
+						<div className="hidden md:block -translate-x-full bg-yellow transition duration-300 absolute left-0 h-1 bottom-0 w-full group-active:translate-x-0 group-hover:translate-x-0"></div>
 					</Link>
 				</div>
 			))
 	}
-	render() {
-		const { item } = this.props;
-		return (
-			<header>
-				<div className="bg-yellow text-text">
+
+	useEffect(() => {
+		const $header = headerRef.current;
+		const headroom = new Headroom($header, {
+			classes: {
+				pinned: 'is-pinned',
+				unpinned: 'is-unpinned',
+				top: 'is-top',
+				bottom: 'is-bottom',
+				notTop: 'is-not-top',
+				notBottom: 'is-not-bottom',
+			},
+			offset: 135,
+			onTop() {
+				$header.classList.remove('has-transition')
+			},
+			onNotTop() {
+				setTimeout(() => {
+					if (!$header.classList.contains('has-transition')) {
+						$header.classList.add('has-transition')
+					}
+				}, 0)
+			},
+		})
+		headroom.init()
+	}, [])
+
+	const handleClickHamburger = (ev) => {
+		const { currentTarget } = ev;
+		currentTarget.classList.toggle('is-active')
+		const $html = document.querySelector('html');
+		if($html) {
+			$html.classList.toggle('is-menu-active');
+		}
+	}
+
+	return (
+		<header className="c-header" ref={headerRef}>
+			<div className="fixed top-0 left-0 w-full z-10">
+				<div className="relative z-10 bg-yellow text-text">
 					<div className="container-fluid">
 						<div className="row">
-							<div className="col md:offset-1 flex items-center justify-between">
+							<div className="col md:offset-1 py-4 flex items-center justify-between">
 								<Link
 									to="/"
-									className="logo-link"
-									title={
-										item.customFields.siteName
-									}
+									className="relative"
+									title={item.customFields.siteName}
 								>
 									<img
 										alt="Logo"
 										src={item.customFields.logo.url}
+										className="c-header__logo-main transition duration-300"
 									/>
+									<svg
+										width="32"
+										height="39"
+										viewBox="0 0 32 39"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+										className="absolute top-0 left-0 opacity-0 c-header__logo-notontop transition duration-300"
+										aria-hidden="true"
+										focusable="false"
+									>
+										<path
+											fillRule="evenodd"
+											clipRule="evenodd"
+											d="M31.6509 14.1053C31.6509 6.32795 25.2686 0 17.4238 0H11.6971V4.39302H17.4238C22.8249 4.39302 27.2197 8.75006 27.2197 14.1053C27.2197 19.4605 22.8249 23.8175 17.4238 23.8175H11.6971V28.2106H17.4238C25.2686 28.2106 31.6509 21.8832 31.6509 14.1053ZM6.19256 38.7609H10.3209V0.000553735L6.19256 0V38.7609ZM0 38.7609H4.12838V0.000553727L0 0V38.7609ZM17.4277 6.19345L11.6971 6.19291V22.2477L17.4277 22.2472C21.8585 22.2085 25.4583 18.6073 25.4583 14.2203C25.4583 9.83332 21.8585 6.23209 17.4277 6.19345Z"
+											fill="black"
+										/>
+									</svg>
 								</Link>
+								<button
+									class="md:hidden hamburger hamburger--elastic"
+									type="button"
+									onClick={handleClickHamburger}
+								>
+									<span class="hamburger-box">
+										<span class="hamburger-inner"></span>
+									</span>
+								</button>
 								<a
 									href="tel:1300 123 456"
-									className="inline-flex items-center space-x-4 b-fsregular text-inherit hocus:text-inherit"
+									className="hidden md:inline-flex items-center space-x-4 b-fsregular text-inherit hocus:text-inherit"
 								>
 									<svg
 										width="31"
@@ -122,47 +187,49 @@ class GlobalHeader extends Component {
 									<span>1300 123 456</span>
 								</a>
 							</div>
-							{
-								!!item.customFields.contactLink?.href && (
-									<div className="col-auto text-white">
-										<Link
-											to={item.customFields.contactLink.href}
-											target={item.customFields.contactLink.target}
-											className="inline-flex items-center space-x-4 bg-black text-inherit hocus:no-underline hocus:text-black hocus:bg-grey-light py-6 px-13.5 -mr-2.5 font-medium transition duration-300"
+							{!!item.customFields.contactLink?.href && (
+								<div className="hidden md:block col-auto text-white">
+									<Link
+										to={item.customFields.contactLink.href}
+										target={
+											item.customFields.contactLink.target
+										}
+										className="inline-flex items-center space-x-4 bg-black text-inherit hocus:no-underline hocus:text-black hocus:bg-grey-light py-6 px-13.5 -mr-2.5 font-medium transition duration-300"
+									>
+										<svg
+											width="36"
+											height="26"
+											fill="none"
+											xmlns="http://www.w3.org/2000/svg"
 										>
-											<svg
-												width="36"
-												height="26"
-												fill="none"
-												xmlns="http://www.w3.org/2000/svg"
-											>
-												<path
-													clipRule="evenodd"
-													d="M35.06 23.452c0 .855-.693 1.548-1.548 1.548H2.549A1.549 1.549 0 011 23.452V2.549C1 1.693 1.694 1 2.549 1h30.963c.855 0 1.548.693 1.548 1.549v20.903z"
-													stroke="currentColor"
-												/>
-												<path
-													d="M33.092 3.675a.5.5 0 00-.707-.707l.707.707zM21.862 14.2l-.354-.353.354.353zm-7.663 0l.353-.353-.353.353zM4.449 3.742a.5.5 0 00-.707.707l.707-.707zM3.742 21.55a.5.5 0 10.707.707l-.707-.707zm7.674-6.261a.5.5 0 00-.707-.707l.707.707zm20.195 6.968a.5.5 0 00.707-.707l-.707.707zm-6.26-7.675a.5.5 0 00-.707.707l.707-.707zm7.034-11.615L21.508 13.847l.707.707 10.877-10.88-.707-.706zM21.508 13.847a4.917 4.917 0 01-6.956 0l-.707.707a5.917 5.917 0 008.37 0l-.707-.707zm-6.956 0L4.45 3.742l-.707.707 10.103 10.105.707-.707zM4.45 22.257l6.967-6.967-.707-.707-6.967 6.968.707.707zm27.87-.706l-6.968-6.968-.707.707 6.967 6.968.707-.707z"
-													fill="currentColor"
-												/>
-											</svg>
-											<span>{item.customFields.contactLink.text}</span>
-										</Link>
-									</div>
-								)
-							}
+											<path
+												clipRule="evenodd"
+												d="M35.06 23.452c0 .855-.693 1.548-1.548 1.548H2.549A1.549 1.549 0 011 23.452V2.549C1 1.693 1.694 1 2.549 1h30.963c.855 0 1.548.693 1.548 1.549v20.903z"
+												stroke="currentColor"
+											/>
+											<path
+												d="M33.092 3.675a.5.5 0 00-.707-.707l.707.707zM21.862 14.2l-.354-.353.354.353zm-7.663 0l.353-.353-.353.353zM4.449 3.742a.5.5 0 00-.707.707l.707-.707zM3.742 21.55a.5.5 0 10.707.707l-.707-.707zm7.674-6.261a.5.5 0 00-.707-.707l.707.707zm20.195 6.968a.5.5 0 00.707-.707l-.707.707zm-6.26-7.675a.5.5 0 00-.707.707l.707-.707zm7.034-11.615L21.508 13.847l.707.707 10.877-10.88-.707-.706zM21.508 13.847a4.917 4.917 0 01-6.956 0l-.707.707a5.917 5.917 0 008.37 0l-.707-.707zm-6.956 0L4.45 3.742l-.707.707 10.103 10.105.707-.707zM4.45 22.257l6.967-6.967-.707-.707-6.967 6.968.707.707zm27.87-.706l-6.968-6.968-.707.707 6.967 6.968.707-.707z"
+												fill="currentColor"
+											/>
+										</svg>
+										<span>
+											{item.customFields.contactLink.text}
+										</span>
+									</Link>
+								</div>
+							)}
 						</div>
 					</div>
 				</div>
-				<div className="relative">
-					<div className="border-b-4 absolute bottom-0 inset-x-0 bg-grey-light"></div>
-					<CommonContainer className="pt-4 pb-2 relative">
-						<nav className="flex -ml-7 ">{this.renderLinks()}</nav>
+				<div className="absolute left-0 w-full md:relative bg-white c-header__menu -translate-y-full md:translate-y-0 transition duration-300">
+					<div className="hidden md:block border-b-4 absolute bottom-0 inset-x-0 bg-grey-light"></div>
+					<CommonContainer className="pt-6 pb-7.5 md:pt-4 md:pb-2 relative">
+						<nav className="md:flex text-center md:text-left md:-ml-7 space-y-5.5 md:space-y-0">{renderLinks()}</nav>
 					</CommonContainer>
 				</div>
-			</header>
-		)
-	}
+			</div>
+		</header>
+	)
 }
 
 

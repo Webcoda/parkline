@@ -1,8 +1,26 @@
 .c-contenthero {
 	&__title {
 		&--big {
-			@include fzlh(105.51px, 100.72px);
-			letter-spacing: -2.4px;
+			@include fzlh(60px, 60px);
+			@include mq(md) {
+				@include fzlh(105.51px, 100.72px);
+				letter-spacing: -2.4px;
+			}
+		}
+	}
+
+	&__twobar {
+		@include mq-down(sm)	{
+			max-height: 110px;
+		}
+	}
+
+	&__bottom-container {
+		&.is-use-two-bar {
+			margin-top: calc(-110px / 2);
+			@include mq(md) {
+				margin-top: calc(-147px / 2);
+			}
 		}
 	}
 }

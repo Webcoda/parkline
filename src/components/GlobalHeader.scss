@@ -1,0 +1,52 @@
+.c-header {
+	height: 71px;
+	@include mq(md) {
+		height: 135px;
+	}
+
+
+	&__menu {
+		.is-not-top & {
+			transform: translateY(-100%);
+		}
+
+
+		.is-not-top.is-pinned & {
+			@include mq(md) {
+				transform: none;
+			}
+		}
+
+		.is-menu-active.is-menu-active & {
+			@include mq-down(sm) {
+				transform: none;
+			}
+		}
+
+		&-link {
+			@include mq-down(sm) {
+				@include fzlh(26.41px, 31.69px);
+				letter-spacing: .25px;
+			}
+		}
+	}
+
+	&__logo-main {
+		.is-not-top & {
+			opacity: 0;
+		}
+	}
+	&__logo-notontop {
+		.is-not-top & {
+			opacity: 1;
+		}
+	}
+}
+
+.hamburger-inner {
+	&:before {
+		.c-header & {
+			opacity: 0;
+		}
+	}
+}

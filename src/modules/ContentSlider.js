@@ -34,13 +34,13 @@ export default ({ item }) => {
 			<CommonContainer>
 				<div
 					className={`bg-${backgroundColor} c-contentslider__top text-center ${
-						item.customFields.title ? 'pt-23' : ''
+						item.customFields.title ? 'px-9 pt-9 md:pt-23' : ''
 					}`}
 				>
 					{!!item.customFields.title && (
 						<>
 							<h2>{item.customFields.title}</h2>
-							<SmallDivider className="my-11" />
+							<SmallDivider className="mt-7.5 mb-9.5 md:my-11" />
 						</>
 					)}
 				</div>

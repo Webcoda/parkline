@@ -10,11 +10,11 @@ const HomeIntro = ({ item }) => {
 	return (
 		<section className="c-homeintro my-30 last:mb-0">
 			<CommonContainer>
-				<div className="w-7/10">
+				<div className="md:w-7/10">
 					<h2 className="h1 text-yellow mb-11">
 						{title}
 					</h2>
-					<div className="ml-1/10">
+					<div className="md:ml-1/10">
 						<Richtext html={text} />
 						<SmallDivider className="my-11 block" />
 

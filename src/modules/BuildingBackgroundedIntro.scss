@@ -14,10 +14,10 @@
 				}
 
 				#{$_this}__bigsection-row:first-child & {
-					margin-top: -900px;
+					margin-top: -16%;
 				}
 				#{$_this}__bigsection-row:nth-child(2) & {
-					margin-bottom: -90px;
+					margin-bottom: -5%;
 				}
 			}
 		}
@@ -27,12 +27,15 @@
 	&__smallsection {
 		&-row {
 			&:first-child {
-				margin-top: -90px;
+				margin-top: -5%;
 			}
 		}
 
 		&-col {
-			&-media {
+			&-text {
+				#{$_this}__smallsection-row:first-child & {
+					padding-top: 20%;
+				}
 			}
 		}
 

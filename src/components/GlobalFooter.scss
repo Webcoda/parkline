@@ -1,0 +1,7 @@
+.c-footer {
+	&__logo {
+		@include mq-down(sm) {
+			max-width: 114px;
+		}
+	}
+}

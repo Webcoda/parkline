@@ -51,31 +51,33 @@ const ContactOurTeam = ({ item, teamDetails }) => {
 			{!!title && <h1 className="h2 mb-11">{title}</h1>}
 			{!!teamDetails &&
 				!!teamDetails.length && (
-					<div className="row">
-						{teamDetails.map(teamDetail => {
-							const { name, details } = teamDetail.customFields
-							return (
-								<div
-									key={teamDetail.id}
-									className="md:col-3 font-normal"
-								>
-									{
-										!!name && (
-											<h2 className="mb-3 normal-case c-contactourteam__teamdetails-name">
-												{ name }
-											</h2>
-										)
-									}
-									{
-										!!details && (
-											<Richtext
-												html={details}
-											/>
-										)
-									}
-								</div>
-							)
-						})}
+					<div className="overflow-hidden">
+						<div className="row -mt-12">
+							{teamDetails.map(teamDetail => {
+								const { name, details } = teamDetail.customFields
+								return (
+									<div
+										key={teamDetail.id}
+										className="md:col-3 mt-12 font-normal"
+									>
+										{
+											!!name && (
+												<h2 className="mb-3 normal-case c-contactourteam__teamdetails-name">
+													{ name }
+												</h2>
+											)
+										}
+										{
+											!!details && (
+												<Richtext
+													html={details}
+												/>
+											)
+										}
+									</div>
+								)
+							})}
+						</div>
 					</div>
 				)}
 		</CommonContainer>
