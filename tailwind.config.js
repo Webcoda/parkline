@@ -28,7 +28,7 @@ module.exports = {
 		content: ['./src/**/*.js'],
 		options: {
 			rejected: true,
-			whitelistPatterns: [/swiper-/],
+			whitelistPatterns: [/swiper-/, /aos/],
 		},
 	},
 	theme: {

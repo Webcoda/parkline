@@ -8,7 +8,6 @@
 
 import '@/styles/app.scss'
 import '@/utils/lazysizes'
-import 'aos/src/sass/aos.scss'
 
 import AOS from 'aos';
 
