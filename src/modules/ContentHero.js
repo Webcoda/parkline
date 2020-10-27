@@ -70,6 +70,7 @@ const ContentHero = ({ item }) => {
 												? 'text-yellow'
 												: ''
 										}`}
+										data-aos="fade-up"
 									>
 										{title}
 									</h1>
@@ -81,6 +82,8 @@ const ContentHero = ({ item }) => {
 										<div
 											className="pl-5"
 											style={{ maxWidth: 492 }}
+											data-aos="fade-up"
+											data-aos-delay="500"
 										>
 											<Richtext
 												className="lead"
@@ -96,9 +99,7 @@ const ContentHero = ({ item }) => {
 			</div>
 			<div
 				className={`container-fluid c-contenthero__bottom-container ${
-					isUseYellowHorizontalBar
-						? ''
-						: 'is-use-two-bar'
+					isUseYellowHorizontalBar ? '' : 'is-use-two-bar'
 				}`}
 			>
 				<div className="row">

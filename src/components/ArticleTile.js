@@ -41,7 +41,7 @@ const ArticleTile = ({ article, className }) => {
 
 	return (
 		<div className={`relative c-article-tile ${className}`}>
-			<div className="relative mb-12">
+			<div className="relative mb-12" data-aos="fade-up">
 				<div className="relative c-article-tile__media">
 					<div className="u-embed__item">
 						{!!mediaUrl && <BaseImg sources={mediaImgSources} />}
@@ -49,34 +49,45 @@ const ArticleTile = ({ article, className }) => {
 				</div>
 				<div className="h-2.5 bg-yellow"></div>
 			</div>
-			<div className="mb-2 font-normal text-black c-article-tile__meta">
-				{(linkedContent_articleType || articleType)?.customFields.title}{' '}
+			<div
+				className="mb-2 font-normal text-black c-article-tile__meta"
+				data-aos="fade-up"
+			>
+				{(linkedContent_articleType || articleType)?.customFields?.title}{' '}
 				| {formatDate(new Date(date), 'd MMM yyyy')}
 			</div>
-			<h3 className="mb-2.5 normal-case text-black c-article-tile__title">
-				<Link
-					to={`/updates/${slug}`}
-					className="text-inherit u-link-cover hocus:text-inherit"
-				>
-					{title}
-				</Link>
-			</h3>
-			<Richtext className="mb-5 font-normal c-article-tile__text" html={teaserText} />
-			<svg
-				width="31"
-				height="32"
-				fill="none"
-				xmlns="http://www.w3.org/2000/svg"
-				aria-hidden="true"
-				focusable="false"
-				className="c-article-tile__arrow"
+			<h3
+				className="mb-2.5 normal-case text-black c-article-tile__title"
+				data-aos="fade-up"
 			>
-				<path
-					d="M15.669 1l14.154 14.969L15.67 30.937M29.787 15.969H1"
-					stroke="currentColor"
-					strokeLinecap="round"
-				/>
-			</svg>
+				{title}
+			</h3>
+			<Richtext
+				className="mb-5 font-normal c-article-tile__text"
+				html={teaserText}
+				data-aos="fade-up"
+			/>
+			<Link
+				to={`/updates/${slug}`}
+				className="text-inherit u-link-cover hocus:text-inherit hocus:no-underline"
+			>
+				<svg
+					width="31"
+					height="32"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg"
+					aria-hidden="true"
+					focusable="false"
+					className="c-article-tile__arrow"
+					data-aos="fade-up"
+				>
+					<path
+						d="M15.669 1l14.154 14.969L15.67 30.937M29.787 15.969H1"
+						stroke="currentColor"
+						strokeLinecap="round"
+					/>
+				</svg>
+			</Link>
 		</div>
 	)
 }

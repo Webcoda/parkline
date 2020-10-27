@@ -5,19 +5,29 @@
 	margin-bottom: 180px;
 
 	&__bigsection {
-		padding-top: 155px;
+		@include mq-down(sm) {
+			padding-bottom: 20%;
+		}
+		@include mq(md) {
+			padding-top: 155px;
+		}
 
 		&-col {
 			&-media {
 				.is-media-left & {
-					padding-left: 0;
+					margin-left: -20px;
+					@include mq(md) {
+						margin-left: -10px;
+					}
 				}
 
 				#{$_this}__bigsection-row:first-child & {
 					margin-top: -16%;
 				}
 				#{$_this}__bigsection-row:nth-child(2) & {
-					margin-bottom: -5%;
+					@include mq(md) {
+						margin-bottom: -5%;
+					}
 				}
 			}
 		}
@@ -27,14 +37,19 @@
 	&__smallsection {
 		&-row {
 			&:first-child {
-				margin-top: -5%;
+				margin-top: -11%;
+				@include mq(md) {
+					margin-top: -5%;
+				}
 			}
 		}
 
 		&-col {
 			&-text {
 				#{$_this}__smallsection-row:first-child & {
-					padding-top: 20%;
+					@include mq(md) {
+						padding-top: 20%;
+					}
 				}
 			}
 		}

@@ -273,7 +273,7 @@ const GlobalFooter = ({ footer }) => {
 							{footer.footerBottomLinks.sort(sortByItemOrderAsc).map((bottomLink, index) => {
 								const { link } = bottomLink.customFields
 								return (
-									<>
+									<Fragment key={bottomLink.id}>
 										{
 											index === footer.footerBottomLinks.length - 1 && (
 												<div className="flex-1 text-center md:hidden">
@@ -284,14 +284,13 @@ const GlobalFooter = ({ footer }) => {
 											)
 										}
 										<Link
-											key={bottomLink.id}
 											className="flex-shrink-0 text-inherit hocus:text-inherit"
 											to={link.href}
 											target={link.target}
 										>
 											{link.text}
 										</Link>
-									</>
+									</Fragment>
 								)
 							})}
 						</div>

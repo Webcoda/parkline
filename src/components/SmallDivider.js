@@ -1,10 +1,12 @@
 import React from 'react';
 
 const SmallDivider = ({
-	className=''
+	className='',
+	...props
 }) => {
 	return (
 		<svg
+			{...props}
 			aria-hidden="true"
 			focusable="false"
 			className={className}

@@ -82,13 +82,15 @@ const ContactForm = ({ item }) => {
 
 	return (
 		<form action={endpoint} onSubmit={onFormSubmit}>
-			<h1 className="h2 mb-18">{title}</h1>
+			<h1 className="h2 mb-18" data-aos="fade-up">
+				{title}
+			</h1>
 
-			<div style={{ maxWidth: 404 }} className="mb-11">
+			<div style={{ maxWidth: 404 }} className="mb-11" data-aos="fade-up">
 				<Richtext className="font-normal" html={intro} />
 			</div>
 
-			<div className="space-y-2.5 mb-11">
+			<div className="space-y-2.5 mb-11" data-aos="fade-up">
 				<InputBlock
 					label="Email address"
 					inputProps={{
@@ -119,12 +121,11 @@ const ContactForm = ({ item }) => {
 			<button
 				className="inline-flex py-3 px-7 bg-yellow uppercase text-inherit hocus:no-underline hocus:text-yellow hocus:bg-black transition duration-300 disabled:opacity-50 font-medium c-linkbutton"
 				disabled={isSubmitting}
+				data-aos="fade-up"
 			>
 				Submit
 			</button>
-			<SiteRecaptcha
-				propRef={recaptchaRef}
-			></SiteRecaptcha>
+			<SiteRecaptcha propRef={recaptchaRef}></SiteRecaptcha>
 		</form>
 	)
 }

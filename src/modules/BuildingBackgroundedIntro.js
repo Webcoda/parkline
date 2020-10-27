@@ -42,7 +42,7 @@ const BuildingBackgroundedIntro = ({ item }) => {
 	return buildingBackgroundIntro ? (
 		<div className="c-buildingbackgroundedintro">
 			<div
-				className="bg-grey-light u-bgimg space-y-30 js-lazysizes container-fluid c-buildingbackgroundedintro__bigsection"
+				className="bg-grey-light u-bgimg md:pb-0 space-y-15 md:space-y-30 js-lazysizes container-fluid c-buildingbackgroundedintro__bigsection"
 				data-bgset="/building-background-intro-background.svg"
 			>
 				{buildingBackgroundIntro.linkedContent_itemList
@@ -64,8 +64,8 @@ const BuildingBackgroundedIntro = ({ item }) => {
 
 						// if left image
 						const colMediaClass = isMediaOnTheLeft
-							? 'md:col-5'
-							: 'md:offset-1 md:col-4 mr-1/12'
+							? '-ml-5 md:-ml-2.5 col-9 md:col-5'
+							: '-mr-5 offset-3 md:offset-1 col-9 md:col-4 md:mr-1/12'
 						const colTextClass = isMediaOnTheLeft
 							? 'md:offset-1 md:col-5'
 							: 'md:offset-1 md:col-5'
@@ -115,17 +115,20 @@ const BuildingBackgroundedIntro = ({ item }) => {
 										? 'is-media-left'
 										: 'is-media-right flex-row-reverse'
 								} c-buildingbackgroundedintro__bigsection-row`}
+								data-aos="fade-up"
 							>
 								{/* left image */}
 								<div
-									className={`${colMediaClass} c-buildingbackgroundedintro__bigsection-col-media`}
+									className={`${colMediaClass} mb-15 md:mb-0 c-buildingbackgroundedintro__bigsection-col-media`}
 								>
 									{!!image?.url && (
 										<BaseImg sources={mediaImgSources} />
 									)}
 								</div>
 								<div className={colTextClass}>
-									<h2 className="h1 mb-11">{title}</h2>
+									<h2 className="md:h1 mb-5 md:mb-11">
+										{title}
+									</h2>
 									<Richtext html={content} />
 								</div>
 							</div>
@@ -208,6 +211,7 @@ const BuildingBackgroundedIntro = ({ item }) => {
 										? 'is-media-left'
 										: 'is-media-right flex-row-reverse'
 								} c-buildingbackgroundedintro__smallsection-row`}
+								data-aos="fade-up"
 							>
 								{/* left image */}
 								<div
@@ -218,7 +222,7 @@ const BuildingBackgroundedIntro = ({ item }) => {
 									)}
 								</div>
 								<div
-									className={`${colTextClass} c-buildingbackgroundedintro__smallsection-col-text`}
+									className={`${colTextClass} pt-5 c-buildingbackgroundedintro__smallsection-col-text`}
 								>
 									<h2 className="mb-7 c-buildingbackgroundedintro__smallsection-title">
 										{title}

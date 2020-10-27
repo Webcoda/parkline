@@ -8,12 +8,24 @@ const LinkButton = ({
 	children,
 	to,
 	target,
+	tag,
+	...props
 }) => {
-	return (
+	let _className = `inline-flex py-3 px-7 bg-yellow uppercase text-inherit hocus:no-underline hocus:text-yellow hocus:bg-black transition duration-300 c-linkbutton ${className}`
+	const Component = tag;
+	return tag ? (
+		<Component
+			{...props}
+			className={_className}
+		>
+			{ children }
+		</Component>
+	)
+	: (
 		<Link
 			to={to}
 			target={target}
-			className={`inline-flex py-3 px-7 bg-yellow uppercase text-inherit hocus:no-underline hocus:text-yellow hocus:bg-black transition duration-300 c-linkbutton ${className}`}
+			className={_className}
 		>
 			{children}
 		</Link>

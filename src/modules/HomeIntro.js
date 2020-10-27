@@ -8,20 +8,15 @@ import './HomeIntro.scss'
 const HomeIntro = ({ item }) => {
 	const { title, text, cTA } = item.customFields;
 	return (
-		<section className="c-homeintro my-30 last:mb-0">
+		<section className="c-homeintro my-30 last:mb-0" data-aos="fade-up">
 			<CommonContainer>
 				<div className="md:w-7/10">
-					<h2 className="h1 text-yellow mb-11">
-						{title}
-					</h2>
+					<h2 className="h1 text-yellow mb-11">{title}</h2>
 					<div className="md:ml-1/10">
 						<Richtext html={text} />
 						<SmallDivider className="my-11 block" />
 
-						<LinkButton
-							to={cTA.href}
-							target={cTA.target}
-						>
+						<LinkButton to={cTA.href} target={cTA.target}>
 							{cTA.text}
 						</LinkButton>
 					</div>

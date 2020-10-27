@@ -65,6 +65,9 @@ module.exports = {
 				'1/10': '10%',
 				'7/10': '70%',
 			},
+			backgroundColor: {
+				current: 'currentColor',
+			},
 			borderColor: theme => ({
 				...theme('colors'),
 				default: '#d8d8d8',

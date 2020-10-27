@@ -23,6 +23,7 @@
     "@agility/gatsby-source-agilitycms": "^1.4.0",
     "@loadable/component": "^5.13.2",
     "@tailwindcss/ui": "^0.6.2",
+    "aos": "^2.3.4",
     "autoprefixer": "9.7.1",
     "axios": "^0.20.0",
     "babel-preset-gatsby": "^0.5.13",
@@ -76,5 +77,8 @@
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "resolutions": {
+    "query-string": "^5.1.1"
   }
 }

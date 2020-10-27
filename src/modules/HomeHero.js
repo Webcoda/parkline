@@ -41,7 +41,10 @@ const HomeHero = ({ item }) => {
 	}
 
 	return (
-		<section ref={homeheroRef} className="c-homehero u-bgimg relative">
+		<section
+			ref={homeheroRef}
+			className="c-homehero u-bgimg relative"
+		>
 			{!!mediaUrl && (
 				<div className="u-embed__item">
 					<BaseImg sources={mediaImgSources} />
@@ -52,7 +55,7 @@ const HomeHero = ({ item }) => {
 				<div className="container-fluid h-full c-homehero__fg-inner">
 					<div className="row h-full items-end">
 						<div className="md:col-6 md:offset-6">
-							<h1 className="c-homehero__title">
+							<h1 className="c-homehero__title" data-aos="fade-up">
 								{item.customFields.title}
 							</h1>
 						</div>

@@ -10,6 +10,8 @@ import ContentHero from '@/modules/ContentHero'
 import './ArticleDetail.scss'
 import './ArticleListing.scss'
 
+const iconStyle = { width: 6.5 * 4 };
+
 const ArticleDetail = ({ item, dynamicPageItem }) => {
 	const article = dynamicPageItem;
 	const { title, media, details, articleType, date, relatedArticles } = article.customFields
@@ -33,6 +35,11 @@ const ArticleDetail = ({ item, dynamicPageItem }) => {
 				.after(`<caption class="block mt-5 p-0 text-grey-light-medium c-article-detail__text-figure-caption">${$img.attr('alt')}</caption>`)
 				.wrap('<div class="relative c-article-detail__text-figure-inner"></div>')
 		})
+
+		if(window.addthis) {
+			window.addthis.init()
+			window.addthis.toolbox('.addthis_toolbox')
+		}
 	})
 
 	const renderMeta = () => (
@@ -50,9 +57,14 @@ const ArticleDetail = ({ item, dynamicPageItem }) => {
 					<strong className="underline ">Maggie Martine</strong>
 				</div>
 			</div>
-			<div className="mt-6 flex space-x-3.5">
+			<div className="mt-6 flex space-x-3.5 addthis_toolbox">
 				{/* Facebook */}
-				<div className="bg-grey-light flex-shrink-0 w-6.5 h-6.5 rounded-full flex justify-center items-center">
+				<a
+					href="javascript:;"
+					className="text-inherit hocus:text-inherit hocus:no-underline bg-grey-light flex-shrink-0 h-6.5 rounded-full flex justify-center items-center addthis_button_facebook"
+					aria-label="Facebook"
+					style={iconStyle}
+				>
 					<svg
 						width="8"
 						height="16"
@@ -69,9 +81,14 @@ const ArticleDetail = ({ item, dynamicPageItem }) => {
 							fill="currentColor"
 						/>
 					</svg>
-				</div>
+				</a>
 				{/* LinkedIn */}
-				<div className="bg-grey-light flex-shrink-0 w-6.5 h-6.5 rounded-full flex justify-center items-center">
+				<a
+					href="javascript:;"
+					className="text-inherit hocus:text-inherit hocus:no-underline bg-grey-light flex-shrink-0 h-6.5 rounded-full flex justify-center items-center addthis_button_linkedin"
+					aria-label="Linkedin"
+					style={iconStyle}
+				>
 					<svg
 						width="26"
 						height="25"
@@ -100,9 +117,14 @@ const ArticleDetail = ({ item, dynamicPageItem }) => {
 							fill="currentColor"
 						/>
 					</svg>
-				</div>
+				</a>
 				{/* Twitter */}
-				<div className="bg-grey-light flex-shrink-0 w-6.5 h-6.5 rounded-full flex justify-center items-center">
+				<a
+					href="javascript:;"
+					className="text-inherit hocus:text-inherit hocus:no-underline bg-grey-light flex-shrink-0 h-6.5 rounded-full flex justify-center items-center addthis_button_twitter"
+					aria-label="Twitter"
+					style={iconStyle}
+				>
 					<svg
 						width="16"
 						height="13"
@@ -119,7 +141,7 @@ const ArticleDetail = ({ item, dynamicPageItem }) => {
 							fill="currentColor"
 						/>
 					</svg>
-				</div>
+				</a>
 			</div>
 		</div>
 	)
@@ -128,7 +150,7 @@ const ArticleDetail = ({ item, dynamicPageItem }) => {
 		<article>
 			<ContentHero item={heroItem} />
 
-			<div className="mt-30 container-fluid">
+			<div className="mt-30 container-fluid" data-aos="fade-up">
 				<div className="row">
 					<div className="col-12 md:hidden mb-12">{renderMeta()}</div>
 					<div ref={richtextRef} className="md:offset-2 md:col-6">
@@ -137,12 +159,14 @@ const ArticleDetail = ({ item, dynamicPageItem }) => {
 							html={details}
 						/>
 					</div>
-					<div className="md:col-2 hidden md:block">{renderMeta()}</div>
+					<div className="md:col-2 hidden md:block">
+						{renderMeta()}
+					</div>
 				</div>
 			</div>
 
 			{!!relatedArticles && relatedArticles.length > 0 && (
-				<div className="bg-grey-light-medium py-23 mt-30 c-article-detail__related">
+				<div className="bg-grey-light-medium py-23 mt-30 c-article-detail__related" data-aos="fade-up">
 					<CommonContainer>
 						<h2 className="text-center c-article-detail__related-title text-yellow">
 							More from us

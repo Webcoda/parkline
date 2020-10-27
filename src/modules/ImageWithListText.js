@@ -37,7 +37,11 @@ const ImageWithListText = ({ item }) => {
 		<div
 			className={`flex flex-col c-imagewithlisttext c-imagewithlisttext--${mediaPosition} ${
 				hasMoreThanOneMedia ? 'c-imagewithlisttext--multiple' : ''
-			} ${toBool(isUseBorderOnImage) ? 'c-imagewithlisttext--withborder' : ''} ${
+			} ${
+				toBool(isUseBorderOnImage)
+					? 'c-imagewithlisttext--withborder'
+					: ''
+			} ${
 				toBool(isUseImageVerticalOffset)
 					? 'pt-22 bg-grey-light c-imagewithlisttext--withverticaloffset'
 					: ''
@@ -58,15 +62,29 @@ const ImageWithListText = ({ item }) => {
 					>
 						<div
 							className={`${
-								toBool(isUseImageVerticalOffset) ? 'md:pb-23' : ''
+								toBool(isUseImageVerticalOffset)
+									? 'md:pb-23'
+									: ''
 							}`}
 						>
-							<h2 className="mb-7">{title}</h2>
-							{!!intro && <Richtext html={intro} />}
-							<SmallDivider className="mt-10 mb-11" />
-							{!!listContent && <Richtext html={listContent} />}
+							<h2 className="mb-7" data-aos="fade-up">
+								{title}
+							</h2>
+							{!!intro && (
+								<Richtext html={intro} data-aos="fade-up" />
+							)}
+							<SmallDivider
+								className="mt-10 mb-11"
+								data-aos="fade-up"
+							/>
+							{!!listContent && (
+								<Richtext
+									html={listContent}
+									data-aos="fade-up"
+								/>
+							)}
 							{!!cTA && (
-								<div>
+								<div data-aos="fade-up">
 									<LinkButton
 										to={cTA.href}
 										target={cTA.target}
@@ -93,6 +111,7 @@ const ImageWithListText = ({ item }) => {
 											: 'md:offset-1 md:col-5'
 								  }`
 						}`}
+						data-aos="fade-up"
 					>
 						<div
 							className={`flex-1 flex c-imagewithlisttext__col-media-inner ${
@@ -190,13 +209,16 @@ const ImageWithListText = ({ item }) => {
 								</div>
 							</div>
 							{// single-media image border
-							toBool(isUseBorderOnImage) && !hasMoreThanOneMedia && (
-								<div
-									className={`bg-yellow ${
-										isMediaPositionLeft ? 'w-1/6' : 'w-22'
-									}`}
-								></div>
-							)}
+							toBool(isUseBorderOnImage) &&
+								!hasMoreThanOneMedia && (
+									<div
+										className={`bg-yellow ${
+											isMediaPositionLeft
+												? 'w-1/6'
+												: 'w-22'
+										}`}
+									></div>
+								)}
 						</div>
 					</div>
 				</div>

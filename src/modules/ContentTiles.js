@@ -105,6 +105,8 @@ const ContentTiles = ({ contentTiles }) => {
 						<div
 							key={tile.id}
 							className={`${bgAndTextColor} col-6 lg:col-3 flex flex-col`}
+							data-aos="fade-up"
+							data-aos-delay={200 * index}
 						>
 							<div
 								className="flex-auto flex flex-col relative group overflow-hidden"

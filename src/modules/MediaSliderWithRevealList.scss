@@ -19,6 +19,17 @@
 			margin-left: calc(-10% - 20px);
 		}
 	}
+
+	&__child {
+		&-item {
+			$_child-item: &;
+			&-icon {
+				#{$_child-item}:first-child & {
+					@apply top-2.5;
+				}
+			}
+		}
+	}
 }
 
 
@@ -43,6 +54,10 @@
 				@apply h-10;
 				color: inherit;
 				background: rgba(#fff, .7);
+
+				@include mq-down(sm) {
+					display: none;
+				}
 
 				&:after{
 					content: '';

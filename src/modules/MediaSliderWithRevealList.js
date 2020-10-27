@@ -21,7 +21,7 @@ const RevealList = ({ html, hasBackground }) => {
 		const $el = el.current;
 
 		// all the child list
-		$el.querySelectorAll('li > ul').forEach(ul => {
+		Array.from($el.querySelectorAll('li > ul')).forEach(ul => {
 			ul.classList.add(
 				'child',
 				'text-text',
@@ -33,20 +33,37 @@ const RevealList = ({ html, hasBackground }) => {
 				'group-hocus:opacity-100',
 				'transition',
 				'duration-500',
-				'pl-5'
+				'pl-5',
 			)
 		})
 		// all the child list item
-		$el.querySelectorAll('ul.child > li').forEach(li => li.classList.add('child-item', 'border-b', 'border-text', 'py-2.5', 'first:pt-0'))
+		Array.from($el.querySelectorAll('ul.child > li')).forEach((li, index) => {
+			li.innerHTML = `<span class="block md:hidden absolute left-0 ${
+				hasBackground ? 'bg-white' : 'bg-current'
+			} top-5 w-1.5 h-1.5 rounded-full c-mediasliderwithreveallist__child-item-icon"></span>${
+				li.innerHTML
+			}`
+			li.classList.add(
+				'relative',
+				'child-item',
+				'border-b',
+				'border-text',
+				'py-2.5',
+				'first:pt-0',
+				'pl-5',
+				'md:pl-0',
+				'c-mediasliderwithreveallist__child-item'
+			)
+		})
 
 		// calculate the tallest ul.child
 		let tallestUlHeight = 0;
-		$el.querySelectorAll(`ul.child`).forEach(ul => {
+		Array.from($el.querySelectorAll(`ul.child`)).forEach(ul => {
 			tallestUlHeight = tallestUlHeight < ul.offsetHeight ? ul.offsetHeight : tallestUlHeight
 		})
 
 		// the first parent li
-		$el.querySelectorAll('li:not(.child-item)').forEach(li => {
+		Array.from($el.querySelectorAll('li:not(.child-item)')).forEach(li => {
 			li.classList.add('flex', 'group', 'cursor-pointer',  'py-3', 'first:pt-0', 'last:pb-0');
 			li.innerHTML = li.innerHTML.replace(
 				li.firstChild.textContent,
@@ -92,7 +109,10 @@ const MediaSliderWithRevealList = ({ item }) => {
 						className={`absolute inset-0 h-full bg-${backgroundColor} -mx-5 md:mx-0 c-mediasliderwithreveallist__bg`}
 					></div>
 					<div className="relative">
-						<div className="mb-23 c-mediasliderwithreveallist__slider">
+						<div
+							className="mb-23 c-mediasliderwithreveallist__slider"
+							data-aos="fade-up"
+						>
 							<Swiper
 								className="h-full"
 								pagination={
@@ -121,15 +141,21 @@ const MediaSliderWithRevealList = ({ item }) => {
 													descriptor: '1920w',
 												},
 												{
-													src: mediaItem.url + '?w=1024',
+													src:
+														mediaItem.url +
+														'?w=1024',
 													descriptor: '1024w',
 												},
 												{
-													src: mediaItem.url + '?w=768',
+													src:
+														mediaItem.url +
+														'?w=768',
 													descriptor: '768w',
 												},
 												{
-													src: mediaItem.url + '?w=480',
+													src:
+														mediaItem.url +
+														'?w=480',
 													descriptor: '480w',
 												},
 											],
@@ -141,7 +167,6 @@ const MediaSliderWithRevealList = ({ item }) => {
 										<SwiperSlide
 											key={`content-slide-${item.contentId}-${index}`}
 										>
-
 											<BaseImg
 												sources={mediaImgSources}
 											></BaseImg>
@@ -151,14 +176,21 @@ const MediaSliderWithRevealList = ({ item }) => {
 							</Swiper>
 						</div>
 						<div className="row">
-							<div className="relative px-2.5 w-full lg:w-2/5">
+							<div
+								className="relative px-2.5 w-full lg:w-2/5"
+								data-aos="fade-up"
+							>
 								<div className="pr-6">
 									<h2 className="mb-7">{title}</h2>
 									<Richtext html={intro}></Richtext>
-									<SmallDivider className="my-15"/>
+									<SmallDivider className="my-15" />
 								</div>
 							</div>
-							<div className="relative px-2.5 w-full lg:w-3/5">
+							<div
+								className="relative px-2.5 w-full lg:w-3/5"
+								data-aos="fade-up"
+								data-aos-delay="500"
+							>
 								<RevealList
 									html={revealList}
 									hasBackground={

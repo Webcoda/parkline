@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { graphql } from "gatsby"
 import agilityUtils from './agility/utils'
 import AgilityPageTemplate from './agility/components/AgilityPageTemplate'
@@ -23,7 +23,12 @@ export const query = graphql`
 }
 `
 const AgilityPage = ({ pageContext, data }) => {
-    const viewModel = agilityUtils.buildPageViewModel({ pageContext, data });
+	const viewModel = agilityUtils.buildPageViewModel({ pageContext, data });
+
+	useEffect(() => {
+		document.querySelector('html').classList.remove('is-menu-active')
+	})
+
     return (
         <LayoutTemplate>
             <SEO title={viewModel.page.title} description={viewModel.page.seo.metaDescription} />

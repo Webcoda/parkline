@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { StaticQuery, graphql } from "gatsby";
 import CommonContainer from '@/components/CommonContainer'
-
+import { sortByItemOrderAsc } from "@/utils/sortByItemOrder";
 import './Maps.scss'
 
 export default props => (
@@ -15,7 +15,9 @@ export default props => (
 						}
 						linkedContent_mapItems {
 							id
-							contentID
+							properties {
+								itemOrder
+							}
 							customFields {
 								title
 								image {
@@ -23,6 +25,9 @@ export default props => (
 								}
 							}
 							linkedContent_mapKeys {
+								properties {
+									itemOrder
+								}
 								customFields {
 									title
 									image {
@@ -55,17 +60,16 @@ const Maps = ({ items }) => {
 	useEffect(() => {
 		/* eslint-disable */
 		import('bootstrap/js/src/tab');
-		import('@/utils/lazysizes')
 	}, [])
 
-	const sortedItems = items.sort((a, b) => a.contentID - b.contentID)
+	const sortedItems = items.sort(sortByItemOrderAsc)
 
 	return (
-		<div>
-			<CommonContainer>
+		<div data-aos="fade-up">
+			<CommonContainer className="bg-grey-light pt-13.5 md:pt-0 md:bg-transparent">
 				{!!items && !!items.length && (
-					<div className="overflow-hidden">
-						<ul className="row nav -mt-5" role="tablist">
+					<div>
+						<ul className="row nav" role="tablist">
 							{sortedItems.map((mapItem, index) => {
 								const { title } = mapItem.customFields
 								return (
@@ -80,14 +84,10 @@ const Maps = ({ items }) => {
 											href={`#tab-${mapItem.id}`}
 											aria-controls={`tab-${mapItem.id}`}
 											aria-selected={
-												index === 0
-													? 'true'
-													: 'false'
+												index === 0 ? 'true' : 'false'
 											}
 											className={`flex-auto bg-grey-dark active:bg-yellow px-4 py-5 flex items-center justify-center text-xs leading-none text-white active:text-black uppercase hocus:no-underline hocus:text-black hocus:bg-grey-light transition duration-300 ${
-												index === 0
-													? 'active'
-													: ''
+												index === 0 ? 'active' : ''
 											}`}
 										>
 											{title}
@@ -96,18 +96,20 @@ const Maps = ({ items }) => {
 								)
 							})}
 						</ul>
-						<div className="tab-content mt-5 md:mt-0">
+						<div className="tab-content mt-5 md:mt-0 -mx-5 md:mx-0">
 							{sortedItems.map((mapItem, index) => {
-								const { id, customFields, linkedContent_mapKeys } = mapItem
+								const {
+									id,
+									customFields,
+									linkedContent_mapKeys,
+								} = mapItem
 								const { image } = customFields
 								return (
 									<>
 										<div
 											key={`tab-${id}`}
 											className={`tab-pane fade ${
-												index === 0
-													? 'show active'
-													: ''
+												index === 0 ? 'show active' : ''
 											}`}
 											id={`tab-${id}`}
 											aria-labelledby={`tabnav-${id}`}
@@ -117,22 +119,17 @@ const Maps = ({ items }) => {
 												data-src={image.url}
 												alt=""
 											/>
-											<div className="bg-yellow p-5 md:p-11 flex justify-center">
+											<div className="bg-yellow p-5 md:p-11 flex md:justify-center">
 												{!!linkedContent_mapKeys &&
 													!!linkedContent_mapKeys.length && (
-														<div className="flex items-center space-x-13">
-															<div className="font-bold w-full md:w-auto">
+														<div className="flex flex-auto md:flex-initial flex-wrap md:flex-no-wrap items-center md:space-x-13">
+															<div className="font-bold w-full md:w-auto mb-4 md:mb-0">
 																Map Key
 															</div>
-															<div className="font-bold space-x-8 flex">
+															<div className="font-bold md:space-x-8 flex flex-wrap flex-auto justify-end md:justify-start">
 																{linkedContent_mapKeys
 																	?.sort(
-																		(
-																			a,
-																			b
-																		) =>
-																			a.contentID -
-																			b.contentID
+																		sortByItemOrderAsc
 																	)
 																	.map(
 																		mapKey => {
@@ -145,7 +142,7 @@ const Maps = ({ items }) => {
 																					key={
 																						mapKey.id
 																					}
-																					className="uppercase space-x-4 flex items-center"
+																					className="uppercase space-x-1 md:space-x-4 flex items-center w-1/3 md:w-auto mt-5 md:mt-0"
 																				>
 																					<img
 																						className="js-lazysizes"
