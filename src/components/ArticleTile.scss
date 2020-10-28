@@ -24,8 +24,16 @@
 		@include fzlh(16px, 20px);
 		color: rgba(#231F20, .5);
 
+		.c-article-featured &,
 		.c-article-detail__related & {
 			@apply text-inherit;
+		}
+	}
+
+	&__link {
+		.c-article-detail__related &:focus,
+		.c-article-detail__related &:hover, {
+			@apply text-white;
 		}
 	}
 

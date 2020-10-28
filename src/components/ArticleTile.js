@@ -69,7 +69,7 @@ const ArticleTile = ({ article, className }) => {
 			/>
 			<Link
 				to={`/updates/${slug}`}
-				className="text-inherit u-link-cover hocus:text-inherit hocus:no-underline"
+				className="text-inherit u-link-cover hocus:text-yellow hocus:no-underline c-article-tile__link"
 			>
 				<svg
 					width="31"
