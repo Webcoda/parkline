@@ -79,12 +79,9 @@ const ArticleDetail = ({ dynamicPageItem }) => {
 		}
 	};
 
-	console.log(dynamicPageItem);
-
 	useEffect(() => {
 		$(richtextRef.current).find('img').each(function() {
 			const $img = $(this).addClass('w-full');
-			console.log($img);
 			$img
 				.wrap('<figure class="c-article-detail__text-figure"></figure>')
 				.after(`<caption class="block mt-5 p-0 text-grey-light-medium c-article-detail__text-figure-caption">${$img.attr('alt')}</caption>`)
