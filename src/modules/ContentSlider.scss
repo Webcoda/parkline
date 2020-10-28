@@ -20,6 +20,7 @@
 	&-pagination-bullet {
 		.c-contentslider & {
 			background: #f9f9f9;
+			opacity: 1;
 		}
 		&-active{
 			.c-contentslider & {
@@ -38,6 +39,10 @@
 				background: rgba(#fff, .7);
 				@include mq-down(sm) {
 					display: none;
+				}
+
+				&:hover, &:focus {
+					background: rgba(#FFC300, .7);
 				}
 
 				&:after{
