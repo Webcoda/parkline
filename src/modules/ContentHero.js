@@ -99,7 +99,7 @@ const ContentHero = ({ item }) => {
 			</div>
 			<div
 				className={`container-fluid c-contenthero__bottom-container ${
-					isUseYellowHorizontalBar ? '' : 'is-use-two-bar'
+					toBool(isUseYellowHorizontalBar) ? '' : 'is-use-two-bar'
 				}`}
 			>
 				<div className="row">
