@@ -50,7 +50,7 @@ const ImageWithListText = ({ item }) => {
 			<div className="container-fluid flex-1 flex flex-col c-imagewithlisttext__inner">
 				<div
 					className={`flex-1 row ${
-						mediaPosition === 'left' ? 'flex-row-reverse' : ''
+						mediaPosition === 'left' ? 'md:flex-row-reverse' : ''
 					}`}
 				>
 					<div
@@ -101,8 +101,8 @@ const ImageWithListText = ({ item }) => {
 								? `${
 										hasMoreThanOneMedia ||
 										toBool(isUseBorderOnImage)
-											? 'md:col-6'
-											: 'md:col-5'
+											? 'col-9 md:col-6'
+											: 'col-9 md:col-5'
 								  }`
 								: `${
 										hasMoreThanOneMedia ||
@@ -120,6 +120,8 @@ const ImageWithListText = ({ item }) => {
 								isMediaPositionLeft
 									? 'flex-row-reverse'
 									: ''
+							} ${
+								isMediaPositionLeft ? '-ml-2.5 md:ml-0' : ''
 							}`}
 						>
 							<div className="flex-auto relative">

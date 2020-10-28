@@ -1,10 +1,14 @@
 .c-homehero {
-	height: 986px;
+	height: calc(100vh - 71px);
+	@include mq(sm) {
+		height: 986px;
+	}
 
 	&__title{
-		@include fzlh(86.3452px, 74px);
+		@include fzlh(60px, 74px);
 		letter-spacing: -1.47273px;
 		@screen md{
+			@include fzlh(86.3452px, 74px);
 			max-width: 556px;
 		}
 	}

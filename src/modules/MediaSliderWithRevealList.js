@@ -39,7 +39,7 @@ const RevealList = ({ html, hasBackground }) => {
 		// all the child list item
 		Array.from($el.querySelectorAll('ul.child > li')).forEach((li, index) => {
 			li.innerHTML = `<span class="block md:hidden absolute left-0 ${
-				hasBackground ? 'bg-white' : 'bg-current'
+				hasBackground ? 'bg-white' : 'bg-yellow'
 			} top-5 w-1.5 h-1.5 rounded-full c-mediasliderwithreveallist__child-item-icon"></span>${
 				li.innerHTML
 			}`

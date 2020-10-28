@@ -64,6 +64,7 @@ module.exports = {
 				]),
 				'1/10': '10%',
 				'7/10': '70%',
+				'full': '100%',
 			},
 			backgroundColor: {
 				current: 'currentColor',

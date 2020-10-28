@@ -1,13 +1,32 @@
 .c-contenttiles {
 	&__title {
-		@include fzlh(24px, 24px);
+		@include fzlh(16px, 16px);
+		@include mq(md) {
+			@include fzlh(24px, 24px);
+		}
 	}
 	&__subtitle {
-		@include fzlh(18px, 20px);
+		@include fzlh(16px, 16px);
+		@include mq(md) {
+			@include fzlh(18px, 20px);
+		}
 	}
 	&__icon {
+		svg {
+			@include mq-down(sm) {
+				max-height: 92px;
+			}
+		}
 		svg, path {
 			stroke: currentColor;
+		}
+	}
+
+	&__tile {
+		&-inner {
+			@include mq(sm) {
+				min-height: 365px;
+			}
 		}
 	}
 }
