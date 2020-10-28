@@ -42,6 +42,12 @@
 			}
 		}
 	}
+
+	&__list {
+		h1,h2,h3 {
+			@apply normal-case;
+		}
+	}
 }
 
 ul {

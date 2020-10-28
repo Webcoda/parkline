@@ -79,6 +79,7 @@ const ImageWithListText = ({ item }) => {
 							/>
 							{!!listContent && (
 								<Richtext
+									className="c-imagewithlisttext__list"
 									html={listContent}
 									data-aos="fade-up"
 								/>
