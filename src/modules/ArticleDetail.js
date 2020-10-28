@@ -1,5 +1,6 @@
 import $ from 'jquery'
 import React, { useRef, useEffect } from 'react';
+import { graphql, useStaticQuery } from "gatsby";
 import formatDate from 'date-fns/format'
 
 import Richtext from '@/components/Richtext'
@@ -12,11 +13,62 @@ import './ArticleListing.scss'
 
 const iconStyle = { width: 6.5 * 4 };
 
-const ArticleDetail = ({ item, dynamicPageItem }) => {
-	const article = dynamicPageItem;
-	const { title, media, details, articleType, date, relatedArticles } = article.customFields
+const ArticleDetail = ({ dynamicPageItem }) => {
+	const { allAgilityArticle } = useStaticQuery(
+		graphql`
+			query AllAgilityArticleQuery {
+				allAgilityArticle {
+					nodes {
+						customFields {
+							title
+							slug
+							isFeatured
+							teaserText
+							details
+							date
+						}
+						linkedContent_articleType {
+							customFields {
+								title
+							}
+						}
+						linkedContent_authors {
+							id
+							customFields {
+								name
+								link {
+									href
+									target
+									text
+								}
+							}
+							properties {
+								itemOrder
+							}
+						}
+						properties {
+							referenceName
+						}
+					}
+				}
+			}
+		`
+	)
 
+	const article = allAgilityArticle.nodes.find(
+		node =>
+			node.properties.referenceName ===
+			dynamicPageItem.properties.referenceName
+	)
+
+	const { relatedArticles } = dynamicPageItem.customFields
+	const { title, media, details, date } = article.customFields
 	const richtextRef = useRef(null)
+
+	const {
+		linkedContent_authors: authors,
+		linkedContent_articleType,
+	} = article
 
 	const heroItem = {
 		customFields: {
@@ -27,9 +79,12 @@ const ArticleDetail = ({ item, dynamicPageItem }) => {
 		}
 	};
 
+	console.log(dynamicPageItem);
+
 	useEffect(() => {
 		$(richtextRef.current).find('img').each(function() {
 			const $img = $(this).addClass('w-full');
+			console.log($img);
 			$img
 				.wrap('<figure class="c-article-detail__text-figure"></figure>')
 				.after(`<caption class="block mt-5 p-0 text-grey-light-medium c-article-detail__text-figure-caption">${$img.attr('alt')}</caption>`)
@@ -42,6 +97,29 @@ const ArticleDetail = ({ item, dynamicPageItem }) => {
 		}
 	})
 
+	const renderAuthors = () => {
+		let authorsEl = [];
+		authors.forEach((author, index) => {
+			if(index > 0) {
+				authorsEl.push(' and ')
+			}
+
+			const { name, link } = author.customFields
+			const el = (link) ?
+				(
+					<a className="text-inherit hocus:text-inherit underline"
+						href={link.href}
+						target={link.target}
+					>{link.text}</a>
+				) : (
+					<span>{name}</span>
+				)
+			authorsEl.push(el)
+		})
+		return authorsEl;
+	}
+
+
 	const renderMeta = () => (
 		<div className="md:ml-auto md:max-w-45">
 			<div
@@ -49,18 +127,19 @@ const ArticleDetail = ({ item, dynamicPageItem }) => {
 				style={{ borderColor: '#1e1e1e' }}
 			>
 				<div className="c-article-detail__meta">
-					{articleType?.customFields.title} |{' '}
+					{linkedContent_articleType?.customFields.title} |{' '}
 					{formatDate(new Date(date), 'd MMM yyyy')}
 				</div>
-				<div className="mt-6 font-bold c-article-detail__author">
-					By <strong className="underline">Jonathan Bruns</strong> and{' '}
-					<strong className="underline ">Maggie Martine</strong>
-				</div>
+				{authors && authors.length && (
+					<div className="mt-6 font-bold c-article-detail__author">
+						By {renderAuthors()}
+					</div>
+				)}
 			</div>
 			<div className="mt-6 flex space-x-3.5 addthis_toolbox">
 				{/* Facebook */}
 				<a
-					href="javascript:;"
+					href="#"
 					className="text-inherit hocus:text-inherit hocus:no-underline bg-grey-light flex-shrink-0 h-6.5 rounded-full flex justify-center items-center addthis_button_facebook"
 					aria-label="Facebook"
 					style={iconStyle}
@@ -84,7 +163,7 @@ const ArticleDetail = ({ item, dynamicPageItem }) => {
 				</a>
 				{/* LinkedIn */}
 				<a
-					href="javascript:;"
+					href="#"
 					className="text-inherit hocus:text-inherit hocus:no-underline bg-grey-light flex-shrink-0 h-6.5 rounded-full flex justify-center items-center addthis_button_linkedin"
 					aria-label="Linkedin"
 					style={iconStyle}
@@ -120,7 +199,7 @@ const ArticleDetail = ({ item, dynamicPageItem }) => {
 				</a>
 				{/* Twitter */}
 				<a
-					href="javascript:;"
+					href="#"
 					className="text-inherit hocus:text-inherit hocus:no-underline bg-grey-light flex-shrink-0 h-6.5 rounded-full flex justify-center items-center addthis_button_twitter"
 					aria-label="Twitter"
 					style={iconStyle}

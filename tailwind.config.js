@@ -133,7 +133,7 @@ module.exports = {
 			'disabled',
 		],
 		padding: ['responsive', 'first', 'last'],
-		textColor: ['hover', 'focus', 'is-active', 'hocus', 'group-hocus'],
+		textColor: ['hover', 'focus', 'is-active', 'hocus', 'group-hocus', 'collapsed'],
 		textDecoration: ['responsive', 'hover', 'focus', 'hocus'],
 		translate: [
 			'responsive',

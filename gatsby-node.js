@@ -80,6 +80,14 @@ exports.createResolvers = (args) => {
 				type: 'agilityArticleType',
 				linkedContentFieldName: 'articleType',
 			}),
+			linkedContent_authors: agility.getLinkedContentList({
+				type: 'agilityPerson',
+				linkedContentFieldName: 'authors',
+			}),
+			linkedContent_relatedArticles: agility.getLinkedContentList({
+				type: 'agilityArticle',
+				linkedContentFieldName: 'relatedArticles',
+			})
 		},
 
 		agilityContactOurTeam: {
