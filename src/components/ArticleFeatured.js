@@ -41,7 +41,7 @@ const ArticleFeatured = ({ article }) => {
 	]
 
 	return (
-		<div className="container-fluid relative overflow-hidden">
+		<div className="container-fluid relative overflow-hidden c-article-featured">
 			<div className="row -mt-12">
 				<div className="mt-12 flex flex-col c-article-featured__col-media md:offset-1 md:col-5" data-aos="fade-up">
 					<div className="relative flex-1 flex c-article-featured__col-media-inner flex-row-reverse">
@@ -55,14 +55,14 @@ const ArticleFeatured = ({ article }) => {
 				</div>
 				<div className="mt-12 md:col-5" style={{ position: 'static' }}>
 					<div className="md:pl-13">
-						<div className="mb-2 font-normal text-black c-article-tile__meta" data-aos="fade-up">
+						<div className="mb-4 font-normal text-black c-article-tile__meta" data-aos="fade-up">
 							{
 								(linkedContent_articleType || articleType)
 									?.customFields.title
 							}{' '}
 							| {formatDate(new Date(date), 'd MMM yyyy')}
 						</div>
-						<h3 className="mb-2.5 normal-case text-black c-article-tile__title" data-aos="fade-up">
+						<h3 className="mb-9.5 normal-case text-black c-article-tile__title" data-aos="fade-up">
 							{title}
 						</h3>
 						<Richtext
