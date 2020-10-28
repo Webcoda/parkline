@@ -86,11 +86,11 @@ const ContentTiles = ({ contentTiles }) => {
 						let hoverIconColor = 'text-white'
 						switch (index) {
 							case 0:
-							case 8:
+							case 7:
 								hoverBgAndTextColor = 'bg-grey-dark text-white'
 								hoverIconColor = 'text-yellow'
 								break
-							case 3:
+							case 2:
 								hoverBgAndTextColor = 'bg-yellow text-grey-dark'
 								hoverIconColor = 'text-grey-dark'
 								break
