@@ -224,10 +224,13 @@ const BuildingBackgroundedIntro = ({ item }) => {
 								<div
 									className={`${colTextClass} pt-5 c-buildingbackgroundedintro__smallsection-col-text`}
 								>
-									<h2 className="mb-7 c-buildingbackgroundedintro__smallsection-title">
+									<h2 className="mb-7 normal-case c-buildingbackgroundedintro__smallsection-title">
 										{title}
 									</h2>
-									<Richtext html={content} />
+									<Richtext
+										className="c-buildingbackgroundedintro__smallsection-list"
+										html={content}
+									/>
 								</div>
 							</div>
 						)
