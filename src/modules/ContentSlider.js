@@ -33,16 +33,20 @@ export default ({ item }) => {
 		<div className="c-contentslider mb-30 last:mb-0" data-aos="fade-up">
 			<CommonContainer>
 				<div
-					className={`bg-${backgroundColor} c-contentslider__top text-center ${
-						item.customFields.title ? 'px-9 pt-9 md:pt-23' : ''
+					className={`bg-${backgroundColor} px-2.5 c-contentslider__top text-center ${
+						item.customFields.title ? 'pt-9 md:pt-23' : ''
 					}`}
 				>
-					{!!item.customFields.title && (
-						<>
-							<h2>{item.customFields.title}</h2>
-							<SmallDivider className="mt-7.5 mb-9.5 md:my-11" />
-						</>
-					)}
+					<div className="row justify-center">
+						<div className="relative px-2.5 w-full sm:max-w-4/5 md:max-w-2/5">
+							{!!item.customFields.title && (
+								<>
+									<h2>{item.customFields.title}</h2>
+									<SmallDivider className="mt-7.5 mb-9.5 md:my-11" />
+								</>
+							)}
+						</div>
+					</div>
 				</div>
 			</CommonContainer>
 			<div className="c-contentslider__media">
