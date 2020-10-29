@@ -90,41 +90,60 @@ const ContactForm = ({ item }) => {
 				<Richtext className="font-normal" html={intro} />
 			</div>
 
-			<div className="space-y-2.5 mb-11" data-aos="fade-up">
-				<InputBlock
-					label="Email address"
-					inputProps={{
-						type: 'email',
-						name: 'email',
-						placeholder: 'Email address',
-						required: true,
-					}}
-				/>
-				<InputBlock
-					label="What we can help you with?"
-					inputProps={{
-						type: 'text',
-						name: 'help',
-						placeholder: 'What we can help you with?',
-						required: true,
-					}}
-				/>
-				<InputBlock label="Tell us a bit more about your query">
-					<textarea
-						className="bg-white px-4.5 py-3.5 flex-1 w-full c-contactform__input c-contactform__input-typo"
-						name="message"
-						placeholder="Tell us a bit more about your query"
-						rows="5"
+			<div data-aos="fade-up">
+				<div className="space-y-2.5 mb-11">
+					<InputBlock
+						label="Name"
+						inputProps={{
+							type: 'text',
+							name: 'name',
+							placeholder: 'Name',
+							required: true,
+						}}
 					/>
-				</InputBlock>
+					<InputBlock
+						label="Email address"
+						inputProps={{
+							type: 'email',
+							name: 'email',
+							placeholder: 'Email address',
+							required: true,
+						}}
+					/>
+					<InputBlock
+						label="Company"
+						inputProps={{
+							type: 'text',
+							name: 'company',
+							placeholder: 'Company',
+							required: true,
+						}}
+					/>
+					<InputBlock
+						label="What we can help you with?"
+						inputProps={{
+							type: 'text',
+							name: 'help',
+							placeholder: 'What we can help you with?',
+							required: true,
+						}}
+					/>
+					<InputBlock label="Tell us a bit more about your query">
+						<textarea
+							className="bg-white px-4.5 py-3.5 flex-1 w-full c-contactform__input c-contactform__input-typo"
+							name="message"
+							placeholder="Tell us a bit more about your query"
+							rows="5"
+						/>
+					</InputBlock>
+				</div>
+				<button
+					className="inline-block py-3 px-7 bg-yellow uppercase text-center text-inherit hocus:no-underline hocus:text-yellow hocus:bg-black transition duration-300 disabled:opacity-50 font-medium c-linkbutton"
+					disabled={isSubmitting}
+				>
+					Submit
+				</button>
 			</div>
-			<button
-				className="inline-flex py-3 px-7 bg-yellow uppercase text-inherit hocus:no-underline hocus:text-yellow hocus:bg-black transition duration-300 disabled:opacity-50 font-medium c-linkbutton"
-				disabled={isSubmitting}
-				data-aos="fade-up"
-			>
-				Submit
-			</button>
 			<SiteRecaptcha propRef={recaptchaRef}></SiteRecaptcha>
 		</form>
 	)
