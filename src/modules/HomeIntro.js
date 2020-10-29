@@ -10,10 +10,12 @@ const HomeIntro = ({ item }) => {
 	return (
 		<section className="c-homeintro my-30 last:mb-0" data-aos="fade-up">
 			<CommonContainer>
-				<div className="md:w-7/10">
-					<h2 className="h1 text-yellow mb-11">{title}</h2>
-					<div className="md:ml-1/10">
-						<Richtext html={text} />
+				<div className="row">
+					<div className="relative px-2.5 md:max-w-7/10">
+						<h2 className="h1 text-yellow mb-11">{title}</h2>
+					</div>
+					<div className="relative px-2.5 md:ml-1/10 md:max-w-3/5">
+						<Richtext className="lead" html={text} />
 						<SmallDivider className="my-11 block" />
 
 						<LinkButton to={cTA.href} target={cTA.target}>
