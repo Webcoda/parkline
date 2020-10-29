@@ -205,7 +205,7 @@ const GlobalFooter = ({ footer }) => {
 						<div className="row">
 							{footer.footerMainLinks
 								?.sort(sortByItemOrderAsc)
-								?.map(group => (
+								?.map((group, groupIndex) => (
 									<Fragment key={group.id}>
 										{group?.linkedContent_agilityLinkItems.map(
 											linkItem => {
@@ -219,10 +219,11 @@ const GlobalFooter = ({ footer }) => {
 													linkItem?.customFields.link
 														?.text
 
+												// purgecss: md:col-3 md:col-4
 												return (
 													<div
 														key={linkItem.id}
-														className="col-6 md:col"
+														className={`col-6 md:col-${groupIndex == 0 ? 3 : 4}`}
 													>
 														<div className="font-bold mb-2">
 															<Link
@@ -291,7 +292,7 @@ const GlobalFooter = ({ footer }) => {
 										)}
 									</Fragment>
 								))}
-							<div className="col-12 md:col mt-12 md:mt-0">
+							<div className="col-12 md:col-4 mt-12 md:mt-0">
 								{!!footer.customFields.contactTitle && (
 									<div className="b-fsregular font-bold mb-4">
 										{footer.customFields.contactTitle}

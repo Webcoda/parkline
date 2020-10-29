@@ -97,7 +97,7 @@ const FooterSubscribeForm = ({
 				</button>
 				<SiteRecaptcha propRef={recaptchaRef}></SiteRecaptcha>
 			</div>
-			{!!info && <p className="small font-normal">{info}</p>}
+			{!!info && <p className="small font-normal pr-9.5">{info}</p>}
 		</form>
 	)
 }
