@@ -68,7 +68,7 @@ const RevealList = ({ html, hasBackground }) => {
 			li.innerHTML = li.innerHTML.replace(
 				li.firstChild.textContent,
 				`<div class="flex-1 max-w-1/2 flex space-x-6 text-inherit group-hocus:text-text transition duration-500">
-					<div class="w-7.5 h-7.5 flex-shrink-0 inline-flex items-center align-middle bg-grey-light group-hocus:bg-grey-dark text-grey-dark group-hocus:text-yellow transition duration-500">
+					<div class="w-7.5 h-7.5 flex-shrink-0 inline-flex items-center align-middle ${hasBackground ? 'bg-grey-light text-grey-dark' : 'bg-yellow text-white'} group-hocus:bg-grey-dark group-hocus:text-yellow transition duration-500">
 						<svg class="text-inherit" width="30" height="30" aria-hidden="true" focusable="false" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path stroke="currentColor" d="M15.499 7.105v15.79M7.105 14.5h15.79"/>
 						</svg>
