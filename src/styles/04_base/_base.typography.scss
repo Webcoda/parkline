@@ -38,7 +38,10 @@ p {
 		@include fzlh(14px, 18px);
 	}
 	.lead {
-		@include fzlh(24px, 32px);
+		@include fzlh(22px, 26px);
+		@include mq(sm) {
+			@include fzlh(24px, 32px);
+		}
 		letter-spacing: -.3px;
 	}
 	.b-fsnav {
