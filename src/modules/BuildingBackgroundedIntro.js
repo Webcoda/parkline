@@ -114,7 +114,7 @@ const BuildingBackgroundedIntro = ({ item }) => {
 									isMediaOnTheLeft
 										? 'is-media-left'
 										: 'is-media-right flex-row-reverse'
-								} c-buildingbackgroundedintro__bigsection-row`}
+								} c-buildingbackgroundedintro__bigsection-row overflow-hidden`}
 								data-aos="fade-up"
 							>
 								{/* left image */}

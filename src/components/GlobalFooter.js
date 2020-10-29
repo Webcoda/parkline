@@ -322,7 +322,7 @@ const GlobalFooter = ({ footer }) => {
 				</div>
 			</div>
 			<div
-				className="pt-7 pb-6 md:py-3 text-white b-fstiny font-normal"
+				className="pt-7 pb-6 md:py-3 text-white b-fstiny font-normal c-footer__bottom"
 				style={{ backgroundColor: `rgba(0,0,0,.75)` }}
 				id="privacyterms-accordion-parent"
 			>

@@ -146,13 +146,13 @@ const ContentHero = ({ item }) => {
 					) : (
 						<>
 							{twoLinesPosition === 'left' ? (
-								<div className="relative px-2.5">
+								<div className="col md:offset-2">
 									<div className="pl-10 md:pl-0">
 										<TwoBar />
 									</div>
 								</div>
 							) : (
-								<div className="relative px-2.5 text-center">
+								<div className="relative px-2.5 text-center md:mr-1/12">
 									<TwoBar />
 								</div>
 							)}
