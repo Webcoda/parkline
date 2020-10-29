@@ -30,16 +30,29 @@ const AgilityPage = ({ pageContext, data }) => {
 	})
 
     return (
-        <LayoutTemplate>
-            <SEO title={viewModel.page.title} description={viewModel.page.seo.metaDescription} />
-            <PreviewBar isPreview={viewModel.isPreview} />
-            <GlobalHeader languageCode={viewModel.languageCode} isMultiLanguage={viewModel.isMultiLanguage} />
-            <main className="main">
-                <AgilityPageTemplate {...viewModel} />
-            </main>
-			<GlobalFooter languageCode={viewModel.languageCode} isMultiLanguage={viewModel.isMultiLanguage} />
-        </LayoutTemplate>
-    );
+		<LayoutTemplate>
+			<SEO pageData={viewModel.page} />
+			<PreviewBar isPreview={viewModel.isPreview} />
+			<GlobalHeader
+				languageCode={viewModel.languageCode}
+				isMultiLanguage={viewModel.isMultiLanguage}
+			/>
+			<main className="main">
+				<AgilityPageTemplate {...viewModel} />
+			</main>
+			<GlobalFooter
+				languageCode={viewModel.languageCode}
+				isMultiLanguage={viewModel.isMultiLanguage}
+			/>
+			{!!viewModel.page.scripts.bottom  && (
+				<div
+					dangerouslySetInnerHTML={{
+						__html: viewModel.page.scripts.bottom,
+					}}
+				></div>
+			)}
+		</LayoutTemplate>
+	)
 }
 
 export default AgilityPage;
