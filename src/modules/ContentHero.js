@@ -59,7 +59,7 @@ const ContentHero = ({ item }) => {
 					<div className="row justify-center">
 						<div className="md:col-10">
 							<div className="row">
-								<div className="relative px-2.5 md:w-7/10">
+								<div className="relative px-2.5 md:max-w-7/10">
 									<h1
 										className={`mb-11 ${
 											toBool(isTitleBig)
@@ -78,18 +78,14 @@ const ContentHero = ({ item }) => {
 							</div>
 							{!!text && (
 								<div className="row">
-									<div className="col md:ml-1/10">
-										<div
-											className="pl-5"
-											style={{ maxWidth: 492 }}
-											data-aos="fade-up"
-											data-aos-delay="500"
-										>
-											<Richtext
-												className="lead"
-												html={text}
-											></Richtext>
-										</div>
+									<div className="relative px-2.5 flex-grow md:max-w-2/5 md:ml-1/10"
+										data-aos="fade-up"
+										data-aos-delay="500"
+									>
+										<Richtext
+											className="lead"
+											html={text}
+										/>
 									</div>
 								</div>
 							)}
