@@ -9,7 +9,8 @@
 	$_this: &;
 
 	&--withverticaloffset {
-		margin-top: (88px + 130px);
+		// margin-top: (88px + 130px);
+		margin-top: 185px;
 	}
 
 	&__inner {
@@ -20,7 +21,7 @@
 		&-media {
 			#{$_this}--withverticaloffset & {
 				@include mq(md) {
-					top: -176px;
+					top: -227px;
 				}
 			}
 
@@ -46,6 +47,13 @@
 	&__list {
 		h1,h2,h3 {
 			@apply normal-case;
+		}
+	}
+
+	.c-contenthero + & {
+		@include mq-down(sm) {
+			@apply pt-24.5;
+			margin-top: -103px;
 		}
 	}
 }
