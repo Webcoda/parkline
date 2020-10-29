@@ -193,7 +193,7 @@ const GlobalFooter = ({ footer }) => {
 			>
 				<div className="row flex-auto">
 					<div className="col-12 md:offset-1 md:col-3">
-						<Link to="/" className="c-footer__logo">
+						<Link to="/" className="block c-footer__logo">
 							<img
 								alt="Logo"
 								src={footer.customFields.footerLogo.url}
