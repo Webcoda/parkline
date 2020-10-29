@@ -69,10 +69,10 @@ const GlobalHeader = ({ item, menuLinks }) => {
 		return menuLinks
 			.filter(node => node.path !== '/' && node.path !== '/home')
 			.map(node => (
-				<div className="flex-auto md:-mb-2 c-header__menu-item" key={node.pageID}>
+				<div className="md:-mb-2 c-header__menu-item" key={node.pageID}>
 					<Link
 						to={node.path}
-						className="inline-flex flex-col text-inherit hocus:text-inherit hover:no-underline px-7 md:pb-4 b-fsnav group relative overflow-hidden c-header__menu-link"
+						className="inline-flex flex-col text-inherit hocus:text-inherit hover:no-underline px-7 md:pb-2 b-fsnav group relative overflow-hidden c-header__menu-link"
 						activeClassName="active"
 					>
 						{node.menuText}
@@ -224,7 +224,7 @@ const GlobalHeader = ({ item, menuLinks }) => {
 				<div className="absolute left-0 w-full md:relative bg-white c-header__menu -translate-y-full md:translate-y-0 transition duration-300">
 					<div className="hidden md:block border-b-4 absolute bottom-0 inset-x-0 bg-grey-light"></div>
 					<CommonContainer className="pt-6 pb-7.5 md:pt-4 md:pb-2 relative">
-						<nav className="md:flex text-center md:text-left md:-ml-7 space-y-5.5 md:space-y-0">{renderLinks()}</nav>
+						<nav className="md:flex justify-between text-center md:text-left md:-mx-7 space-y-5.5 md:space-y-0">{renderLinks()}</nav>
 					</CommonContainer>
 				</div>
 			</div>
