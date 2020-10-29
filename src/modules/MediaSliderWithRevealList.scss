@@ -23,12 +23,20 @@
 	&__child {
 		&-item {
 			$_child-item: &;
+			@include fzlh(14px, 17px);
+
 			&-icon {
+				width: 7px;
+				height: 7px;
 				#{$_child-item}:first-child & {
-					@apply top-2.5;
+					@apply top-1;
 				}
 			}
 		}
+	}
+
+	&__item {
+		@include fzlh(20px, 22px);
 	}
 }
 

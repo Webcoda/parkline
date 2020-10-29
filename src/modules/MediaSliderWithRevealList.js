@@ -37,10 +37,10 @@ const RevealList = ({ html, hasBackground }) => {
 			)
 		})
 		// all the child list item
-		Array.from($el.querySelectorAll('ul.child > li')).forEach((li, index) => {
+		Array.from($el.querySelectorAll('ul.child > li')).forEach((li) => {
 			li.innerHTML = `<span class="block absolute left-0 ${
 				hasBackground ? 'bg-white' : 'bg-yellow'
-			} top-5 w-1.5 h-1.5 rounded-full c-mediasliderwithreveallist__child-item-icon"></span>${
+			} top-3.5 w-1.5 h-1.5 rounded-full c-mediasliderwithreveallist__child-item-icon"></span>${
 				li.innerHTML
 			}`
 			li.classList.add(
@@ -51,6 +51,7 @@ const RevealList = ({ html, hasBackground }) => {
 				'py-2.5',
 				'first:pt-0',
 				'pl-5',
+				'font-normal',
 				'c-mediasliderwithreveallist__child-item'
 			)
 		})
@@ -66,13 +67,13 @@ const RevealList = ({ html, hasBackground }) => {
 			li.classList.add('flex', 'group', 'cursor-pointer',  'py-3', 'first:pt-0', 'last:pb-0');
 			li.innerHTML = li.innerHTML.replace(
 				li.firstChild.textContent,
-				`<div class="flex-1 max-w-1/2 flex space-x-6 text-inherit group-hocus:text-text transition duration-500">
+				`<div class="flex-1 max-w-1/2 flex items-center space-x-6 text-inherit group-hocus:text-text transition duration-500">
 					<div class="w-7.5 h-7.5 flex-shrink-0 inline-flex items-center align-middle ${hasBackground ? 'bg-grey-light text-grey-dark' : 'bg-yellow text-white'} group-hocus:bg-grey-dark group-hocus:text-yellow transition duration-500">
 						<svg class="text-inherit" width="30" height="30" aria-hidden="true" focusable="false" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path stroke="currentColor" d="M15.499 7.105v15.79M7.105 14.5h15.79"/>
 						</svg>
 					</div>
-					<span class="flex-1 align-middle">${li.firstChild.textContent}</span>
+					<span class="flex-1 align-middle c-mediasliderwithreveallist__item">${li.firstChild.textContent}</span>
 				</div>`
 			)
 		})
@@ -182,7 +183,7 @@ const MediaSliderWithRevealList = ({ item }) => {
 								<div className="pr-6">
 									<h2 className="mb-7">{title}</h2>
 									<Richtext html={intro}></Richtext>
-									<SmallDivider className="my-15" />
+									<SmallDivider className="my-14" />
 								</div>
 							</div>
 							<div
