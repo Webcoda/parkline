@@ -143,16 +143,16 @@ const Maps = ({ items }) => {
 																					key={
 																						mapKey.id
 																					}
-																					className="uppercase space-x-1 md:space-x-4 flex items-center w-1/3 md:w-auto mt-5 md:mt-0"
+																					className="uppercase space-x-1 md:space-x-4 flex items-start md:items-center w-1/3 md:w-auto mt-5 md:mt-0"
 																				>
 																					<img
-																						className="js-lazysizes"
+																						className="c-maps__key-icon js-lazysizes"
 																						data-src={
 																							mapKeyImage.url
 																						}
 																						alt=""
 																					/>
-																					<div className="text-base leading-none">
+																					<div className="text-base leading-none mt-1 md:mt-0 c-maps__key-title">
 																						{
 																							mapKeyTitle
 																						}

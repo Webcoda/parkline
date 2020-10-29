@@ -1,0 +1,16 @@
+.c-maps {
+	&__key {
+		&-title {
+			@include mq-down(sm) {
+				@include fzlh(12.34px, 14.81px);
+				letter-spacing: .51px;
+			}
+		}
+		&-icon {
+			@include mq-down(sm) {
+				@apply w-5.5;
+				@apply h-5.5;
+			}
+		}
+	}
+}
