@@ -104,7 +104,7 @@ export default props => (
 )
 
 const Collapse = ({ id, content }) => (
-	<div id={id} className="collapse" data-parent="#privacyterms-accordion">
+	<div id={id} className="collapse" data-parent="#privacyterms-accordion-parent">
 		<div className="pt-10">
 			<Richtext html={content} />
 			<button
@@ -321,9 +321,9 @@ const GlobalFooter = ({ footer }) => {
 				</div>
 			</div>
 			<div
-				className="pt-7 pb-6 md:py-3 text-white b-fstiny"
+				className="pt-7 pb-6 md:py-3 text-white b-fstiny font-normal"
 				style={{ backgroundColor: `rgba(0,0,0,.75)` }}
-				id="privacyterms-accordion"
+				id="privacyterms-accordion-parent"
 			>
 				<div className="container-fluid">
 					<div className="row items-center">
