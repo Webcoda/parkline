@@ -85,6 +85,7 @@ ul {
 	}
 }
 
+/*! purgecss start ignore */
 .swiper {
 	&-pagination {
 		.c-imagewithlisttext.c-imagewithlisttext & {
@@ -138,3 +139,4 @@ ul {
 		}
 	}
 }
+/*! purgecss end ignore */

@@ -2,6 +2,8 @@ import React from 'react';
 import ContentZone from '../agility/components/ContentZone'
 import CommonContainer from '@/components/CommonContainer'
 
+import './EnquiryPageTemplate.scss'
+
 const EnquiryPageTemplate = (props) => {
 	const bgStyle = {
 		backgroundImage: `url("/contact-form-bg-left.svg"), url("/contact-form-bg-right.svg")`,
@@ -19,7 +21,7 @@ const EnquiryPageTemplate = (props) => {
 						<div className="md:col-5 mt-12">
 							<ContentZone name="TopLeftColumn" {...props} />
 						</div>
-						<div className="md:offset-1 md:col-3 mt-12">
+						<div className="md:offset-1 md:col-3 mt-12 c-enquirypagetemplate__toprightcol">
 							<ContentZone name="TopRightColumn" {...props} />
 						</div>
 					</div>
