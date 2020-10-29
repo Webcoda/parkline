@@ -43,7 +43,10 @@ const ArticleFeatured = ({ article }) => {
 	return (
 		<div className="container-fluid relative overflow-hidden c-article-featured">
 			<div className="row -mt-12">
-				<div className="mt-12 flex flex-col c-article-featured__col-media md:offset-1 md:col-5" data-aos="fade-up">
+				<div
+					className="mt-12 flex flex-col c-article-featured__col-media md:offset-1 md:col-5"
+					data-aos="fade-up"
+				>
 					<div className="relative flex-1 flex c-article-featured__col-media-inner flex-row-reverse">
 						<div className="absolute top-0 bottom-0 right-full w-screen bg-yellow"></div>
 						<div className="flex-auto relative">
@@ -55,23 +58,30 @@ const ArticleFeatured = ({ article }) => {
 				</div>
 				<div className="mt-12 md:col-4" style={{ position: 'static' }}>
 					<div className="md:pl-13">
-						<div className="mb-4 font-normal text-black c-article-tile__meta" data-aos="fade-up">
+						<div
+							className="mb-4 font-normal text-black c-article-tile__meta"
+							data-aos="fade-up"
+						>
 							{
 								(linkedContent_articleType || articleType)
 									?.customFields.title
 							}{' '}
 							| {formatDate(new Date(date), 'd MMM yyyy')}
 						</div>
-						<h3 className="mb-9.5 text-black c-article-tile__title" data-aos="fade-up">
+						<h3
+							className="mb-9.5 text-black c-article-tile__title"
+							data-aos="fade-up"
+						>
 							{title}
 						</h3>
 						<Richtext
 							className="mb-5 font-normal c-article-tile__text"
-							html={teaserText} data-aos="fade-up"
+							html={teaserText}
+							data-aos="fade-up"
 						/>
 						<Link
 							to={`/updates/${slug}`}
-							className="text-inherit u-link-cover hocus:text-inherit hocus:no-underline"
+							className="text-inherit u-link-cover  hocus:text-yellow hocus:no-underline"
 						>
 							<svg
 								width="31"
