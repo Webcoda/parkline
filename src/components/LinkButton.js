@@ -11,7 +11,7 @@ const LinkButton = ({
 	tag,
 	...props
 }) => {
-	let _className = `inline-flex py-3 px-7 bg-yellow uppercase text-inherit hocus:no-underline hocus:text-yellow hocus:bg-black transition duration-300 c-linkbutton ${className}`
+	let _className = `inline-block py-3 px-7 bg-yellow uppercase text-center text-inherit hocus:no-underline hocus:text-yellow hocus:bg-black transition duration-300 c-linkbutton ${className}`
 	const Component = tag;
 	return tag ? (
 		<Component
