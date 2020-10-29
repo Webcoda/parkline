@@ -25,6 +25,7 @@ export default props => (
 								}
 							}
 							linkedContent_mapKeys {
+								id
 								properties {
 									itemOrder
 								}
@@ -86,7 +87,7 @@ const Maps = ({ items }) => {
 											aria-selected={
 												index === 0 ? 'true' : 'false'
 											}
-											className={`flex-auto bg-grey-dark active:bg-yellow px-4 py-5 flex items-center justify-center text-xs leading-none text-white active:text-black uppercase hocus:no-underline hocus:text-black hocus:bg-grey-light transition duration-300 ${
+											className={`flex-auto bg-grey-dark active:bg-yellow px-3 sm:px-4 py-5 flex items-center justify-center text-xs leading-none text-white active:text-black uppercase hocus:no-underline hocus:text-black hocus:bg-grey-light transition duration-300 ${
 												index === 0 ? 'active' : ''
 											}`}
 										>
