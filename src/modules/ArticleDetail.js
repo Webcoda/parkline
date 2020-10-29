@@ -104,12 +104,12 @@ const ArticleDetail = ({ dynamicPageItem }) => {
 			const { name, link } = author.customFields
 			const el = (link) ?
 				(
-					<a className="text-inherit hocus:text-inherit underline"
+					<a key={link.href} className="text-inherit hocus:text-inherit underline"
 						href={link.href}
 						target={link.target}
 					>{link.text}</a>
 				) : (
-					<span>{name}</span>
+					<span key={name}>{name}</span>
 				)
 			authorsEl.push(el)
 		})

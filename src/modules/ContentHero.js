@@ -43,7 +43,7 @@ const ContentHero = ({ item }) => {
 	]
 
 	return (
-		<div className="relative mb-12">
+		<div className="relative mb-12 c-contenthero">
 			<div
 				className="relative overflow-hidden bg-black flex flex-col justify-end text-white"
 				style={{ height: 652 }}
@@ -83,7 +83,7 @@ const ContentHero = ({ item }) => {
 										data-aos-delay="500"
 									>
 										<Richtext
-											className="lead"
+											className="lead pl-10 md:pl-0"
 											html={text}
 										/>
 									</div>
@@ -107,7 +107,7 @@ const ContentHero = ({ item }) => {
 						<>
 							{twoLinesPosition === 'left' ? (
 								<div className="col md:offset-2">
-									<div className="pl-5 md:pl-0">
+									<div className="pl-10 md:pl-0">
 										<TwoBar />
 									</div>
 								</div>
