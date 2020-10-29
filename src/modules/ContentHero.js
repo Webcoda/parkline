@@ -5,10 +5,49 @@ import toBool from '@/utils/convertBoolStrToBool'
 import './ContentHero.scss'
 
 const TwoBar = () => (
-	<svg className="c-contenthero__twobar" width="39" height="147" fill="none" xmlns="http://www.w3.org/2000/svg">
-		<path fillRule="evenodd" d="M22.415 146.333H39V.003L22.415.002v146.331z" fill="#FFC300"/>
-		<path fillRule="evenodd" clipRule="evenodd" d="M0 146.333h16.585V.001L0 0v146.333z" fill="#FFC300"/>
-	</svg>
+	<>
+		<svg
+			className="hidden sm:inline-block c-contenthero__twobar"
+			width="39"
+			height="147"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+			preserveAspectRatio="xMidYMid meet"
+		>
+			<path
+				fillRule="evenodd"
+				d="M22.415 146.333H39V.003L22.415.002v146.331z"
+				fill="#FFC300"
+			/>
+			<path
+				fillRule="evenodd"
+				clipRule="evenodd"
+				d="M0 146.333h16.585V.001L0 0v146.333z"
+				fill="#FFC300"
+			/>
+		</svg>
+		<svg
+			className="sm:hidden c-contenthero__twobar"
+			width="30"
+			height="110"
+			viewBox="0 0 30 110"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+		>
+			<path
+				fill-rule="evenodd"
+				clip-rule="evenodd"
+				d="M17.2424 109.75H30V0.00228772L17.2424 0.0012207V109.75Z"
+				fill="#FFC300"
+			/>
+			<path
+				fill-rule="evenodd"
+				clip-rule="evenodd"
+				d="M0 109.75H12.7579V0.000914586L0 0V109.75Z"
+				fill="#FFC300"
+			/>
+		</svg>
+	</>
 )
 
 const ContentHero = ({ item }) => {
@@ -78,7 +117,8 @@ const ContentHero = ({ item }) => {
 							</div>
 							{!!text && (
 								<div className="row">
-									<div className="relative px-2.5 flex-grow md:max-w-2/5 md:ml-1/10"
+									<div
+										className="relative px-2.5 flex-grow md:max-w-2/5 md:ml-1/10"
 										data-aos="fade-up"
 										data-aos-delay="500"
 									>
@@ -98,7 +138,7 @@ const ContentHero = ({ item }) => {
 					toBool(isUseYellowHorizontalBar) ? '' : 'is-use-two-bar'
 				}`}
 			>
-				<div className="row">
+				<div className={`row ${!toBool(isUseYellowHorizontalBar) && twoLinesPosition === 'right' ? 'justify-end' : ''}`}>
 					{toBool(isUseYellowHorizontalBar) ? (
 						<div className="col-8">
 							<div className="bg-yellow h-7.5 w-full -ml-2.5"></div>
@@ -106,13 +146,13 @@ const ContentHero = ({ item }) => {
 					) : (
 						<>
 							{twoLinesPosition === 'left' ? (
-								<div className="col md:offset-2">
+								<div className="relative px-2.5">
 									<div className="pl-10 md:pl-0">
 										<TwoBar />
 									</div>
 								</div>
 							) : (
-								<div className="md:offset-10 col-2 text-center">
+								<div className="relative px-2.5 text-center">
 									<TwoBar />
 								</div>
 							)}
