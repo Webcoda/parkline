@@ -53,7 +53,7 @@ const ArticleFeatured = ({ article }) => {
 						</div>
 					</div>
 				</div>
-				<div className="mt-12 md:col-5" style={{ position: 'static' }}>
+				<div className="mt-12 md:col-4" style={{ position: 'static' }}>
 					<div className="md:pl-13">
 						<div className="mb-4 font-normal text-black c-article-tile__meta" data-aos="fade-up">
 							{
@@ -62,7 +62,7 @@ const ArticleFeatured = ({ article }) => {
 							}{' '}
 							| {formatDate(new Date(date), 'd MMM yyyy')}
 						</div>
-						<h3 className="mb-9.5 normal-case text-black c-article-tile__title" data-aos="fade-up">
+						<h3 className="mb-9.5 text-black c-article-tile__title" data-aos="fade-up">
 							{title}
 						</h3>
 						<Richtext
