@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { cleanHTML } from "@/agility/utils";
-import SwiperCore, { Navigation, Pagination, A11y } from 'swiper'
+import SwiperCore, { Pagination, A11y } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import BaseImg from '@/components/BaseImg'
@@ -11,7 +11,7 @@ import SmallDivider from "@/components/SmallDivider";
 import './MediaSliderWithRevealList.scss'
 
 // install Swiper components
-SwiperCore.use([Navigation, Pagination, A11y])
+SwiperCore.use([Pagination, A11y])
 
 
 const RevealList = ({ html, hasBackground }) => {
@@ -120,7 +120,6 @@ const MediaSliderWithRevealList = ({ item }) => {
 										? { clickable: true }
 										: false
 								}
-								navigation={hasMoreThanOneSlide}
 								loop={hasMoreThanOneSlide}
 								allowTouchMove={hasMoreThanOneSlide}
 							>
