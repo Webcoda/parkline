@@ -1,6 +1,8 @@
+/*! purgecss start ignore */
 .grecaptcha {
 	&-badge {
 		opacity: 0;
 		pointer-events: none;
 	}
 }
+/*! purgecss end ignore */
