@@ -163,6 +163,7 @@ const HomeHero = ({ item: _item }) => {
 									></div>
 
 									{!isUseBigLogoMask && (
+										// purgecss: text-black, text-grey-light, text-yello
 										<div
 											className={`u-embed__item overflow-hidden text-${maskColor}`}
 										>
