@@ -61,11 +61,11 @@ module.exports = {
 					44,
 					45,
 					48,
-					115
+					115,
 				]),
 				'1/10': '10%',
 				'7/10': '70%',
-				'full': '100%',
+				full: '100%',
 			},
 			backgroundColor: {
 				current: 'currentColor',
@@ -107,7 +107,10 @@ module.exports = {
 			}),
 			maxWidth: theme => ({
 				...theme('spacing'),
-			})
+			}),
+			zIndex: {
+				1: 1,
+			},
 		},
 	},
 	variants: {
@@ -132,9 +135,19 @@ module.exports = {
 			'hocus',
 			'group-hocus',
 			'disabled',
+			'group-swiper-slide-active',
+			'group-swiper-slide-duplicate-active',
 		],
 		padding: ['responsive', 'first', 'last'],
-		textColor: ['hover', 'focus', 'is-active', 'hocus', 'group-hocus', 'collapsed'],
+		scale: ['responsive', 'hover', 'focus', 'group-swiper-slide-active', 'group-swiper-slide-duplicate-active'],
+		textColor: [
+			'hover',
+			'focus',
+			'is-active',
+			'hocus',
+			'group-hocus',
+			'collapsed',
+		],
 		textDecoration: ['responsive', 'hover', 'focus', 'hocus'],
 		translate: [
 			'responsive',
@@ -144,6 +157,8 @@ module.exports = {
 			'group-active',
 			'group-hover',
 			'group-hocus',
+			'group-swiper-slide-active',
+			'group-swiper-slide-duplicate-active',
 		],
 		margin: ['responsive', 'first', 'last'],
 	},
@@ -177,6 +192,11 @@ module.exports = {
 				{ variantName: 'group-active', isGroup: true },
 				{ variantName: 'group-is-open', isGroup: true },
 				{ variantName: 'group-is-active', isGroup: true },
+				{ variantName: 'group-swiper-slide-active', isGroup: true },
+				{
+					variantName: 'group-swiper-slide-duplicate-active',
+					isGroup: true,
+				},
 			]
 
 			variants.forEach(

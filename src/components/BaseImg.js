@@ -4,7 +4,9 @@ const BaseImg = ({
 	tag = 'picture',
 	sources,
 	src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==',
-	alt
+	alt,
+	imgClassName,
+	imgAttributes,
 }) => {
 	const Tag = tag
 
@@ -40,10 +42,11 @@ const BaseImg = ({
 							/>
 						))}
 						<img
-							className="w-full h-full object-cover js-lazysizes"
+							className={`w-full h-full object-cover js-lazysizes ${imgClassName}`}
 							data-sizes="auto"
 							data-src={src}
 							alt={alt}
+							{...imgAttributes}
 						/>
 					</>
 				)

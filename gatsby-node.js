@@ -104,6 +104,13 @@ exports.createResolvers = (args) => {
 			}),
 		},
 
+		agilityHomeHero: {
+			linkedContent_slides: agility.getLinkedContentList({
+				type: 'agilityHomeHeroItem',
+				linkedContentFieldName: 'slides',
+			})
+		}
+
 		// [Uncomment if needed]
 		// agilityStackPlan: {
 		// 	linkedContent_stackPlanOverlays: agility.getLinkedContentList({
