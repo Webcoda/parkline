@@ -186,7 +186,7 @@ const MediaSliderWithRevealList = ({ item }) => {
 								</div>
 							</div>
 							<div
-								className="relative px-2.5 w-full lg:w-3/5"
+								className="relative px-2.5 w-full lg:w-1/2"
 								data-aos="fade-up"
 								data-aos-delay="500"
 							>

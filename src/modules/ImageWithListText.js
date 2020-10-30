@@ -56,7 +56,7 @@ const ImageWithListText = ({ item }) => {
 					<div
 						className={`flex flex-col c-imagewithlisttext__col-text ${
 							isMediaPositionLeft
-								? 'md:offset-1 md:col-4 md:mr-1/12'
+								? 'md:offset-1 md:col-4 md:mr-2/12'
 								: 'md:offset-1 md:col-4 md:mr-1/12'
 						} `}
 					>
