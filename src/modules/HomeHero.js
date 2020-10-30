@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import BaseImg from "@/components/BaseImg";
 import './HomeHero.scss'
 import toBool from "@/utils/convertBoolStrToBool";
+import { sortByItemOrderAsc } from "@/utils/sortByItemOrder";
 
 // install Swiper components
 SwiperCore.use([A11y, Autoplay, EffectFade])
@@ -60,23 +61,25 @@ const HomeHero = ({ item: _item }) => {
 	}
 
 	return (
-		<section
-			ref={homeheroRef}
-			className="c-homehero relative"
-		>
+		<section ref={homeheroRef} className="c-homehero relative">
 			<Swiper
 				className="h-full"
 				loop={slides.length}
 				allowTouchMove={slides.length}
 				autoplay={{
-					delay: _item.customFields.autoplaySpeed
+					delay: _item.customFields.autoplaySpeed,
 				}}
 				effect="fade"
 				fadeEffect={{ crossFade: true }}
 			>
-				{slides.map((slide) => {
-
-					const { heading, image, maskColor, position, useBigLogoMask } = slide.customFields
+				{slides.sort(sortByItemOrderAsc).map(slide => {
+					const {
+						heading,
+						image,
+						maskColor,
+						position,
+						useBigLogoMask,
+					} = slide.customFields
 					const isUseBigLogoMask = toBool(useBigLogoMask)
 
 					const mediaImgSources = [
@@ -103,26 +106,28 @@ const HomeHero = ({ item: _item }) => {
 									descriptor: '480w',
 								},
 							],
-							type: `image/${image.url.match(/\.([0-9a-z]+)(?:[?#]|$)/i)[1]}`,
+							type: `image/${
+								image.url.match(/\.([0-9a-z]+)(?:[?#]|$)/i)[1]
+							}`,
 						},
 					]
 
-					let rowClass = "items-end"
-					let colClass = "md:offset-6"
+					let rowClass = 'items-end'
+					let colClass = 'md:offset-6'
 
-					switch(position) {
+					switch (position) {
 						case 'topleft':
 							rowClass = 'items-start'
 							colClass = 'md:offset-1'
-							break;
+							break
 						case 'topright':
-							rowClass = "items-start"
-							break;
+							rowClass = 'items-start'
+							break
 						case 'bottomleft':
 							colClass = 'md:offset-1'
-							break;
+							break
 						default:
-							break;
+							break
 					}
 
 					return (
@@ -136,7 +141,9 @@ const HomeHero = ({ item: _item }) => {
 												: ''
 										}`}
 										style={{
-											transitionDuration: isUseBigLogoMask ? `${item.customFields.autoplaySpeed}ms` : '',
+											transitionDuration: isUseBigLogoMask
+												? `${item.customFields.autoplaySpeed}ms`
+												: '',
 										}}
 									>
 										<BaseImg
@@ -144,7 +151,9 @@ const HomeHero = ({ item: _item }) => {
 											imgClassName={`transition delay-500 group-swiper-slide-active:scale-110 group-swiper-slide-duplicate-active:scale-110`}
 											imgAttributes={{
 												style: {
-													transitionDuration: `${item.customFields.autoplaySpeed + 500}ms`,
+													transitionDuration: `${parseInt(item
+														.customFields
+														.autoplaySpeed)+500}ms`,
 												},
 											}}
 										/>
@@ -162,8 +171,8 @@ const HomeHero = ({ item: _item }) => {
 										className={`u-embed__item u-scrim-hero `}
 									></div>
 
+									{/* purgecss: text-black text-grey-light text-yellow */}
 									{!isUseBigLogoMask && (
-										// purgecss: text-black, text-grey-light, text-yello
 										<div
 											className={`u-embed__item overflow-hidden text-${maskColor}`}
 										>
@@ -275,7 +284,6 @@ const HomeHero = ({ item: _item }) => {
 					)
 				})}
 			</Swiper>
-
 
 			<button
 				className="relative z-1 inline-flex items-center rounded-full u-horizontal-center w-7.5 h-7.5 bg-yellow hocus:bg-black hocus:text-yellow bottom-0 -mb-4 transition duration-300"
