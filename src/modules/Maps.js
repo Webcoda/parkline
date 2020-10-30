@@ -124,7 +124,7 @@ const Maps = ({ items }) => {
 												{!!linkedContent_mapKeys &&
 													!!linkedContent_mapKeys.length && (
 														<div className="flex flex-auto md:flex-initial flex-wrap md:flex-no-wrap items-center md:space-x-13">
-															<div className="font-bold w-full md:w-auto mb-4 md:mb-0">
+															<div className="font-bold w-full md:w-auto mb-4 md:mb-0 c-maps__legend-title">
 																Map Key
 															</div>
 															<div className="font-bold md:space-x-8 flex flex-wrap flex-auto justify-end md:justify-start">

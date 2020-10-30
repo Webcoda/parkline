@@ -13,4 +13,12 @@
 			}
 		}
 	}
+
+	&__legend {
+		&-title {
+			@include mq-down(sm) {
+				@include fzlh(12px, 14px);
+			}
+		}
+	}
 }
