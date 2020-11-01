@@ -151,9 +151,10 @@ const HomeHero = ({ item: _item }) => {
 											imgClassName={`transition delay-500 group-swiper-slide-active:scale-110 group-swiper-slide-duplicate-active:scale-110`}
 											imgAttributes={{
 												style: {
-													transitionDuration: `${parseInt(item
-														.customFields
-														.autoplaySpeed)+500}ms`,
+													transitionDuration: `${parseInt(
+														item.customFields
+															.autoplaySpeed
+													) + 500}ms`,
 												},
 											}}
 										/>
@@ -187,7 +188,7 @@ const HomeHero = ({ item: _item }) => {
 															fill="none"
 															xmlns="http://www.w3.org/2000/svg"
 															aria-hidden="true"
-															className={`absolute top-0 right-0 -translate-y-full transition duration-1000 group-swiper-slide-active:translate-y-0 group-swiper-slide-duplicate-active:translate-y-0`}
+															className={`h-auto max-w-1/5 absolute top-0 right-0 -translate-y-full transition duration-1000 group-swiper-slide-active:translate-y-0 group-swiper-slide-duplicate-active:translate-y-0`}
 														>
 															<path
 																fillRule="evenodd"
@@ -205,7 +206,7 @@ const HomeHero = ({ item: _item }) => {
 															xmlns="http://www.w3.org/2000/svg"
 															focusable="false"
 															aria-hidden="true"
-															className={`absolute bottom-0 left-0 ${FADE_ANIMATIONS.bottomleft} transition duration-1000 group-swiper-slide-active:translate-x-0 group-swiper-slide-duplicate-active:translate-x-0`}
+															className={`h-auto max-w-1/3 absolute bottom-0 left-0 ${FADE_ANIMATIONS.bottomleft} transition duration-1000 group-swiper-slide-active:translate-x-0 group-swiper-slide-duplicate-active:translate-x-0`}
 														>
 															<path
 																fillRule="evenodd"
@@ -228,7 +229,7 @@ const HomeHero = ({ item: _item }) => {
 															xmlns="http://www.w3.org/2000/svg"
 															focusable="false"
 															aria-hidden="true"
-															className={`absolute top-0 left-0 -translate-y-full transition duration-1000 group-swiper-slide-active:translate-y-0 group-swiper-slide-duplicate-active:translate-y-0`}
+															className={`h-auto max-w-1/3 absolute top-0 left-0 -translate-y-full transition duration-1000 group-swiper-slide-active:translate-y-0 group-swiper-slide-duplicate-active:translate-y-0`}
 														>
 															<path
 																fillRule="evenodd"
@@ -246,7 +247,7 @@ const HomeHero = ({ item: _item }) => {
 															xmlns="http://www.w3.org/2000/svg"
 															focusable="false"
 															aria-hidden="true"
-															className={`absolute bottom-0 right-0 translate-y-full transition duration-1000 group-swiper-slide-active:translate-y-0 group-swiper-slide-duplicate-active:translate-y-0`}
+															className={`h-auto max-w-1/5 absolute bottom-0 right-0 translate-y-full transition duration-1000 group-swiper-slide-active:translate-y-0 group-swiper-slide-duplicate-active:translate-y-0`}
 														>
 															<path
 																fillRule="evenodd"
