@@ -85,7 +85,7 @@ const RevealList = ({ html, hasBackground }) => {
 		}
 
 		// use talleUlHeight to set minHeight for the element to avoid shorter container than the ul
-		el.current.style.minHeight = `${tallestUlHeight + 24}px`;
+		el.current.style.minHeight = `${tallestUlHeight}px`;
 
 	})
 
@@ -104,7 +104,7 @@ const MediaSliderWithRevealList = ({ item }) => {
 	return (
 		<div className="mb-22 md:mb-30 last:mb-0 c-mediasliderwithreveallist">
 			<CommonContainer>
-				<div className="py-11 relative">
+				<div className={`${ backgroundColor !== 'transparent' ? 'py-11' : ''} relative`}>
 					<div
 						className={`absolute inset-0 h-full bg-${backgroundColor} -mx-5 md:mx-0 c-mediasliderwithreveallist__bg`}
 					></div>
