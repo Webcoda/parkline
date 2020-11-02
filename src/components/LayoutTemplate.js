@@ -1,10 +1,10 @@
 import React from "react"
 
-export default ({ children }) => {
+export default ({ className, children }) => {
 	return (
-		<>
+		<div className={className}>
 			{children}
-		</>
+		</div>
 	)
 }
 

@@ -100,7 +100,7 @@ const ContentHero = ({ item }) => {
 							<div className="row">
 								<div className="relative px-2.5 md:max-w-7/10">
 									<h1
-										className={`h2 sm:h1 mb-11 ${
+										className={`h2 sm:h1 mb-11 c-contenthero__title ${
 											toBool(isTitleBig)
 												? 'c-contenthero__title--big'
 												: ''

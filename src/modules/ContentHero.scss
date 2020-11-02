@@ -1,5 +1,9 @@
 .c-contenthero {
 	&__title {
+		.page-updates & {
+			max-width: 700px;
+		}
+
 		&--big {
 			@include fzlh(60px, 60px);
 			@include mq(md) {

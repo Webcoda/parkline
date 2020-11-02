@@ -30,7 +30,7 @@ const AgilityPage = ({ pageContext, data }) => {
 	})
 
     return (
-		<LayoutTemplate>
+		<LayoutTemplate className={`page-${viewModel.page.name}`}>
 			<SEO pageData={viewModel.page} />
 			<PreviewBar isPreview={viewModel.isPreview} />
 			<GlobalHeader
