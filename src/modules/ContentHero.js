@@ -35,14 +35,14 @@ const TwoBar = () => (
 			xmlns="http://www.w3.org/2000/svg"
 		>
 			<path
-				fill-rule="evenodd"
-				clip-rule="evenodd"
+				fillRule="evenodd"
+				clipRule="evenodd"
 				d="M17.2424 109.75H30V0.00228772L17.2424 0.0012207V109.75Z"
 				fill="#FFC300"
 			/>
 			<path
-				fill-rule="evenodd"
-				clip-rule="evenodd"
+				fillRule="evenodd"
+				clipRule="evenodd"
 				d="M0 109.75H12.7579V0.000914586L0 0V109.75Z"
 				fill="#FFC300"
 			/>
