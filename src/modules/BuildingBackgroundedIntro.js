@@ -126,7 +126,7 @@ const BuildingBackgroundedIntro = ({ item }) => {
 									)}
 								</div>
 								<div className={colTextClass}>
-									<h2 className="md:h1 mb-5 md:mb-11">
+									<h2 className="md:h1 mb-5 md:mb-11 max-w-3/4">
 										{title}
 									</h2>
 									<Richtext html={content} />
