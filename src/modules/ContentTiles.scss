@@ -28,5 +28,20 @@
 				min-height: 365px;
 			}
 		}
+
+		&-content {
+			@include mq(md) {
+				padding-top: 14%;
+				padding-bottom: 14%;
+			}
+			@include mq(1312px, 1439px) {
+				padding-top: 5%;
+				padding-top: 5%;
+			}
+			@include mq(2200) {
+				padding-top: 5vw;
+				padding-bottom: 5vw;
+			}
+		}
 	}
 }

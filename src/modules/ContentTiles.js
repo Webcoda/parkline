@@ -108,9 +108,9 @@ const ContentTiles = ({ contentTiles }) => {
 								className={`${bgAndTextColor} col-6 lg:col-3 flex flex-col c-contenttiles__tile`}
 								data-aos="fade-up"
 							>
-								<div className="flex-auto flex flex-col relative pb-full sm:pb-0 group overflow-hidden c-contenttiles__tile-inner">
+								<div className="flex-auto flex flex-col relative pb-full group overflow-hidden c-contenttiles__tile-inner">
 									<div className="absolute inset-0 flex flex-col">
-										<div className="flex-auto flex md:block flex-col justify-center text-center px-6 md:px-12 py-6 md:py-13 relative">
+										<div className="flex-auto flex md:block flex-col justify-center text-center px-6 md:px-12 py-6 relative c-contenttiles__tile-content">
 											<Vivus
 												id={`icon-${tile.id}`}
 												className={`${iconColor} c-contenttiles__icon`}
@@ -147,7 +147,7 @@ const ContentTiles = ({ contentTiles }) => {
 										</div>
 										<div className="absolute inset-0 flex flex-col translate-y-full group-hocus:translate-y-0 transition duration-500 overflow-hidden">
 											<div
-												className={`flex-1 flex md:block flex-col justify-center text-center px-6 md:px-12 py-6 md:py-13 -translate-y-full group-hocus:translate-y-0 transition duration-500 ${hoverBgAndTextColor}`}
+												className={`flex-1 flex md:block flex-col justify-center text-center px-6 md:px-12 py-6 -translate-y-full group-hocus:translate-y-0 transition duration-500 ${hoverBgAndTextColor} c-contenttiles__tile-content`}
 											>
 												<Vivus
 													id={`icon2-${tile.id}`}
