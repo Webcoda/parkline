@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { Fragment, useEffect } from 'react';
 
 const BaseImg = ({
 	tag = 'picture',
@@ -8,7 +8,7 @@ const BaseImg = ({
 	imgClassName,
 	imgAttributes,
 }) => {
-	const Tag = tag
+	const Tag = sources.length == 1 ? Fragment : tag
 
 	const isPictureOrVideoTag =  tag === 'picture' || tag === 'video'
 
@@ -33,7 +33,7 @@ const BaseImg = ({
 			{
 				isPictureOrVideoTag && (
 					<>
-						{sourcesWithSrcsetStr.map(source => (
+						{sources.length > 1 && sourcesWithSrcsetStr.map(source => (
 							<source
 								key={source.srcsetStr}
 								data-srcset={source.srcsetStr}
@@ -45,6 +45,7 @@ const BaseImg = ({
 							className={`w-full h-full object-cover js-lazysizes ${imgClassName}`}
 							data-sizes="auto"
 							data-src={src}
+							data-srcset={sources.length === 1 ? sourcesWithSrcsetStr[0].srcsetStr : undefined}
 							alt={alt}
 							{...imgAttributes}
 						/>

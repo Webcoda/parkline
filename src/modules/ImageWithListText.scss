@@ -52,6 +52,13 @@
 		}
 	}
 
+	&__slide {
+		&-inner{
+			// transition-timing-function: cubic-bezier(0.83, 0, 0.17, 1) !important;
+
+		}
+	}
+
 	.c-contenthero + & {
 		@include mq-down(sm) {
 			@apply pt-24.5;
@@ -146,6 +153,34 @@ ul {
 	&-container {
 		.c-imagewithlisttext & {
 			display: flex;
+		}
+	}
+}
+
+.fancyslider {
+	&__slides {
+		.c-imagewithlisttext & {
+			@apply flex-1;
+		}
+	}
+	&__dots {
+		.c-imagewithlisttext & {
+			@apply bg-yellow;
+			@apply w-15;
+			@apply flex-col;
+			@apply items-center;
+			@apply justify-center;
+			left: auto;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			@include mq(md) {
+				@apply w-22;
+			}
+
+			> * + * {
+				margin: 10px 0 0;
+			}
 		}
 	}
 }

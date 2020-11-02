@@ -1,11 +1,11 @@
 import React from 'react';
-import SwiperCore, { Pagination, A11y } from 'swiper'
+import SwiperCore, { Pagination, A11y, Parallax } from 'swiper'
 import Loadable from '@loadable/component'
-import { Swiper, SwiperSlide } from 'swiper/react'
 import Richtext from '@/components/Richtext'
 import SmallDivider from '@/components/SmallDivider'
 import BaseImg from '@/components/BaseImg'
 import LinkButton from "@/components/LinkButton";
+import { FancySlider, FancySlide } from '@/components/FancySlider'
 
 import toBool from '@/utils/convertBoolStrToBool'
 
@@ -15,7 +15,7 @@ import './ImageWithListText.scss'
 const Plyr = Loadable(() => import('react-plyr'))
 
 // install Swiper components
-SwiperCore.use([Pagination, A11y])
+SwiperCore.use([Pagination, A11y, Parallax])
 
 /**
  * Image logic:
@@ -24,6 +24,7 @@ SwiperCore.use([Pagination, A11y])
  *    a. if it's a slider / isUseBorderOnImage, it will on the left edge
  *    b. otherwise it will be offset-1
  */
+
 
 const ImageWithListText = ({ item }) => {
 	const { title, intro, listContent, mediaPosition, isUseBorderOnImage, isUseImageVerticalOffset, cTA } = item.customFields;
@@ -121,21 +122,13 @@ const ImageWithListText = ({ item }) => {
 								isMediaPositionLeft
 									? 'flex-row-reverse'
 									: ''
-							} ${
-								isMediaPositionLeft ? '-ml-2.5 md:ml-0' : ''
-							}`}
+							} ${isMediaPositionLeft ? '-ml-2.5 md:ml-0' : ''}`}
 						>
 							<div className="flex-auto relative">
 								<div className="u-embed__item">
-									<Swiper
-										className="h-full"
-										pagination={
-											hasMoreThanOneMedia
-												? { clickable: true }
-												: false
-										}
-										loop={hasMoreThanOneMedia}
-										allowTouchMove={hasMoreThanOneMedia}
+									<FancySlider
+										className="bg-black flex"
+										speed={1.5}
 									>
 										{mediaList
 											.filter(
@@ -186,29 +179,31 @@ const ImageWithListText = ({ item }) => {
 												]
 
 												return (
-													<SwiperSlide
-														key={`imagewithlisttext-${item.contentId}-${index}`}
+													<FancySlide
+														key={`imageswipe-${item.contentId}-${index}`}
 													>
-														{!!mediaItem.url.match(
-															/\.mp4/
-														) ? (
-															<Plyr
-																type="video" // or "vimeo"
-																url={
-																	mediaItem.url
-																}
-															/>
-														) : (
-															<BaseImg
-																sources={
-																	mediaImgSources
-																}
-															></BaseImg>
-														)}
-													</SwiperSlide>
+														<div className="absolute top-0 left-0 w-full h-full c-imagewithlisttext__slide-inner">
+															{!!mediaItem.url.match(
+																/\.mp4/
+															) ? (
+																<Plyr
+																	type="video" // or "vimeo"
+																	url={
+																		mediaItem.url
+																	}
+																/>
+															) : (
+																<BaseImg
+																	sources={
+																		mediaImgSources
+																	}
+																></BaseImg>
+															)}
+														</div>
+													</FancySlide>
 												)
 											})}
-									</Swiper>
+									</FancySlider>
 								</div>
 							</div>
 							{// single-media image border
