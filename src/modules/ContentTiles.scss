@@ -43,5 +43,14 @@
 				padding-bottom: 5vw;
 			}
 		}
+
+		@include mq-down(md) {
+			&:nth-child(n+5){
+				order: 1;
+			}
+			&:nth-child(3), &:nth-child(4){
+				order: 2;
+			}
+		}
 	}
 }
