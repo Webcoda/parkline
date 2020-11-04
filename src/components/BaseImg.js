@@ -1,16 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { Fragment, useEffect } from 'react'
 
 const BaseImg = ({
 	tag = 'picture',
 	sources,
-	src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==',
+	src = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==',
 	alt,
 	imgClassName,
 	imgAttributes,
 }) => {
-	const Tag = tag
+	const Tag = sources.length == 1 ? Fragment : tag
 
-	const isPictureOrVideoTag =  tag === 'picture' || tag === 'video'
+	const isPictureOrVideoTag = tag === 'picture' || tag === 'video'
 
 	const sourcesWithSrcsetStr = sources.map(source => ({
 		...source,
@@ -30,10 +30,10 @@ const BaseImg = ({
 
 	return (
 		<Tag>
-			{
-				isPictureOrVideoTag && (
-					<>
-						{sourcesWithSrcsetStr.map(source => (
+			{isPictureOrVideoTag && (
+				<>
+					{sources.length > 1 &&
+						sourcesWithSrcsetStr.map(source => (
 							<source
 								key={source.srcsetStr}
 								data-srcset={source.srcsetStr}
@@ -41,18 +41,22 @@ const BaseImg = ({
 								type={source.type}
 							/>
 						))}
-						<img
-							className={`w-full h-full object-cover js-lazysizes ${imgClassName}`}
-							data-sizes="auto"
-							data-src={src}
-							alt={alt}
-							{...imgAttributes}
-						/>
-					</>
-				)
-			}
+					<img
+						className={`w-full h-full object-cover js-lazysizes ${imgClassName}`}
+						data-sizes="auto"
+						data-src={src}
+						data-srcset={
+							sources.length === 1
+								? sourcesWithSrcsetStr[0].srcsetStr
+								: undefined
+						}
+						alt={alt}
+						{...imgAttributes}
+					/>
+				</>
+			)}
 		</Tag>
 	)
 }
 
-export default BaseImg;
+export default BaseImg
