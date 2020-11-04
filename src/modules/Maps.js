@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { Fragment, useEffect } from 'react'
 import { StaticQuery, graphql } from "gatsby";
 import CommonContainer from '@/components/CommonContainer'
 import { sortByItemOrderAsc } from "@/utils/sortByItemOrder";
@@ -106,9 +106,9 @@ const Maps = ({ items }) => {
 								} = mapItem
 								const { image } = customFields
 								return (
-									<>
+									<Fragment key={`tab-${id}`}>
 										<div
-											key={`tab-${id}`}
+
 											className={`tab-pane fade ${
 												index === 0 ? 'show active' : ''
 											}`}
@@ -166,7 +166,7 @@ const Maps = ({ items }) => {
 													)}
 											</div>
 										</div>
-									</>
+									</Fragment>
 								)
 							})}
 						</div>
