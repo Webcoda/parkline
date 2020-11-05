@@ -7,7 +7,7 @@ const Link = ({ to, href, children, ...props }) => {
 	return isExternal ? (
 		<a
 			href={to}
-			rel={isExternal ? 'noopener noreferrer' : undefined}
+			rel={isExternal ? 'noreferrer' : undefined}
 			{...props}
 		>
 			{children}
@@ -15,7 +15,7 @@ const Link = ({ to, href, children, ...props }) => {
 	) : (
 		<GatsbyLink
 			to={to}
-			rel={isExternal ? 'noopener noreferrer' : undefined}
+			rel={isExternal ? 'noreferrer' : undefined}
 			{...props}
 		>
 			{children}

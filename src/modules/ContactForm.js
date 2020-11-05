@@ -167,6 +167,7 @@ const ContactForm = ({ item }) => {
 						<span className="flex-1">
 							I acknowledge that I have read and agree to the{' '}
 							<a
+								rel="noreferrer"
 								className="text-inherit underline hocus:text-inherit hocus:no-underline"
 								href="https://www.investa.com.au/disclaimer"
 								target="_blank"
@@ -175,6 +176,7 @@ const ContactForm = ({ item }) => {
 							</a>{' '}
 							and{' '}
 							<a
+								rel="noreferrer"
 								className="text-inherit underline hocus:text-inherit hocus:no-underline"
 								href="https://www.investa.com.au/privacy"
 								target="_blank"
