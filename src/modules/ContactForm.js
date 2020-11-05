@@ -136,6 +136,54 @@ const ContactForm = ({ item }) => {
 							rows="5"
 						/>
 					</InputBlock>
+					<label
+						className="flex font-normal c-contactform__input-typo"
+						style={{ marginTop: 14 }}
+					>
+						<input
+							name="agreeprivacyterms"
+							className="sr-only sibling-checked"
+							type="checkbox"
+							required
+						/>
+						<span className="w-5 h-5 inline-flex items-center justify-center bg-white sibling-checked:bg-black mr-3">
+							<svg
+								width="16"
+								height="16"
+								viewBox="0 0 16 16"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg"
+								focusable="false"
+								aria-hidden="true"
+							>
+								<path
+									fillRule="evenodd"
+									clipRule="evenodd"
+									d="M13.7071 3.2924C14.0976 3.68293 14.0976 4.31609 13.7071 4.70662L5.70711 12.7066C5.31658 13.0971 4.68342 13.0971 4.29289 12.7066L1.29289 9.70662C0.902369 9.31609 0.902369 8.68293 1.29289 8.29241C1.68342 7.90188 2.31658 7.90188 2.70711 8.29241L5 10.5853L12.2929 3.2924C12.6834 2.90188 13.3166 2.90188 13.7071 3.2924Z"
+									fill="white"
+								/>
+							</svg>
+						</span>
+						<span className="flex-1">
+							I acknowledge that I have read and agree to the{' '}
+							<a
+								className="text-inherit underline hocus:text-inherit hocus:no-underline"
+								href="https://www.investa.com.au/disclaimer"
+								target="_blank"
+							>
+								Terms &amp; Conditions
+							</a>{' '}
+							and{' '}
+							<a
+								className="text-inherit underline hocus:text-inherit hocus:no-underline"
+								href="https://www.investa.com.au/privacy"
+								target="_blank"
+							>
+								Privacy policy
+							</a>
+							.
+						</span>
+					</label>
 				</div>
 				<button
 					className="inline-block py-3 px-7 bg-yellow uppercase text-center text-inherit hocus:no-underline hocus:text-yellow hocus:bg-black transition duration-300 disabled:opacity-50 font-medium c-linkbutton"

@@ -123,6 +123,7 @@ module.exports = {
 			'group-hocus',
 			'is-active',
 			'disabled',
+			'sibling-checked'
 		],
 		borderWidth: ['first', 'last'],
 		display: ['responsive', 'collapsed', 'is-active'],
