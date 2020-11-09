@@ -119,15 +119,6 @@ const ContactForm = ({ item }) => {
 							required: true,
 						}}
 					/>
-					<InputBlock
-						label="What we can help you with?"
-						inputProps={{
-							type: 'text',
-							name: 'help',
-							placeholder: 'What we can help you with?',
-							required: true,
-						}}
-					/>
 					<InputBlock label="Tell us a bit more about your query">
 						<textarea
 							className="bg-white px-4.5 py-3.5 flex-1 w-full c-contactform__input c-contactform__input-typo"
