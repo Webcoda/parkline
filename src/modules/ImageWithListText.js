@@ -152,35 +152,35 @@ const ImageWithListText = ({ item }) => {
 															{
 																src:
 																	mediaItemUrl +
-																	'?w=2560',
+																	'?q=80&w=2560',
 																descriptor:
 																	'2560w',
 															},
 															{
 																src:
 																	mediaItemUrl +
-																	'?w=1920',
+																	'?q=80&w=1920',
 																descriptor:
 																	'1920w',
 															},
 															{
 																src:
 																	mediaItemUrl +
-																	'?w=1024',
+																	'?q=80&w=1024',
 																descriptor:
 																	'1024w',
 															},
 															{
 																src:
 																	mediaItemUrl +
-																	'?w=768',
+																	'?q=80&w=768',
 																descriptor:
 																	'768w',
 															},
 															{
 																src:
 																	mediaItemUrl +
-																	'?w=480',
+																	'?q=80&w=480',
 																descriptor:
 																	'480w',
 															},

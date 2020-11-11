@@ -90,7 +90,7 @@ const MeetTheTeam = (props) => {
 										{
 											src:
 												encodeUrl(tile.customFields.media.url) +
-												'?w=400',
+												'?q=80&w=400',
 											descriptor: '400w',
 										},
 									],

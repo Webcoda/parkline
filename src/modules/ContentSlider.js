@@ -67,23 +67,23 @@ export default ({ item }) => {
 							{
 								srcset: [
 									{
-										src: mediaItemUrl + '?w=2560&h=882',
+										src: mediaItemUrl + '?q=80&w=2560&h=882',
 										descriptor: '2560w',
 									},
 									{
-										src: mediaItemUrl + '?w=1920&=882',
+										src: mediaItemUrl + '?q=80&w=1920&h=882',
 										descriptor: '1920w',
 									},
 									{
-										src: mediaItemUrl + '?w=1024',
+										src: mediaItemUrl + '?q=80&w=1024',
 										descriptor: '1024w',
 									},
 									{
-										src: mediaItemUrl + '?w=768',
+										src: mediaItemUrl + '?q=80&w=768',
 										descriptor: '768w',
 									},
 									{
-										src: mediaItemUrl + '?w=480',
+										src: mediaItemUrl + '?q=80&w=480',
 										descriptor: '480w',
 									},
 								],

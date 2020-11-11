@@ -85,23 +85,23 @@ const BuildingBackgroundedIntro = ({ item }) => {
 							{
 								srcset: [
 									{
-										src: imageUrl + '?w=2560',
+										src: imageUrl + '?q=80&w=2560',
 										descriptor: '2560w',
 									},
 									{
-										src: imageUrl + '?w=1920',
+										src: imageUrl + '?q=80&w=1920',
 										descriptor: '1920w',
 									},
 									{
-										src: imageUrl + '?w=1024',
+										src: imageUrl + '?q=80&w=1024',
 										descriptor: '1024w',
 									},
 									{
-										src: imageUrl + '?w=768',
+										src: imageUrl + '?q=80&w=768',
 										descriptor: '768w',
 									},
 									{
-										src: imageUrl + '?w=480',
+										src: imageUrl + '?q=80&w=480',
 										descriptor: '480w',
 									},
 								],
@@ -182,23 +182,23 @@ const BuildingBackgroundedIntro = ({ item }) => {
 							{
 								srcset: [
 									{
-										src: imageUrl + '?w=2560',
+										src: imageUrl + '?q=80&w=2560',
 										descriptor: '2560w',
 									},
 									{
-										src: imageUrl + '?w=1920',
+										src: imageUrl + '?q=80&w=1920',
 										descriptor: '1920w',
 									},
 									{
-										src: imageUrl + '?w=1024',
+										src: imageUrl + '?q=80&w=1024',
 										descriptor: '1024w',
 									},
 									{
-										src: imageUrl + '?w=768',
+										src: imageUrl + '?q=80&w=768',
 										descriptor: '768w',
 									},
 									{
-										src: imageUrl + '?w=480',
+										src: imageUrl + '?q=80&w=480',
 										descriptor: '480w',
 									},
 								],

@@ -89,23 +89,23 @@ const HomeHero = ({ item: _item }) => {
 						{
 							srcset: [
 								{
-									src: imageUrl + '?w=2560&h=986&q=80',
+									src: imageUrl + '?q=80&w=2560&h=986&q=80',
 									descriptor: '2560w',
 								},
 								{
-									src: imageUrl + '?w=1920&=982&q=80',
+									src: imageUrl + '?q=80&w=1920&=982&q=80',
 									descriptor: '1920w',
 								},
 								{
-									src: imageUrl + '?w=1024&q=80',
+									src: imageUrl + '?q=80&w=1024&q=80',
 									descriptor: '1024w',
 								},
 								{
-									src: imageUrl + '?w=768&q=80',
+									src: imageUrl + '?q=80&w=768&q=80',
 									descriptor: '768w',
 								},
 								{
-									src: imageUrl + '?w=480&q=80',
+									src: imageUrl + '?q=80&w=480&q=80',
 									descriptor: '480w',
 								},
 							],

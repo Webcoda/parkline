@@ -17,23 +17,23 @@ const ArticleFeatured = ({ article }) => {
 		{
 			srcset: [
 				{
-					src: mediaUrl + '?w=2560',
+					src: mediaUrl + '?q=80&w=2560',
 					descriptor: '2560w',
 				},
 				{
-					src: mediaUrl + '?w=1920',
+					src: mediaUrl + '?q=80&w=1920',
 					descriptor: '1920w',
 				},
 				{
-					src: mediaUrl + '?w=1024',
+					src: mediaUrl + '?q=80&w=1024',
 					descriptor: '1024w',
 				},
 				{
-					src: mediaUrl + '?w=768',
+					src: mediaUrl + '?q=80&w=768',
 					descriptor: '768w',
 				},
 				{
-					src: mediaUrl + '?w=480',
+					src: mediaUrl + '?q=80&w=480',
 					descriptor: '480w',
 				},
 			],
