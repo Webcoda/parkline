@@ -8,7 +8,7 @@ const BaseImg = ({
 	imgClassName,
 	imgAttributes,
 }) => {
-	const Tag = sources.length == 1 ? Fragment : tag
+	const Tag = sources.length === 1 ? Fragment : tag
 
 	const isPictureOrVideoTag = tag === 'picture' || tag === 'video'
 
