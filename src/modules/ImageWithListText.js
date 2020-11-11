@@ -2,6 +2,8 @@ import React from 'react';
 import SwiperCore, { Pagination, A11y } from 'swiper'
 import Loadable from '@loadable/component'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import encodeUrl from 'encodeurl'
+
 import Richtext from '@/components/Richtext'
 import SmallDivider from '@/components/SmallDivider'
 import BaseImg from '@/components/BaseImg'
@@ -142,40 +144,42 @@ const ImageWithListText = ({ item }) => {
 												mediaItem => !!mediaItem?.url
 											)
 											.map((mediaItem, index) => {
+												const mediaItemUrl = encodeUrl(mediaItem.url)
+
 												const mediaImgSources = [
 													{
 														srcset: [
 															{
 																src:
-																	mediaItem.url +
+																	mediaItemUrl +
 																	'?w=2560',
 																descriptor:
 																	'2560w',
 															},
 															{
 																src:
-																	mediaItem.url +
+																	mediaItemUrl +
 																	'?w=1920',
 																descriptor:
 																	'1920w',
 															},
 															{
 																src:
-																	mediaItem.url +
+																	mediaItemUrl +
 																	'?w=1024',
 																descriptor:
 																	'1024w',
 															},
 															{
 																src:
-																	mediaItem.url +
+																	mediaItemUrl +
 																	'?w=768',
 																descriptor:
 																	'768w',
 															},
 															{
 																src:
-																	mediaItem.url +
+																	mediaItemUrl +
 																	'?w=480',
 																descriptor:
 																	'480w',
@@ -195,7 +199,7 @@ const ImageWithListText = ({ item }) => {
 															<Plyr
 																type="video" // or "vimeo"
 																url={
-																	mediaItem.url
+																	mediaItemUrl
 																}
 															/>
 														) : (

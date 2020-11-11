@@ -1,4 +1,5 @@
 import React from 'react';
+import encodeUrl from 'encodeurl';
 import Richtext from "@/components/Richtext";
 import BaseImg from '@/components/BaseImg'
 import toBool from '@/utils/convertBoolStrToBool'
@@ -52,7 +53,7 @@ const TwoBar = () => (
 
 const ContentHero = ({ item }) => {
 	const { title, text, isTitleBig, isTitleYellow,  isUseYellowHorizontalBar, twoLinesPosition, media } =  item.customFields;
-	const mediaUrl = media?.url;
+	const mediaUrl = encodeUrl(media?.url);
 	const mediaImgSources = [
 		{
 			srcset: [

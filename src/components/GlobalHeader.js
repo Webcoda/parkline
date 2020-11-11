@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { graphql, StaticQuery } from "gatsby"
 import Headroom from 'headroom.js'
+import encodeUrl from 'encodeurl'
 
 import Link from '@/components/Link'
 import CommonContainer from '@/components/CommonContainer';
@@ -131,7 +132,7 @@ const GlobalHeader = ({ item, menuLinks }) => {
 								>
 									<img
 										alt="Logo"
-										src={item.customFields.logo.url}
+										src={encodeUrl(item.customFields.logo.url)}
 										className="c-header__logo-main transition duration-300"
 									/>
 									<svg

@@ -1,4 +1,5 @@
 import React from 'react'
+import encodeUrl from 'encodeurl'
 import Link from '@/components/Link'
 import formatDate from 'date-fns/format'
 import Richtext from './Richtext'
@@ -11,7 +12,7 @@ const ArticleFeatured = ({ article }) => {
 	const { customFields, linkedContent_articleType } = article
 	const { title, teaserText, date, media, slug, articleType } = customFields
 
-	const mediaUrl = media?.url
+	const mediaUrl = encodeUrl(media?.url)
 	const mediaImgSources = [
 		{
 			srcset: [

@@ -2,6 +2,8 @@ import React, { useRef } from 'react'
 import { graphql, useStaticQuery } from "gatsby";
 import SwiperCore, { A11y, Autoplay, EffectFade } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import encodeUrl from 'encodeurl'
+
 import BaseImg from "@/components/BaseImg";
 import './HomeHero.scss'
 import toBool from "@/utils/convertBoolStrToBool";
@@ -81,33 +83,34 @@ const HomeHero = ({ item: _item }) => {
 						useBigLogoMask,
 					} = slide.customFields
 					const isUseBigLogoMask = toBool(useBigLogoMask)
+					const imageUrl = encodeUrl(image.url);
 
 					const mediaImgSources = [
 						{
 							srcset: [
 								{
-									src: image.url + '?w=2560&h=986&q=80',
+									src: imageUrl + '?w=2560&h=986&q=80',
 									descriptor: '2560w',
 								},
 								{
-									src: image.url + '?w=1920&=982&q=80',
+									src: imageUrl + '?w=1920&=982&q=80',
 									descriptor: '1920w',
 								},
 								{
-									src: image.url + '?w=1024&q=80',
+									src: imageUrl + '?w=1024&q=80',
 									descriptor: '1024w',
 								},
 								{
-									src: image.url + '?w=768&q=80',
+									src: imageUrl + '?w=768&q=80',
 									descriptor: '768w',
 								},
 								{
-									src: image.url + '?w=480&q=80',
+									src: imageUrl + '?w=480&q=80',
 									descriptor: '480w',
 								},
 							],
 							type: `image/${
-								image.url.match(/\.([0-9a-z]+)(?:[?#]|$)/i)[1]
+								imageUrl.match(/\.([0-9a-z]+)(?:[?#]|$)/i)[1]
 							}`,
 						},
 					]

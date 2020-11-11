@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql, StaticQuery } from "gatsby";
+import encodeUrl from 'encodeurl'
 import CommonContainer from '@/components/CommonContainer'
 import Richtext from '@/components/Richtext'
 import BaseImg from '@/components/BaseImg'
@@ -88,7 +89,7 @@ const MeetTheTeam = (props) => {
 									srcset: [
 										{
 											src:
-												tile.customFields.media.url +
+												encodeUrl(tile.customFields.media.url) +
 												'?w=400',
 											descriptor: '400w',
 										},

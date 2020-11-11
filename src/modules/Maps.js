@@ -1,5 +1,7 @@
 import React, { Fragment, useEffect } from 'react'
 import { StaticQuery, graphql } from "gatsby";
+import encodeUrl from 'encodeurl'
+
 import CommonContainer from '@/components/CommonContainer'
 import { sortByItemOrderAsc } from "@/utils/sortByItemOrder";
 import './Maps.scss'
@@ -117,7 +119,7 @@ const Maps = ({ items }) => {
 										>
 											<img
 												className="w-full js-lazysizes"
-												data-src={image.url}
+												data-src={encodeUrl(image.url)}
 												alt=""
 											/>
 											<div className="bg-yellow p-5 md:p-11 flex md:justify-center">
@@ -148,7 +150,7 @@ const Maps = ({ items }) => {
 																					<img
 																						className="c-maps__key-icon js-lazysizes"
 																						data-src={
-																							mapKeyImage.url
+																							encodeUrl(mapKeyImage.url)
 																						}
 																						alt=""
 																					/>

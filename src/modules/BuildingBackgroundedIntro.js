@@ -1,4 +1,5 @@
 import React from 'react';
+import encodeUrl from 'encodeurl'
 import { graphql, useStaticQuery } from "gatsby";
 import Richtext from "@/components/Richtext";
 import BaseImg from '@/components/BaseImg'
@@ -61,6 +62,7 @@ const BuildingBackgroundedIntro = ({ item }) => {
 							image,
 						} = buildingBackgroundIntroItem.customFields
 						const isMediaOnTheLeft = mediaPosition === 'left'
+						const imageUrl = encodeUrl(image.url);
 
 						// if left image
 						const colMediaClass = isMediaOnTheLeft
@@ -83,23 +85,23 @@ const BuildingBackgroundedIntro = ({ item }) => {
 							{
 								srcset: [
 									{
-										src: image.url + '?w=2560',
+										src: imageUrl + '?w=2560',
 										descriptor: '2560w',
 									},
 									{
-										src: image.url + '?w=1920',
+										src: imageUrl + '?w=1920',
 										descriptor: '1920w',
 									},
 									{
-										src: image.url + '?w=1024',
+										src: imageUrl + '?w=1024',
 										descriptor: '1024w',
 									},
 									{
-										src: image.url + '?w=768',
+										src: imageUrl + '?w=768',
 										descriptor: '768w',
 									},
 									{
-										src: image.url + '?w=480',
+										src: imageUrl + '?w=480',
 										descriptor: '480w',
 									},
 								],
@@ -154,6 +156,7 @@ const BuildingBackgroundedIntro = ({ item }) => {
 							image,
 						} = buildingBackgroundIntroItem.customFields
 						const isMediaOnTheLeft = mediaPosition === 'left'
+						const imageUrl = encodeUrl(image?.url)
 
 						// if left image
 						const colMediaClass = isMediaOnTheLeft
@@ -179,23 +182,23 @@ const BuildingBackgroundedIntro = ({ item }) => {
 							{
 								srcset: [
 									{
-										src: image.url + '?w=2560',
+										src: imageUrl + '?w=2560',
 										descriptor: '2560w',
 									},
 									{
-										src: image.url + '?w=1920',
+										src: imageUrl + '?w=1920',
 										descriptor: '1920w',
 									},
 									{
-										src: image.url + '?w=1024',
+										src: imageUrl + '?w=1024',
 										descriptor: '1024w',
 									},
 									{
-										src: image.url + '?w=768',
+										src: imageUrl + '?w=768',
 										descriptor: '768w',
 									},
 									{
-										src: image.url + '?w=480',
+										src: imageUrl + '?w=480',
 										descriptor: '480w',
 									},
 								],

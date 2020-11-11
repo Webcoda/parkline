@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { cleanHTML } from "@/agility/utils";
 import SwiperCore, { Pagination, A11y } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import encodeUrl from 'encodeurl'
 
 import BaseImg from '@/components/BaseImg'
 import CommonContainer from '@/components/CommonContainer'
@@ -124,36 +125,37 @@ const MediaSliderWithRevealList = ({ item }) => {
 								allowTouchMove={hasMoreThanOneSlide}
 							>
 								{media.map((mediaItem, index) => {
+									const mediaItemUrl = encodeUrl(mediaItem?.url);
 									const mediaImgSources = [
 										{
 											srcset: [
 												{
 													src:
-														mediaItem.url +
+														mediaItemUrl +
 														'?w=2560',
 													descriptor: '2560w',
 												},
 												{
 													src:
-														mediaItem.url +
+														mediaItemUrl +
 														'?w=1920',
 													descriptor: '1920w',
 												},
 												{
 													src:
-														mediaItem.url +
+														mediaItemUrl +
 														'?w=1024',
 													descriptor: '1024w',
 												},
 												{
 													src:
-														mediaItem.url +
+														mediaItemUrl +
 														'?w=768',
 													descriptor: '768w',
 												},
 												{
 													src:
-														mediaItem.url +
+														mediaItemUrl +
 														'?w=480',
 													descriptor: '480w',
 												},

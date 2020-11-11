@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect } from 'react';
 import { graphql, StaticQuery } from "gatsby"
+import encodeUrl from 'encodeurl'
 
 import Link from '@/components/Link';
 import FooterSubscribeForm from '@/components/FooterSubscribeForm';
@@ -168,7 +169,7 @@ const GlobalFooter = ({ footer }) => {
 					target={url.target}
 					aria-label={url.text}
 				>
-					<img className="js-lazysizes" data-src={image.url} />
+					<img className="js-lazysizes" data-src={encodeUrl(image.url)} />
 				</Link>
 			)
 		})
@@ -196,7 +197,7 @@ const GlobalFooter = ({ footer }) => {
 						<Link to="/" className="block c-footer__logo">
 							<img
 								alt="Logo"
-								src={footer.customFields.footerLogo.url}
+								src={encodeUrl(footer.customFields.footerLogo.url)}
 								loading="lazy"
 							/>
 						</Link>

@@ -2,6 +2,7 @@ import React from "react";
 import SwiperCore, { Navigation, Pagination, A11y } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Loadable from '@loadable/component'
+import encodeUrl from 'encodeurl';
 
 import BaseImg from "@/components/BaseImg";
 import CommonContainer from "@/components/CommonContainer";
@@ -60,27 +61,29 @@ export default ({ item }) => {
 					allowTouchMove={hasMoreThanOneSlide}
 				>
 					{media.map((mediaItem, index) => {
+						const mediaItemUrl = encodeUrl(mediaItem.url)
+
 						const mediaImgSources = [
 							{
 								srcset: [
 									{
-										src: mediaItem.url + '?w=2560&h=882',
+										src: mediaItemUrl + '?w=2560&h=882',
 										descriptor: '2560w',
 									},
 									{
-										src: mediaItem.url + '?w=1920&=882',
+										src: mediaItemUrl + '?w=1920&=882',
 										descriptor: '1920w',
 									},
 									{
-										src: mediaItem.url + '?w=1024',
+										src: mediaItemUrl + '?w=1024',
 										descriptor: '1024w',
 									},
 									{
-										src: mediaItem.url + '?w=768',
+										src: mediaItemUrl + '?w=768',
 										descriptor: '768w',
 									},
 									{
-										src: mediaItem.url + '?w=480',
+										src: mediaItemUrl + '?w=480',
 										descriptor: '480w',
 									},
 								],
@@ -95,7 +98,7 @@ export default ({ item }) => {
 								{!!mediaItem.url.match(/\.mp4/) ? (
 									<Plyr
 										type="video" // or "vimeo"
-										url={mediaItem.url}
+										url={mediaItemUrl}
 									/>
 								) : (
 									<BaseImg
