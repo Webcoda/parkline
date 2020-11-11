@@ -1,13 +1,14 @@
 import React, { Fragment, useEffect } from 'react';
 import { graphql, StaticQuery } from "gatsby"
 import encodeUrl from 'encodeurl'
+import loadable from '@loadable/component'
 
 import Link from '@/components/Link';
-import FooterSubscribeForm from '@/components/FooterSubscribeForm';
 import Richtext from "@/components/Richtext";
 import { sortByItemOrderAsc } from '@/utils/sortByItemOrder'
-
 import './GlobalFooter.scss'
+
+const FooterSubscribeForm = loadable(() => import('@/components/FooterSubscribeForm'))
 
 const isPrivacyTermsLink = link => link.href === '#privacy' || link.href === '#terms'
 
