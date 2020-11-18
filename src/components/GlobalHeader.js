@@ -197,7 +197,7 @@ const GlobalHeader = ({ item, menuLinks }) => {
 										target={
 											item.customFields.contactLink.target
 										}
-										className="inline-flex relative overflow-hidden bg-black text-inherit hocus:no-underline hocus:text-inherit py-6 px-13.5 -mr-2.5 font-medium transition"
+										className="inline-flex relative overflow-hidden bg-black text-inherit hocus:no-underline hocus:text-inherit py-6 px-13.5 -mr-2.5 font-medium group"
 									>
 										<span className="inline-flex items-center space-x-4">
 											<svg
