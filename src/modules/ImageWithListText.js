@@ -1,5 +1,5 @@
 import React from 'react';
-import SwiperCore, { Pagination, A11y } from 'swiper'
+import SwiperCore, { Pagination, A11y, Autoplay } from 'swiper'
 import Loadable from '@loadable/component'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import encodeUrl from 'encodeurl'
@@ -17,7 +17,7 @@ import './ImageWithListText.scss'
 const Plyr = Loadable(() => import('react-plyr'))
 
 // install Swiper components
-SwiperCore.use([Pagination, A11y])
+SwiperCore.use([Pagination, A11y, Autoplay])
 
 /**
  * Image logic:
@@ -138,6 +138,8 @@ const ImageWithListText = ({ item }) => {
 										}
 										loop={hasMoreThanOneMedia}
 										allowTouchMove={hasMoreThanOneMedia}
+										speed={700}
+										autoplay={{ delay: 5000 }}
 									>
 										{mediaList
 											.filter(
