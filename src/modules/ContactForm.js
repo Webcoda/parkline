@@ -82,13 +82,17 @@ const ContactForm = ({ item }) => {
 
 	return (
 		<form action={endpoint} onSubmit={onFormSubmit}>
-			<h1 className="h2 mb-18" data-aos="fade-up">
+			<h1 className="h2 mb-14" data-aos="fade-up">
 				{title}
 			</h1>
 
-			<div style={{ maxWidth: 404 }} className="mb-11" data-aos="fade-up">
-				<Richtext className="font-normal" html={intro} />
-			</div>
+			{
+				!!intro && (
+					<div style={{ maxWidth: 404 }} className="mb-11" data-aos="fade-up">
+						<Richtext className="font-normal" html={intro} />
+					</div>
+				)
+			}
 
 			<div data-aos="fade-up">
 				<div className="space-y-2.5 mb-11">
