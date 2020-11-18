@@ -21,6 +21,9 @@
 	}
 
 	&__child {
+		.is-hovered & {
+			opacity: 1;
+		}
 		&-item {
 			$_child-item: &;
 			@include fzlh(14px, 17px);
@@ -37,6 +40,13 @@
 
 	&__item {
 		@include fzlh(20px, 22px);
+	}
+
+	&__toggleicon {
+		.is-hovered & {
+			@apply bg-grey-dark;
+			@apply text-yellow;
+		}
 	}
 }
 
