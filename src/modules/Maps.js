@@ -89,11 +89,23 @@ const Maps = ({ items }) => {
 											aria-selected={
 												index === 0 ? 'true' : 'false'
 											}
-											className={`flex-auto bg-grey-dark active:bg-yellow px-3 sm:px-4 py-5 flex items-center justify-center text-xs leading-none text-white active:text-black uppercase hocus:no-underline hocus:text-black hocus:bg-grey-light transition duration-300 ${
+											className={`relative overflow-hidden flex-auto bg-grey-dark active:bg-yellow px-3 sm:px-4 py-5 flex items-center justify-center text-xs leading-none text-white hocus:text-white active:text-black uppercase hocus:no-underline group ${
 												index === 0 ? 'active' : ''
 											}`}
 										>
 											{title}
+											{index !== 0 && (
+												<div
+													className="absolute inset-0 flex flex-col translate-y-full group-hocus:translate-y-0 transition duration-500 overflow-hidden"
+													aria-hidden="true"
+												>
+													<div
+														className={`flex-1 flex items-center justify-center px-3 sm:px-4 py-5 -translate-y-full group-hocus:translate-y-0 transition duration-500 text-black bg-grey-light`}
+													>
+														{title}
+													</div>
+												</div>
+											)}
 										</a>
 									</li>
 								)
