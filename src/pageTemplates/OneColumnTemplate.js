@@ -24,9 +24,13 @@ const OneColumnTemplate = (props) => {
 					type="button"
 					className="b-fsxtiny text-center uppercase group"
 				>
-					<div className="w-7.5 h-7.5 mb-2 mx-auto bg-grey-light group-hocus:bg-yellow transition duration-300">
+					<div className="relative overflow-hidden w-7.5 h-7.5 mb-2 mx-auto bg-grey-light transition duration-300">
+						<div
+							className="absolute inset-0 flex flex-col bg-yellow translate-y-full group-hocus:translate-y-0 transition duration-500 overflow-hidden"
+							aria-hidden="true"
+						></div>
 						<svg
-							className="block"
+							className="block relative"
 							aria-hidden="true"
 							focusable="false"
 							width="30"
