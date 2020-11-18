@@ -88,7 +88,7 @@ module.exports = {
 			},
 			fontFamily: {
 				sans: [
-					'Aeonic',
+					'Aeonik',
 					'"Helvetica Neue"',
 					'Arial',
 					'"Noto Sans"',
@@ -98,7 +98,17 @@ module.exports = {
 					'"Segoe UI Symbol"',
 					'"Noto Color Emoji"',
 				],
-				heading: 'Ranua, Arial, sans-serif',
+				heading: [
+					'Ranua',
+					'"Helvetica Neue"',
+					'Arial',
+					'"Noto Sans"',
+					'sans-serif',
+					'"Apple Color Emoji"',
+					'"Segoe UI Emoji"',
+					'"Segoe UI Symbol"',
+					'"Noto Color Emoji"',
+				],
 			},
 			inset: theme => ({
 				...theme('spacing'),
@@ -123,7 +133,7 @@ module.exports = {
 			'group-hocus',
 			'is-active',
 			'disabled',
-			'sibling-checked'
+			'sibling-checked',
 		],
 		borderWidth: ['first', 'last'],
 		display: ['responsive', 'collapsed', 'is-active'],
@@ -141,7 +151,13 @@ module.exports = {
 			'group-swiper-slide-duplicate-active',
 		],
 		padding: ['responsive', 'first', 'last'],
-		scale: ['responsive', 'hover', 'focus', 'group-swiper-slide-active', 'group-swiper-slide-duplicate-active'],
+		scale: [
+			'responsive',
+			'hover',
+			'focus',
+			'group-swiper-slide-active',
+			'group-swiper-slide-duplicate-active',
+		],
 		textColor: [
 			'hover',
 			'focus',
