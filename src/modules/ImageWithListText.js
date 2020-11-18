@@ -73,7 +73,7 @@ const ImageWithListText = ({ item }) => {
 								{title}
 							</h2>
 							{!!intro && (
-								<Richtext html={intro} data-aos="fade-up" />
+								<Richtext className="font-normal" html={intro} data-aos="fade-up" />
 							)}
 							<SmallDivider
 								className="mt-10 mb-11"
