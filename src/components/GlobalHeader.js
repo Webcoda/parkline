@@ -132,7 +132,9 @@ const GlobalHeader = ({ item, menuLinks }) => {
 								>
 									<img
 										alt="Logo"
-										src={encodeUrl(item.customFields.logo.url)}
+										src={encodeUrl(
+											item.customFields.logo.url
+										)}
 										className="c-header__logo-main transition duration-300"
 									/>
 									<svg
@@ -195,26 +197,62 @@ const GlobalHeader = ({ item, menuLinks }) => {
 										target={
 											item.customFields.contactLink.target
 										}
-										className="inline-flex items-center space-x-4 bg-black text-inherit hocus:no-underline hocus:text-black hocus:bg-grey-light py-6 px-13.5 -mr-2.5 font-medium transition duration-300"
+										className="inline-flex relative overflow-hidden bg-black text-inherit hocus:no-underline hocus:text-inherit py-6 px-13.5 -mr-2.5 font-medium transition"
 									>
-										<svg
-											width="36"
-											height="26"
-											fill="none"
-											xmlns="http://www.w3.org/2000/svg"
+										<span className="inline-flex items-center space-x-4">
+											<svg
+												width="36"
+												height="26"
+												fill="none"
+												xmlns="http://www.w3.org/2000/svg"
+											>
+												<path
+													clipRule="evenodd"
+													d="M35.06 23.452c0 .855-.693 1.548-1.548 1.548H2.549A1.549 1.549 0 011 23.452V2.549C1 1.693 1.694 1 2.549 1h30.963c.855 0 1.548.693 1.548 1.549v20.903z"
+													stroke="currentColor"
+												/>
+												<path
+													d="M33.092 3.675a.5.5 0 00-.707-.707l.707.707zM21.862 14.2l-.354-.353.354.353zm-7.663 0l.353-.353-.353.353zM4.449 3.742a.5.5 0 00-.707.707l.707-.707zM3.742 21.55a.5.5 0 10.707.707l-.707-.707zm7.674-6.261a.5.5 0 00-.707-.707l.707.707zm20.195 6.968a.5.5 0 00.707-.707l-.707.707zm-6.26-7.675a.5.5 0 00-.707.707l.707-.707zm7.034-11.615L21.508 13.847l.707.707 10.877-10.88-.707-.706zM21.508 13.847a4.917 4.917 0 01-6.956 0l-.707.707a5.917 5.917 0 008.37 0l-.707-.707zm-6.956 0L4.45 3.742l-.707.707 10.103 10.105.707-.707zM4.45 22.257l6.967-6.967-.707-.707-6.967 6.968.707.707zm27.87-.706l-6.968-6.968-.707.707 6.967 6.968.707-.707z"
+													fill="currentColor"
+												/>
+											</svg>
+											<span>
+												{
+													item.customFields
+														.contactLink.text
+												}
+											</span>
+										</span>
+										<span
+											className="absolute inset-0 flex flex-col translate-y-full group-hocus:translate-y-0 transition duration-500 overflow-hidden"
+											aria-hidden="true"
 										>
-											<path
-												clipRule="evenodd"
-												d="M35.06 23.452c0 .855-.693 1.548-1.548 1.548H2.549A1.549 1.549 0 011 23.452V2.549C1 1.693 1.694 1 2.549 1h30.963c.855 0 1.548.693 1.548 1.549v20.903z"
-												stroke="currentColor"
-											/>
-											<path
-												d="M33.092 3.675a.5.5 0 00-.707-.707l.707.707zM21.862 14.2l-.354-.353.354.353zm-7.663 0l.353-.353-.353.353zM4.449 3.742a.5.5 0 00-.707.707l.707-.707zM3.742 21.55a.5.5 0 10.707.707l-.707-.707zm7.674-6.261a.5.5 0 00-.707-.707l.707.707zm20.195 6.968a.5.5 0 00.707-.707l-.707.707zm-6.26-7.675a.5.5 0 00-.707.707l.707-.707zm7.034-11.615L21.508 13.847l.707.707 10.877-10.88-.707-.706zM21.508 13.847a4.917 4.917 0 01-6.956 0l-.707.707a5.917 5.917 0 008.37 0l-.707-.707zm-6.956 0L4.45 3.742l-.707.707 10.103 10.105.707-.707zM4.45 22.257l6.967-6.967-.707-.707-6.967 6.968.707.707zm27.87-.706l-6.968-6.968-.707.707 6.967 6.968.707-.707z"
-												fill="currentColor"
-											/>
-										</svg>
-										<span>
-											{item.customFields.contactLink.text}
+											<span
+												className={`flex-1 py-6 px-13.5 inline-flex items-center space-x-4 -translate-y-full group-hocus:translate-y-0 transition duration-500 bg-grey-light text-black`}
+											>
+												<svg
+													width="36"
+													height="26"
+													fill="none"
+													xmlns="http://www.w3.org/2000/svg"
+												>
+													<path
+														clipRule="evenodd"
+														d="M35.06 23.452c0 .855-.693 1.548-1.548 1.548H2.549A1.549 1.549 0 011 23.452V2.549C1 1.693 1.694 1 2.549 1h30.963c.855 0 1.548.693 1.548 1.549v20.903z"
+														stroke="currentColor"
+													/>
+													<path
+														d="M33.092 3.675a.5.5 0 00-.707-.707l.707.707zM21.862 14.2l-.354-.353.354.353zm-7.663 0l.353-.353-.353.353zM4.449 3.742a.5.5 0 00-.707.707l.707-.707zM3.742 21.55a.5.5 0 10.707.707l-.707-.707zm7.674-6.261a.5.5 0 00-.707-.707l.707.707zm20.195 6.968a.5.5 0 00.707-.707l-.707.707zm-6.26-7.675a.5.5 0 00-.707.707l.707-.707zm7.034-11.615L21.508 13.847l.707.707 10.877-10.88-.707-.706zM21.508 13.847a4.917 4.917 0 01-6.956 0l-.707.707a5.917 5.917 0 008.37 0l-.707-.707zm-6.956 0L4.45 3.742l-.707.707 10.103 10.105.707-.707zM4.45 22.257l6.967-6.967-.707-.707-6.967 6.968.707.707zm27.87-.706l-6.968-6.968-.707.707 6.967 6.968.707-.707z"
+														fill="currentColor"
+													/>
+												</svg>
+												<span>
+													{
+														item.customFields
+															.contactLink.text
+													}
+												</span>
+											</span>
 										</span>
 									</Link>
 								</div>
@@ -225,7 +263,9 @@ const GlobalHeader = ({ item, menuLinks }) => {
 				<div className="absolute left-0 w-full md:relative bg-white c-header__menu -translate-y-full md:translate-y-0 transition duration-300">
 					<div className="hidden md:block border-b-4 absolute bottom-0 inset-x-0 bg-grey-light"></div>
 					<CommonContainer className="pt-6 pb-7.5 md:pt-4 md:pb-2 relative">
-						<nav className="md:flex justify-between text-center md:text-left md:-mx-7 space-y-5.5 md:space-y-0">{renderLinks()}</nav>
+						<nav className="md:flex justify-between text-center md:text-left md:-mx-7 space-y-5.5 md:space-y-0">
+							{renderLinks()}
+						</nav>
 					</CommonContainer>
 				</div>
 			</div>
