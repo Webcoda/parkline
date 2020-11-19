@@ -11,7 +11,7 @@
 	&--withverticaloffset {
 		// margin-top: (88px + 130px);
 		@include mq(md) {
-			margin-top: 227px;
+			margin-top: 87px;
 		}
 	}
 
@@ -23,7 +23,7 @@
 		&-media {
 			#{$_this}--withverticaloffset & {
 				@include mq(md) {
-					top: -227px;
+					top: -87px;
 				}
 			}
 

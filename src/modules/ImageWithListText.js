@@ -45,7 +45,7 @@ const ImageWithListText = ({ item }) => {
 					: ''
 			} ${
 				toBool(isUseImageVerticalOffset)
-					? 'pt-22 bg-grey-light c-imagewithlisttext--withverticaloffset'
+					? 'pt-22 md:pt-0 bg-grey-light c-imagewithlisttext--withverticaloffset'
 					: ''
 			} mb-30 last:mb-0`}
 		>
@@ -56,11 +56,7 @@ const ImageWithListText = ({ item }) => {
 					}`}
 				>
 					<div
-						className={`flex flex-col c-imagewithlisttext__col-text ${
-							isMediaPositionLeft
-								? 'md:offset-1 md:col-4 md:mr-1/12'
-								: 'md:offset-1 md:col-4 md:mr-1/12'
-						} `}
+						className={`${toBool(isUseImageVerticalOffset) ? 'md:pt-22' : ''} flex flex-col md:offset-1 md:col-4 md:mr-1/12 c-imagewithlisttext__col-text`}
 					>
 						<div
 							className={`${
