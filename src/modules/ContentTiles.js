@@ -50,7 +50,7 @@ export default props => (
 
 const ContentTiles = ({ contentTiles }) => {
 	return (
-		<CommonContainer className="mb-20 md:mb-45 c-contenttiles">
+		<CommonContainer className="mb-20 md:my-45 c-contenttiles">
 			<div className="-mx-5 md:mx-0">
 				<div className="row no-gutters">
 					{contentTiles?.sort(sortByItemOrderAsc).map((tile, index) => {
