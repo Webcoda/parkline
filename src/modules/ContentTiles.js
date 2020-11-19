@@ -4,6 +4,7 @@ import React from 'react';
 import CommonContainer from '@/components/CommonContainer'
 import Vivus, { EASE_OUT } from '@/components/Vivus'
 import { sortByItemOrderAsc } from "@/utils/sortByItemOrder";
+import { renderHTML } from "@/agility/utils";
 
 import './ContentTiles.scss'
 
@@ -129,14 +130,18 @@ const ContentTiles = ({ contentTiles }) => {
 											)}
 											{!!text && (
 												<p
-													className={`hidden md:block ${
+													className={`hidden md:block font-normal ${
 														!!subtitle
 															? 'mt-3'
 															: 'mt-4'
 													}`}
-												>
-													{text}
-												</p>
+													dangerouslySetInnerHTML={renderHTML(
+														text.replaceAll(
+															'\r\n',
+															'<br>'
+														)
+													)}
+												/>
 											)}
 											{(index === 2 || index === 4) && (
 												<div
@@ -174,9 +179,13 @@ const ContentTiles = ({ contentTiles }) => {
 																? 'mt-3'
 																: 'mt-4'
 														}`}
-													>
-														{text}
-													</p>
+														dangerouslySetInnerHTML={renderHTML(
+															text.replaceAll(
+																'\r\n',
+																'<br>'
+															)
+														)}
+													/>
 												)}
 												{(index === 2 ||
 													index === 4) && (
