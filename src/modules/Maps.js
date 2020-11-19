@@ -74,13 +74,13 @@ const Maps = ({ items }) => {
 						<div className="hidden md:block absolute top-0 left-0 w-full h-1/2 bg-grey-light" />
 						{!!items && !!items.length && (
 							<div className="relative">
-								<ul className="row nav" role="tablist">
+								<ul className="nav -mx-1.5" role="tablist">
 									{sortedItems.map((mapItem, index) => {
 										const { title } = mapItem.customFields
 										return (
 											<li
 												key={`tabnav-${mapItem.id}`}
-												className="flex flex-col col-6 md:col mt-5 nav-item"
+												className="flex flex-col relative px-1.5 w-1/2 md:w-auto flex-grow flex-shrink-0 mt-5 nav-item"
 											>
 												<a
 													id={`tabnav-${mapItem.id}`}
