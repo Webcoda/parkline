@@ -263,7 +263,7 @@ const GlobalHeader = ({ item, menuLinks }) => {
 				<div className="absolute left-0 w-full md:relative bg-white c-header__menu -translate-y-full md:translate-y-0 transition duration-300">
 					<div className="hidden md:block border-b-4 absolute bottom-0 inset-x-0 bg-grey-light"></div>
 					<CommonContainer className="pt-6 pb-7.5 md:pt-4 md:pb-2 relative">
-						<nav className="md:flex justify-between text-center md:text-left md:-mx-7 space-y-5.5 md:space-y-0">
+						<nav className="md:flex justify-between text-center md:text-left md:-mx-7 space-y-5.5 md:space-y-0 c-header__menu-inner">
 							{renderLinks()}
 						</nav>
 					</CommonContainer>

@@ -29,6 +29,14 @@
 				letter-spacing: .25px;
 			}
 		}
+
+		&-inner {
+			@include mq(1921px) {
+				max-width: 1600px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
 	}
 
 	&__logo-main {
