@@ -7,6 +7,7 @@ import encodeUrl from 'encodeurl';
 import BaseImg from "@/components/BaseImg";
 import CommonContainer from "@/components/CommonContainer";
 import SmallDivider from '@/components/SmallDivider'
+import { renderHTML } from '@/agility/utils'
 
 // Styles
 import './ContentSlider.scss'
@@ -42,7 +43,13 @@ export default ({ item }) => {
 						<div className="relative px-2.5 w-full sm:max-w-4/5 md:max-w-2/5">
 							{!!item.customFields.title && (
 								<>
-									<h2>{item.customFields.title}</h2>
+									<h2
+										dangerouslySetInnerHTML={renderHTML(
+											item.customFields.title
+												.replaceAll('\r\n', '<br>')
+												.replaceAll('\n', '<br>')
+										)}
+									></h2>
 									<SmallDivider className="mt-7.5 mb-9.5 md:my-11" />
 								</>
 							)}
@@ -67,11 +74,13 @@ export default ({ item }) => {
 							{
 								srcset: [
 									{
-										src: mediaItemUrl + '?q=80&w=2560&h=882',
+										src:
+											mediaItemUrl + '?q=80&w=2560&h=882',
 										descriptor: '2560w',
 									},
 									{
-										src: mediaItemUrl + '?q=80&w=1920&h=882',
+										src:
+											mediaItemUrl + '?q=80&w=1920&h=882',
 										descriptor: '1920w',
 									},
 									{
