@@ -136,10 +136,15 @@ const ContentTiles = ({ contentTiles }) => {
 															: 'mt-4'
 													}`}
 													dangerouslySetInnerHTML={renderHTML(
-														text.replaceAll(
-															'\r\n',
-															'<br>'
-														)
+														text
+															.replaceAll(
+																'\r\n',
+																'<br>'
+															)
+															.replaceAll(
+																'\n',
+																'<br>'
+															)
 													)}
 												/>
 											)}
