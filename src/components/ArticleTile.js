@@ -58,7 +58,7 @@ const ArticleTile = ({ article, className }) => {
 				| {formatDate(new Date(date), 'd MMM yyyy')}
 			</div>
 			<h3
-				className="mb-2.5 normal-case text-black c-article-tile__title"
+				className="mb-2.5 normal-case text-black font-sans c-article-tile__title"
 				data-aos="fade-up"
 			>
 				{title}
