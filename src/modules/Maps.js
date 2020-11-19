@@ -70,7 +70,7 @@ const Maps = ({ items }) => {
 		<div data-aos="fade-up">
 			<div className="container-fluid bg-grey-light relative pt-13.5 md:pt-22 md:bg-transparent">
 				<div className="row justify-center">
-					<div className="static md:col-10">
+					<div className="static md:col-10" style={{ position: 'static' }}>
 						<div className="hidden md:block absolute top-0 left-0 w-full h-1/2 bg-grey-light" />
 						{!!items && !!items.length && (
 							<div className="relative">
