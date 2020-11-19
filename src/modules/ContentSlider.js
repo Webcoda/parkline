@@ -45,9 +45,7 @@ export default ({ item }) => {
 								<>
 									<h2
 										dangerouslySetInnerHTML={renderHTML(
-											item.customFields.title
-												.replaceAll('\r\n', '<br>')
-												.replaceAll('\n', '<br>')
+											item.customFields.title.replace(/(?:\r\n|\r|\n)/g, '<br>')
 										)}
 									></h2>
 									<SmallDivider className="mt-7.5 mb-9.5 md:my-11" />
