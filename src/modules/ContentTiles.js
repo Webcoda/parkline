@@ -169,7 +169,7 @@ const ContentTiles = ({ contentTiles }) => {
 												)}
 												{!!text && (
 													<p
-														className={`${
+														className={`font-normal ${
 															!!subtitle
 																? 'mt-3'
 																: 'mt-4'
