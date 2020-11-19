@@ -66,7 +66,7 @@ const RevealList = ({ html, hasBackground }) => {
 
 		// the first parent li
 		Array.from($el.querySelectorAll('li:not(.child-item)')).forEach((li, index) => {
-			li.classList.add('flex', 'group', 'cursor-pointer',  'py-3', 'first:pt-0', 'last:pb-0');
+			li.classList.add('flex', 'group', 'cursor-pointer',  'py-4.5', 'first:pt-0', 'last:pb-0');
 			if(index === 0) {
 				li.classList.add('is-hovered')
 			}
@@ -115,7 +115,7 @@ const MediaSliderWithRevealList = ({ item }) => {
 	return (
 		<div className="mb-22 md:mb-30 last:mb-0 c-mediasliderwithreveallist">
 			<CommonContainer>
-				<div className={`${ backgroundColor !== 'transparent' ? 'py-11' : ''} relative`}>
+				<div className={`${ backgroundColor !== 'transparent' ? 'pt-11 pb-11 md:pb-32.5' : ''} relative`}>
 					<div
 						className={`absolute inset-0 h-full bg-${backgroundColor} -mx-5 md:mx-0 c-mediasliderwithreveallist__bg`}
 					></div>
@@ -193,7 +193,7 @@ const MediaSliderWithRevealList = ({ item }) => {
 							>
 								<div className="pr-6">
 									<h2 className="mb-7">{title}</h2>
-									<Richtext html={intro}></Richtext>
+									<Richtext className="font-normal" html={intro}></Richtext>
 									<SmallDivider className="my-14" />
 								</div>
 							</div>
