@@ -12,6 +12,13 @@
 			padding-top: 155px;
 		}
 
+		&-richtext {
+			@include fzlh(18px, 24px);
+			@include mq(sm) {
+				@include fzlh(24px, 32px);
+			}
+		}
+
 		&-col {
 			&-media {
 				.is-media-left & {
