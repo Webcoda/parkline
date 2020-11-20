@@ -7,3 +7,9 @@
 }
 @tailwind utilities;
 
+.translate-y-full {
+	transform: translateY(101%)
+}
+.-translate-y-full {
+	transform: translateY(-101%)
+}
