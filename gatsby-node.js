@@ -184,3 +184,29 @@ exports.onCreateNode = async ({
 		await callback(array[index], index, array);
 	}
 }
+
+// put this on gatsby-node.js file
+exports.onCreateWebpackConfig = ({
+  stage,
+  rules,
+  loaders,
+  plugins,
+  actions,
+}) => {
+  actions.setWebpackConfig({
+		resolve: {
+			modules: ['node_modules'],
+			alias: {
+				TweenMax: 'gsap/umd/TweenMax.js',
+				TweenLite: 'gsap/umd/TweenLite.js',
+				TimelineMax: 'gsap/umd/TimelineMax.js',
+				ScrollMagic:
+					'scrollmagic/scrollmagic/uncompressed/ScrollMagic.js',
+				'animation.gsap':
+					'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js',
+				'debug.addIndicators':
+					'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators.js',
+			},
+		},
+  })
+}
