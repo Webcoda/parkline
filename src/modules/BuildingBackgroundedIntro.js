@@ -1,9 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import encodeUrl from 'encodeurl'
 import { graphql, useStaticQuery } from "gatsby";
-import { Scene, Controller } from 'scrollmagic'
-import { Linear } from 'gsap'
-import 'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap'
+// import { Scene, Controller } from 'scrollmagic'
+// import { Linear } from 'gsap'
 // import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators';
 
 import Richtext from "@/components/Richtext";
@@ -49,21 +48,31 @@ const BuildingBackgroundedIntro = ({ item }) => {
 	const buildingBackgroundIntro = allAgilityBuildingBackgroundedIntro.nodes.find(node => node.properties.referenceName === item.properties.referenceName)
 
 	useEffect(() => {
-		const controller = new Controller({ triggerHook: 0 })
+		let controller, scene
 
-		const scene = new Scene({
-			triggerElement: buildingBackgroundIntroRef.current,
-			duration: '100%',
-			offset: 285,
-		})
-			.setTween(
-				bgRef.current, {
+		(async () => {
+			const [{default:ScrollMagic}, { Linear }] = await Promise.all([
+				import('scrollmagic'),
+				import('gsap'),
+				import('scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap')
+			])
+
+			// console.log(x);
+
+			controller = new ScrollMagic.Controller({ triggerHook: 0 })
+
+			scene = new ScrollMagic.Scene({
+				triggerElement: buildingBackgroundIntroRef.current,
+				duration: '100%',
+				offset: 285,
+			})
+				.setTween(bgRef.current, {
 					y: '20%',
 					ease: Linear.easeNone,
-				}
-			)
-			// .addIndicators()
-			.addTo(controller)
+				})
+				// .addIndicators()
+				.addTo(controller)
+		})()
 
 		return () => {
 			controller.destroy(true)
