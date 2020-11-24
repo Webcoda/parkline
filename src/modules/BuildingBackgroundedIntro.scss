@@ -1,7 +1,7 @@
 .c-buildingbackgroundedintro {
 	$_this: &;
 
-	padding-top: 17vw;
+	padding-top: 258px;
 	margin-bottom: 180px;
 
 	&__bigsection {
@@ -29,14 +29,20 @@
 				}
 
 				#{$_this}__bigsection-row:first-child & {
-					margin-top: -17vw;
+					margin-top: -258px;
 					@include mq(md) {
-						margin-top: calc(-17vw - 155px);
+						margin-top: calc(-258px - 155px);
 					}
 				}
 				#{$_this}__bigsection-row:nth-child(2) & {
 					@include mq(md) {
 						margin-bottom: -5%;
+					}
+				}
+
+				&-inner {
+					#{$_this}__bigsection-row:first-child & {
+						// height: calc(100% + 155px + 258px);
 					}
 				}
 			}

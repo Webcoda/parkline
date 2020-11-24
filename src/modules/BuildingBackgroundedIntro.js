@@ -53,7 +53,7 @@ const BuildingBackgroundedIntro = ({ item }) => {
 								.isSmallSection !== 'true'
 					)
 					.sort(sortByItemOrderAsc)
-					.map(buildingBackgroundIntroItem => {
+					.map((buildingBackgroundIntroItem, index) => {
 						const {
 							title,
 							content,
@@ -123,9 +123,13 @@ const BuildingBackgroundedIntro = ({ item }) => {
 								<div
 									className={`${colMediaClass} mb-15 md:mb-0 c-buildingbackgroundedintro__bigsection-col-media`}
 								>
-									{!!image?.url && (
-										<BaseImg sources={mediaImgSources} />
-									)}
+									<div className={index === 0 ? 'md:absolute top-0 left-0 w-full h-full overflow-hidden c-buildingbackgroundedintro__bigsection-col-media-inner' : 'w-full h-full'}>
+										<div className={index === 0 ? 'md:u-embed__item' : 'w-full h-full'}>
+											{!!image?.url && (
+												<BaseImg sources={mediaImgSources} />
+											)}
+										</div>
+									</div>
 								</div>
 								<div className={colTextClass}>
 									<h2 className="md:h1 mb-5 md:mb-11 max-w-3/4">
