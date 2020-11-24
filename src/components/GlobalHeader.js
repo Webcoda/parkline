@@ -164,7 +164,7 @@ const GlobalHeader = ({ item, menuLinks }) => {
 										<span className="hamburger-inner"></span>
 									</span>
 								</button>
-								<a
+								{/* <a
 									href="tel:1300 123 456"
 									className="hidden md:inline-flex items-center space-x-4 b-fsregular text-inherit hocus:text-inherit"
 								>
@@ -188,9 +188,9 @@ const GlobalHeader = ({ item, menuLinks }) => {
 										/>
 									</svg>
 									<span>1300 123 456</span>
-								</a>
+								</a> */}
 							</div>
-							{!!item.customFields.contactLink?.href && (
+							{/* {!!item.customFields.contactLink?.href && (
 								<div className="hidden md:block col-auto text-white">
 									<Link
 										to={item.customFields.contactLink.href}
@@ -256,7 +256,65 @@ const GlobalHeader = ({ item, menuLinks }) => {
 										</span>
 									</Link>
 								</div>
-							)}
+							)} */}
+							<div className="hidden md:block col-auto text-white">
+								<a
+									href="tel:1300 123 456"
+									className="inline-flex relative overflow-hidden bg-black text-inherit hocus:no-underline hocus:text-inherit py-6 px-13.5 -mr-2.5 font-medium group"
+								>
+									<span className="inline-flex items-center space-x-4">
+										<svg
+											width="31"
+											height="30"
+											fill="none"
+											xmlns="http://www.w3.org/2000/svg"
+										>
+											<path
+												clipRule="evenodd"
+												d="M30 15c0 8.008-6.492 14.5-14.5 14.5S1 23.008 1 15 7.492.5 15.5.5 30 6.992 30 15z"
+												stroke="currentColor"
+												strokeLinecap="round"
+											/>
+											<path
+												clipRule="evenodd"
+												d="M11.813 18.96c4.216 4.215 9.213 5.1 10.87 5.01a20.889 20.889 0 002.483-4.352c-.956-1.165-3.526-2.458-4.713-2.76l-1.583 1.65c-.72-.216-2.31-.66-4.128-2.478-1.817-1.818-2.221-3.368-2.436-4.087l1.608-1.624c-.5-1.713-1.711-3.573-2.76-4.713A20.889 20.889 0 006.802 8.09c-.09 1.658.795 6.654 5.01 10.87z"
+												stroke="currentColor"
+												strokeLinecap="round"
+											/>
+										</svg>
+										<span>1300 123 456</span>
+									</span>
+									<span
+										className="absolute inset-0 flex flex-col translate-y-full group-hocus:translate-y-0 transition duration-500 overflow-hidden"
+										aria-hidden="true"
+									>
+										<span
+											className={`flex-1 py-6 px-13.5 inline-flex items-center space-x-4 -translate-y-full group-hocus:translate-y-0 transition duration-500 bg-grey-light text-black`}
+										>
+											<svg
+												width="31"
+												height="30"
+												fill="none"
+												xmlns="http://www.w3.org/2000/svg"
+											>
+												<path
+													clipRule="evenodd"
+													d="M30 15c0 8.008-6.492 14.5-14.5 14.5S1 23.008 1 15 7.492.5 15.5.5 30 6.992 30 15z"
+													stroke="currentColor"
+													strokeLinecap="round"
+												/>
+												<path
+													clipRule="evenodd"
+													d="M11.813 18.96c4.216 4.215 9.213 5.1 10.87 5.01a20.889 20.889 0 002.483-4.352c-.956-1.165-3.526-2.458-4.713-2.76l-1.583 1.65c-.72-.216-2.31-.66-4.128-2.478-1.817-1.818-2.221-3.368-2.436-4.087l1.608-1.624c-.5-1.713-1.711-3.573-2.76-4.713A20.889 20.889 0 006.802 8.09c-.09 1.658.795 6.654 5.01 10.87z"
+													stroke="currentColor"
+													strokeLinecap="round"
+												/>
+											</svg>
+											<span>1300 123 456</span>
+										</span>
+									</span>
+								</a>
+							</div>
 						</div>
 					</div>
 				</div>
