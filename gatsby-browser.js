@@ -35,10 +35,12 @@ AOS.init({
 export const onInitialClientRender = () => {
 	const html = document.querySelector('html')
 	const preloader = document.getElementById('___preloader');
-	preloader.style.opacity = '0';
-	html.style.overflow = 'hidden'
 	setTimeout(() => {
-		preloader.style.display = 'none'
-		html.style.overflow = '';
-	}, 500);
+		preloader.style.opacity = '0';
+		html.style.overflow = 'hidden'
+		setTimeout(() => {
+			preloader.style.display = 'none'
+			html.style.overflow = '';
+		}, 500);
+	}, 1500);
 }
