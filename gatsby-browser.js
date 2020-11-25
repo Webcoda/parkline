@@ -31,3 +31,14 @@ AOS.init({
 	mirror: false, // whether elements should animate out while scrolling past them
 	anchorPlacement: 'top-bottom', // defines which position of the element regarding to window shou
 })
+
+export const onInitialClientRender = () => {
+	const html = document.querySelector('html')
+	const preloader = document.getElementById('___preloader');
+	preloader.style.opacity = '0';
+	html.style.overflow = 'hidden'
+	setTimeout(() => {
+		preloader.style.display = 'none'
+		html.style.overflow = '';
+	}, 500);
+}
