@@ -3,6 +3,7 @@ import { StaticQuery, graphql } from "gatsby";
 import encodeUrl from 'encodeurl'
 
 import { sortByItemOrderAsc } from "@/utils/sortByItemOrder";
+import BaseImg from '@/components/BaseImg'
 import './Maps.scss'
 
 export default props => (
@@ -125,6 +126,44 @@ const Maps = ({ items }) => {
 											linkedContent_mapKeys,
 										} = mapItem
 										const { image } = customFields
+										const mediaItemUrl = encodeUrl(image.url)
+										const mediaImgSources = [
+											{
+												srcset: [
+													{
+														src:
+															mediaItemUrl +
+															'?q=80&w=2560',
+														descriptor: '2560w',
+													},
+													{
+														src:
+															mediaItemUrl +
+															'?q=80&w=1920',
+														descriptor: '1920w',
+													},
+													{
+														src:
+															mediaItemUrl +
+															'?q=80&w=1024',
+														descriptor: '1024w',
+													},
+													{
+														src:
+															mediaItemUrl +
+															'?q=80&w=768',
+														descriptor: '768w',
+													},
+													{
+														src:
+															mediaItemUrl +
+															'?q=80&w=480',
+														descriptor: '480w',
+													},
+												],
+												type: 'image/jpg',
+											},
+										]
 										return (
 											<Fragment key={`tab-${id}`}>
 												<div
@@ -136,13 +175,14 @@ const Maps = ({ items }) => {
 													id={`tab-${id}`}
 													aria-labelledby={`tabnav-${id}`}
 												>
-													<img
-														className="w-full js-lazysizes"
-														data-src={encodeUrl(
-															image.url
-														)}
-														alt=""
-													/>
+													<div className="u-embed" style={{ paddingBottom: '75%'}}>
+														<div className="u-embed__item">
+															<BaseImg
+																src={mediaItemUrl + '?q=80&w=8'}
+																sources={mediaImgSources}
+															/>
+														</div>
+													</div>
 													<div className="bg-yellow p-5 md:p-11 flex md:justify-center">
 														{!!linkedContent_mapKeys &&
 															!!linkedContent_mapKeys.length && (

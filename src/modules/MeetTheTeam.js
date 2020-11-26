@@ -84,12 +84,13 @@ const MeetTheTeam = (props) => {
 				<div className="-mx-5 md:mx-0">
 					<div className="row no-gutters">
 						{tiles?.sort(sortByItemOrderAsc).map((tile, index) => {
+							const mediaUrl = encodeUrl(tile.customFields.media.url);
 							const mediaImgSources = [
 								{
 									srcset: [
 										{
 											src:
-												encodeUrl(tile.customFields.media.url) +
+												mediaUrl +
 												'?q=80&w=400',
 											descriptor: '400w',
 										},
@@ -103,11 +104,12 @@ const MeetTheTeam = (props) => {
 									key={tile.id}
 									className="col-12 sm:col-6 md:col flex flex-col c-meettheteam__tile overflow-hidden group"
 									data-aos="fade-up"
-									data-aos-delay={200*index}
+									data-aos-delay={200 * index}
 								>
 									<div className="flex-1 flex flex-col relative c-meettheteam__tile-inner">
 										<div className="u-embed__item">
 											<BaseImg
+												src={mediaUrl + '?q=80&w=8'}
 												sources={mediaImgSources}
 											></BaseImg>
 										</div>
@@ -120,7 +122,13 @@ const MeetTheTeam = (props) => {
 											<div className="flex-1 flex flex-col -translate-y-full group-hocus:translate-y-0 transition duration-500">
 												<div className="u-embed__item">
 													<BaseImg
-														sources={mediaImgSources}
+														src={
+															mediaUrl +
+															'?q=80&w=8'
+														}
+														sources={
+															mediaImgSources
+														}
 													></BaseImg>
 												</div>
 												<div
@@ -133,7 +141,8 @@ const MeetTheTeam = (props) => {
 													<Richtext
 														className="mb-18 font-normal c-meettheteam__tile-text"
 														html={
-															tile.customFields.text
+															tile.customFields
+																.text
 														}
 													></Richtext>
 													<SmallDivider className="mt-9 mb-6" />
@@ -141,7 +150,10 @@ const MeetTheTeam = (props) => {
 														aria-hidden="true"
 														className="mb-3 uppercase font-bold c-meettheteam__tile-title"
 													>
-														{tile.customFields.title}
+														{
+															tile.customFields
+																.title
+														}
 													</div>
 													{
 														<div className="inline-flex items-center space-x-1.5 uppercase b-fsxtiny">
@@ -149,7 +161,8 @@ const MeetTheTeam = (props) => {
 																{
 																	tile
 																		.customFields
-																		.cTA.text
+																		.cTA
+																		.text
 																}
 															</span>
 															<svg
@@ -179,7 +192,9 @@ const MeetTheTeam = (props) => {
 										</div>
 										<a
 											href={tile.customFields.cTA.href}
-											target={tile.customFields.cTA.target}
+											target={
+												tile.customFields.cTA.target
+											}
 											className="u-embed__item opacity-0"
 										>
 											<span className="sr-only">

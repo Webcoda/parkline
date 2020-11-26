@@ -52,7 +52,7 @@ const ArticleFeatured = ({ article }) => {
 						<div className="absolute top-0 bottom-0 right-full w-screen bg-yellow"></div>
 						<div className="flex-auto relative">
 							<div className="u-embed__item">
-								<BaseImg sources={mediaImgSources}></BaseImg>
+								<BaseImg src={mediaUrl + '?q=80&w=8'} sources={mediaImgSources}></BaseImg>
 							</div>
 						</div>
 					</div>

@@ -202,6 +202,7 @@ const ImageWithListText = ({ item }) => {
 															/>
 														) : (
 															<BaseImg
+																src={mediaItem.url + '?q=80&w=8'}
 																sources={
 																	mediaImgSources
 																}

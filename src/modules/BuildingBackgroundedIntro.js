@@ -181,6 +181,7 @@ const BuildingBackgroundedIntro = ({ item }) => {
 										>
 											{!!image?.url && (
 												<BaseImg
+													src={imageUrl + '?q=80&w=8'}
 													sources={mediaImgSources}
 												/>
 											)}
@@ -295,7 +296,10 @@ const BuildingBackgroundedIntro = ({ item }) => {
 									className={`${colMediaClass} c-buildingbackgroundedintro__smallsection-col-media`}
 								>
 									{!!image?.url && (
-										<BaseImg sources={mediaImgSources} />
+										<BaseImg
+											src={imageUrl+'?q=80&w=8'}
+											sources={mediaImgSources}
+										/>
 									)}
 								</div>
 								<div

@@ -1,0 +1,9 @@
+.BaseImg {
+	&__lqip {
+		filter: blur(5px);
+		transform: scale(1.1);
+		.is-lazysizes-loaded ~ & {
+			opacity: 0;
+		}
+	}
+}
