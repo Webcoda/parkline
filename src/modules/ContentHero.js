@@ -90,7 +90,7 @@ const ContentHero = ({ item }) => {
 			>
 				{!!mediaUrl && (
 					<div className="u-embed__item">
-						<BaseImg sources={mediaImgSources} />
+						<BaseImg src={mediaUrl + '?q=80&w=8'} sources={mediaImgSources} />
 						<div className="u-embed__item u-scrim-hero"></div>
 					</div>
 				)}

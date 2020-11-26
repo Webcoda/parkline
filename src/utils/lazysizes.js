@@ -9,6 +9,7 @@ import lazysizes from 'lazysizes'
 import 'lazysizes/plugins/attrchange/ls.attrchange'
 import 'lazysizes/plugins/bgset/ls.bgset'
 import 'lazysizes/plugins/unveilhooks/ls.unveilhooks'
+import 'lazysizes/plugins/blur-up/ls.blur-up'
 
 lazysizes.cfg = lazysizes.cfg || {}
 lazysizes.cfg.lazyClass = 'js-lazysizes'

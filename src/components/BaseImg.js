@@ -1,4 +1,5 @@
-import React, { Fragment, useEffect } from 'react'
+import React, { useEffect } from 'react'
+import './BaseImg.scss'
 
 const BaseImg = ({
 	tag = 'picture',
@@ -8,7 +9,7 @@ const BaseImg = ({
 	imgClassName,
 	imgAttributes,
 }) => {
-	const Tag = sources.length === 1 ? Fragment : tag
+	const Tag = sources.length === 1 ? 'div' : tag
 
 	const isPictureOrVideoTag = tag === 'picture' || tag === 'video'
 
@@ -29,7 +30,7 @@ const BaseImg = ({
 	}, [])
 
 	return (
-		<Tag>
+		<Tag className="relative w-full h-full overflow-hidden inline-block">
 			{isPictureOrVideoTag && (
 				<>
 					{sources.length > 1 &&
@@ -42,9 +43,9 @@ const BaseImg = ({
 							/>
 						))}
 					<img
+						src={src}
 						className={`w-full h-full object-cover js-lazysizes ${imgClassName}`}
 						data-sizes="auto"
-						data-src={src}
 						data-srcset={
 							sources.length === 1
 								? sourcesWithSrcsetStr[0].srcsetStr
@@ -55,6 +56,12 @@ const BaseImg = ({
 					/>
 				</>
 			)}
+			<img
+				className="BaseImg__lqip u-embed__item pointer-events-none transition duration-500"
+				src={src}
+				alt=""
+				aria-hidden="true"
+			/>
 		</Tag>
 	)
 }

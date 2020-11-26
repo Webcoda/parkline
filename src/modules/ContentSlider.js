@@ -109,6 +109,7 @@ export default ({ item }) => {
 									/>
 								) : (
 									<BaseImg
+										src={mediaItemUrl + '?q=80&w=8'}
 										sources={mediaImgSources}
 									></BaseImg>
 								)}

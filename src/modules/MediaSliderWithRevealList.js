@@ -170,7 +170,7 @@ const MediaSliderWithRevealList = ({ item }) => {
 													descriptor: '480w',
 												},
 											],
-											type: 'image/png',
+											type: 'image/jpg',
 										},
 									]
 
@@ -179,6 +179,7 @@ const MediaSliderWithRevealList = ({ item }) => {
 											key={`content-slide-${item.contentId}-${index}`}
 										>
 											<BaseImg
+												src={mediaItemUrl + '?q=80&w=8'}
 												sources={mediaImgSources}
 											></BaseImg>
 										</SwiperSlide>

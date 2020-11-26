@@ -45,7 +45,7 @@ const ArticleTile = ({ article, className }) => {
 			<div className="relative mb-12" data-aos="fade-up">
 				<div className="relative c-article-tile__media">
 					<div className="u-embed__item">
-						{!!mediaUrl && <BaseImg sources={mediaImgSources} />}
+						{!!mediaUrl && <BaseImg src={mediaUrl + '?q=80&w=8'} sources={mediaImgSources} />}
 					</div>
 				</div>
 				<div className="h-2.5 bg-yellow"></div>
