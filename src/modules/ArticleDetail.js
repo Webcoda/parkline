@@ -19,6 +19,7 @@ const ArticleDetail = ({ dynamicPageItem }) => {
 			query AllAgilityArticleQuery {
 				allAgilityArticle {
 					nodes {
+						contentID
 						customFields {
 							title
 							slug
@@ -26,6 +27,9 @@ const ArticleDetail = ({ dynamicPageItem }) => {
 							teaserText
 							details
 							date
+							media {
+								url
+							}
 						}
 						linkedContent_articleType {
 							customFields {
@@ -46,9 +50,6 @@ const ArticleDetail = ({ dynamicPageItem }) => {
 								itemOrder
 							}
 						}
-						properties {
-							referenceName
-						}
 					}
 				}
 			}
@@ -57,8 +58,8 @@ const ArticleDetail = ({ dynamicPageItem }) => {
 
 	const article = allAgilityArticle.nodes.find(
 		node =>
-			node.properties.referenceName ===
-			dynamicPageItem.properties.referenceName
+			node.contentID ===
+			dynamicPageItem.contentID
 	)
 
 	const { relatedArticles } = dynamicPageItem.customFields
