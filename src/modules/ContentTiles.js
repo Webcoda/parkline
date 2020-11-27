@@ -184,7 +184,7 @@ const ContentTiles = ({ contentTiles, item }) => {
 												)}
 												{!!text && (
 													<p
-														className={`hidden md:block font-normal ${
+														className={`hidden md:block font-normal c-contenttiles__text ${
 															!!subtitle
 																? 'mt-3'
 																: 'mt-4'

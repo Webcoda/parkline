@@ -53,4 +53,8 @@
 			}
 		}
 	}
+
+	&__text {
+		@include fzlh(18px, 24px);
+	}
 }
