@@ -78,6 +78,9 @@ module.exports = {
 				...theme('colors'),
 				default: '#d8d8d8',
 			}),
+			borderWith: {
+				5: '5px',
+			},
 			colors: {
 				inherit: 'inherit',
 				yellow: '#FFC300',
