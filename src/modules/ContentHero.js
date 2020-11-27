@@ -96,8 +96,8 @@ const ContentHero = ({ item }) => {
 				)}
 
 				<div className="relative container-fluid flex-auto flex flex-col justify-end pb-20 md:pb-50">
-					<div className="row justify-center">
-						<div className="md:col-10">
+					<div className="row justify-center c-contenthero__row">
+						<div className="md:col-10 c-contenthero__row-inner">
 							<div className="row">
 								<div className="relative px-2.5 md:max-w-7/10">
 									<h1

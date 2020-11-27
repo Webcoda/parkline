@@ -28,4 +28,17 @@
 			}
 		}
 	}
+
+	&__row{
+		.page-updates-dynamic & {
+			justify-content: normal;
+			&-inner {
+				@include mq(md) {
+					flex: 0 0 50%;
+					max-width: 50%;
+					margin-left: 16.666666666666668%;
+				}
+			}
+		}
+	}
 }
