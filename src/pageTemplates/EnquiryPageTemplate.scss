@@ -1,8 +1,16 @@
 .c-enquirypagetemplate {
 	&__toprightcol {
 		.o-richtext {
+			> * + * {
+				margin-top: 12px;
+			}
 			h3 {
+				@include fzlh(20px, 22px);
 				@apply font-sans;
+				@apply normal-case;
+				font-weight: 700;
+				margin-top: 44px;
+				margin-bottom: 12px;
 			}
 		}
 	}
