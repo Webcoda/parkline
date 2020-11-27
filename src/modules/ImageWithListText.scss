@@ -59,6 +59,10 @@
 			@apply font-sans;
 		}
 
+		> * + h3 {
+			margin-top: 30px;
+		}
+
 		> * + * {
 			margin-top: 27px;
 		}
@@ -87,7 +91,15 @@ ul {
 				padding-left: 1.3125rem;
 				@apply py-2.5;
 				@apply border-b;
-				// @apply border-current;
+
+				&:first-child {
+					padding-top: 0;
+
+					&:before {
+						top: .25rem;
+					}
+				}
+
 				&:before {
 					@apply bg-yellow;
 					content: '';
