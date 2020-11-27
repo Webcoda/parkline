@@ -75,10 +75,14 @@ const BuildingBackgroundedIntro = ({ item }) => {
 		})()
 
 		return () => {
-			controller.destroy(true)
-			// controller = null
-			scene.destroy(true)
-			// scene = null;
+			if(controller) {
+				controller.destroy(true)
+				// controller = null
+			}
+			if(scene) {
+				scene.destroy(true)
+				// scene = null;
+			}
 		}
 	}, [])
 
