@@ -28,7 +28,7 @@ SwiperCore.use([Pagination, A11y, Autoplay])
  */
 
 const ImageWithListText = ({ item }) => {
-	const { title, intro, listContent, mediaPosition, isUseBorderOnImage, isUseImageVerticalOffset, cTA } = item.customFields;
+	const { title, intro, listContent, mediaPosition, isUseBorderOnImage, isUseImageVerticalOffset, isImageBleedLeft, cTA } = item.customFields;
 
 	const mediaList = Array.isArray(item.customFields.mediaList) ? item.customFields.mediaList : [item.customFields.mediaList];
 	const hasMoreThanOneMedia = mediaList.length > 1;
@@ -56,7 +56,14 @@ const ImageWithListText = ({ item }) => {
 					}`}
 				>
 					<div
-						className={`${toBool(isUseImageVerticalOffset) ? 'md:pt-22' : ''} flex flex-col md:offset-1 md:col-4 md:mr-1/12 c-imagewithlisttext__col-text`}
+						className={`${
+							toBool(isUseImageVerticalOffset) ? 'md:pt-22' : ''
+						} flex flex-col md:offset-1 md:col-4 ${
+							toBool(isImageBleedLeft) &&
+							!toBool(isUseBorderOnImage)
+								? `md:mr-2/12`
+								: `md:mr-1/12`
+						} c-imagewithlisttext__col-text`}
 					>
 						<div
 							className={`${
@@ -69,7 +76,11 @@ const ImageWithListText = ({ item }) => {
 								{title}
 							</h2>
 							{!!intro && (
-								<Richtext className="font-normal" html={intro} data-aos="fade-up" />
+								<Richtext
+									className="font-normal"
+									html={intro}
+									data-aos="fade-up"
+								/>
 							)}
 							<SmallDivider
 								className="mt-10 mb-11"
@@ -119,9 +130,7 @@ const ImageWithListText = ({ item }) => {
 								isMediaPositionLeft
 									? 'flex-row-reverse'
 									: ''
-							} ${
-								isMediaPositionLeft ? '-ml-2.5 md:ml-0' : ''
-							}`}
+							} ${isMediaPositionLeft ? '-ml-2.5 md:ml-0' : ''}`}
 						>
 							<div className="flex-auto relative">
 								<div className="u-embed__item">
@@ -142,7 +151,9 @@ const ImageWithListText = ({ item }) => {
 												mediaItem => !!mediaItem?.url
 											)
 											.map((mediaItem, index) => {
-												const mediaItemUrl = encodeUrl(mediaItem.url)
+												const mediaItemUrl = encodeUrl(
+													mediaItem.url
+												)
 
 												const mediaImgSources = [
 													{
@@ -202,7 +213,10 @@ const ImageWithListText = ({ item }) => {
 															/>
 														) : (
 															<BaseImg
-																src={mediaItem.url + '?q=80&w=8'}
+																src={
+																	mediaItem.url +
+																	'?q=80&w=8'
+																}
 																sources={
 																	mediaImgSources
 																}
