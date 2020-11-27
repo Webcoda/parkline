@@ -58,6 +58,10 @@
 		h3 {
 			@apply font-sans;
 		}
+
+		> * + * {
+			margin-top: 27px;
+		}
 	}
 
 	.c-contenthero + & {
