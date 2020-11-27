@@ -73,6 +73,15 @@
 		&-title {
 			@include fzlh(20px, 22px);
 		}
+
+		&-list {
+			h3 {
+				@apply font-sans;
+			}
+			> * + * {
+				margin-top: 27px;
+			}
+		}
 	}
 }
 
