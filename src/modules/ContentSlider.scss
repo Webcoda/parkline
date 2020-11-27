@@ -7,6 +7,10 @@
 
 .c-contentslider {
 	&__media {
+		height: 330px;
+		@screen sm {
+			height: 480px;
+		}
 		@screen md {
 			height: 882px;
 		}

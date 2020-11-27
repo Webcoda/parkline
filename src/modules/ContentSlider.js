@@ -73,12 +73,12 @@ export default ({ item }) => {
 								srcset: [
 									{
 										src:
-											mediaItemUrl + '?q=80&w=2560&h=882',
+											mediaItemUrl + '?q=80&w=2560',
 										descriptor: '2560w',
 									},
 									{
 										src:
-											mediaItemUrl + '?q=80&w=1920&h=882',
+											mediaItemUrl + '?q=80&w=1920',
 										descriptor: '1920w',
 									},
 									{
