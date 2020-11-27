@@ -95,13 +95,13 @@ const ContentHero = ({ item }) => {
 					</div>
 				)}
 
-				<div className="relative container-fluid flex-auto flex flex-col justify-end pb-20 md:pb-48">
+				<div className="relative container-fluid flex-auto flex flex-col justify-end pb-20 md:pb-50">
 					<div className="row justify-center">
 						<div className="md:col-10">
 							<div className="row">
 								<div className="relative px-2.5 md:max-w-7/10">
 									<h1
-										className={`h2 sm:h1 mb-11 c-contenthero__title ${
+										className={`h2 sm:h1 c-contenthero__title ${
 											toBool(isTitleBig)
 												? 'c-contenthero__title--big'
 												: ''
@@ -117,7 +117,7 @@ const ContentHero = ({ item }) => {
 								</div>
 							</div>
 							{!!text && (
-								<div className="row">
+								<div className="row mt-11">
 									<div
 										className="relative px-2.5 flex-grow md:max-w-2/5 md:ml-1/10"
 										data-aos="fade-up"
