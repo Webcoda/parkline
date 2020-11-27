@@ -65,7 +65,7 @@ const ArticleFeatured = ({ article }) => {
 						>
 							{
 								(linkedContent_articleType || articleType)
-									?.customFields.title
+									?.customFields?.title
 							}{' '}
 							| {formatDate(new Date(date), 'd MMM yyyy')}
 						</div>
