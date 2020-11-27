@@ -3,12 +3,12 @@
 .c-homehero {
 	height: calc(100vh - 71px);
 	@include mq(sm) {
-		height: calc(100vh - 127px);
-		min-height: 768px;
+		height: calc(100vh - 143px);
+		min-height: 768px - 30px;
 	}
 	@include mq(md) {
-		height: calc(100vh - 127px);
-		min-height: 810px;
+		height: calc(100vh - 143px);
+		min-height: 810px - 30px;
 	}
 
 	&__title{
