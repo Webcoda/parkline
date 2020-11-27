@@ -21,4 +21,12 @@
 			}
 		}
 	}
+
+	&__nav{
+		&-link {
+			&.active:hover {
+				@apply text-black;
+			}
+		}
+	}
 }
