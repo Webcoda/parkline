@@ -1,4 +1,5 @@
 .c-contenttiles {
+	max-width: 1464px;
 	&__title {
 		@include fzlh(16px, 16px);
 		@include mq(md) {
