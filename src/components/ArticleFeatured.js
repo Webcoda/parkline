@@ -76,13 +76,14 @@ const ArticleFeatured = ({ article }) => {
 							{title}
 						</h3>
 						<Richtext
-							className="mb-5 font-normal c-article-tile__text"
+							className="mb-6 font-normal c-article-tile__text"
 							html={teaserText}
 							data-aos="fade-up"
 						/>
 						<Link
 							to={`/updates/${slug}`}
-							className="text-inherit u-link-cover  hocus:text-yellow hocus:no-underline"
+							className="text-inherit u-link-cover hocus:text-yellow hocus:no-underline"
+							aria-label={title}
 						>
 							<svg
 								width="31"
