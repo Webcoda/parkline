@@ -5,6 +5,7 @@ const BaseImg = ({
 	tag = 'picture',
 	sources,
 	src = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==',
+	lqipSrc= 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==',
 	alt,
 	imgClassName,
 	imgAttributes,
@@ -43,8 +44,8 @@ const BaseImg = ({
 							/>
 						))}
 					<img
-						src={src}
 						className={`w-full h-full object-cover js-lazysizes ${imgClassName}`}
+						data-src={src}
 						data-sizes="auto"
 						data-srcset={
 							sources.length === 1
@@ -58,7 +59,7 @@ const BaseImg = ({
 			)}
 			<img
 				className="BaseImg__lqip u-embed__item pointer-events-none transition duration-500"
-				src={src}
+				src={lqipSrc}
 				alt=""
 				aria-hidden="true"
 			/>

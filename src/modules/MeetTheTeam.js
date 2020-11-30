@@ -109,7 +109,8 @@ const MeetTheTeam = (props) => {
 									<div className="flex-1 flex flex-col relative c-meettheteam__tile-inner">
 										<div className="u-embed__item">
 											<BaseImg
-												src={mediaUrl + '?q=80&w=8'}
+												src={mediaUrl + '?q=80&w=1024'}
+												lqipSrc={mediaUrl + '?q=80&w=8'}
 												sources={mediaImgSources}
 											></BaseImg>
 										</div>
@@ -123,6 +124,10 @@ const MeetTheTeam = (props) => {
 												<div className="u-embed__item">
 													<BaseImg
 														src={
+															mediaUrl +
+															'?q=80&w=1024'
+														}
+														lqipSrc={
 															mediaUrl +
 															'?q=80&w=8'
 														}

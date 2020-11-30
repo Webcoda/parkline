@@ -185,7 +185,8 @@ const BuildingBackgroundedIntro = ({ item }) => {
 										>
 											{!!image?.url && (
 												<BaseImg
-													src={imageUrl + '?q=80&w=8'}
+													src={imageUrl + '?q=80&w=2560'}
+													lqipSrc={imageUrl + '?q=80&w=8'}
 													sources={mediaImgSources}
 												/>
 											)}
@@ -301,7 +302,8 @@ const BuildingBackgroundedIntro = ({ item }) => {
 								>
 									{!!image?.url && (
 										<BaseImg
-											src={imageUrl+'?q=80&w=8'}
+											src={imageUrl+'?q=80&w=2560'}
+											lqipSrc={imageUrl+'?q=80&w=8'}
 											sources={mediaImgSources}
 										/>
 									)}

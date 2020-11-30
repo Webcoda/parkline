@@ -150,7 +150,8 @@ const HomeHero = ({ item: _item }) => {
 										}}
 									>
 										<BaseImg
-											src={image.url + '?q=80&w=8'}
+											src={image.url + '?q=80&w=2560'}
+											lqipSrc={image.url + '?q=80&w=8'}
 											sources={mediaImgSources}
 											imgClassName={`transition delay-500 group-swiper-slide-active:scale-110 group-swiper-slide-duplicate-active:scale-110`}
 											imgAttributes={{

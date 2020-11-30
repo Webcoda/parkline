@@ -179,7 +179,8 @@ const MediaSliderWithRevealList = ({ item }) => {
 											key={`content-slide-${item.contentId}-${index}`}
 										>
 											<BaseImg
-												src={mediaItemUrl + '?q=80&w=8'}
+												src={mediaItemUrl + '?q=80&w=2560'}
+												lqipSrc={mediaItemUrl + '?q=80&w=8'}
 												sources={mediaImgSources}
 											></BaseImg>
 										</SwiperSlide>

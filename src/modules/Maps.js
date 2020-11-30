@@ -176,7 +176,8 @@ const Maps = ({ items }) => {
 													<div className="u-embed" style={{ paddingBottom: '75%'}}>
 														<div className="u-embed__item">
 															<BaseImg
-																src={mediaItemUrl + '?q=80&w=8'}
+																src={mediaItemUrl + '?q=80&w=2560'}
+																lqipSrc={mediaItemUrl + '?q=80&w=8'}
 																sources={mediaImgSources}
 															/>
 														</div>
