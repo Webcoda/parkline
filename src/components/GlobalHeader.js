@@ -259,7 +259,7 @@ const GlobalHeader = ({ item, menuLinks }) => {
 							)} */}
 							<div className="hidden md:block col-auto text-white">
 								<a
-									href="tel:1300 123 456"
+									href="tel:02 8226 9300"
 									className="inline-flex relative overflow-hidden bg-black text-inherit hocus:no-underline hocus:text-inherit py-6 px-13.5 -mr-2.5 font-medium group"
 								>
 									<span className="inline-flex items-center space-x-4">
@@ -282,7 +282,7 @@ const GlobalHeader = ({ item, menuLinks }) => {
 												strokeLinecap="round"
 											/>
 										</svg>
-										<span>1300 123 456</span>
+										<span>02 8226 9300</span>
 									</span>
 									<span
 										className="absolute inset-0 flex flex-col translate-y-full group-hocus:translate-y-0 transition duration-500 overflow-hidden"
