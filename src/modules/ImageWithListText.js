@@ -49,9 +49,9 @@ const ImageWithListText = ({ item }) => {
 					: ''
 			} mb-30 last:mb-0`}
 		>
-			<div className="container-fluid flex-1 flex flex-col c-imagewithlisttext__inner">
+			<div className="container-fluid flex-auto flex flex-col c-imagewithlisttext__inner">
 				<div
-					className={`flex-1 row ${
+					className={`flex-auto row ${
 						mediaPosition === 'left' ? 'md:flex-row-reverse' : ''
 					}`}
 				>
@@ -124,7 +124,7 @@ const ImageWithListText = ({ item }) => {
 						data-aos="fade-up"
 					>
 						<div
-							className={`flex-1 flex c-imagewithlisttext__col-media-inner ${
+							className={`flex-auto flex c-imagewithlisttext__col-media-inner ${
 								toBool(isUseBorderOnImage) &&
 								!hasMoreThanOneMedia &&
 								isMediaPositionLeft
