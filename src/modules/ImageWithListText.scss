@@ -46,6 +46,17 @@
 						margin-right: -10px;
 					}
 				}
+
+				#{$_this}--left#{$_this}--withverticaloffset & {
+					@screen md {
+						min-height: 660px
+					}
+				}
+				#{$_this}--right#{$_this}--withverticaloffset & {
+					@screen md {
+						min-height: 600px
+					}
+				}
 			}
 		}
 	}
