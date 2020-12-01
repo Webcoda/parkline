@@ -29,6 +29,10 @@ export default ({ item }) => {
 
 	const media = Array.isArray(item.customFields.media) ? item.customFields.media : [item.customFields.media];
 	const hasMoreThanOneSlide = media.length > 1;
+	let isSingleVideo = false;
+	if(!hasMoreThanOneSlide) {
+		isSingleVideo = !!media[0].url.match(/\.mp4/);
+	}
 
 	// purgecss: .bg-yellow, .bg-grey-light
 	return (
@@ -55,7 +59,7 @@ export default ({ item }) => {
 					</div>
 				</div>
 			</CommonContainer>
-			<div className="c-contentslider__media">
+			<div className={`c-contentslider__media ${isSingleVideo ? 'c-contentslider__media--singlevideo' : ''}`}>
 				<Swiper
 					className="h-full"
 					pagination={
