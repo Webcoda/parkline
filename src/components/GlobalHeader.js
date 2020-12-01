@@ -310,7 +310,7 @@ const GlobalHeader = ({ item, menuLinks }) => {
 													strokeLinecap="round"
 												/>
 											</svg>
-											<span>1300 123 456</span>
+											<span>02 8226 9300</span>
 										</span>
 									</span>
 								</a>
