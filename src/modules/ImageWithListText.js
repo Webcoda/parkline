@@ -27,12 +27,118 @@ SwiperCore.use([Pagination, A11y, Autoplay])
  *    b. otherwise it will be offset-1
  */
 
+const getMediaSources = (mediaItemUrl, referenceName, index) =>{
+	const FIXED_MEDIA_SOURCES = {
+		about_imagewithlisttext: {
+			source: [
+				{
+					srcset: [
+						{
+							src: '/2human_excellence_scroll_0_1262x656.jpg',
+							descriptor: '1262w',
+						},
+						{
+							src: '/2human_excellence_scroll_0_942x684.jpg',
+							descriptor: '942w',
+						},
+						{
+							src: mediaItemUrl + '?q=80&w=768',
+							descriptor: '768w',
+						},
+						{
+							src: mediaItemUrl + '?q=80&w=480',
+							descriptor: '480w',
+						},
+					],
+					type: 'image/jpeg',
+				},
+			],
+			index: 0,
+		},
+		about_imagewithlisttext30: {
+			source: [
+				{
+					srcset: [
+						{
+							src: '/2-sustainability_1049x460.jpg',
+							descriptor: '1049w',
+						},
+						{
+							src: '/2-sustainability_783x460.jpg',
+							descriptor: '783w',
+						},
+						{
+							src: mediaItemUrl + '?q=80&w=480',
+							descriptor: '480w',
+						},
+					],
+					type: 'image/jpeg',
+				},
+			],
+			index: 0,
+		},
+	}
+
+	const fixedMediaSource = FIXED_MEDIA_SOURCES[referenceName]
+
+	if (fixedMediaSource) {
+		if (fixedMediaSource.index === index) {
+			return fixedMediaSource.source;
+		}
+	}
+
+	return [
+		{
+			srcset: [
+				{
+					src:
+						mediaItemUrl +
+						'?q=80&w=2560',
+					descriptor:
+						'2560w',
+				},
+				{
+					src:
+						mediaItemUrl +
+						'?q=80&w=1920',
+					descriptor:
+						'1920w',
+				},
+				{
+					src:
+						mediaItemUrl +
+						'?q=80&w=1024',
+					descriptor:
+						'1024w',
+				},
+				{
+					src:
+						mediaItemUrl +
+						'?q=80&w=768',
+					descriptor:
+						'768w',
+				},
+				{
+					src:
+						mediaItemUrl +
+						'?q=80&w=480',
+					descriptor:
+						'480w',
+				},
+			],
+			type: 'image/jpeg',
+		},
+	]
+}
+
 const ImageWithListText = ({ item }) => {
 	const { title, intro, listContent, mediaPosition, isUseBorderOnImage, isUseImageVerticalOffset, isImageBleedLeft, cTA } = item.customFields;
 
 	const mediaList = Array.isArray(item.customFields.mediaList) ? item.customFields.mediaList : [item.customFields.mediaList];
 	const hasMoreThanOneMedia = mediaList.length > 1;
 	const isMediaPositionLeft = mediaPosition === 'left'
+
+	console.log(item);
 
 	// purgecss: c-imagewithlisttext--left c-imagewithlisttext--right
 	return (
@@ -155,48 +261,7 @@ const ImageWithListText = ({ item }) => {
 													mediaItem.url
 												)
 
-												const mediaImgSources = [
-													{
-														srcset: [
-															{
-																src:
-																	mediaItemUrl +
-																	'?q=80&w=2560',
-																descriptor:
-																	'2560w',
-															},
-															{
-																src:
-																	mediaItemUrl +
-																	'?q=80&w=1920',
-																descriptor:
-																	'1920w',
-															},
-															{
-																src:
-																	mediaItemUrl +
-																	'?q=80&w=1024',
-																descriptor:
-																	'1024w',
-															},
-															{
-																src:
-																	mediaItemUrl +
-																	'?q=80&w=768',
-																descriptor:
-																	'768w',
-															},
-															{
-																src:
-																	mediaItemUrl +
-																	'?q=80&w=480',
-																descriptor:
-																	'480w',
-															},
-														],
-														type: 'image/png',
-													},
-												]
+												const mediaImgSources = getMediaSources(mediaItemUrl, item.properties.referenceName, index)
 
 												return (
 													<SwiperSlide
