@@ -138,8 +138,6 @@ const ImageWithListText = ({ item }) => {
 	const hasMoreThanOneMedia = mediaList.length > 1;
 	const isMediaPositionLeft = mediaPosition === 'left'
 
-	console.log(item);
-
 	// purgecss: c-imagewithlisttext--left c-imagewithlisttext--right
 	return (
 		<div
