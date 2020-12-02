@@ -47,6 +47,14 @@
 				}
 			}
 		}
+
+		&-row {
+			&:first-child {
+				img {
+					object-position: center 78%;
+				}
+			}
+		}
 	}
 
 

@@ -37,38 +37,37 @@
             }
         }
     }
-    // Same embed responsive as Boostrap's embed-responsive, but with BEM style syntax
-    &-embed {
-        position: relative;
-        display: block;
-        height: 0;
-        padding: 0;
-        overflow: hidden;
-        padding-bottom: 100%; //by default, it's a square
-        &__item,
-        iframe,
-        embed,
-        object,
-        video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            height: 100%;
-            width: 100%;
-        }
-        @each $breakpoint in map-keys($grid-breakpoints) {
-            @include mq($breakpoint) {
-                $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
-                &--16by9#{$infix} {
-                    padding-bottom: 56.25%;
-                }
-                &--4by3#{$infix} {
-                    padding-bottom: 75%;
-                }
-            }
-        }
-    }
+	// Same embed responsive as Boostrap's embed-responsive, but with BEM style syntax
+	@responsive {
+		&-embed {
+			position: relative;
+			display: block;
+			height: 0;
+			padding: 0;
+			overflow: hidden;
+			padding-bottom: 100%; //by default, it's a square
+			&__item,
+			iframe,
+			embed,
+			object,
+			video {
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				height: 100%;
+				width: 100%;
+			}
+
+			&--16by9 {
+				padding-bottom: 56.25%;
+			}
+			&--4by3 {
+				padding-bottom: 75%;
+			}
+		}
+	}
+
     // {{ .u-table-responsive }}
     &-table-responsive {
         @each $breakpoint in map-keys($grid-breakpoints) {
