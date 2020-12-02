@@ -29,65 +29,114 @@ SwiperCore.use([Pagination, A11y, Autoplay])
 
 const getMediaSources = (mediaItemUrl, referenceName, index) =>{
 	const FIXED_MEDIA_SOURCES = {
-		about_imagewithlisttext: {
-			source: [
-				{
-					srcset: [
-						{
-							src: '/2human_excellence_scroll_0_1262x656.jpg',
-							descriptor: '1262w',
-						},
-						{
-							src: '/2human_excellence_scroll_0_942x684.jpg',
-							descriptor: '942w',
-						},
-						{
-							src: mediaItemUrl + '?q=80&w=768',
-							descriptor: '768w',
-						},
-						{
-							src: mediaItemUrl + '?q=80&w=480',
-							descriptor: '480w',
-						},
-					],
-					type: 'image/jpeg',
-				},
-			],
-			index: 0,
-		},
-		about_imagewithlisttext30: {
-			source: [
-				{
-					srcset: [
-						{
-							src: '/2-sustainability_1049x460.jpg',
-							descriptor: '1049w',
-						},
-						{
-							src: '/2-sustainability_783x460.jpg',
-							descriptor: '783w',
-						},
-						{
-							src: mediaItemUrl + '?q=80&w=480',
-							descriptor: '480w',
-						},
-					],
-					type: 'image/jpeg',
-				},
-			],
-			index: 0,
-		},
+		about_imagewithlisttext: [
+			{
+				source: [
+					{
+						srcset: [
+							{
+								src: '/2human_excellence_scroll_0_1262x656.jpg',
+								descriptor: '1262w',
+							},
+							{
+								src: '/2human_excellence_scroll_0_942x684.jpg',
+								descriptor: '942w',
+							},
+							{
+								src: mediaItemUrl + '?q=80&w=768',
+								descriptor: '768w',
+							},
+							{
+								src: mediaItemUrl + '?q=80&w=480',
+								descriptor: '480w',
+							},
+						],
+						type: 'image/jpeg',
+					},
+				],
+			},
+		],
+		about_imagewithlisttext30: [
+			{
+				source: [
+					{
+						srcset: [
+							{
+								src: '/2-sustainability_1049x460.jpg',
+								descriptor: '1049w',
+							},
+							{
+								src: '/2-sustainability_783x460.jpg',
+								descriptor: '783w',
+							},
+							{
+								src: mediaItemUrl + '?q=80&w=480',
+								descriptor: '480w',
+							},
+						],
+						type: 'image/jpeg',
+					},
+				],
+			},
+		],
+		location_imagewithlisttext: [
+			{
+				source: [
+					{
+						srcset: [
+							{
+								src: mediaItemUrl + '?q=80&w=1920',
+								descriptor: '1920w',
+							},
+							{
+								src: '/green_spaces_slider_0_950x600.jpg',
+								descriptor: '950w',
+							},
+							{
+								src: mediaItemUrl + '?q=80&w=768',
+								descriptor: '768w',
+							},
+							{
+								src: mediaItemUrl + '?q=80&w=480',
+								descriptor: '480w',
+							},
+						],
+						type: 'image/jpeg',
+					},
+				],
+			},
+			null,
+			{
+				source: [
+					{
+						srcset: [
+							{
+								src: mediaItemUrl + '?q=80&w=1920',
+								descriptor: '1920w',
+							},
+							{
+								src: '/green_spaces_slider_2_950x600.jpg',
+								descriptor: '950w',
+							},
+							{
+								src: mediaItemUrl + '?q=80&w=768',
+								descriptor: '768w',
+							},
+							{
+								src: mediaItemUrl + '?q=80&w=480',
+								descriptor: '480w',
+							},
+						],
+						type: 'image/jpeg',
+					},
+				],
+			},
+		],
 	}
 
 	const fixedMediaSource = FIXED_MEDIA_SOURCES[referenceName]
 
-	if (fixedMediaSource) {
-		if (fixedMediaSource.index === index) {
-			return fixedMediaSource.source;
-		}
-	}
-
-	return [
+	return fixedMediaSource?.[index]?.source || [
 		{
 			srcset: [
 				{
@@ -137,6 +186,8 @@ const ImageWithListText = ({ item }) => {
 	const mediaList = Array.isArray(item.customFields.mediaList) ? item.customFields.mediaList : [item.customFields.mediaList];
 	const hasMoreThanOneMedia = mediaList.length > 1;
 	const isMediaPositionLeft = mediaPosition === 'left'
+
+	console.log(item)
 
 	// purgecss: c-imagewithlisttext--left c-imagewithlisttext--right
 	return (
