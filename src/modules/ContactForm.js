@@ -123,11 +123,11 @@ const ContactForm = ({ item }) => {
 							required: true,
 						}}
 					/>
-					<InputBlock label="Tell us a bit more about your query">
+					<InputBlock label="Tell us a bit more about your enquiry">
 						<textarea
 							className="bg-white px-4.5 py-3.5 flex-1 w-full c-contactform__input c-contactform__input-typo"
 							name="message"
-							placeholder="Tell us a bit more about your query"
+							placeholder="Tell us a bit more about your enquiry"
 							rows="5"
 						/>
 					</InputBlock>
