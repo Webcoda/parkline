@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { StaticQuery, graphql } from "gatsby";
+import compareDesc from 'date-fns/compareDesc'
 import CommonContainer from '@/components/CommonContainer'
 import ArticleTile from '@/components/ArticleTile'
 import ArticleFeatured from '@/components/ArticleFeatured'
@@ -87,7 +88,8 @@ const ArticleListing = ({ item, allItems }) => {
 	const pageCount = Math.ceil(filteredNewsList.length / pageSize)
 
 	const pagedNewsList = filteredNewsList
-		.slice(0, page * pageSize);
+		.slice(0, page * pageSize)
+		.sort((a, b) => compareDesc(new Date(a.customFields.date), new Date(b.customFields.date)));
 
 	return (
 		<div className="c-articlelisting">
