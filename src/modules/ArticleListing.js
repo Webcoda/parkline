@@ -78,7 +78,7 @@ const ArticleListing = ({ item, allItems }) => {
 	const filteredNewsList = newsList
 		.filter(listItem => {
 			return toBool(isFeaturedSectionShown)
-				? !listItem.customFields.isFeatured
+				? !toBool(listItem.customFields.isFeatured)
 				: true
 		});
 
