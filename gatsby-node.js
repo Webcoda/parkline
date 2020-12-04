@@ -76,6 +76,8 @@ exports.createResolvers = (args) => {
 		},
 
 		agilityArticle: {
+			//get the sitemap node that represents this item - useful for retrieving the URL for the item
+			sitemapNode: agility.getDynamicPageItemSitemapNode(),
 			linkedContent_articleType: agility.getLinkedContentItem({
 				type: 'agilityArticleType',
 				linkedContentFieldName: 'articleType',
@@ -87,7 +89,7 @@ exports.createResolvers = (args) => {
 			linkedContent_relatedArticles: agility.getLinkedContentList({
 				type: 'agilityArticle',
 				linkedContentFieldName: 'relatedArticles',
-			})
+			}),
 		},
 
 		agilityContactOurTeam: {
@@ -108,8 +110,8 @@ exports.createResolvers = (args) => {
 			linkedContent_slides: agility.getLinkedContentList({
 				type: 'agilityHomeHeroItem',
 				linkedContentFieldName: 'slides',
-			})
-		}
+			}),
+		},
 
 		// [Uncomment if needed]
 		// agilityStackPlan: {

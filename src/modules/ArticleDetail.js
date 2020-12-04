@@ -22,7 +22,6 @@ const ArticleDetail = ({ dynamicPageItem }) => {
 						contentID
 						customFields {
 							title
-							slug
 							isFeatured
 							teaserText
 							details
@@ -30,6 +29,9 @@ const ArticleDetail = ({ dynamicPageItem }) => {
 							media {
 								url
 							}
+						}
+						sitemapNode {
+							pagePath
 						}
 						linkedContent_articleType {
 							customFields {
@@ -62,7 +64,9 @@ const ArticleDetail = ({ dynamicPageItem }) => {
 			dynamicPageItem.contentID
 	)
 
-	const { relatedArticles } = dynamicPageItem.customFields
+	const dynamicPageItemRelatedArticleContentIds = dynamicPageItem.customFields.relatedArticles.map(article => article.contentID)
+
+	const relatedArticles = allAgilityArticle.nodes.filter(node => dynamicPageItemRelatedArticleContentIds.includes(node.contentID))
 	const { title, media, details, date } = article.customFields
 	const richtextRef = useRef(null)
 
@@ -128,7 +132,7 @@ const ArticleDetail = ({ dynamicPageItem }) => {
 					{linkedContent_articleType?.customFields.title} |{' '}
 					{formatDate(new Date(date), 'd MMM yyyy')}
 				</div>
-				{authors && authors.length && (
+				{authors && !!authors.length && (
 					<div className="mt-6 font-bold c-article-detail__author">
 						By {renderAuthors()}
 					</div>

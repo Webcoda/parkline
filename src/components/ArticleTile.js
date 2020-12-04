@@ -8,8 +8,8 @@ import './ArticleTile.scss'
 
 
 const ArticleTile = ({ article, className }) => {
-	const { customFields, linkedContent_articleType } = article
-	const { title, teaserText, date, media, slug, articleType } = customFields
+	const { customFields, linkedContent_articleType, sitemapNode } = article
+	const { title, teaserText, date, media, articleType } = customFields
 
 	const mediaUrl = encodeUrl(media?.url)
 	const mediaImgSources = [
@@ -78,7 +78,7 @@ const ArticleTile = ({ article, className }) => {
 				data-aos="fade-up"
 			/>
 			<Link
-				to={`/updates/${slug}`}
+				to={sitemapNode.pagePath}
 				className="text-inherit u-link-cover hocus:text-yellow hocus:no-underline c-article-tile__link"
 			>
 				<svg

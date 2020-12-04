@@ -9,8 +9,8 @@ import './ArticleTile.scss'
 import './ArticleFeatured.scss'
 
 const ArticleFeatured = ({ article }) => {
-	const { customFields, linkedContent_articleType } = article
-	const { title, teaserText, date, media, slug, articleType } = customFields
+	const { customFields, linkedContent_articleType, sitemapNode } = article
+	const { title, teaserText, date, media, articleType } = customFields
 
 	const mediaUrl = encodeUrl(media?.url)
 	const mediaImgSources = [
@@ -85,7 +85,7 @@ const ArticleFeatured = ({ article }) => {
 							data-aos="fade-up"
 						/>
 						<Link
-							to={`/updates/${slug}`}
+							to={sitemapNode.pagePath}
 							className="text-inherit u-link-cover hocus:text-yellow hocus:no-underline"
 							aria-label={title}
 						>

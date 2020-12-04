@@ -29,7 +29,9 @@ export default (props) => {
 								media {
 									url
 								}
-								slug
+							}
+							sitemapNode {
+								pagePath
 							}
 							linkedContent_articleType {
 								customFields {
