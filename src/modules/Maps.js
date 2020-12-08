@@ -182,51 +182,51 @@ const Maps = ({ items }) => {
 															/>
 														</div>
 													</div>
-													<div className="bg-yellow p-5 md:p-11 flex md:justify-center">
-														{!!linkedContent_mapKeys &&
-															!!linkedContent_mapKeys.length && (
-																<div className="flex flex-auto md:flex-initial flex-wrap md:flex-no-wrap items-center md:space-x-13">
-																	<div className="font-bold w-full md:w-auto c-maps__legend-title">
-																		Map Key
-																	</div>
-																	<div className="font-bold md:space-x-8 flex flex-wrap flex-auto justify-end md:justify-start">
-																		{linkedContent_mapKeys
-																			?.sort(
-																				sortByItemOrderAsc
-																			)
-																			.map(
-																				mapKey => {
-																					const {
-																						title: mapKeyTitle,
-																						image: mapKeyImage,
-																					} = mapKey.customFields
-																					return (
-																						<div
-																							key={
-																								mapKey.id
-																							}
-																							className="uppercase space-x-1 md:space-x-4 flex items-start md:items-center w-1/3 md:w-auto mt-5 md:mt-0"
-																						>
-																							<img
-																								className="c-maps__key-icon js-lazysizes"
-																								data-src={encodeUrl(
-																									mapKeyImage.url
-																								)}
-																								alt=""
-																							/>
-																							<div className="text-base leading-none mt-1 md:mt-0 c-maps__key-title">
-																								{
-																									mapKeyTitle
-																								}
-																							</div>
-																						</div>
-																					)
-																				}
-																			)}
-																	</div>
+													{!!linkedContent_mapKeys &&
+														!!linkedContent_mapKeys.length && (
+														<div className="bg-yellow p-5 md:p-11 flex md:justify-center">
+															<div className="flex flex-auto md:flex-initial flex-wrap md:flex-no-wrap items-center md:space-x-13">
+																<div className="font-bold w-full md:w-auto c-maps__legend-title">
+																	Map Key
 																</div>
-															)}
-													</div>
+																<div className="font-bold md:space-x-8 flex flex-wrap flex-auto justify-end md:justify-start">
+																	{linkedContent_mapKeys
+																		?.sort(
+																			sortByItemOrderAsc
+																		)
+																		.map(
+																			mapKey => {
+																				const {
+																					title: mapKeyTitle,
+																					image: mapKeyImage,
+																				} = mapKey.customFields
+																				return (
+																					<div
+																						key={
+																							mapKey.id
+																						}
+																						className="uppercase space-x-1 md:space-x-4 flex items-start md:items-center w-1/3 md:w-auto mt-5 md:mt-0"
+																					>
+																						<img
+																							className="c-maps__key-icon js-lazysizes"
+																							data-src={encodeUrl(
+																								mapKeyImage.url
+																							)}
+																							alt=""
+																						/>
+																						<div className="text-base leading-none mt-1 md:mt-0 c-maps__key-title">
+																							{
+																								mapKeyTitle
+																							}
+																						</div>
+																					</div>
+																				)
+																			}
+																		)}
+																</div>
+															</div>
+														</div>
+													)}
 												</div>
 											</Fragment>
 										)
