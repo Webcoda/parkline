@@ -124,6 +124,10 @@
 		&-hero {
 			background: linear-gradient(to right, rgba(0, 0, 0, 0.478693) 0%, rgba(103, 103, 103, 0.250769) 53.97%, rgba(216, 216, 216, 8e-05) 86.37%);
 			mix-blend-mode: multiply;
+
+			@supports(mix-blend-mode: multiply) {
+				background: theme('colors.grey.medium');
+			}
 		}
 	}
 }
