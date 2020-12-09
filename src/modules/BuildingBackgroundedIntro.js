@@ -57,8 +57,6 @@ const BuildingBackgroundedIntro = ({ item }) => {
 				import('scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap')
 			])
 
-			// console.log(x);
-
 			controller = new ScrollMagic.Controller({ triggerHook: 0 })
 
 			scene = new ScrollMagic.Scene({
