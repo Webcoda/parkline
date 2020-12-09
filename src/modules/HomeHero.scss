@@ -12,18 +12,23 @@
 	}
 
 	&__title{
-		@include fzlh(60px, 74px);
-		letter-spacing: -1.47273px;
-		@screen md{
-			@include fzlh(86.3452px, 74px);
-			max-width: 556px;
+		@include fzlh(32px, 32px);
+		@include mq(sm) {
+			@include fzlh(48px, 48px);
 		}
+		@include mq(md) {
+			@include fzlh(58.86px, 50.46px);
+		}
+		letter-spacing: -1px;
 	}
 
 	&__fg{
 		&-inner{
 			padding-top: 138px;
-			padding-bottom: 138px;
+			padding-bottom: 192px;
+			@include mq(md) {
+				padding-bottom: 138px;
+			}
 		}
 	}
 }

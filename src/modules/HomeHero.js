@@ -3,11 +3,13 @@ import { graphql, useStaticQuery } from "gatsby";
 import SwiperCore, { A11y, Autoplay, EffectFade } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import encodeUrl from 'encodeurl'
+import { renderHTML } from '@/agility/utils'
 
 import BaseImg from "@/components/BaseImg";
 import './HomeHero.scss'
 import toBool from "@/utils/convertBoolStrToBool";
 import { sortByItemOrderAsc } from "@/utils/sortByItemOrder";
+import mediumForegroundLogoSvg from '@/img/medium-foreground-logo.svg'
 
 // install Swiper components
 SwiperCore.use([A11y, Autoplay, EffectFade])
@@ -36,6 +38,7 @@ const HomeHero = ({ item: _item }) => {
 							maskColor
 							position
 							useBigLogoMask
+							useMediumForegroundLogo
 						}
 						id
 						properties {
@@ -81,8 +84,10 @@ const HomeHero = ({ item: _item }) => {
 						maskColor,
 						position,
 						useBigLogoMask,
+						useMediumForegroundLogo,
 					} = slide.customFields
 					const isUseBigLogoMask = toBool(useBigLogoMask)
+					const isUseMediumForegroundLogo = toBool(useMediumForegroundLogo)
 					const imageUrl = encodeUrl(image.url);
 
 					const mediaImgSources = [
@@ -116,18 +121,18 @@ const HomeHero = ({ item: _item }) => {
 					]
 
 					let rowClass = 'items-end'
-					let colClass = 'md:offset-6'
+					let colClass = 'sm:col-4 sm:offset-8'
 
 					switch (position) {
 						case 'topleft':
 							rowClass = 'items-start'
-							colClass = 'md:offset-1'
+							colClass = 'sm:col-6 sm:offset-1'
 							break
 						case 'topright':
 							rowClass = 'items-start'
 							break
 						case 'bottomleft':
-							colClass = 'md:offset-1'
+							colClass = 'sm:col-6 sm:offset-1'
 							break
 						default:
 							break
@@ -270,7 +275,7 @@ const HomeHero = ({ item: _item }) => {
 							<div className="relative h-full text-white c-homehero__fg">
 								<div className="container-fluid h-full c-homehero__fg-inner">
 									<div className={`row h-full ${rowClass}`}>
-										<div className={`md:col-6 ${colClass}`}>
+										<div className={`${colClass}`}>
 											<h1
 												className={`c-homehero__title ${
 													FADE_ANIMATIONS[position]
@@ -279,10 +284,22 @@ const HomeHero = ({ item: _item }) => {
 														? ''
 														: 'delay-500'
 												} duration-1000 group-swiper-slide-active:translate-x-0 group-swiper-slide-duplicate-active:translate-x-0 group-swiper-slide-active:opacity-100 group-swiper-slide-duplicate-active:opacity-100`}
-											>
-												{heading}
-											</h1>
+												dangerouslySetInnerHTML={renderHTML(
+													heading
+												)}
+											></h1>
 										</div>
+										{isUseMediumForegroundLogo && (
+											<div className="sm:col-5 sm:text-right hidden sm:block">
+												<img
+													className={`sm:-mt-19 sm:-mr-5 md:-mr-2.5 translate-x-full opacity-0 transition duration-1000 group-swiper-slide-active:translate-x-0 group-swiper-slide-duplicate-active:translate-x-0 group-swiper-slide-active:opacity-100 group-swiper-slide-duplicate-active:opacity-100`}
+													src={
+														mediumForegroundLogoSvg
+													}
+													alt=""
+												/>
+											</div>
+										)}
 									</div>
 								</div>
 							</div>
