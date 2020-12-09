@@ -64,6 +64,8 @@ const ArticleDetail = ({ dynamicPageItem }) => {
 			dynamicPageItem.contentID
 	)
 
+	const { authors } = dynamicPageItem.customFields
+
 	const dynamicPageItemRelatedArticleContentIds = dynamicPageItem.customFields.relatedArticles.map(article => article.contentID)
 
 	const relatedArticles = allAgilityArticle.nodes.filter(node => dynamicPageItemRelatedArticleContentIds.includes(node.contentID))
@@ -71,7 +73,6 @@ const ArticleDetail = ({ dynamicPageItem }) => {
 	const richtextRef = useRef(null)
 
 	const {
-		linkedContent_authors: authors,
 		linkedContent_articleType,
 	} = article
 
