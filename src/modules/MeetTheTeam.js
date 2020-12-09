@@ -33,6 +33,8 @@ export default props => (
 									target
 									text
 								}
+								itemBackgroundColor
+								hoverItemBackgroundColor
 								text
 								title
 								media {
@@ -95,7 +97,6 @@ const MeetTheTeam = (props) => {
 											descriptor: '400w',
 										},
 									],
-									type: 'image/png',
 								},
 							]
 
@@ -106,23 +107,26 @@ const MeetTheTeam = (props) => {
 									data-aos="fade-up"
 									data-aos-delay={200 * index}
 								>
-									<div className="flex-1 flex flex-col relative c-meettheteam__tile-inner">
+									{/* purgecss: bg-grey-light bg-grey-dark */}
+									<div className={`flex-1 flex flex-col relative c-meettheteam__tile-inner bg-${tile.customFields.itemBackgroundColor}`}>
 										<div className="u-embed__item">
 											<BaseImg
+												imgClassName="object-contain"
 												src={mediaUrl + '?q=80&w=1024'}
 												lqipSrc={mediaUrl + '?q=80&w=8'}
 												sources={mediaImgSources}
 											></BaseImg>
 										</div>
-										<div className="u-embed__item flex flex-col items-center justify-center text-white px-6">
+										{/* <div className="u-embed__item flex flex-col items-center justify-center text-white px-6">
 											<div className="uppercase font-bold c-meettheteam__tile-title">
 												{tile.customFields.title}
 											</div>
-										</div>
+										</div> */}
 										<div className="relative flex-1 flex flex-col translate-y-full group-hocus:translate-y-0 transition duration-500 overflow-hidden">
 											<div className="flex-1 flex flex-col -translate-y-full group-hocus:translate-y-0 transition duration-500">
 												<div className="u-embed__item">
 													<BaseImg
+														imgClassName="object-contain"
 														src={
 															mediaUrl +
 															'?q=80&w=1024'
@@ -136,12 +140,9 @@ const MeetTheTeam = (props) => {
 														}
 													></BaseImg>
 												</div>
+												{/* purgecss: bg-grey-medium bg-black text-white text-black */}
 												<div
-													className="relative flex-1 pt-7 pb-6 px-7 flex flex-col justify-between text-left"
-													style={{
-														background: `rgba(240, 240, 240, 0.9)`,
-														color: '#404040',
-													}}
+													className={`relative flex-1 pt-7 pb-6 px-7 flex flex-col justify-between text-left bg-${tile.customFields.hoverItemBackgroundColor} text-${tile.customFields.hoverItemBackgroundColor === 'grey-medium' ? 'black' : 'white'}`}
 												>
 													<Richtext
 														className="mb-18 font-normal c-meettheteam__tile-text"
@@ -150,7 +151,7 @@ const MeetTheTeam = (props) => {
 																.text
 														}
 													></Richtext>
-													<SmallDivider className="mt-9 mb-6" />
+													<SmallDivider strokeColor="currentColor" className="mt-9 mb-6" />
 													<div
 														aria-hidden="true"
 														className="mb-3 uppercase font-bold c-meettheteam__tile-title"
@@ -179,13 +180,13 @@ const MeetTheTeam = (props) => {
 															>
 																<path
 																	d="M11.092 22.9541L21 11.9771L11.092 1.0001"
-																	stroke="#231F20"
+																	stroke="currentColor"
 																	strokeWidth="0.75"
 																	strokeLinecap="round"
 																/>
 																<path
 																	d="M20.9746 11.9766L0.82361 11.9766"
-																	stroke="#231F20"
+																	stroke="currentColor"
 																	strokeWidth="0.75"
 																	strokeLinecap="round"
 																/>

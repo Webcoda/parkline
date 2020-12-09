@@ -2,6 +2,7 @@ import React from 'react';
 
 const SmallDivider = ({
 	className='',
+	strokeColor='#231F20',
 	...props
 }) => {
 	return (
@@ -16,7 +17,7 @@ const SmallDivider = ({
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
 		>
-			<path d="M0 1.39355H30" stroke="#231F20" />
+			<path d="M0 1.39355H30" stroke={strokeColor} />
 		</svg>
 	)
 }

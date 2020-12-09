@@ -5,9 +5,14 @@
 		}
 		&-inner {
 			min-height: 350px;
+			width: calc(100% + 1px);
 		}
 		&-text {
 			@include fzlh(16px, 20px);
+		}
+
+		.transition {
+			will-change: transform, opacity;
 		}
 	}
 }

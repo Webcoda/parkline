@@ -7,7 +7,7 @@ const BaseImg = ({
 	src = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==',
 	lqipSrc= 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==',
 	alt,
-	imgClassName,
+	imgClassName='object-cover',
 	imgAttributes,
 }) => {
 	const Tag = sources.length === 1 ? 'div' : tag
@@ -44,7 +44,7 @@ const BaseImg = ({
 							/>
 						))}
 					<img
-						className={`w-full h-full object-cover js-lazysizes ${imgClassName}`}
+						className={`w-full h-full js-lazysizes ${imgClassName}`}
 						data-src={src}
 						data-sizes="auto"
 						data-srcset={
