@@ -121,7 +121,7 @@ const MediaSliderWithRevealList = ({ item }) => {
 					></div>
 					<div className="relative">
 						<div
-							className="mb-23 c-mediasliderwithreveallist__slider"
+							className="mb-15 c-mediasliderwithreveallist__slider"
 							data-aos="fade-up"
 						>
 							<Swiper
