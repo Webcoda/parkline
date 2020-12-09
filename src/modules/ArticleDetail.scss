@@ -8,6 +8,18 @@
 			text-decoration: underline;
 		}
 
+		ul, ol {
+			padding-left: 18px;
+		}
+
+		ul {
+			list-style-type: disc;
+		}
+
+		ol {
+			list-style-type: decimal;
+		}
+
 		blockquote {
 			@include fzlh(21px, 25.2px);
 			letter-spacing: -.5px;
