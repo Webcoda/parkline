@@ -30,8 +30,12 @@ export default ({ item }) => {
 	const media = Array.isArray(item.customFields.media) ? item.customFields.media : [item.customFields.media];
 	const hasMoreThanOneSlide = media.length > 1;
 	let isSingleVideo = false;
+	let poster = '';
 	if(!hasMoreThanOneSlide) {
 		isSingleVideo = !!media[0].url.match(/\.mp4/);
+		if(isSingleVideo && item.contentID === 32) {
+			poster = '/about_vid_poster.jpg';
+		}
 	}
 
 	// purgecss: .bg-yellow, .bg-grey-light
@@ -110,6 +114,7 @@ export default ({ item }) => {
 									<Plyr
 										type="video" // or "vimeo"
 										url={mediaItemUrl}
+										poster={poster}
 									/>
 								) : (
 									<BaseImg
