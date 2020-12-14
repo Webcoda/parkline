@@ -83,7 +83,7 @@ const MeetTheTeam = (props) => {
 
 				<SmallDivider className="my-11" data-aos="fade-up" />
 
-				<div className="-mx-5 md:mx-0 max-w-75">
+				<div className="-mx-5 md:mx-0 max-w-300">
 					<div className="row no-gutters">
 						{tiles?.sort(sortByItemOrderAsc).map((tile, index) => {
 							const mediaUrl = encodeUrl(tile.customFields.media.url);
