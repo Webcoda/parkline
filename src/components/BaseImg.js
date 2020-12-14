@@ -44,7 +44,7 @@ const BaseImg = ({
 							/>
 						))}
 					<img
-						className={`w-full h-full js-lazysizes ${imgClassName}`}
+						className={`w-full h-full js-lazysizes BaseImg__img ${imgClassName}`}
 						data-src={src}
 						data-sizes="auto"
 						data-srcset={

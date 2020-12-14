@@ -77,7 +77,7 @@ const HomeHero = ({ item: _item }) => {
 				effect="fade"
 				fadeEffect={{ crossFade: true }}
 			>
-				{slides.sort(sortByItemOrderAsc).map(slide => {
+				{slides.sort(sortByItemOrderAsc).map((slide, index) => {
 					const {
 						heading,
 						image,
@@ -139,7 +139,7 @@ const HomeHero = ({ item: _item }) => {
 					}
 
 					return (
-						<SwiperSlide className="group" key={slide.id}>
+						<SwiperSlide className={`group c-homehero__slide--${index}`} key={slide.id}>
 							{!!image.url && (
 								<div className="u-embed__item">
 									<div

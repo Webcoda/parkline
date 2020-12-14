@@ -1,6 +1,8 @@
 @import '~swiper/swiper.scss';
 
 .c-homehero {
+	$_this: &;
+
 	height: calc(100vh - 71px);
 	@include mq(sm) {
 		height: calc(100vh - 143px);
@@ -28,6 +30,17 @@
 			padding-bottom: 192px;
 			@include mq(md) {
 				padding-bottom: 138px;
+			}
+		}
+	}
+
+	&__slide {
+		&--1 {
+			&.swiper-slide-active,
+			&.swiper-slide-duplicate-active{
+				.BaseImg__img {
+					transform: translateX(-5%) scale(1.1);
+				}
 			}
 		}
 	}
