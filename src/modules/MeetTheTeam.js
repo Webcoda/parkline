@@ -83,7 +83,7 @@ const MeetTheTeam = (props) => {
 
 				<SmallDivider className="my-11" data-aos="fade-up" />
 
-				<div className="-mx-5 md:mx-0">
+				<div className="-mx-5 md:mx-0 max-w-75">
 					<div className="row no-gutters">
 						{tiles?.sort(sortByItemOrderAsc).map((tile, index) => {
 							const mediaUrl = encodeUrl(tile.customFields.media.url);
@@ -145,7 +145,7 @@ const MeetTheTeam = (props) => {
 													className={`relative flex-1 pt-7 pb-6 px-7 flex flex-col justify-between text-left bg-${tile.customFields.hoverItemBackgroundColor} text-${tile.customFields.hoverItemBackgroundColor === 'grey-medium' ? 'black' : 'white'}`}
 												>
 													<Richtext
-														className="mb-18 font-normal c-meettheteam__tile-text"
+														className="font-normal c-meettheteam__tile-text"
 														html={
 															tile.customFields
 																.text
