@@ -138,6 +138,7 @@ const HomeHero = ({ item: _item }) => {
 							break
 					}
 
+					// purgecss: c-homehero__slide--1 swiper-slide-active
 					return (
 						<SwiperSlide className={`group c-homehero__slide--${index}`} key={slide.id}>
 							{!!image.url && (
