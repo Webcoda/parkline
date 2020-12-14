@@ -34,16 +34,16 @@
 		}
 	}
 
+	/*! purgecss start ignore */
 	&__slide {
 		&--1 {
-			/*! purgecss start ignore */
 			&.swiper-slide-active,
 			&.swiper-slide-duplicate-active{
 				.BaseImg__img {
 					transform: translateX(-5%) scale(1.1);
 				}
 			}
-			/*! purgecss end ignore */
 		}
 	}
+	/*! purgecss end ignore */
 }
