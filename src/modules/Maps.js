@@ -131,31 +131,31 @@ const Maps = ({ items }) => {
 													{
 														src:
 															mediaItemUrl +
-															'?q=80&w=2560',
+															'?w=2560',
 														descriptor: '2560w',
 													},
 													{
 														src:
 															mediaItemUrl +
-															'?q=80&w=1920',
+															'?w=1920',
 														descriptor: '1920w',
 													},
 													{
 														src:
 															mediaItemUrl +
-															'?q=80&w=1024',
+															'?w=1024',
 														descriptor: '1024w',
 													},
 													{
 														src:
 															mediaItemUrl +
-															'?q=80&w=768',
+															'?w=768',
 														descriptor: '768w',
 													},
 													{
 														src:
 															mediaItemUrl +
-															'?q=80&w=480',
+															'?w=480',
 														descriptor: '480w',
 													},
 												],
@@ -173,11 +173,11 @@ const Maps = ({ items }) => {
 													id={`tab-${id}`}
 													aria-labelledby={`tabnav-${id}`}
 												>
-													<div className="u-embed" style={{ paddingBottom: '75%'}}>
+													<div className="u-embed" style={{ paddingBottom: '70.8333%'}}>
 														<div className="u-embed__item">
 															<BaseImg
-																src={mediaItemUrl + '?q=80&w=2560'}
-																lqipSrc={mediaItemUrl + '?q=80&w=8'}
+																src={mediaItemUrl + '?w=2560'}
+																lqipSrc={mediaItemUrl + '?q=10&w=8'}
 																sources={mediaImgSources}
 															/>
 														</div>
