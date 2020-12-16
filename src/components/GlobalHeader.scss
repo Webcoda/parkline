@@ -1,7 +1,7 @@
 .c-header {
-	height: 71px;
+	height: 59px;
 	@include mq(md) {
-		height: 127px;
+		height: 105px;
 	}
 
 
@@ -39,7 +39,9 @@
 		}
 	}
 
+	/*! purgecss start ignore */
 	&__logo-main {
+		max-height: 35px;
 		.is-not-top & {
 			opacity: 0;
 		}
@@ -49,6 +51,7 @@
 			opacity: 1;
 		}
 	}
+	/*! purgecss end ignore */
 }
 
 .hamburger-inner {

@@ -40,6 +40,8 @@ module.exports = {
 		extend: {
 			spacing: {
 				...customSpacing([
+					1.25,
+					3.75,
 					4.5,
 					5.5,
 					6.5,
@@ -80,7 +82,7 @@ module.exports = {
 				...theme('colors'),
 				default: '#d8d8d8',
 			}),
-			borderWith: {
+			borderWidth: {
 				5: '5px',
 			},
 			colors: {

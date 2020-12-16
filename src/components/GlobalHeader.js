@@ -70,14 +70,14 @@ const GlobalHeader = ({ item, menuLinks }) => {
 		return menuLinks
 			.filter(node => node.path !== '/' && node.path !== '/home')
 			.map(node => (
-				<div className="md:-mb-2 c-header__menu-item" key={node.pageID}>
+				<div className="md:-mb-1.25 pb-1 leading-none c-header__menu-item" key={node.pageID}>
 					<Link
 						to={node.path}
-						className="inline-flex flex-col text-inherit hocus:text-inherit hover:no-underline px-7 md:pb-2 b-fsnav group relative overflow-hidden c-header__menu-link"
+						className="inline-flex flex-col text-inherit hocus:text-inherit hover:no-underline px-7 md:pb-1.25 b-fsnav group relative overflow-hidden c-header__menu-link"
 						activeClassName="active"
 					>
 						{node.menuText}
-						<div className="hidden md:block -translate-x-full bg-yellow transition duration-300 absolute left-0 h-1 bottom-0 w-full group-active:translate-x-0 group-hover:translate-x-0"></div>
+						<div className="hidden md:block -translate-x-full bg-yellow transition duration-300 absolute left-0 h-1.25 bottom-0 w-full group-active:translate-x-0 group-hover:translate-x-0"></div>
 					</Link>
 				</div>
 			))
@@ -124,7 +124,7 @@ const GlobalHeader = ({ item, menuLinks }) => {
 				<div className="relative z-10 bg-yellow text-text">
 					<div className="container-fluid">
 						<div className="row">
-							<div className="col md:offset-1 py-4 flex items-center justify-between">
+							<div className="col md:offset-1 py-3 flex items-center justify-between">
 								<Link
 									to="/"
 									className="relative"
@@ -260,7 +260,7 @@ const GlobalHeader = ({ item, menuLinks }) => {
 							<div className="hidden md:block col-auto text-white">
 								<a
 									href="tel:02 8226 9300"
-									className="inline-flex relative overflow-hidden bg-black text-inherit hocus:no-underline hocus:text-inherit py-6 px-13.5 -mr-2.5 font-medium group"
+									className="inline-flex relative overflow-hidden bg-black text-inherit hocus:no-underline hocus:text-inherit py-3.75 px-13.5 -mr-2.5 font-medium group"
 								>
 									<span className="inline-flex items-center space-x-4">
 										<svg
@@ -289,7 +289,7 @@ const GlobalHeader = ({ item, menuLinks }) => {
 										aria-hidden="true"
 									>
 										<span
-											className={`flex-1 py-6 px-13.5 inline-flex items-center space-x-4 -translate-y-full group-hocus:translate-y-0 transition duration-500 bg-grey-light text-black`}
+											className={`flex-1 py-3.75 px-13.5 inline-flex items-center space-x-4 -translate-y-full group-hocus:translate-y-0 transition duration-500 bg-grey-light text-black`}
 										>
 											<svg
 												width="31"
@@ -319,8 +319,8 @@ const GlobalHeader = ({ item, menuLinks }) => {
 					</div>
 				</div>
 				<div className="absolute left-0 w-full md:relative bg-white c-header__menu -translate-y-full md:translate-y-0 transition duration-300">
-					<div className="hidden md:block border-b-4 absolute bottom-0 inset-x-0 bg-grey-light"></div>
-					<CommonContainer className="pt-6 pb-7.5 md:pt-4 md:pb-2 relative">
+					<div className="hidden md:block border-b-5 absolute bottom-0 inset-x-0 bg-grey-light"></div>
+					<CommonContainer className="pt-6 pb-7.5 md:pt-3 md:pb-1.25 relative">
 						<nav className="md:flex justify-between text-center md:text-left md:-mx-7 space-y-5.5 md:space-y-0 c-header__menu-inner">
 							{renderLinks()}
 						</nav>
