@@ -40,7 +40,7 @@ export default ({ item }) => {
 
 	// purgecss: .bg-yellow, .bg-grey-light
 	return (
-		<div className="c-contentslider mb-30 last:mb-0" data-aos="fade-up">
+		<div className="c-contentslider mb-25 last:mb-0" data-aos="fade-up">
 			<CommonContainer>
 				<div
 					className={`bg-${backgroundColor} px-2.5 c-contentslider__top text-center ${

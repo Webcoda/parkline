@@ -113,7 +113,7 @@ const MediaSliderWithRevealList = ({ item }) => {
 	const hasMoreThanOneSlide = media.length > 1
 
 	return (
-		<div className="mb-22 md:mb-30 last:mb-0 c-mediasliderwithreveallist">
+		<div className="mb-22 md:mb-25 last:mb-0 c-mediasliderwithreveallist">
 			<CommonContainer>
 				<div className={`${ backgroundColor !== 'transparent' ? 'pt-11 pb-11 md:pb-32.5' : ''} relative`}>
 					<div

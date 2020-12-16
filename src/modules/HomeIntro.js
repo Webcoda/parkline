@@ -8,7 +8,7 @@ import './HomeIntro.scss'
 const HomeIntro = ({ item }) => {
 	const { title, text, cTA } = item.customFields;
 	return (
-		<section className="c-homeintro my-30 last:mb-0" data-aos="fade-up">
+		<section className="c-homeintro my-25 last:mb-0" data-aos="fade-up">
 			<CommonContainer>
 				<div className="row">
 					<div className="relative px-2.5 md:max-w-7/10">

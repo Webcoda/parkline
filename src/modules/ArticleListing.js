@@ -93,7 +93,7 @@ const ArticleListing = ({ item, allItems }) => {
 
 	return (
 		<div className="c-articlelisting">
-			<div className="mb-30" data-aos="fade-up">
+			<div className="mb-25" data-aos="fade-up">
 				<ArticleFeatured
 					article={newsList.find(news =>
 						toBool(news.customFields.isFeatured)

@@ -200,7 +200,7 @@ const ImageWithListText = ({ item }) => {
 				toBool(isUseImageVerticalOffset)
 					? 'pt-22 md:pt-0 bg-grey-light c-imagewithlisttext--withverticaloffset'
 					: ''
-			} mb-30 last:mb-0`}
+			} mb-25 last:mb-0`}
 		>
 			<div className="container-fluid flex-auto flex flex-col c-imagewithlisttext__inner">
 				<div

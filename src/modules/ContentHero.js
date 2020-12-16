@@ -83,7 +83,7 @@ const ContentHero = ({ item }) => {
 	]
 
 	return (
-		<div className="relative mb-12 c-contenthero">
+		<div className="relative mb-12.5 c-contenthero">
 			<div
 				className="relative overflow-hidden bg-black flex flex-col justify-end text-white"
 				style={{ height: 652 }}

@@ -70,10 +70,10 @@ const GlobalHeader = ({ item, menuLinks }) => {
 		return menuLinks
 			.filter(node => node.path !== '/' && node.path !== '/home')
 			.map(node => (
-				<div className="md:-mb-1.25 pb-1 leading-none c-header__menu-item" key={node.pageID}>
+				<div className="md:-mb-2.5 pb-1.25 leading-none c-header__menu-item" key={node.pageID}>
 					<Link
 						to={node.path}
-						className="inline-flex flex-col text-inherit hocus:text-inherit hover:no-underline px-7 md:pb-1.25 b-fsnav group relative overflow-hidden c-header__menu-link"
+						className="inline-flex flex-col text-inherit hocus:text-inherit hover:no-underline px-7 md:pb-2.5 b-fsnav group relative overflow-hidden c-header__menu-link"
 						activeClassName="active"
 					>
 						{node.menuText}

@@ -232,7 +232,7 @@ const ArticleDetail = ({ dynamicPageItem }) => {
 		<article>
 			<ContentHero item={heroItem} />
 
-			<div className="mt-30 container-fluid" data-aos="fade-up">
+			<div className="mt-25 container-fluid" data-aos="fade-up">
 				<div className="row">
 					<div className="col-12 md:hidden mb-12">{renderMeta()}</div>
 					<div ref={richtextRef} className="md:offset-2 md:col-6">
@@ -248,7 +248,7 @@ const ArticleDetail = ({ dynamicPageItem }) => {
 			</div>
 
 			{!!relatedArticles && relatedArticles.length > 0 && (
-				<div className="bg-grey-light-medium py-23 mt-30 c-article-detail__related" data-aos="fade-up">
+				<div className="bg-grey-light-medium py-23 mt-25 c-article-detail__related" data-aos="fade-up">
 					<CommonContainer>
 						<h2 className="text-center c-article-detail__related-title text-yellow">
 							More from us
