@@ -11,10 +11,10 @@
 	&--withverticaloffset {
 		// margin-top: (88px + 130px);
 		@include mq(md) {
-			margin-top: 87px;
+			margin-top: 45px;
 
 			.c-contenttiles + & {
-				margin-top: 180px + 87px;
+				margin-top: 180px + 45px;
 			}
 		}
 	}
@@ -27,7 +27,7 @@
 		&-media {
 			#{$_this}--withverticaloffset & {
 				@include mq(md) {
-					top: -87px;
+					top: -45px;
 				}
 			}
 
@@ -49,7 +49,7 @@
 
 				#{$_this}--left#{$_this}--withverticaloffset & {
 					@screen md {
-						min-height: 660px
+						min-height: 600px
 					}
 				}
 				#{$_this}--right#{$_this}--withverticaloffset & {
@@ -90,7 +90,7 @@
 ul {
 	.o-richtext & {
 		.c-imagewithlisttext & {
-			@include fzlh(14px, 16.8px);
+			@include fzlh(16px, 20px);
 			font-weight: 400;
 		}
 	}
@@ -102,12 +102,13 @@ ul {
 				padding-left: 1.3125rem;
 				@apply py-2.5;
 				@apply border-b;
+				@apply border-text;
 
 				&:first-child {
 					padding-top: 0;
 
 					&:before {
-						top: .25rem;
+						top: .3rem;
 					}
 				}
 
@@ -115,7 +116,7 @@ ul {
 					@apply bg-yellow;
 					content: '';
 					position: absolute;
-					top: .9375rem;
+					top: 1rem;
 					width: .4375rem;
 					height: .4375rem;
 					border-radius: 50%;

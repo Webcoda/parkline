@@ -198,7 +198,7 @@ const ImageWithListText = ({ item }) => {
 					: ''
 			} ${
 				toBool(isUseImageVerticalOffset)
-					? 'pt-22 md:pt-0 bg-grey-light c-imagewithlisttext--withverticaloffset'
+					? 'pt-18.75 md:pt-0 bg-grey-light c-imagewithlisttext--withverticaloffset'
 					: ''
 			} mb-25 last:mb-0`}
 		>
@@ -210,7 +210,7 @@ const ImageWithListText = ({ item }) => {
 				>
 					<div
 						className={`${
-							toBool(isUseImageVerticalOffset) ? 'md:pt-22' : ''
+							toBool(isUseImageVerticalOffset) ? 'md:pt-18.75' : ''
 						} flex flex-col md:offset-1 md:col-4 ${
 							toBool(isImageBleedLeft) &&
 							!toBool(isUseBorderOnImage)
@@ -225,7 +225,7 @@ const ImageWithListText = ({ item }) => {
 									: ''
 							}`}
 						>
-							<h2 className="mb-7" data-aos="fade-up">
+							<h2 className="mb-8.75" data-aos="fade-up">
 								{title}
 							</h2>
 							{!!intro && (
@@ -236,7 +236,7 @@ const ImageWithListText = ({ item }) => {
 								/>
 							)}
 							<SmallDivider
-								className="mt-10 mb-11"
+								className="my-8.75"
 								data-aos="fade-up"
 							/>
 							{!!listContent && (
