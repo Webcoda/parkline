@@ -31,14 +31,8 @@
 		}
 
 		&-content {
-			@include mq(md) {
-				padding-top: 11%;
-				padding-bottom: 11%;
-			}
-			@include mq(1312px, 1439px) {
-				padding-top: 5%;
-				padding-bottom: 5%;
-			}
+			padding-top: 5%;
+			padding-bottom: 5%;
 			@include mq(2200) {
 				padding-top: 5vw;
 				padding-bottom: 5vw;
@@ -56,6 +50,6 @@
 	}
 
 	&__text {
-		@include fzlh(18px, 24px);
+		@include fzlh(17px, 20px);
 	}
 }
