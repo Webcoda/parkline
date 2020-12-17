@@ -66,10 +66,10 @@ const MeetTheTeam = (props) => {
 	const { item, tiles } = props;
 	const { title, text } = item.customFields
 	return (
-		<div className="bg-yellow py-23 text-center">
+		<div className="bg-yellow py-18.75 text-center">
 			<CommonContainer>
 				{!!title && (
-					<h2 className="mb-11" data-aos="fade-up">
+					<h2 className="mb-8.75" data-aos="fade-up">
 						{title}
 					</h2>
 				)}
@@ -81,7 +81,7 @@ const MeetTheTeam = (props) => {
 					/>
 				)}
 
-				<SmallDivider className="my-11" data-aos="fade-up" />
+				<SmallDivider className="mt-8.75 mb-12.5" data-aos="fade-up" />
 
 				<div className="-mx-5 md:mx-auto max-w-300">
 					<div className="row no-gutters">
