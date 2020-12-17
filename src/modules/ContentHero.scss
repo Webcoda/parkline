@@ -14,6 +14,12 @@
 		}
 	}
 
+	&__inner {
+		padding-bottom: percentage(600/1440);
+		height: 0;
+		min-height: 600px;
+	}
+
 	&__twobar {
 		@include mq-down(sm)	{
 			max-height: 100px;
@@ -42,5 +48,11 @@
 
 	&__twobar {
 		height: 100px;
+	}
+
+	&__textcontainer {
+		@include mq(1440px) {
+			padding-bottom: 13.888vw;
+		}
 	}
 }
