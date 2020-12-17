@@ -61,7 +61,7 @@ export default ({ item }) => {
 													)
 												)}
 											></h2>
-											<SmallDivider className="mt-7.5 mb-9.5 md:my-11" />
+											<SmallDivider className="mt-7.5 mb-9.5 md:my-11.25" />
 										</>
 									)}
 								</div>
