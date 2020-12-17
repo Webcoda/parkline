@@ -62,10 +62,10 @@ const BuildingBackgroundedIntro = ({ item }) => {
 			scene = new ScrollMagic.Scene({
 				triggerElement: buildingBackgroundIntroRef.current,
 				duration: '100%',
-				offset: 285,
+				offset: '10%',
 			})
 				.setTween(bgRef.current, {
-					y: '20%',
+					y: '5%',
 					ease: Linear.easeNone,
 				})
 				// .addIndicators()
@@ -89,7 +89,7 @@ const BuildingBackgroundedIntro = ({ item }) => {
 			className="c-buildingbackgroundedintro"
 			ref={buildingBackgroundIntroRef}
 		>
-			<div className="relative md:pb-0 space-y-15 md:space-y-30 js-lazysizes container-fluid c-buildingbackgroundedintro__bigsection">
+			<div className="relative md:pb-13 space-y-15 md:space-y-30 js-lazysizes container-fluid c-buildingbackgroundedintro__bigsection">
 				{buildingBackgroundIntro.linkedContent_itemList
 					?.filter(
 						buildingBackgroundIntroItem =>
@@ -118,6 +118,9 @@ const BuildingBackgroundedIntro = ({ item }) => {
 
 						let textAlignmentClass = ''
 						switch (textAlignment) {
+							case 'top':
+								textAlignmentClass = 'items-start'
+								break;
 							case 'center':
 								textAlignmentClass = 'items-center'
 								break
@@ -169,17 +172,11 @@ const BuildingBackgroundedIntro = ({ item }) => {
 								>
 									<div
 										className={
-											index === 0
-												? 'md:absolute top-0 left-0 w-full h-full overflow-hidden c-buildingbackgroundedintro__bigsection-col-media-inner'
-												: 'w-full h-full'
+											'relative top-0 left-0 w-full h-0 overflow-hidden c-buildingbackgroundedintro__bigsection-col-media-inner'
 										}
 									>
 										<div
-											className={
-												index === 0
-													? 'md:u-embed__item'
-													: 'w-full h-full'
-											}
+											className="md:u-embed__item"
 										>
 											{!!image?.url && (
 												<BaseImg
@@ -298,13 +295,17 @@ const BuildingBackgroundedIntro = ({ item }) => {
 								<div
 									className={`${colMediaClass} c-buildingbackgroundedintro__smallsection-col-media`}
 								>
-									{!!image?.url && (
-										<BaseImg
-											src={imageUrl+'?q=80&w=2560'}
-											lqipSrc={imageUrl+'?q=80&w=8'}
-											sources={mediaImgSources}
-										/>
-									)}
+									<div className="u-embed c-buildingbackgroundedintro__smallsection-col-media-inner">
+										<div className="u-embed__item">
+											{!!image?.url && (
+												<BaseImg
+													src={imageUrl+'?q=80&w=2560'}
+													lqipSrc={imageUrl+'?q=80&w=8'}
+													sources={mediaImgSources}
+												/>
+											)}
+										</div>
+									</div>
 								</div>
 								<div
 									className={`${colTextClass} pt-5 c-buildingbackgroundedintro__smallsection-col-text`}

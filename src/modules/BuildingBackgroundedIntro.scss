@@ -1,7 +1,7 @@
 .c-buildingbackgroundedintro {
 	$_this: &;
 
-	padding-top: 258px;
+	padding-top: 45px;
 	margin-bottom: 180px;
 
 	&__bigsection {
@@ -9,7 +9,7 @@
 			padding-bottom: 20%;
 		}
 		@include mq(md) {
-			padding-top: 155px;
+			padding-top: 70px;
 		}
 
 		&-richtext {
@@ -29,20 +29,23 @@
 				}
 
 				#{$_this}__bigsection-row:first-child & {
-					margin-top: -258px;
+					margin-top: -45px;
 					@include mq(md) {
-						margin-top: calc(-258px - 155px);
+						margin-top: calc(-45px - 70px);
 					}
 				}
 				#{$_this}__bigsection-row:nth-child(2) & {
 					@include mq(md) {
-						margin-bottom: -5%;
+						margin-bottom: -25%;
 					}
 				}
 
 				&-inner {
 					#{$_this}__bigsection-row:first-child & {
-						// height: calc(100% + 155px + 258px);
+						padding-bottom: percentage(722/566);
+					}
+					#{$_this}__bigsection-row:nth-child(2) & {
+						padding-bottom: percentage(665/499);
 					}
 				}
 			}
@@ -61,9 +64,8 @@
 	&__smallsection {
 		&-row {
 			&:first-child {
-				margin-top: -11%;
-				@include mq(md) {
-					margin-top: -5%;
+				@include mq(lg) {
+					margin-top: 127px;
 				}
 			}
 		}
@@ -74,6 +76,12 @@
 					@include mq(md) {
 						padding-top: 20%;
 					}
+				}
+			}
+
+			&-media {
+				&-inner {
+					padding-bottom: percentage(496/459);
 				}
 			}
 		}
@@ -96,7 +104,7 @@
 ul {
 	.o-richtext & {
 		.c-buildingbackgroundedintro & {
-			@include fzlh(14px, 16.8px);
+			@include fzlh(16px, 20px);
 			font-weight: 400;
 		}
 	}
@@ -108,7 +116,7 @@ ul {
 				padding-left: 1.3125rem;
 				@apply py-2.5;
 				@apply border-b;
-				// @apply border-current;
+				@apply border-text;
 				&:before {
 					@apply bg-yellow;
 					content: '';
