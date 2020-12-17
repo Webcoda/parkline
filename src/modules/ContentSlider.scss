@@ -20,7 +20,11 @@
 		}
 	}
 	&__top {
-		min-height: 90px;
+		/*! purgecss start ignore */
+		&.has-title {
+			min-height: 90px;
+		}
+		/*! purgecss end ignore */
 	}
 }
 /*! purgecss start ignore */
