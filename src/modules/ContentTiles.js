@@ -59,13 +59,13 @@ const ContentTileInner = ({
 	hoverBgAndTextColor,
 }) => (
 	<>
-		<div className="flex-auto flex md:block flex-col justify-center text-center px-6 md:px-12 py-6 relative c-contenttiles__tile-content">
+		<div className="flex-auto flex md:block flex-col justify-center text-center px-6 md:px-3 py-6 relative c-contenttiles__tile-content">
 			{slotIcon}
 			{children}
 		</div>
 		<div className="absolute inset-0 flex flex-col translate-y-full group-hocus:translate-y-0 transition duration-500 overflow-hidden">
 			<div
-				className={`flex-1 flex md:block flex-col justify-center text-center px-6 md:px-12 py-6 -translate-y-full group-hocus:translate-y-0 transition duration-500 ${hoverBgAndTextColor} c-contenttiles__tile-content`}
+				className={`flex-1 flex md:block flex-col justify-center text-center px-6 md:px-3 py-6 -translate-y-full group-hocus:translate-y-0 transition duration-500 ${hoverBgAndTextColor} c-contenttiles__tile-content`}
 			>
 				{slotIconHover}
 				{children}
@@ -173,8 +173,15 @@ const ContentTiles = ({ contentTiles, item }) => {
 												}
 											>
 												{!!title && (
-													<h2 className="mb-2 c-contenttiles__title">
-														{title}
+													<h2
+														className="mb-2 c-contenttiles__title"
+														dangerouslySetInnerHTML={renderHTML(
+															title.replace(
+																/(?:\r\n|\r|\n)/g,
+																'<br>'
+															)
+														)}
+													>
 													</h2>
 												)}
 												{!!subtitle && (

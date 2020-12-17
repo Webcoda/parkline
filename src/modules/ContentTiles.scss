@@ -26,18 +26,18 @@
 	&__tile {
 		&-inner {
 			@include mq(sm) {
-				min-height: 365px;
+				min-height: 300px;
 			}
 		}
 
 		&-content {
 			@include mq(md) {
-				padding-top: 14%;
-				padding-bottom: 14%;
+				padding-top: 11%;
+				padding-bottom: 11%;
 			}
 			@include mq(1312px, 1439px) {
 				padding-top: 5%;
-				padding-top: 5%;
+				padding-bottom: 5%;
 			}
 			@include mq(2200) {
 				padding-top: 5vw;
