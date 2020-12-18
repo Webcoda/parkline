@@ -20,7 +20,7 @@
 		}
 	}
 	&__yellowbar {
-		max-width: calc(994 / 1440 * 100%);
+		max-width: percentage(994 / 1440);
 	}
 }
 /*! purgecss start ignore */

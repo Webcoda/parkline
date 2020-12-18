@@ -1,7 +1,6 @@
 import { graphql, StaticQuery } from 'gatsby'
 import React from 'react';
 
-import CommonContainer from '@/components/CommonContainer'
 import Vivus, { EASE_OUT } from '@/components/Vivus'
 import { sortByItemOrderAsc } from "@/utils/sortByItemOrder";
 import { renderHTML } from "@/agility/utils";

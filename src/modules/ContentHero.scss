@@ -26,13 +26,6 @@
 		}
 	}
 
-	&__bottom-container {
-		&.is-use-two-bar {
-			// margin-top: calc(-110px / 2);
-			margin-top: calc(-100px / 2);
-		}
-	}
-
 	&__row{
 		.page-updates-dynamic & {
 			justify-content: normal;

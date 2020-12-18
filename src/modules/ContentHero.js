@@ -8,7 +8,7 @@ import './ContentHero.scss'
 const TwoBar = () => (
 	<>
 		<svg
-			className="hidden sm:inline-block c-contenthero__twobar"
+			className="absolute top-0 left-0 -mt-12.5 hidden sm:inline-block c-contenthero__twobar"
 			width="39"
 			height="147"
 			fill="none"
@@ -28,7 +28,7 @@ const TwoBar = () => (
 			/>
 		</svg>
 		<svg
-			className="sm:hidden c-contenthero__twobar"
+			className="absolute top-0 left-0 -mt-12.5 sm:hidden c-contenthero__twobar"
 			width="30"
 			height="110"
 			viewBox="0 0 30 110"
@@ -82,7 +82,7 @@ const ContentHero = ({ item }) => {
 	]
 
 	return (
-		<div className="relative mb-12.5 c-contenthero">
+		<div className="relative mb-25 c-contenthero">
 			<div className="relative overflow-hidden bg-black flex flex-col justify-end text-white c-contenthero__inner">
 				{!!mediaUrl && (
 					<div className="u-embed__item">
@@ -136,9 +136,7 @@ const ContentHero = ({ item }) => {
 				</div>
 			</div>
 			<div
-				className={`container-fluid c-contenthero__bottom-container ${
-					toBool(isUseYellowHorizontalBar) ? '' : 'is-use-two-bar'
-				}`}
+				className="container-fluid"
 			>
 				<div
 					className={`row ${
@@ -157,7 +155,9 @@ const ContentHero = ({ item }) => {
 							{twoLinesPosition === 'left' ? (
 								<div className="col md:offset-2">
 									<div className="pl-10 md:pl-0">
-										<TwoBar />
+										<div className="relative">
+											<TwoBar />
+										</div>
 									</div>
 								</div>
 							) : (

@@ -5,7 +5,6 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import encodeUrl from 'encodeurl'
 
 import BaseImg from '@/components/BaseImg'
-import CommonContainer from '@/components/CommonContainer'
 import Richtext from '@/components/Richtext'
 import SmallDivider from "@/components/SmallDivider";
 
@@ -66,7 +65,7 @@ const RevealList = ({ html, hasBackground }) => {
 
 		// the first parent li
 		Array.from($el.querySelectorAll('li:not(.child-item)')).forEach((li, index) => {
-			li.classList.add('flex', 'group', 'cursor-pointer',  'py-4.5', 'first:pt-0', 'last:pb-0');
+			li.classList.add('flex', 'group', 'cursor-pointer',  'py-3', 'first:pt-0', 'last:pb-0');
 			if(index === 0) {
 				li.classList.add('is-hovered')
 			}
@@ -106,22 +105,22 @@ const RevealList = ({ html, hasBackground }) => {
 }
 
 const MediaSliderWithRevealList = ({ item }) => {
-	const { title, intro, revealList, mediaList, backgroundColor } = item.customFields;
+	const { title, intro, revealList, mediaList, backgroundColor, mediaPosition } = item.customFields;
 	const media = Array.isArray(mediaList)
 		? mediaList
 		: [mediaList]
 	const hasMoreThanOneSlide = media.length > 1
 
 	return (
-		<div className="mb-22 md:mb-25 last:mb-0 c-mediasliderwithreveallist">
-			<CommonContainer>
-				<div className={`${ backgroundColor !== 'transparent' ? 'pt-11 pb-11 md:pb-32.5' : ''} relative`}>
-					<div
-						className={`absolute inset-0 h-full bg-${backgroundColor} -mx-5 md:mx-0 c-mediasliderwithreveallist__bg`}
-					></div>
-					<div className="relative">
+		<div
+			className={`mb-22 md:my-25 ${backgroundColor !== 'transparent' ? 'py-11.25' : ''} last:mb-0 bg-${backgroundColor} c-mediasliderwithreveallist`}
+		>
+			<div className="container-fluid">
+				<div className={`row ${mediaPosition !== 'left' ? 'flex-row-reverse' : ''}`}>
+					{/* slider */}
+					<div className={`md:col-6 ${mediaPosition !== 'left' ? 'md:pr-0' : 'md:pl-0'}`}>
 						<div
-							className="mb-15 c-mediasliderwithreveallist__slider"
+							className="mb-15 md:mb-0 c-mediasliderwithreveallist__slider"
 							data-aos="fade-up"
 						>
 							<Swiper
@@ -135,7 +134,9 @@ const MediaSliderWithRevealList = ({ item }) => {
 								allowTouchMove={hasMoreThanOneSlide}
 							>
 								{media.map((mediaItem, index) => {
-									const mediaItemUrl = encodeUrl(mediaItem?.url);
+									const mediaItemUrl = encodeUrl(
+										mediaItem?.url
+									)
 									const mediaImgSources = [
 										{
 											srcset: [
@@ -178,43 +179,58 @@ const MediaSliderWithRevealList = ({ item }) => {
 										<SwiperSlide
 											key={`content-slide-${item.contentId}-${index}`}
 										>
-											<BaseImg
-												src={mediaItemUrl + '?q=80&w=2560'}
-												lqipSrc={mediaItemUrl + '?q=80&w=8'}
-												sources={mediaImgSources}
-											></BaseImg>
+											<div className="relative w-full h-full md:h-0 c-mediasliderwithreveallist__media-inner">
+												<div className="u-embed__item">
+													<BaseImg
+														src={
+															mediaItemUrl +
+															'?q=80&w=2560'
+														}
+														lqipSrc={
+															mediaItemUrl +
+															'?q=80&w=8'
+														}
+														sources={mediaImgSources}
+													></BaseImg>
+												</div>
+											</div>
 										</SwiperSlide>
 									)
 								})}
 							</Swiper>
 						</div>
-						<div className="row">
-							<div
-								className="relative px-2.5 w-full lg:w-2/5"
-								data-aos="fade-up"
-							>
-								<div className="pr-6">
-									<h2 className="mb-7">{title}</h2>
-									<Richtext className="font-normal" html={intro}></Richtext>
-									<SmallDivider className="my-15.5" />
-								</div>
+					</div>
+
+					{/* text */}
+					<div className="md:offset-1 md:col-5 lg:col-4 lg:mr-1/12">
+						<div
+							className="relative px-2.5 w-full"
+							data-aos="fade-up"
+						>
+							<div className="pr-6">
+								<h2 className="mb-8.75">{title}</h2>
+								<Richtext
+									className="font-normal"
+									html={intro}
+								></Richtext>
+								<SmallDivider className="my-8.75" />
 							</div>
-							<div
-								className="relative px-2.5 w-full lg:w-1/2"
-								data-aos="fade-up"
-								data-aos-delay="500"
-							>
-								<RevealList
-									html={revealList}
-									hasBackground={
-										backgroundColor !== 'transparent'
-									}
-								/>
-							</div>
+						</div>
+						<div
+							className="relative px-2.5 w-full"
+							data-aos="fade-up"
+							data-aos-delay="500"
+						>
+							<RevealList
+								html={revealList}
+								hasBackground={
+									backgroundColor !== 'transparent'
+								}
+							/>
 						</div>
 					</div>
 				</div>
-			</CommonContainer>
+			</div>
 		</div>
 	)
 }

@@ -56,7 +56,7 @@ export default ({ item }) => {
 									title.replace(/(?:\r\n|\r|\n)/g, '<br>')
 								)}
 							></h2>
-							<SmallDivider className="mt-8.75 mb-12.5" />
+							<SmallDivider className="mb-12.5" />
 						</div>
 					</div>
 				</div>

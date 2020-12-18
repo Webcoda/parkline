@@ -1,9 +1,6 @@
 .c-buildingbackgroundedintro {
 	$_this: &;
 
-	padding-top: 45px;
-	margin-bottom: 180px;
-
 	&__bigsection {
 		@include mq-down(sm) {
 			padding-bottom: 20%;

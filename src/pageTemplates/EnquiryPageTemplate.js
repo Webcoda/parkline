@@ -13,7 +13,7 @@ const EnquiryPageTemplate = (props) => {
     return (
 		<>
 			<div
-				className="bg-grey-light bg-no-repeat pt-30 pb-20"
+				className="bg-grey-light bg-no-repeat pt-25 pb-13.5"
 				style={bgStyle}
 			>
 				<CommonContainer className="overflow-hidden">

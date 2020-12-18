@@ -86,7 +86,7 @@ const BuildingBackgroundedIntro = ({ item }) => {
 
 	return buildingBackgroundIntro ? (
 		<div
-			className="c-buildingbackgroundedintro"
+			className="pt-11.25 my-25 c-buildingbackgroundedintro"
 			ref={buildingBackgroundIntroRef}
 		>
 			<div className="relative md:pb-13 space-y-15 md:space-y-30 js-lazysizes container-fluid c-buildingbackgroundedintro__bigsection">
