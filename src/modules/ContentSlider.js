@@ -17,6 +17,11 @@ SwiperCore.use([Navigation, Pagination, A11y])
 
 const Plyr = Loadable(() => import('react-plyr'));
 
+
+const YellowBar = ({ backgroundColor }) => (
+	<div className={`bg-${backgroundColor} h-11.25 mx-auto c-contentslider__yellowbar`}></div>
+)
+
 /**
  * Note: item.customFields.media is not generated properly in GraphQL because
  * the item.customFields.media (AttachmentList) returns an object when it only has 1 item in the list
@@ -24,7 +29,7 @@ const Plyr = Loadable(() => import('react-plyr'));
  * */
 
 export default ({ item }) => {
-	const { backgroundColor='grey-light' } = item.customFields;
+	const { backgroundColor='grey-light', title } = item.customFields;
 
 
 	const media = Array.isArray(item.customFields.media) ? item.customFields.media : [item.customFields.media];
@@ -40,36 +45,23 @@ export default ({ item }) => {
 
 	// purgecss: .bg-yellow, .bg-grey-light
 	return (
-		<div className="c-contentslider mb-25 last:mb-0" data-aos="fade-up">
-			<div className="container-fluid">
-				<div className="row justify-center">
-					<div className="col-8">
-						<div
-							className={`bg-${backgroundColor} px-2.5 c-contentslider__top text-center ${
-								item.customFields.title ? 'pt-9 md:pt-23 has-title' : ''
-							}`}
-						>
-							<div className="row justify-center">
-								<div className="relative px-2.5 w-full sm:max-w-4/5 md:max-w-2/5">
-									{!!item.customFields.title && (
-										<>
-											<h2
-												dangerouslySetInnerHTML={renderHTML(
-													item.customFields.title.replace(
-														/(?:\r\n|\r|\n)/g,
-														'<br>'
-													)
-												)}
-											></h2>
-											<SmallDivider className="mt-7.5 mb-9.5 md:my-11.25" />
-										</>
-									)}
-								</div>
-							</div>
+		<div className="c-contentslider my-25 last:mb-0" data-aos="fade-up">
+			{!!title && (
+				<div className="container-fluid">
+					<div className="row justify-center">
+						<div className="col-8 text-center">
+							<h2
+								className="mb-8.75"
+								dangerouslySetInnerHTML={renderHTML(
+									title.replace(/(?:\r\n|\r|\n)/g, '<br>')
+								)}
+							></h2>
+							<SmallDivider className="mt-8.75 mb-12.5" />
 						</div>
 					</div>
 				</div>
-			</div>
+			)}
+			<YellowBar backgroundColor={backgroundColor} />
 			<CommonContainer>
 				<div
 					className={`c-contentslider__media ${
@@ -141,13 +133,7 @@ export default ({ item }) => {
 					</Swiper>
 				</div>
 			</CommonContainer>
-			<div className="container-fluid">
-				<div className="row justify-center">
-					<div className="col-8">
-						<div className={`bg-${backgroundColor} h-11`}></div>
-					</div>
-				</div>
-			</div>
+			<YellowBar backgroundColor={backgroundColor} />
 		</div>
 	)
 }

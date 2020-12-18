@@ -1,25 +1,42 @@
 .c-contenttiles {
-	max-width: 1464px;
+	$_this: &;
+
+	@include mq(md) {
+		max-width: calc(994 / 1440 * 100%);
+	}
+
 	&__title {
 		@include fzlh(16px, 16px);
-		@include mq(md) {
+		@include mq(sm) {
 			@include fzlh(24px, 24px);
+		}
+
+		#{$_this}__tile-content-hover & {
+			@include mq-down(xs) {
+				display: none;
+			}
 		}
 	}
 	&__subtitle {
 		@include fzlh(16px, 16px);
-		@include mq(md) {
+		@include mq(sm) {
 			@include fzlh(18px, 20px);
 		}
 	}
 	&__icon {
 		svg {
-			@include mq-down(sm) {
+			@include mq-down(xs) {
 				max-height: 92px;
 			}
 		}
 		svg, path {
 			stroke: currentColor;
+		}
+
+		#{$_this}__tile-content-hover & {
+			@include mq-down(xs) {
+				display: none;
+			}
 		}
 	}
 
@@ -31,8 +48,14 @@
 		}
 
 		&-content {
-			padding-top: 5%;
-			padding-bottom: 5%;
+			@include mq(sm) {
+				padding-top: 14%;
+				padding-bottom: 14%;
+			}
+			@include mq(lg) {
+				padding-top: 5%;
+				padding-bottom: 5%;
+			}
 			@include mq(2200) {
 				padding-top: 5vw;
 				padding-bottom: 5vw;
@@ -51,5 +74,9 @@
 
 	&__text {
 		@include fzlh(17px, 20px);
+
+		#{$_this}__tile-content-hover & {
+			display: block;
+		}
 	}
 }
