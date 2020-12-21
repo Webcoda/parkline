@@ -39,7 +39,7 @@
 			}
 
 			&-inner {
-				@apply min-h-115;
+				// @apply min-h-115;
 
 				.c-imagewithlisttext--right & {
 					@include mq-down(sm) {
@@ -68,6 +68,8 @@
 
 		h3 {
 			@apply font-sans;
+			@include fzlh(20px, 22px);
+			margin-bottom: 25px;
 		}
 
 		> * + h3 {
@@ -75,7 +77,7 @@
 		}
 
 		> * + * {
-			margin-top: 27px;
+			margin-top: 25px;
 		}
 	}
 
@@ -100,7 +102,7 @@ ul {
 			.c-imagewithlisttext & {
 				position: relative;
 				padding-left: 1.3125rem;
-				@apply py-2.5;
+				@apply py-2;
 				@apply border-b;
 				@apply border-text;
 

@@ -225,7 +225,7 @@ const ImageWithListText = ({ item }) => {
 									: ''
 							}`}
 						>
-							<h2 className="mb-8.75" data-aos="fade-up">
+							<h2 className="mb-6.25" data-aos="fade-up">
 								{title}
 							</h2>
 							{!!intro && (
@@ -236,7 +236,7 @@ const ImageWithListText = ({ item }) => {
 								/>
 							)}
 							<SmallDivider
-								className="my-8.75"
+								className="my-7.5"
 								data-aos="fade-up"
 							/>
 							{!!listContent && (

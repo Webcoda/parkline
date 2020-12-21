@@ -6,7 +6,7 @@
 	height: calc(100vh - 71px);
 	@include mq(sm) {
 		height: calc(100vh - 143px);
-		min-height: 768px - 30px;
+		min-height: 700px;
 	}
 	@include mq(md) {
 		height: calc(100vh - 105px - 16px);

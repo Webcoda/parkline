@@ -45,7 +45,7 @@
 
 	&__textcontainer {
 		@include mq(1440px) {
-			padding-bottom: 13.888vw;
+			padding-bottom: 8.33vw; // == 120/1440 * 100vw
 		}
 	}
 }
