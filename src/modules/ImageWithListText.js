@@ -325,6 +325,7 @@ const ImageWithListText = ({ item }) => {
 															/>
 														) : (
 															<BaseImg
+																imgClassName={item.properties.referenceName === 'home_imagewithlisttext' ? 'object-top' : ''}
 																src={
 																	mediaItem.url +
 																	'?q=80&w=1920'
