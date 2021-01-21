@@ -210,7 +210,7 @@ const MediaSliderWithRevealList = ({ item }) => {
 							<div className="pr-6">
 								<h2 className="mb-8.75">{title}</h2>
 								<Richtext
-									className="font-normal"
+									className="font-normal c-mediasliderwithreveallist__intro"
 									html={intro}
 								></Richtext>
 								<SmallDivider className="my-8.75" />
