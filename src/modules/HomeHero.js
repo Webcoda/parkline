@@ -159,7 +159,7 @@ const HomeHero = ({ item: _item }) => {
 											src={image.url + '?q=80&w=2560'}
 											lqipSrc={image.url + '?q=80&w=8'}
 											sources={mediaImgSources}
-											imgClassName={`object-cover transition delay-500 group-swiper-slide-active:scale-110 group-swiper-slide-duplicate-active:scale-110`}
+											imgClassName={`object-cover transition  group-swiper-slide-active:scale-110 group-swiper-slide-duplicate-active:scale-110`}
 											imgAttributes={{
 												style: {
 													transitionDuration: `${parseInt(
@@ -283,7 +283,7 @@ const HomeHero = ({ item: _item }) => {
 												} opacity-0 transition ${
 													isUseBigLogoMask
 														? ''
-														: 'delay-500'
+														: ''
 												} duration-1000 group-swiper-slide-active:translate-x-0 group-swiper-slide-duplicate-active:translate-x-0 group-swiper-slide-active:opacity-100 group-swiper-slide-duplicate-active:opacity-100`}
 												dangerouslySetInnerHTML={renderHTML(
 													heading
