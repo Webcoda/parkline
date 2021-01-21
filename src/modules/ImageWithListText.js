@@ -230,7 +230,7 @@ const ImageWithListText = ({ item }) => {
 							</h2>
 							{!!intro && (
 								<Richtext
-									className="font-normal"
+									className="font-normal c-imagewithlisttext__text"
 									html={intro}
 									data-aos="fade-up"
 								/>
@@ -324,6 +324,7 @@ const ImageWithListText = ({ item }) => {
 																}
 															/>
 														) : (
+															// purgecss: .object-top
 															<BaseImg
 																imgClassName={item.properties.referenceName === 'home_imagewithlisttext' ? 'object-cover object-top' : 'object-cover'}
 																src={

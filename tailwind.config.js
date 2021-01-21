@@ -16,6 +16,7 @@ module.exports = {
 		'browserslist',
 		{
 			objectFit: 'relaxed',
+			objectPosition: 'relaxed',
 			position: 'relaxed',
 		},
 	],
