@@ -75,7 +75,7 @@ const MeetTheTeam = (props) => {
 				)}
 				{!!text && (
 					<Richtext
-						className="md:w-3/5 mx-auto font-normal"
+						className="md:w-3/5 mx-auto font-normal c-meettheteam__intro"
 						html={text}
 						data-aos="fade-up"
 					/>

@@ -1,4 +1,7 @@
 .c-meettheteam {
+	&__intro {
+		max-width: 660px;
+	}
 	&__tile {
 		&-title {
 			@include fzlh(20px, 20px);
