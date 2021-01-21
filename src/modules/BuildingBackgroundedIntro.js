@@ -110,7 +110,7 @@ const BuildingBackgroundedIntro = ({ item }) => {
 
 						// if left image
 						const colMediaClass = isMediaOnTheLeft
-							? '-ml-5 md:-ml-2.5 col-9 md:col-5'
+							? '-ml-5 md:ml-0 col-4 md:offset-1'
 							: '-mr-5 offset-3 md:offset-1 col-9 md:col-4 md:mr-1/12'
 						const colTextClass = isMediaOnTheLeft
 							? 'md:offset-1 md:col-5'

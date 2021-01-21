@@ -6,7 +6,7 @@
 			padding-bottom: 20%;
 		}
 		@include mq(md) {
-			padding-top: 70px;
+			padding-top: 75px;
 		}
 
 		&-richtext {
@@ -19,21 +19,20 @@
 		&-col {
 			&-media {
 				.is-media-left & {
-					margin-left: -20px;
-					@include mq(md) {
-						margin-left: -10px;
+					@include mq-down(sm) {
+						margin-left: -20px;
 					}
 				}
 
 				#{$_this}__bigsection-row:first-child & {
 					margin-top: -45px;
 					@include mq(md) {
-						margin-top: calc(-45px - 70px);
+						margin-top: calc(-45px - 75px);
 					}
 				}
 				#{$_this}__bigsection-row:nth-child(2) & {
 					@include mq(md) {
-						margin-bottom: -25%;
+						margin-top: -12vw;
 					}
 				}
 
@@ -62,7 +61,7 @@
 		&-row {
 			&:first-child {
 				@include mq(lg) {
-					margin-top: 127px;
+					margin-top: -100px;
 				}
 			}
 		}
@@ -71,14 +70,14 @@
 			&-text {
 				#{$_this}__smallsection-row:first-child & {
 					@include mq(md) {
-						padding-top: 20%;
+						padding-top: 15%;
 					}
 				}
 			}
 
 			&-media {
 				&-inner {
-					padding-bottom: percentage(496/459);
+					padding-bottom: percentage(500/466);
 				}
 			}
 		}
