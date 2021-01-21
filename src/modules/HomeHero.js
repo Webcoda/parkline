@@ -180,7 +180,7 @@ const HomeHero = ({ item: _item }) => {
 										></div>
 									)}
 									<div
-										className={`u-embed__item u-scrim-hero `}
+										className={`u-embed__item u-scrim-hero u-scrim-hero--home`}
 									></div>
 
 									{/* purgecss: text-black text-grey-light text-yellow */}

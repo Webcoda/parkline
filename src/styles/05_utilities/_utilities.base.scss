@@ -127,6 +127,10 @@
 
 			@supports(mix-blend-mode: multiply) {
 				background: theme('colors.grey.medium');
+
+				&--home {
+					background: #c4c4c4;
+				}
 			}
 		}
 	}
