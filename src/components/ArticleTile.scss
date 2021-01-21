@@ -22,6 +22,10 @@
 		.c-article-detail__related & {
 			@apply text-yellow;
 		}
+
+		.c-article-featured & {
+			@include fzlh(30px, 30px);
+		}
 	}
 
 	&__text {
