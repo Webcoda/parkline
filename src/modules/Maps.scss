@@ -32,7 +32,7 @@
 
 	&__inner {
 		@include mq(md) {
-			max-width: percentage(944 / 1440);
+			max-width: 994px;
 		}
 	}
 }

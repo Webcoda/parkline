@@ -75,13 +75,13 @@ const Maps = ({ items }) => {
 				>
 					{!!items && !!items.length && (
 						<div className="relative">
-							<ul className="nav -mx-1.5" role="tablist">
+							<ul className="nav -mx-0.5" role="tablist">
 								{sortedItems.map((mapItem, index) => {
 									const { title } = mapItem.customFields
 									return (
 										<li
 											key={`tabnav-${mapItem.id}`}
-											className="flex flex-col relative px-1.5 w-1/2 md:w-auto flex-grow flex-shrink-0 mt-5 md:mt-0 nav-item"
+											className="flex flex-col relative px-0.5 w-1/2 md:w-auto flex-grow flex-shrink-0 mt-1 md:mt-0 nav-item"
 										>
 											<a
 												id={`tabnav-${mapItem.id}`}
@@ -94,7 +94,7 @@ const Maps = ({ items }) => {
 														? 'true'
 														: 'false'
 												}
-												className={`relative overflow-hidden flex-auto bg-grey-dark active:bg-yellow px-3 sm:px-4 py-5 flex items-center justify-center text-xs leading-none text-white hover:text-white active:text-black uppercase hocus:no-underline group ${
+												className={`relative overflow-hidden flex-auto bg-grey-dark active:bg-yellow px-3 sm:px-4 py-2 flex items-center justify-center text-xs leading-none text-white hover:text-white active:text-black uppercase hocus:no-underline group ${
 													index === 0
 														? 'active'
 														: ''
@@ -106,7 +106,7 @@ const Maps = ({ items }) => {
 													aria-hidden="true"
 												>
 													<div
-														className={`flex-1 flex items-center justify-center px-3 sm:px-4 py-5 -translate-y-full group-hover:translate-y-0 transition duration-500 text-black bg-grey-light`}
+														className={`flex-1 flex items-center justify-center px-3 sm:px-4 py-2 -translate-y-full group-hover:translate-y-0 transition duration-500 text-black bg-grey-light`}
 													>
 														{title}
 													</div>
@@ -116,7 +116,7 @@ const Maps = ({ items }) => {
 									)
 								})}
 							</ul>
-							<div className="tab-content mt-5 md:mt-0">
+							<div className="tab-content mt-1 md:mt-0">
 								{sortedItems.map((mapItem, index) => {
 									const {
 										id,

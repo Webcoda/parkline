@@ -41,6 +41,7 @@ module.exports = {
 			spacing: {
 				...customSpacing([
 					1.25,
+					2.25,
 					3.75,
 					4.5,
 					5.5,
