@@ -179,13 +179,18 @@ const ContentTiles = ({ contentTiles, item }) => {
 															'<br>'
 														)
 													)}
-												>
-												</h2>
+												></h2>
 											)}
 											{!!subtitle && (
-												<div className="hidden sm:block uppercase c-contenttiles__subtitle">
-													{subtitle}
-												</div>
+												<div
+													className="hidden sm:block uppercase c-contenttiles__subtitle"
+													dangerouslySetInnerHTML={renderHTML(
+														subtitle.replace(
+															/(?:\r\n|\r|\n)/g,
+															'<br>'
+														)
+													)}
+												/>
 											)}
 											{!!text && (
 												<p
@@ -202,8 +207,7 @@ const ContentTiles = ({ contentTiles, item }) => {
 													)}
 												/>
 											)}
-											{(index === 2 ||
-												index === 4) && (
+											{(index === 2 || index === 4) && (
 												<div
 													className="bg-grey-light absolute inset-y-0 right-0 my-9"
 													style={{ width: 1 }}
