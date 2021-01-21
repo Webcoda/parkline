@@ -79,11 +79,17 @@
 			}
 		}
 	}
+
+	&-slide {
+		max-width: 100%;
+	}
 }
 
 .plyr {
 	&__poster {
-		background: transparent;
+		&#{&} {
+			background-size: cover;
+		}
 	}
 	&__control {
 		&--overlaid {
