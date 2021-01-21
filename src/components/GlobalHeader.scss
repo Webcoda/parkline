@@ -8,6 +8,10 @@
 	&__menu {
 		.is-not-top & {
 			transform: translateY(-100%);
+
+			@include mq(md) {
+				transform: none;
+			}
 		}
 
 
