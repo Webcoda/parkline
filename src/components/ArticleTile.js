@@ -57,7 +57,7 @@ const ArticleTile = ({ article, className }) => {
 				<div className="h-2.5 bg-yellow"></div>
 			</div>
 			<div
-				className="mb-2 font-normal text-black c-article-tile__meta"
+				className="mb-3.5 font-normal text-black c-article-tile__meta"
 				data-aos="fade-up"
 			>
 				{
