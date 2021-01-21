@@ -143,7 +143,7 @@ const GlobalHeader = ({ item, menuLinks }) => {
 										viewBox="0 0 32 39"
 										fill="none"
 										xmlns="http://www.w3.org/2000/svg"
-										className="absolute top-0 left-0 opacity-0 c-header__logo-notontop transition duration-300"
+										className="u-vertical-center top-0 left-0 opacity-0 c-header__logo-notontop transition duration-300"
 										aria-hidden="true"
 										focusable="false"
 									>
