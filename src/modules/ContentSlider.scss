@@ -81,7 +81,9 @@
 	}
 
 	&-slide {
-		max-width: 100%;
+		.c-contentslider__media--singlevideo & {
+			max-width: 100%;
+		}
 	}
 }
 
