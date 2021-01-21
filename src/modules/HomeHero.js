@@ -273,7 +273,7 @@ const HomeHero = ({ item: _item }) => {
 									)}
 								</div>
 							)}
-							<div className="relative h-full text-white c-homehero__fg">
+							<div className="relative h-full text-grey-light c-homehero__fg">
 								<div className="container-fluid h-full c-homehero__fg-inner">
 									<div className={`row h-full ${rowClass}`}>
 										<div className={`${colClass}`}>
