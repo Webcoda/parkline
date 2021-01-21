@@ -4,6 +4,10 @@
 			/*! purgecss ignore current */
 			max-width: 700px;
 		}
+		.page-about & {
+			/*! purgecss ignore current */
+			max-width: 720px;
+		}
 
 		&--big {
 			@include fzlh(60px, 60px);

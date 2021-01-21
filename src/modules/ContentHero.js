@@ -3,6 +3,7 @@ import encodeUrl from 'encodeurl';
 import Richtext from "@/components/Richtext";
 import BaseImg from '@/components/BaseImg'
 import toBool from '@/utils/convertBoolStrToBool'
+import { renderHTML } from "@/agility/utils";
 import './ContentHero.scss'
 
 const TwoBar = () => (
@@ -52,7 +53,7 @@ const TwoBar = () => (
 )
 
 const ContentHero = ({ item }) => {
-	const { title, text, isTitleBig, isTitleYellow,  isUseYellowHorizontalBar, twoLinesPosition, media } =  item.customFields;
+	const { title, titleHtml, text, isTitleBig, isTitleYellow,  isUseYellowHorizontalBar, twoLinesPosition, media } =  item.customFields;
 	const mediaUrl = encodeUrl(media?.url);
 	const mediaImgSources = [
 		{
@@ -81,6 +82,9 @@ const ContentHero = ({ item }) => {
 		},
 	]
 
+	const TitleTag = titleHtml ? 'div' : 'h1';
+	const _title = titleHtml || title;
+
 	return (
 		<div className="relative mb-25 c-contenthero">
 			<div className="relative overflow-hidden bg-black flex flex-col justify-end text-white c-contenthero__inner">
@@ -100,8 +104,8 @@ const ContentHero = ({ item }) => {
 							<div className="md:col-10 c-contenthero__row-inner">
 								<div className="row">
 									<div className="relative px-2.5 md:max-w-7/10">
-										<h1
-											className={`h2 sm:h1 c-contenthero__title ${
+										<TitleTag
+											className={`h2 sm:h1 uppercase font-heading c-contenthero__title ${
 												toBool(isTitleBig)
 													? 'c-contenthero__title--big'
 													: ''
@@ -111,9 +115,8 @@ const ContentHero = ({ item }) => {
 													: ''
 											}`}
 											data-aos="fade-up"
-										>
-											{title}
-										</h1>
+											dangerouslySetInnerHTML={renderHTML(_title)}
+										/>
 									</div>
 								</div>
 								{!!text && (
