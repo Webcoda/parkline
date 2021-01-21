@@ -82,6 +82,9 @@
 }
 
 .plyr {
+	&__poster {
+		background: transparent;
+	}
 	&__control {
 		&--overlaid {
 			.c-contentslider & {
