@@ -87,7 +87,7 @@ const ContentHero = ({ item }) => {
 
 	return (
 		<div className="relative mb-25 c-contenthero">
-			<div className="relative overflow-hidden bg-black flex flex-col justify-end text-white c-contenthero__inner">
+			<div className="relative overflow-hidden bg-black flex flex-col justify-end text-grey-light c-contenthero__inner">
 				{!!mediaUrl && (
 					<div className="u-embed__item">
 						<BaseImg

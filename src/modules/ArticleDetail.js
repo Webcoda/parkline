@@ -79,7 +79,7 @@ const ArticleDetail = ({ dynamicPageItem }) => {
 	const heroItem = {
 		customFields: {
 			title,
-			isTitleYellow: true,
+			isTitleYellow: false,
 			isUseYellowHorizontalBar: true,
 			media
 		}
