@@ -52,7 +52,7 @@ const ContactOurTeam = ({ item, teamDetails }) => {
 	return (
 		<CommonContainer className="pt-20 pb-30">
 			{!!title && (
-				<h1 className="h2 mb-11" data-aos="fade-up">
+				<h1 className="h2 mb-11" data-aos="fade-up" data-aos-offset="-120">
 					{title}
 				</h1>
 			)}
@@ -71,6 +71,7 @@ const ContactOurTeam = ({ item, teamDetails }) => {
 										key={teamDetail.id}
 										className="col-12 md:col-3 mt-12 font-normal"
 										data-aos="fade-up"
+										data-aos-offset="-120"
 										data-aos-delay={200 * index}
 									>
 										{!!name && (
