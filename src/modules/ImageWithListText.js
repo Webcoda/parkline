@@ -29,33 +29,6 @@ SwiperCore.use([Pagination, A11y, Autoplay])
 
 const getMediaSources = (mediaItemUrl, referenceName, index) =>{
 	const FIXED_MEDIA_SOURCES = {
-		about_imagewithlisttext: [
-			{
-				source: [
-					{
-						srcset: [
-							{
-								src: '/2human_excellence_scroll_0_1262x656.jpg',
-								descriptor: '1262w',
-							},
-							{
-								src: '/2human_excellence_scroll_0_942x684.jpg',
-								descriptor: '942w',
-							},
-							{
-								src: mediaItemUrl + '?q=80&w=768',
-								descriptor: '768w',
-							},
-							{
-								src: mediaItemUrl + '?q=80&w=480',
-								descriptor: '480w',
-							},
-						],
-						type: 'image/jpeg',
-					},
-				],
-			},
-		],
 		about_imagewithlisttext30: [
 			{
 				source: [
@@ -286,7 +259,7 @@ const ImageWithListText = ({ item }) => {
 							} ${isMediaPositionLeft ? '-ml-2.5 md:ml-0' : ''}`}
 						>
 							<div className="flex-auto relative">
-								<div className="u-embed__item">
+								<div className="md:u-embed__item">
 									<Swiper
 										className="h-full"
 										pagination={
@@ -326,7 +299,19 @@ const ImageWithListText = ({ item }) => {
 														) : (
 															// purgecss: .object-top
 															<BaseImg
-																imgClassName={item.properties.referenceName === 'home_imagewithlisttext' ? 'object-cover object-top' : 'object-cover'}
+																imgClassName={
+																	item
+																		.properties
+																		.referenceName ===
+																		'home_imagewithlisttext' ||
+																	(item
+																		.properties
+																		.referenceName ===
+																		'about_imagewithlisttext' &&
+																		index === 0)
+																		? 'object-cover object-top'
+																		: 'object-cover'
+																}
 																src={
 																	mediaItem.url +
 																	'?q=80&w=1920'
