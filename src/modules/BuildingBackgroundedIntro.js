@@ -89,7 +89,7 @@ const BuildingBackgroundedIntro = ({ item }) => {
 			className="pt-11.25 my-25 c-buildingbackgroundedintro"
 			ref={buildingBackgroundIntroRef}
 		>
-			<div className="relative md:pb-13 space-y-15 md:space-y-30 js-lazysizes container-fluid c-buildingbackgroundedintro__bigsection">
+			<div className="relative md:pb-13 space-y-15 md:space-y-25 js-lazysizes container-fluid c-buildingbackgroundedintro__bigsection">
 				{buildingBackgroundIntro.linkedContent_itemList
 					?.filter(
 						buildingBackgroundIntroItem =>
@@ -189,7 +189,7 @@ const BuildingBackgroundedIntro = ({ item }) => {
 									</div>
 								</div>
 								<div className={colTextClass}>
-									<h2 className="md:h1 mb-5 md:mb-11 max-w-3/4">
+									<h2 className="md:h1 mb-5 md:mb-12.5">
 										{title}
 									</h2>
 									<Richtext
@@ -241,17 +241,17 @@ const BuildingBackgroundedIntro = ({ item }) => {
 							? 'md:offset-1 md:col-4'
 							: 'md:offset-1 md:col-4'
 
-						let textAlignmentClass = ''
-						switch (textAlignment) {
-							case 'bottom':
-								textAlignmentClass = 'items-end'
-								break
-							case 'center':
-								textAlignmentClass = 'items-center'
-								break
-							default:
-								break
-						}
+						// let textAlignmentClass = ''
+						// switch (textAlignment) {
+						// 	case 'bottom':
+						// 		textAlignmentClass = 'items-end'
+						// 		break
+						// 	case 'center':
+						// 		textAlignmentClass = 'items-center'
+						// 		break
+						// 	default:
+						// 		break
+						// }
 
 						const mediaImgSources = [
 							{
@@ -284,7 +284,7 @@ const BuildingBackgroundedIntro = ({ item }) => {
 						return (
 							<div
 								key={buildingBackgroundIntroItem.id}
-								className={`row ${textAlignmentClass} ${
+								className={`row ${
 									isMediaOnTheLeft
 										? 'is-media-left'
 										: 'is-media-right flex-row-reverse'
