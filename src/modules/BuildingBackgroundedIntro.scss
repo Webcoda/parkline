@@ -34,6 +34,10 @@
 					@include mq(md) {
 						margin-top: -12vw;
 					}
+
+					@include mq(1440px) {
+						margin-top: -188px;
+					}
 				}
 
 				&-inner {
@@ -48,6 +52,11 @@
 		}
 
 		&-row {
+			@media (min-width: 1441px) {
+				max-width: 1440px;
+				margin-left: auto;
+				margin-right: auto;
+			}
 			&:first-child {
 				img {
 					object-position: center 78%;
@@ -58,6 +67,11 @@
 
 
 	&__smallsection {
+		@media (min-width: 1441px) {
+			max-width: 1440px;
+			margin-left: auto;
+			margin-right: auto;
+		}
 		&-row {
 			&:first-child {
 				@include mq(lg) {
