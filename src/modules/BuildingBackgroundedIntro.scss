@@ -70,7 +70,7 @@
 			&-text {
 				#{$_this}__smallsection-row:first-child & {
 					@include mq(md) {
-						padding-top: 15%;
+						padding-top: 220px;
 					}
 				}
 			}
