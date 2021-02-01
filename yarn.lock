@@ -985,6 +985,13 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+"@babel/runtime@^7.12.5":
+  version "7.12.5"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.12.5.tgz#410e7e487441e1b360c29be715d870d9b985882e"
+  integrity sha512-plcc+hbExy3McchJCEQG3knOsuh3HH+Prx1P6cLIkET/0dLuQDEnrT+s27Axgc9bqfsmNUNHfscgMUdBpC9xfg==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
 "@babel/standalone@^7.11.6":
   version "7.11.6"
   resolved "https://registry.yarnpkg.com/@babel/standalone/-/standalone-7.11.6.tgz#2ea3c9463c8b1d04ee2dacc5ac4b81674cec2967"
@@ -6865,6 +6872,14 @@ gatsby-plugin-alias-imports@^1.0.5:
   dependencies:
     "@babel/runtime" "^7.2.0"
 
+gatsby-plugin-google-analytics@^2.10.0:
+  version "2.10.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-analytics/-/gatsby-plugin-google-analytics-2.10.0.tgz#e3a557779232fd919688b646e6ebd997c0575291"
+  integrity sha512-g3NjUrEPJJmjHrUxDaxgLV3rLfFXzHnGPKv4TEiqcntbuWH24rlWiZYi1btjGN+QqJMeOYGFzNILVMS8cFLxtw==
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+    minimatch "3.0.4"
+
 gatsby-plugin-manifest@^2.4.33:
   version "2.4.33"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-2.4.33.tgz#cc50a439164f45b45005c97fa48ac8475ab535fb"
@@ -10163,7 +10178,7 @@ minimatch@3.0.3:
   dependencies:
     brace-expansion "^1.0.0"
 
-minimatch@^3.0.3, minimatch@^3.0.4, minimatch@~3.0.2:
+minimatch@3.0.4, minimatch@^3.0.3, minimatch@^3.0.4, minimatch@~3.0.2:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-3.0.4.tgz#5166e286457f03306064be5497e8dbb0c3d32083"
   integrity sha512-yJHVQEhyqPLUTgt9B83PXu6W3rx4MvvHvSUvToogpwoGDOUQ+yDrR0HRot+yOCdCO7u4hX3pWft6kWBBcqh0UA==
