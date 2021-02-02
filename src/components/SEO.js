@@ -29,6 +29,16 @@ const SEO = ({ pageData }) => {
 				},
 			]}
 		>
+			<script
+				async
+				src="https://www.googletagmanager.com/gtag/js?id=G-RJ05ZBWY2Q"
+			></script>
+			<script>
+				{`window.dataLayer = window.dataLayer || [];
+				function gtag(){dataLayer.push(arguments);}
+				gtag('js', new Date()); gtag('config', 'G-RJ05ZBWY2Q');
+				`}
+			</script>
 			{!!scripts.top && (
 				<div dangerouslySetInnerHTML={{ __html: scripts.top }} />
 			)}
