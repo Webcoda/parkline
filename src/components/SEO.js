@@ -29,7 +29,7 @@ const SEO = ({ pageData }) => {
 				},
 			]}
 		>
-			<script
+			{/* <script
 				async
 				src="https://www.googletagmanager.com/gtag/js?id=G-1P1K2PPGZY"
 			></script>
@@ -38,7 +38,7 @@ const SEO = ({ pageData }) => {
 				function gtag(){dataLayer.push(arguments);}
 				gtag('js', new Date()); gtag('config', 'G-1P1K2PPGZY');
 				`}
-			</script>
+			</script> */}
 			{!!scripts.top && (
 				<div dangerouslySetInnerHTML={{ __html: scripts.top }} />
 			)}
