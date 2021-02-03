@@ -31,12 +31,12 @@ const SEO = ({ pageData }) => {
 		>
 			<script
 				async
-				src="https://www.googletagmanager.com/gtag/js?id=G-RJ05ZBWY2Q"
+				src="https://www.googletagmanager.com/gtag/js?id=G-1P1K2PPGZY"
 			></script>
 			<script>
 				{`window.dataLayer = window.dataLayer || [];
 				function gtag(){dataLayer.push(arguments);}
-				gtag('js', new Date()); gtag('config', 'G-RJ05ZBWY2Q');
+				gtag('js', new Date()); gtag('config', 'G-1P1K2PPGZY');
 				`}
 			</script>
 			{!!scripts.top && (
