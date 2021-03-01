@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { StaticQuery, graphql } from "gatsby";
+import React, { useState } from 'react'
+import { StaticQuery, graphql } from 'gatsby'
 import compareDesc from 'date-fns/compareDesc'
 import CommonContainer from '@/components/CommonContainer'
 import ArticleTile from '@/components/ArticleTile'
@@ -11,7 +11,7 @@ import './ArticleListing.scss'
 
 const pageSize = 6
 
-export default (props) => {
+export default props => {
 	return (
 		<StaticQuery
 			query={graphql`
@@ -66,39 +66,47 @@ export default (props) => {
 
 const ArticleListing = ({ item, allItems }) => {
 	const {
-		title, backgroundColor, isShowAllArticles,
-		isFeaturedSectionShown, list
+		title,
+		backgroundColor,
+		isShowAllArticles,
+		isFeaturedSectionShown,
+		list,
 	} = item.customFields
 
 	const newsList = toBool(isShowAllArticles) ? allItems : list
 
-	const [page, setPage] = useState(1);
+	const [page, setPage] = useState(1)
 
 	const handleClickLoadMore = () => {
-		setPage(page+1);
+		setPage(page + 1)
 	}
 
-	const filteredNewsList = newsList
-		.filter(listItem => {
-			return toBool(isFeaturedSectionShown)
-				? !toBool(listItem.customFields.isFeatured)
-				: true
-		});
+	const sortNewsByDateDesc = (a, b) =>
+		compareDesc(
+			new Date(a.customFields.date),
+			new Date(b.customFields.date)
+		)
+
+	const featuredNews = newsList
+		.sort(sortNewsByDateDesc)
+		.find(news => toBool(news.customFields.isFeatured))
+
+	const filteredNewsList = newsList.filter(listItem => {
+		return toBool(isFeaturedSectionShown)
+			? listItem.id !== featuredNews?.id
+			: true
+	})
 
 	const pageCount = Math.ceil(filteredNewsList.length / pageSize)
 
 	const pagedNewsList = filteredNewsList
 		.slice(0, page * pageSize)
-		.sort((a, b) => compareDesc(new Date(a.customFields.date), new Date(b.customFields.date)));
+		.sort(sortNewsByDateDesc)
 
 	return (
 		<div className="c-articlelisting">
 			<div className="mb-25" data-aos="fade-up">
-				<ArticleFeatured
-					article={newsList.find(news =>
-						toBool(news.customFields.isFeatured)
-					)}
-				></ArticleFeatured>
+				<ArticleFeatured article={featuredNews}></ArticleFeatured>
 			</div>
 
 			{/* purgecss: .bg-grey-light, .bg-grey-light-medium  */}
@@ -112,28 +120,32 @@ const ArticleListing = ({ item, allItems }) => {
 
 					<div className="overflow-hidden">
 						<div className="row -mt-23 c-articlelisting__row">
-							{pagedNewsList
-								.map((listItem) => {
-									return (
-										<div
-											key={`article-${listItem?.contentID ||
-												listItem?.id}`}
-											className="md:col-4 mt-23 c-articlelisting__col"
-											data-aos="fade-up"
-										>
-											<ArticleTile
-												article={listItem}
-											></ArticleTile>
-										</div>
-									)
-								})}
+							{pagedNewsList.map(listItem => {
+								return (
+									<div
+										key={`article-${listItem?.contentID ||
+											listItem?.id}`}
+										className="md:col-4 mt-23 c-articlelisting__col"
+										data-aos="fade-up"
+									>
+										<ArticleTile
+											article={listItem}
+										></ArticleTile>
+									</div>
+								)
+							})}
 						</div>
 					</div>
 
-
 					{page < pageCount && (
 						<div className="text-center mt-23">
-							<LinkButton tag="button" type="button" onClick={handleClickLoadMore}>Show more</LinkButton>
+							<LinkButton
+								tag="button"
+								type="button"
+								onClick={handleClickLoadMore}
+							>
+								Show more
+							</LinkButton>
 						</div>
 					)}
 				</CommonContainer>
