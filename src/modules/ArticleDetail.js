@@ -1,6 +1,6 @@
 import $ from 'jquery'
-import React, { useRef, useEffect } from 'react';
-import { graphql, useStaticQuery } from "gatsby";
+import React, { useRef, useEffect } from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 import formatDate from 'date-fns/format'
 
 import Richtext from '@/components/Richtext'
@@ -11,7 +11,7 @@ import ContentHero from '@/modules/ContentHero'
 import './ArticleDetail.scss'
 import './ArticleListing.scss'
 
-const iconStyle = { width: 6.5 * 4 };
+const iconStyle = { width: 6.5 * 4 }
 
 const ArticleDetail = ({ dynamicPageItem }) => {
 	const { allAgilityArticle } = useStaticQuery(
@@ -59,69 +59,82 @@ const ArticleDetail = ({ dynamicPageItem }) => {
 	)
 
 	const article = allAgilityArticle.nodes.find(
-		node =>
-			node.contentID ===
-			dynamicPageItem.contentID
+		node => node.contentID === dynamicPageItem.contentID
 	)
 
 	const { authors } = dynamicPageItem.customFields
 
-	const dynamicPageItemRelatedArticleContentIds = dynamicPageItem.customFields.relatedArticles.map(article => article.contentID)
+	const dynamicPageItemRelatedArticleContentIds = dynamicPageItem.customFields.relatedArticles?.map(
+		article => article.contentID
+	)
 
-	const relatedArticles = allAgilityArticle.nodes.filter(node => dynamicPageItemRelatedArticleContentIds.includes(node.contentID))
+	const relatedArticles = allAgilityArticle.nodes.filter(node =>
+		dynamicPageItemRelatedArticleContentIds?.includes(node.contentID)
+	)
 	const { title, media, details, date } = article.customFields
 	const richtextRef = useRef(null)
 
-	const {
-		linkedContent_articleType,
-	} = article
+	const { linkedContent_articleType } = article
 
 	const heroItem = {
 		customFields: {
 			title,
 			isTitleYellow: false,
 			isUseYellowHorizontalBar: true,
-			media
-		}
-	};
+			media,
+		},
+	}
 
 	useEffect(() => {
-		$(richtextRef.current).find('img').each(function() {
-			const $img = $(this).addClass('w-full');
-			$img
-				.wrap('<figure class="c-article-detail__text-figure"></figure>')
-				.after(`<caption class="block mt-5 p-0 text-grey-light-medium c-article-detail__text-figure-caption">${$img.attr('alt')}</caption>`)
-				.wrap('<div class="relative c-article-detail__text-figure-inner"></div>')
-		})
+		$(richtextRef.current)
+			.find('img')
+			.each(function() {
+				const $img = $(this).addClass('w-full')
+				$img.wrap(
+					'<figure class="c-article-detail__text-figure"></figure>'
+				)
+					.after(
+						`<caption class="block mt-5 p-0 text-grey-light-medium c-article-detail__text-figure-caption">${$img.attr(
+							'alt'
+						)}</caption>`
+					)
+					.wrap(
+						'<div class="relative c-article-detail__text-figure-inner"></div>'
+					)
+			})
 
-		if(window.addthis) {
+		if (window.addthis) {
 			window.addthis.init()
 			window.addthis.toolbox('.addthis_toolbox')
 		}
 	})
 
 	const renderAuthors = () => {
-		let authorsEl = [];
+		let authorsEl = []
 		authors.forEach((author, index) => {
-			if(index > 0) {
+			if (index > 0) {
 				authorsEl.push(' and ')
 			}
 
 			const { name, link } = author.customFields
-			const el = (link) ?
-				(
-					<a key={link.href} className="text-inherit hocus:text-inherit underline"
-						href={link.href}
-						target={link.target}
-					>{link.text}</a>
-				) : (
-					<span key={name}>{name}</span>
-				)
+			const el = link ? (
+				<a
+					key={link.href}
+					className="text-inherit hocus:text-inherit underline"
+					href={link.href}
+					target={link.target}
+				>
+					{link.text}
+				</a>
+			) : (
+				<span key={name}>{name}</span>
+			)
 			authorsEl.push(el)
 		})
-		return authorsEl;
+		return authorsEl
 	}
 
+	const articleTypeTitle = linkedContent_articleType?.customFields.title
 
 	const renderMeta = () => (
 		<div className="md:ml-auto md:max-w-45">
@@ -130,7 +143,7 @@ const ArticleDetail = ({ dynamicPageItem }) => {
 				style={{ borderColor: '#1e1e1e' }}
 			>
 				<div className="c-article-detail__meta">
-					{linkedContent_articleType?.customFields.title} |{' '}
+					{articleTypeTitle ? articleTypeTitle + ' | ' : ''}
 					{formatDate(new Date(date), 'd MMM yyyy')}
 				</div>
 				{authors && !!authors.length && (
@@ -228,7 +241,7 @@ const ArticleDetail = ({ dynamicPageItem }) => {
 		</div>
 	)
 
-    return (
+	return (
 		<article>
 			<ContentHero item={heroItem} />
 
@@ -248,7 +261,10 @@ const ArticleDetail = ({ dynamicPageItem }) => {
 			</div>
 
 			{!!relatedArticles && relatedArticles.length > 0 && (
-				<div className="bg-grey-light-medium py-23 mt-25 c-article-detail__related" data-aos="fade-up">
+				<div
+					className="bg-grey-light-medium py-23 mt-25 c-article-detail__related"
+					data-aos="fade-up"
+				>
 					<CommonContainer>
 						<h2 className="text-center c-article-detail__related-title text-yellow">
 							More from us
@@ -277,4 +293,4 @@ const ArticleDetail = ({ dynamicPageItem }) => {
 		</article>
 	)
 }
-export default ArticleDetail;
+export default ArticleDetail
