@@ -1,18 +1,18 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react'
 import encodeUrl from 'encodeurl'
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery } from 'gatsby'
 // import { Scene, Controller } from 'scrollmagic'
 // import { Linear } from 'gsap'
 // import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators';
 
-import Richtext from "@/components/Richtext";
+import Richtext from '@/components/Richtext'
 import BaseImg from '@/components/BaseImg'
-import { sortByItemOrderAsc } from "@/utils/sortByItemOrder";
+import { sortByItemOrderAsc } from '@/utils/sortByItemOrder'
 import './BuildingBackgroundedIntro.scss'
 
 const BuildingBackgroundedIntro = ({ item }) => {
-	const buildingBackgroundIntroRef = useRef(null);
-	const bgRef = useRef(null);
+	const buildingBackgroundIntroRef = useRef(null)
+	const bgRef = useRef(null)
 
 	const { allAgilityBuildingBackgroundedIntro } = useStaticQuery(
 		graphql`
@@ -45,16 +45,20 @@ const BuildingBackgroundedIntro = ({ item }) => {
 		`
 	)
 
-	const buildingBackgroundIntro = allAgilityBuildingBackgroundedIntro.nodes.find(node => node.properties.referenceName === item.properties.referenceName)
+	const buildingBackgroundIntro = allAgilityBuildingBackgroundedIntro.nodes.find(
+		node => node.properties.referenceName === item.properties.referenceName
+	)
 
 	useEffect(() => {
 		let controller, scene
 
-		(async () => {
-			const [{default:ScrollMagic}, { Linear }] = await Promise.all([
+		;(async () => {
+			const [{ default: ScrollMagic }, { Linear }] = await Promise.all([
 				import('scrollmagic'),
 				import('gsap'),
-				import('scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap')
+				import(
+					'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap'
+				),
 			])
 
 			controller = new ScrollMagic.Controller({ triggerHook: 0 })
@@ -73,11 +77,11 @@ const BuildingBackgroundedIntro = ({ item }) => {
 		})()
 
 		return () => {
-			if(controller) {
+			if (controller) {
 				controller.destroy(true)
 				// controller = null
 			}
-			if(scene) {
+			if (scene) {
 				scene.destroy(true)
 				// scene = null;
 			}
@@ -120,7 +124,7 @@ const BuildingBackgroundedIntro = ({ item }) => {
 						switch (textAlignment) {
 							case 'top':
 								textAlignmentClass = 'items-start'
-								break;
+								break
 							case 'center':
 								textAlignmentClass = 'items-center'
 								break
@@ -175,13 +179,16 @@ const BuildingBackgroundedIntro = ({ item }) => {
 											'relative top-0 left-0 w-full h-0 overflow-hidden c-buildingbackgroundedintro__bigsection-col-media-inner'
 										}
 									>
-										<div
-											className="md:u-embed__item"
-										>
+										<div className="md:u-embed__item">
 											{!!image?.url && (
 												<BaseImg
-													src={imageUrl + '?q=80&w=2560'}
-													lqipSrc={imageUrl + '?q=80&w=8'}
+													src={
+														imageUrl +
+														'?q=80&w=2560'
+													}
+													lqipSrc={
+														imageUrl + '?q=80&w=8'
+													}
 													sources={mediaImgSources}
 												/>
 											)}
@@ -227,7 +234,7 @@ const BuildingBackgroundedIntro = ({ item }) => {
 							title,
 							content,
 							mediaPosition,
-							textAlignment,
+							// textAlignment,
 							image,
 						} = buildingBackgroundIntroItem.customFields
 						const isMediaOnTheLeft = mediaPosition === 'left'
@@ -299,8 +306,13 @@ const BuildingBackgroundedIntro = ({ item }) => {
 										<div className="u-embed__item">
 											{!!image?.url && (
 												<BaseImg
-													src={imageUrl+'?q=80&w=2560'}
-													lqipSrc={imageUrl+'?q=80&w=8'}
+													src={
+														imageUrl +
+														'?q=80&w=2560'
+													}
+													lqipSrc={
+														imageUrl + '?q=80&w=8'
+													}
 													sources={mediaImgSources}
 												/>
 											)}
@@ -326,4 +338,4 @@ const BuildingBackgroundedIntro = ({ item }) => {
 	) : null
 }
 
-export default BuildingBackgroundedIntro;
+export default BuildingBackgroundedIntro
