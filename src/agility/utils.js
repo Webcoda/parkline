@@ -40,9 +40,7 @@ const getLinkedContentItem = ({ type, linkedContentFieldName }) => {
 				query: {
 					filter: {
 						contentID: {
-							eq:
-								source.customFields[linkedContentFieldName]
-									?.contentid,
+							eq: source.customFields[linkedContentFieldName] ? source.customFields[linkedContentFieldName].contentid : '',
 						},
 						languageCode: { eq: source.languageCode },
 					},
