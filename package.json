@@ -12,6 +12,7 @@
 		"build": "gatsby clean && gatsby build",
 		"d": "gatsby develop",
 		"dc": "gatsby clean && gatsby develop",
+		"dev": "gatsby develop",
 		"develop": "gatsby develop",
 		"format": "prettier --write src/**/*.{js,jsx}",
 		"start": "npm run develop",
@@ -85,5 +86,8 @@
 	},
 	"resolutions": {
 		"query-string": "^5.1.1"
+	},
+	"volta": {
+		"node": "14.21.1"
 	}
 }
