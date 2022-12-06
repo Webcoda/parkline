@@ -5,7 +5,7 @@
 	"version": "2.3.0",
 	"license": "MIT",
 	"engines": {
-		"node": ">=12.x"
+		"node": ">=14.x"
 	},
 	"scripts": {
 		"b": "gatsby clean && gatsby build",
