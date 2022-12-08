@@ -4,14 +4,12 @@
 	"description": "A simplified bare-bones starter for Gatsby",
 	"version": "2.3.0",
 	"license": "MIT",
-	"engines": {
-		"node": ">=12.x"
-	},
 	"scripts": {
 		"b": "gatsby clean && gatsby build",
 		"build": "gatsby clean && gatsby build",
 		"d": "gatsby develop",
 		"dc": "gatsby clean && gatsby develop",
+		"dev": "gatsby develop",
 		"develop": "gatsby develop",
 		"format": "prettier --write src/**/*.{js,jsx}",
 		"start": "npm run develop",
@@ -37,6 +35,7 @@
 		"gatsby-image": "^2.3.2",
 		"gatsby-plugin-alias-imports": "^1.0.5",
 		"gatsby-plugin-google-gtag": "^2.8.0",
+		"gatsby-plugin-google-tagmanager-timeout": "^2.2.5",
 		"gatsby-plugin-manifest": "^2.4.33",
 		"gatsby-plugin-netlify": "^2.1.33",
 		"gatsby-plugin-purgecss": "^5.0.0",
@@ -85,5 +84,8 @@
 	},
 	"resolutions": {
 		"query-string": "^5.1.1"
+	},
+	"volta": {
+		"node": "14.21.1"
 	}
 }
