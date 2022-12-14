@@ -9,6 +9,7 @@ export function getDomNode(
 	const cleanedValue = html?.replace(/(\n|\r)+/, '') || ''
 	const x =  parseHTML(cleanedValue)
 	console.log("🚀 ~ file: SEO.js:11 ~ x", x)
+	return x
 }
 
 const SEO = ({ pageData }) => {
