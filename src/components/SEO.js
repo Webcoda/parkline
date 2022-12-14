@@ -17,13 +17,9 @@ const PARSE_HTML_OPTIONS = {
  }
 
 
-export function getDomNode(
-	html
-) {
+export function getDomNode(html) {
 	const cleanedValue = html?.replace(/(\n|\r)+/, '') || ''
-	const x = parseHTML(cleanedValue, PARSE_HTML_OPTIONS)
-	console.log("🚀 ~ file: SEO.js:11 ~ x", x)
-	return x
+	return parseHTML(cleanedValue, PARSE_HTML_OPTIONS)
 }
 
 const SEO = ({ pageData }) => {
