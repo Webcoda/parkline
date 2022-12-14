@@ -1,15 +1,13 @@
 import React from 'react'
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from 'gatsby'
-import parseHTML from 'html-react-parser'
+import parseHTML from 'react-html-parser'
 
 export function getDomNode(
 	html
 ) {
 	const cleanedValue = html?.replace(/(\n|\r)+/, '') || ''
-	const x =  parseHTML(cleanedValue)
-	console.log("🚀 ~ file: SEO.js:11 ~ x", x)
-	return x
+	return parseHTML(cleanedValue)
 }
 
 const SEO = ({ pageData }) => {
