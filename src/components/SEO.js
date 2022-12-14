@@ -3,11 +3,23 @@ import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from 'gatsby'
 import parseHTML from 'react-html-parser'
 
-export function getDomNode(
-	html
-) {
+
+const PARSE_HTML_OPTIONS = {
+	transform: function transform(node, index) {
+		if (node.type === 'script') {
+			return (
+				<script key={index} src={node?.attribs?.src}>
+					{node?.children[0]?.data}
+				</script>
+			)
+		}
+	},
+ }
+
+
+export function getDomNode(html) {
 	const cleanedValue = html?.replace(/(\n|\r)+/, '') || ''
-	return parseHTML(cleanedValue)
+	return parseHTML(cleanedValue, PARSE_HTML_OPTIONS)
 }
 
 const SEO = ({ pageData }) => {
@@ -26,6 +38,8 @@ const SEO = ({ pageData }) => {
 	if(!pageData) return null;
 
 	const { title, scripts, seo } = pageData
+
+	console.log('sssssss', scripts.top)
 
     return (
 		<Helmet
