@@ -15,7 +15,7 @@ export default function HTML(props) {
 				<script
 					id="Cookiebot"
 					src="https://consent.cookiebot.com/uc.js"
-					data-cbid="f3c749fd-4173-4eac-9d9a-39ff6abb28d0"
+					data-cbid="04560907-eb3b-4ab9-885b-b05df3140f7d"
 					type="text/javascript"
 					async
 				></script>
