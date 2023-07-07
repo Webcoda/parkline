@@ -76,6 +76,7 @@ const ArticleListing = ({ item, allItems }) => {
 		list,
 	} = item.customFields
 
+	const _isFeaturedSectionShown = toBool(isFeaturedSectionShown);
 	const newsList = toBool(isShowAllArticles) ? allItems.slice(0, topArticlesCount || Infinity) : list
 
 	const [page, setPage] = useState(1)
@@ -95,9 +96,7 @@ const ArticleListing = ({ item, allItems }) => {
 		.find(news => toBool(news.customFields.isFeatured))
 
 	const filteredNewsList = newsList.filter(listItem => {
-		return toBool(isFeaturedSectionShown)
-			? listItem.id !== featuredNews?.id
-			: true
+		return _isFeaturedSectionShown ? listItem.id !== featuredNews?.id : true
 	})
 
 	const pageCount = Math.ceil(filteredNewsList.length / pageSize)
@@ -108,13 +107,11 @@ const ArticleListing = ({ item, allItems }) => {
 
 	return (
 		<div className="c-articlelisting">
-			{
-				isFeaturedSectionShown && (
-					<div className="mb-25" data-aos="fade-up">
-						<ArticleFeatured article={featuredNews}></ArticleFeatured>
-					</div>
-				)
-			}
+			{_isFeaturedSectionShown && (
+				<div className="mb-25" data-aos="fade-up">
+					<ArticleFeatured article={featuredNews}></ArticleFeatured>
+				</div>
+			)}
 
 			{/* purgecss: .bg-grey-light, .bg-grey-light-medium  */}
 			<div className={`bg-${backgroundColor} py-23`}>
