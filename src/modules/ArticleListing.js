@@ -16,7 +16,9 @@ export default props => {
 		<StaticQuery
 			query={graphql`
 				query AgilityArticlesQuery {
-					allAgilityArticle {
+					allAgilityArticle(
+						sort: { fields: customFields___date, order: DESC }
+					) {
 						nodes {
 							id
 							customFields {
@@ -70,10 +72,11 @@ const ArticleListing = ({ item, allItems }) => {
 		backgroundColor,
 		isShowAllArticles,
 		isFeaturedSectionShown,
+		topArticlesCount,
 		list,
 	} = item.customFields
 
-	const newsList = toBool(isShowAllArticles) ? allItems : list
+	const newsList = toBool(isShowAllArticles) ? allItems.slice(0, topArticlesCount || Infinity) : list
 
 	const [page, setPage] = useState(1)
 
@@ -105,9 +108,13 @@ const ArticleListing = ({ item, allItems }) => {
 
 	return (
 		<div className="c-articlelisting">
-			<div className="mb-25" data-aos="fade-up">
-				<ArticleFeatured article={featuredNews}></ArticleFeatured>
-			</div>
+			{
+				isFeaturedSectionShown && (
+					<div className="mb-25" data-aos="fade-up">
+						<ArticleFeatured article={featuredNews}></ArticleFeatured>
+					</div>
+				)
+			}
 
 			{/* purgecss: .bg-grey-light, .bg-grey-light-medium  */}
 			<div className={`bg-${backgroundColor} py-23`}>
