@@ -46,7 +46,6 @@ export default props => {
 				}
 			`}
 			render={queryData => {
-				console.log("🚀 ~ file: ArticleListing.js:53 ~ queryData.allAgilityArticle.nodes:", queryData.allAgilityArticle.nodes)
 				return (
 					<ArticleListing
 						{...props}
@@ -68,7 +67,6 @@ export default props => {
  */
 
 const ArticleListing = ({ item, allItems }) => {
-	console.log("🚀 ~ file: ArticleListing.js:71 ~ ArticleListing ~ allItems:", allItems)
 	const {
 		title,
 		backgroundColor,
