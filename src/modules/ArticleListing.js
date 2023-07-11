@@ -12,7 +12,11 @@ import './ArticleListing.scss'
 const pageSize = 6
 
 const sortNewsByDateDesc = (a, b) =>
-	compareDesc(new Date(a.customFields.date), new Date(b.customFields.date))
+	{
+		console.log("🚀 ~ file: ArticleListing.js:17 ~ a.customFields.date:", a.customFields.date)
+		console.log("🚀 ~ file: ArticleListing.js:17 ~ b.customFields.date:", b.customFields.date)
+		return compareDesc(new Date(a.customFields.date), new Date(b.customFields.date))
+	}
 
 export default props => {
 	return (
@@ -51,8 +55,8 @@ export default props => {
 			render={queryData => {
 				return (
 					<ArticleListing
-						allItems={queryData.allAgilityArticle.nodes}
 						{...props}
+						allItems={queryData.allAgilityArticle.nodes}
 					/>
 				)
 			}}
