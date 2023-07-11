@@ -70,6 +70,7 @@ export default props => {
  */
 
 const ArticleListing = ({ item, allItems }) => {
+	console.log("🚀 ~ file: ArticleListing.js:73 ~ ArticleListing ~ allItems:", allItems)
 	const {
 		title,
 		backgroundColor,
@@ -84,6 +85,7 @@ const ArticleListing = ({ item, allItems }) => {
 		? allItems.slice(0, topArticlesCount || Infinity)
 		: list
 	).sort(sortNewsByDateDesc)
+	console.log("🚀 ~ file: ArticleListing.js:87 ~ ArticleListing ~ newsList:", newsList)
 
 	const [page, setPage] = useState(1)
 
