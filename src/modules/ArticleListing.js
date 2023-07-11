@@ -46,10 +46,11 @@ export default props => {
 				}
 			`}
 			render={queryData => {
+				console.log("🚀 ~ file: ArticleListing.js:53 ~ queryData.allAgilityArticle.nodes:", queryData.allAgilityArticle.nodes)
 				return (
 					<ArticleListing
-						allItems={queryData.allAgilityArticle.nodes}
 						{...props}
+						allItems={queryData.allAgilityArticle.nodes}
 					/>
 				)
 			}}
@@ -67,6 +68,7 @@ export default props => {
  */
 
 const ArticleListing = ({ item, allItems }) => {
+	console.log("🚀 ~ file: ArticleListing.js:71 ~ ArticleListing ~ allItems:", allItems)
 	const {
 		title,
 		backgroundColor,
@@ -76,8 +78,10 @@ const ArticleListing = ({ item, allItems }) => {
 		list,
 	} = item.customFields
 
-	const _isFeaturedSectionShown = toBool(isFeaturedSectionShown);
-	const newsList = toBool(isShowAllArticles) ? allItems.slice(0, topArticlesCount || Infinity) : list
+	const _isFeaturedSectionShown = toBool(isFeaturedSectionShown)
+	const newsList = toBool(isShowAllArticles)
+		? allItems.slice(0, topArticlesCount || Infinity)
+		: list
 
 	const [page, setPage] = useState(1)
 
