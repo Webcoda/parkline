@@ -11,6 +11,9 @@ import './ArticleListing.scss'
 
 const pageSize = 6
 
+const sortNewsByDateDesc = (a, b) =>
+	compareDesc(new Date(a.customFields.date), new Date(b.customFields.date))
+
 export default props => {
 	return (
 		<StaticQuery
@@ -46,11 +49,10 @@ export default props => {
 				}
 			`}
 			render={queryData => {
-				console.log("🚀 ~ file: ArticleListing.js:54 ~ queryData.allAgilityArticle.nodes:", queryData.allAgilityArticle.nodes)
 				return (
 					<ArticleListing
-						{...props}
 						allItems={queryData.allAgilityArticle.nodes}
+						{...props}
 					/>
 				)
 			}}
@@ -68,7 +70,6 @@ export default props => {
  */
 
 const ArticleListing = ({ item, allItems }) => {
-	console.log("🚀 ~ file: ArticleListing.js:70 ~ ArticleListing ~ allItems:", allItems)
 	const {
 		title,
 		backgroundColor,
@@ -79,9 +80,10 @@ const ArticleListing = ({ item, allItems }) => {
 	} = item.customFields
 
 	const _isFeaturedSectionShown = toBool(isFeaturedSectionShown)
-	const newsList = toBool(isShowAllArticles)
+	const newsList = (toBool(isShowAllArticles)
 		? allItems.slice(0, topArticlesCount || Infinity)
 		: list
+	).sort(sortNewsByDateDesc)
 
 	const [page, setPage] = useState(1)
 
@@ -89,15 +91,9 @@ const ArticleListing = ({ item, allItems }) => {
 		setPage(page + 1)
 	}
 
-	const sortNewsByDateDesc = (a, b) =>
-		compareDesc(
-			new Date(a.customFields.date),
-			new Date(b.customFields.date)
-		)
-
-	const featuredNews = newsList
-		.sort(sortNewsByDateDesc)
-		.find(news => toBool(news.customFields.isFeatured))
+	const featuredNews = newsList.find(news =>
+		toBool(news.customFields.isFeatured)
+	)
 
 	const filteredNewsList = newsList.filter(listItem => {
 		return _isFeaturedSectionShown ? listItem.id !== featuredNews?.id : true
@@ -105,9 +101,7 @@ const ArticleListing = ({ item, allItems }) => {
 
 	const pageCount = Math.ceil(filteredNewsList.length / pageSize)
 
-	const pagedNewsList = filteredNewsList
-		.slice(0, page * pageSize)
-		.sort(sortNewsByDateDesc)
+	const pagedNewsList = filteredNewsList.slice(0, page * pageSize)
 
 	return (
 		<div className="c-articlelisting">
