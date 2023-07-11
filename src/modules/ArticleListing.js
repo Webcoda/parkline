@@ -11,12 +11,12 @@ import './ArticleListing.scss'
 
 const pageSize = 6
 
-const sortNewsByDateDesc = (a, b) =>
-	{
-		console.log("🚀 ~ file: ArticleListing.js:17 ~ a.customFields.date:", a.customFields.date)
-		console.log("🚀 ~ file: ArticleListing.js:17 ~ b.customFields.date:", b.customFields.date)
-		return compareDesc(new Date(a.customFields.date), new Date(b.customFields.date))
-	}
+const sortNewsByDateDesc = (a, b) => {
+	return compareDesc(
+		new Date(a.customFields.date),
+		new Date(b.customFields.date)
+	)
+}
 
 export default props => {
 	return (
@@ -74,7 +74,6 @@ export default props => {
  */
 
 const ArticleListing = ({ item, allItems }) => {
-	console.log("🚀 ~ file: ArticleListing.js:73 ~ ArticleListing ~ allItems:", allItems)
 	const {
 		title,
 		backgroundColor,
@@ -85,11 +84,11 @@ const ArticleListing = ({ item, allItems }) => {
 	} = item.customFields
 
 	const _isFeaturedSectionShown = toBool(isFeaturedSectionShown)
-	const newsList = (toBool(isShowAllArticles)
-		? allItems.slice(0, topArticlesCount || Infinity)
-		: list
-	).sort(sortNewsByDateDesc)
-	console.log("🚀 ~ file: ArticleListing.js:87 ~ ArticleListing ~ newsList:", newsList)
+	const newsList = toBool(isShowAllArticles)
+		? allItems
+				.sort(sortNewsByDateDesc)
+				.slice(0, topArticlesCount || Infinity)
+		: list.sort(sortNewsByDateDesc)
 
 	const [page, setPage] = useState(1)
 
