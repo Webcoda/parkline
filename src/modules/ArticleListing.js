@@ -67,6 +67,7 @@ export default props => {
  */
 
 const ArticleListing = ({ item, allItems }) => {
+	console.log("🚀 ~ file: ArticleListing.js:70 ~ ArticleListing ~ allItems:", allItems)
 	const {
 		title,
 		backgroundColor,
