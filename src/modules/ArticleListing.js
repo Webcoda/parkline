@@ -48,8 +48,8 @@ export default props => {
 			render={queryData => {
 				return (
 					<ArticleListing
-						allItems={queryData.allAgilityArticle.nodes}
 						{...props}
+						allItems={queryData.allAgilityArticle.nodes}
 					/>
 				)
 			}}
@@ -76,8 +76,10 @@ const ArticleListing = ({ item, allItems }) => {
 		list,
 	} = item.customFields
 
-	const _isFeaturedSectionShown = toBool(isFeaturedSectionShown);
-	const newsList = toBool(isShowAllArticles) ? allItems.slice(0, topArticlesCount || Infinity) : list
+	const _isFeaturedSectionShown = toBool(isFeaturedSectionShown)
+	const newsList = toBool(isShowAllArticles)
+		? allItems.slice(0, topArticlesCount || Infinity)
+		: list
 
 	const [page, setPage] = useState(1)
 
