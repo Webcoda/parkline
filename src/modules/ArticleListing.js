@@ -102,15 +102,15 @@ const ArticleListing = ({ item, allItems }) => {
 
 	const filteredNewsList = newsList.filter(listItem => {
 		return _isFeaturedSectionShown ? listItem.id !== featuredNews?.id : true
-	})
+	}) || []
 
 	const pageCount = Math.ceil(filteredNewsList.length / pageSize)
 
-	const pagedNewsList = filteredNewsList.slice(0, page * pageSize)
+	const pagedNewsList = filteredNewsList?.slice(0, page * pageSize) || []
 
 	return (
 		<div className="c-articlelisting">
-			{_isFeaturedSectionShown && (
+			{_isFeaturedSectionShown && featuredNews && (
 				<div className="mb-25" data-aos="fade-up">
 					<ArticleFeatured article={featuredNews}></ArticleFeatured>
 				</div>
