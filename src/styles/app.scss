@@ -1,7 +1,52 @@
-@import "01_settings/**/*.scss";
-@import "02_tools/**/*.scss";
-@import "03_generic/**/*.scss";
-@import "04_base/**/*.scss";
-@import "05_utilities/**/*.scss";
-@import "06_objects/**/*.scss";
+// @import "01_settings/**/*.scss";
+@import "01_settings/_settings.bootstrap";
+@import "01_settings/_settings.fonts";
+@import "01_settings/_settings.hamburgers";
+
+// @import "02_tools/**/*.scss";
+@import "02_tools/02.01_functions/_tools.function.color";
+@import "02_tools/02.01_functions/_tools.function.em";
+@import "02_tools/02.01_functions/_tools.function.mq";
+@import "02_tools/02.01_functions/_tools.function.rem";
+@import "02_tools/02.01_functions/_tools.function.spriteurl";
+@import "02_tools/02.01_functions/_tools.function.str-replace";
+
+@import "02_tools/02.02_mixins/_tools.mixin.bgimg-with-ratio";
+@import "02_tools/02.02_mixins/_tools.mixin.bootstrap-flex-grid";
+@import "02_tools/02.02_mixins/_tools.mixin.bootstrap-grid";
+@import "02_tools/02.02_mixins/_tools.mixin.btn-unstyled";
+@import "02_tools/02.02_mixins/_tools.mixin.color";
+@import "02_tools/02.02_mixins/_tools.mixin.ellipsis";
+@import "02_tools/02.02_mixins/_tools.mixin.font-face";
+@import "02_tools/02.02_mixins/_tools.mixin.fontstyles";
+@import "02_tools/02.02_mixins/_tools.mixin.foundation";
+@import "02_tools/02.02_mixins/_tools.mixin.fp";
+@import "02_tools/02.02_mixins/_tools.mixin.guttergapclass";
+@import "02_tools/02.02_mixins/_tools.mixin.icon";
+@import "02_tools/02.02_mixins/_tools.mixin.input-unstyled";
+@import "02_tools/02.02_mixins/_tools.mixin.list-unstyled";
+@import "02_tools/02.02_mixins/_tools.mixin.maintain-ratio";
+@import "02_tools/02.02_mixins/_tools.mixin.mq";
+@import "02_tools/02.02_mixins/_tools.mixin.sprite";
+@import "02_tools/02.02_mixins/_tools.mixin.zindex";
+
+// @import "03_generic/**/*.scss";
+@import "03_generic/_generic.aos";
+@import "03_generic/_generic.bootstrap";
+@import "03_generic/_generic.fonts";
+@import "03_generic/_generic.grecaptcha";
+@import "03_generic/_generic.hamburgers";
+@import "03_generic/_generic.print";
+@import "03_generic/_generic.slick";
+@import "03_generic/_generic.tailwind";
+
+// @import "04_base/**/*.scss";
+@import "04_base/_base";
+@import "04_base/_base.typography";
+
+// @import "05_utilities/**/*.scss";
+@import "05_utilities/_utilities.base";
+
+//@import "06_objects/**/*.scss";
+@import "06_objects/_objects.richtext";
 
