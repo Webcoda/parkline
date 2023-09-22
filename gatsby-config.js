@@ -2,12 +2,11 @@ require('dotenv').config({
 	path: `.env.${process.env.NODE_ENV}`,
 })
 
-console.log(process.env.NODE_ENV)
-console.log(process.env.AGILITY_API_KEY)
-console.log(process.env.AGILITY_API_ISPREVIEW)
+console.log("🚀 ~ file: gatsby-config.js:6 ~ process.env.NODE_ENV:", process.env.NODE_ENV)
+console.log("🚀 ~ file: gatsby-config.js:7 ~ process.env.AGILITY_API_KEY:", process.env.AGILITY_API_KEY)
+console.log("🚀 ~ file: gatsby-config.js:8 ~ process.env.AGILITY_API_ISPREVIEW:", process.env.AGILITY_API_ISPREVIEW)
 
 const path = require('path')
-const magicImporter = require('node-sass-magic-importer')
 
 //configure your agility plugin with environment variables so that
 //your agility api credentials stay secure
@@ -125,9 +124,36 @@ module.exports = {
 			resolve: `gatsby-plugin-sass`,
 			options: {
 				// sass-loader v7.x
-				data: `
-					@import "./src/styles/01_settings/**/*.scss";
-					@import "./src/styles/02_tools/**/*.scss";
+				additionalData: `
+					@import "./src/styles/01_settings/_settings.bootstrap";
+					@import "./src/styles/01_settings/_settings.fonts";
+					@import "./src/styles/01_settings/_settings.hamburgers";
+
+					@import "./src/styles/02_tools/02.01_functions/_tools.function.color";
+					@import "./src/styles/02_tools/02.01_functions/_tools.function.em";
+					@import "./src/styles/02_tools/02.01_functions/_tools.function.mq";
+					@import "./src/styles/02_tools/02.01_functions/_tools.function.rem";
+					@import "./src/styles/02_tools/02.01_functions/_tools.function.spriteurl";
+					@import "./src/styles/02_tools/02.01_functions/_tools.function.str-replace";
+
+					@import "./src/styles/02_tools/02.02_mixins/_tools.mixin.bgimg-with-ratio";
+					@import "./src/styles/02_tools/02.02_mixins/_tools.mixin.bootstrap-flex-grid";
+					@import "./src/styles/02_tools/02.02_mixins/_tools.mixin.bootstrap-grid";
+					@import "./src/styles/02_tools/02.02_mixins/_tools.mixin.btn-unstyled";
+					@import "./src/styles/02_tools/02.02_mixins/_tools.mixin.color";
+					@import "./src/styles/02_tools/02.02_mixins/_tools.mixin.ellipsis";
+					@import "./src/styles/02_tools/02.02_mixins/_tools.mixin.font-face";
+					@import "./src/styles/02_tools/02.02_mixins/_tools.mixin.fontstyles";
+					@import "./src/styles/02_tools/02.02_mixins/_tools.mixin.foundation";
+					@import "./src/styles/02_tools/02.02_mixins/_tools.mixin.fp";
+					@import "./src/styles/02_tools/02.02_mixins/_tools.mixin.guttergapclass";
+					@import "./src/styles/02_tools/02.02_mixins/_tools.mixin.icon";
+					@import "./src/styles/02_tools/02.02_mixins/_tools.mixin.input-unstyled";
+					@import "./src/styles/02_tools/02.02_mixins/_tools.mixin.list-unstyled";
+					@import "./src/styles/02_tools/02.02_mixins/_tools.mixin.maintain-ratio";
+					@import "./src/styles/02_tools/02.02_mixins/_tools.mixin.mq";
+					@import "./src/styles/02_tools/02.02_mixins/_tools.mixin.sprite";
+					@import "./src/styles/02_tools/02.02_mixins/_tools.mixin.zindex";
 				`,
 				postCssPlugins: [
 					require('tailwindcss'),
@@ -155,16 +181,6 @@ module.exports = {
 					// 	zindex: false,
 					// }),
 				],
-				importer: magicImporter(),
-
-				// sass-loader v8.x
-				// prependData: `
-				// 	@import "./styles/01_settings/**/*.scss";
-				// 	@import "./styles/02_tools/**/*.scss";
-				// `,
-				// sassOptions: {
-				// 	importer: magicImporter(),
-				// },
 			},
 		},
 		// {
