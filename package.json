@@ -52,7 +52,7 @@
 		"jquery": "3.4.1",
 		"jquery.scrollto": "^2.1.2",
 		"lazysizes": "^5.2.2",
-		"node-sass": "^4.14.1",
+		"node-sass": "^8.0.0",
 		"node-sass-magic-importer": "^5.3.2",
 		"noty": "^3.2.0-beta",
 		"postcss-pxtorem": "^5.1.1",
@@ -88,6 +88,6 @@
 		"query-string": "^5.1.1"
 	},
 	"volta": {
-		"node": "14.21.1"
+		"node": "18.18.0"
 	}
 }
