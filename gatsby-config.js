@@ -123,7 +123,6 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-sass`,
 			options: {
-				// sass-loader v7.x
 				additionalData: `
 					@import "./src/styles/01_settings/_settings.bootstrap";
 					@import "./src/styles/01_settings/_settings.fonts";

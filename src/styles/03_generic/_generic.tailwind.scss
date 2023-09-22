@@ -1,3 +1,13 @@
+/** BEGIN TAILWIND **/
+
+@tailwind base;
+svg {
+	display: inline-block;
+}
+[class*=translate-] {
+	@apply transform;
+}
+
 @tailwind components;
 .container-fluid {
 	@include mq-down(sm) {
@@ -8,8 +18,10 @@
 @tailwind utilities;
 
 .translate-y-full {
-	transform: translateY(101%)
+	--transform-translate-y: 101%;
 }
 .-translate-y-full {
-	transform: translateY(-101%)
+	--transform-translate-y: -101%;
 }
+
+/** END TAILWIND **/

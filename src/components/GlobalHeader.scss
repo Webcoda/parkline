@@ -6,6 +6,10 @@
 
 
 	&__menu {
+		@include mq(md) {
+			max-height: 2.875rem;
+		}
+
 		.is-not-top & {
 			transform: translateY(-100%);
 
